@@ -1,0 +1,288 @@
+
+/**
+ * Variables.
+ */
+
+:root {
+  var-white: #fefefe;
+  var-light-gray: #ededed;
+  var-gray: #a3a3a4;
+  var-dark-gray: #4a4848;
+  var-black: #262727;
+  var-sentinel: "Sentinel SSm A", "Sentinel SSm B", "Georgia", sans-serif;
+  var-tungsten: "Tungsten A", "Tungsten B", "Impact", sans-serif;
+}
+
+/**
+ * Base.
+ */
+
+body {
+  font: 500 18px/1.6 var(sentinel);
+  color: var(dark-gray);
+  background-color: var(light-gray);
+  box-sizing: border-box;
+}
+
+pre {
+  font: 300 12px/1.2 "Source Code", monospace;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-family: var(tungsten);
+  text-transform: uppercase;
+  color: var(black);
+}
+
+ol {
+  margin: 1em 0 1em 2em;
+  list-style: decimal outside;
+  font-size: .85em;
+}
+
+/**
+ * Sections.
+ */
+
+.Section {
+  position: relative;
+  padding: 3em 1.5em;
+}
+
+.Section-title {
+  margin-bottom: .5em;
+  text-align: center;
+}
+
+.Section-description {
+  margin-bottom: 1em;
+}
+
+/**
+ * Code.
+ */
+
+.Code {
+  position: relative;
+  background-color: var(white);
+  padding: 1em;
+  overflow: hidden;
+}
+
+.Code + .Code {
+  margin-top: 1px;
+}
+
+.Code-label {
+  position: absolute;
+  font-size: 1em;
+  top: 1em;
+  right: 1em;
+  color: var(gray);
+}
+
+.Code-content b {
+  font-weight: 600;
+  color: var(black);
+}
+
+.Code-content s {
+  font-style: normal;
+  text-decoration: none;
+  color: var(gray);
+}
+
+/**
+ * Example.
+ */
+
+.Example {
+  padding: 2em;
+  background-color: white;
+}
+
+.Example-title {
+  font-size: 1.5em;
+  margin-bottom: .75em;
+  text-align: center;
+}
+
+.Example-list {
+  font-size: .85em;
+  list-style: none;
+  line-height: 2;
+  margin: 0;
+}
+
+/**
+ * Plugin.
+ */
+
+.Plugin {
+  padding: 2em;
+  background-color: white;
+}
+
+.Plugin-title {
+  font-size: 1.5em;
+  margin-bottom: .25em;
+}
+
+.Plugin-description {
+  font-size: .85em;
+}
+
+/**
+ * Header.
+ */
+
+.Header {
+  text-align: center;
+}
+
+.Header-title {
+  font-size: 3.75em;
+  margin-bottom: .2em;
+}
+
+.Header-subtitle {
+  margin-bottom: .6em;
+}
+
+.Header-github-link {
+  display: block;
+  position: absolute;
+  top: 3em;
+  right: -6.5em;
+  padding: .4em 1em;
+  width: 15em;
+  text-align: center;
+  background-color: var(black);
+  text-transform: uppercase;
+  font-family: var(tungsten);
+  font-size: .9em;
+  color: var(white);
+  text-decoration: none;
+  white-space: nowrap;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+  transition: background-color .2s;
+}
+
+/**
+ * Examples sectin.
+ */
+
+.Section--examples {
+  overflow: hidden;
+  max-width: 60em;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.Section--examples-column {
+  float: left;
+  width: 33%;
+}
+
+.Section--examples-column + .Section--examples-column {
+  margin-left: 1px;
+}
+
+.Section--examples .Example + .Example {
+  margin-top: 1px;
+}
+
+/**
+ * How section.
+ */
+
+.Section--how {
+  max-width: 48em;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.Section--how p,
+.Section--how ol {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.Section--how p {
+  max-width: 33em;
+}
+
+.Section--how ol {
+  max-width: 35.25em;
+}
+
+.Section--how-column {
+  float: left;
+  width: 49.75%;
+  margin-top: 2em;
+}
+
+.Section--how-column + .Section--how-column {
+  margin-left: 1px;
+}
+
+/**
+ * Plugins section.
+ */
+
+.Section--plugins {
+  max-width: 33em;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.Section--plugins .Plugin + .Plugin {
+  margin-top: 1px;
+}
+
+/**
+ * Footer.
+ */
+
+.Footer {
+  text-align: center;
+}
+
+.Footer-title {
+  color: var(gray);
+  font-size: 1em;
+  margin-bottom: .5em;
+}
+
+.Footer-logo {
+  font-size: 1.6em;
+}
+
+/**
+ * Large screens.
+ */
+
+@media (min-width: 768px) {
+
+  body {
+    font-size: 18px;
+  }
+
+  /**
+   * Header.
+   */
+
+  .Header {
+    font-size: 1.2em;
+    padding-top: 10em;
+  }
+
+  .Header-github-link {
+    top: 2.5em;
+    right: -5em;
+  }
+
+}

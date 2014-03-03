@@ -1,0 +1,13 @@
+{
+  "name": "metalsmith.io",
+  "private": true,
+  "styles": ["index.css"],
+  "dependencies": {
+    "ianstormtaylor/reset": "*",
+    "segmentio/logo": "*",
+    "segmentio/metalsmith-logo": "*",
+    "timoxley/next-tick": "*",
+    "typefaces/source-sans": "*",
+    "yields/store": "*"
+  }
+}

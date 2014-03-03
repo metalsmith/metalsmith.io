@@ -1,0 +1,12 @@
+{
+  "name": "metalsmith.io",
+  "private": true,
+  "dependencies": {
+    "component": "~0.18.0",
+    "myth": "0.1.0",
+    "metalsmith": "~0.1.0",
+    "consolidate": "~0.10.0",
+    "handlebars": "~2.0.0-alpha.1",
+    "express": "~3.4.8"
+  }
+}
