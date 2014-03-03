@@ -877,6 +877,7 @@ ol {
  */
 
 .Plugin {
+  position: relative;
   padding: 2em;
   background-color: white;
 }
@@ -888,6 +889,14 @@ ol {
 
 .Plugin-description {
   font-size: .85em;
+}
+
+.Plugin-repo {
+  position: absolute;
+  top: 2.6em;
+  right: 2.7em;
+  font-size: .8em;
+  color: rgb(218, 218, 219);
 }
 
 /**

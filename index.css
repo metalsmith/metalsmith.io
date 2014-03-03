@@ -124,6 +124,7 @@ ol {
  */
 
 .Plugin {
+  position: relative;
   padding: 2em;
   background-color: white;
 }
@@ -135,6 +136,14 @@ ol {
 
 .Plugin-description {
   font-size: .85em;
+}
+
+.Plugin-repo {
+  position: absolute;
+  top: 2.6em;
+  right: 2.7em;
+  font-size: .8em;
+  color: color(var(gray) tint(60%));
 }
 
 /**
