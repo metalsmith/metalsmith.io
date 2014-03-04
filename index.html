@@ -12,9 +12,72 @@
     <h1 class="Header-title logo" data-logo="Metalsmith">
       <a href="/">Metalsmith</a>
     </h1>
-    <p class="Header-description">An extremely simple, <em>pluggable</em> way to manipulate files, to make&hellip;</p>
-    <a class="Header-github-link" href="https://github.com/segmentio/metalsmith">Star on GitHub</a>
+    <p class="Header-subtitle">An extremely simple, <em>pluggable</em> static site generator.</p>
+    <p class="Header-description"></p>
   </header>
+
+  <section class="Section Section--what">
+      <h1 class="Section-title">What makes it great?</h1>
+      <p class="Section-description">All of the complex logic in Metalsmith is handled by plugins, so you are never limited by the core library when you want to add custom logic. Here's what the simplest blog looks like&hellip;</p>
+      <figure class="Section-figure Code">
+        <pre class="Code-content"><code>Metalsmith()
+  .use(<b>markdown</b>())
+  .use(<b>templates</b>(<b>'handlebars'</b>))
+  .build();</code></pre>
+      </figure>
+      <p class="Section-description">&hellip;but say you want to get a little fancier by hiding your unfinished drafts, showing excerpts on your home page, and using custom permalinks&hellip;</p>
+      <figure class="Section-figure Code">
+        <pre class="Code-content"><code>Metalsmith()
+  .use(<b>drafts</b>())
+  .use(<b>excerpts</b>())
+  .use(<b>markdown</b>())
+  .use(<b>permalinks</b>(<b>'posts/:title'</b>))
+  .use(<b>templates</b>(<b>'handlebars'</b>))
+  .build();</code></pre>
+      </figure>
+      <p class="Section-description">&hellip;it&rsquo;s as easy as that.</p>
+      <p>What makes Metalsmith so powerful is it's plugin system&hellip;</p>
+  </section>
+
+  <section class="Section Section--how">
+    <h1 class="Section-title">How does it work?</h1>
+    <p class="Section-description">Metalsmith works in three simple steps:</p>
+    <ol>
+      <li>Read all the files in a source directory.</li>
+      <li>Invoke a series of plugins that can manipulate the files as they please.</li>
+      <li>Write the results to a destination directory.</li>
+    </ol>
+    <p class="Section-description">Each plugin is invoked with the contents of every file, including any optional YAML front-matter, like so&hellip;</p>
+    <figure class="Section-figure">
+      <div class="Section--how-column">
+        <figure class="Code">
+          <h1 class="Code-label">Source File</h1>
+          <pre class="Code-content"><code>---
+<b>title</b>: A Catchy Article Title
+<b>date</b>: 2014-12-01
+---
+
+An great article.
+
+</code></pre>
+        </figure>
+      </div>
+      <div class="Section--how-column">
+        <figure class="Code">
+          <h1 class="Code-label">Parsed File</h1>
+          <pre class="Code-content"><code>{
+  <b>'path/to/my-file.md'</b>: {
+    title: <b>'A Catchy Article Title'</b>,
+    date: new Date(<b>'2014-12-01'</b>),
+    contents: new Buffer(<b>'An great article.'</b>)
+  }
+}</code></pre>
+        </figure>
+      </div>
+    </figure>
+    <p class="Section-description">In Metalsmith, everything is a plugin. That means you can do anything with plugins What makes Metalsmith powerful is that the plugins can manipulate the input any way they want. They could convert Markdown files to HTML, compress all images files, omit files by filename, add a generated RSS feed file, anything!</p>
+    <p class="Section-description">Check out <a class="Link" href="https://github.com/segmentio/metalsmith/tree/master/examples">the examples</a> to get an idea for what's possible.</p>
+  </section>
 
   <section class="Section Section--examples">
     <div class="Section--examples-column">
@@ -91,50 +154,6 @@
     </div>
   </section>
 
-  <section class="Section Section--how">
-    <h1 class="Section-title">How does it work?</h1>
-    <p class="Section-description">Metalsmith works in three simple steps:</p>
-
-    <ol>
-      <li>Read all the files in a source directory.</li>
-      <li>Invoke a series of middleware that can manipulate the files as they please.</li>
-      <li>Write the results to a destination directory.</li>
-    </ol>
-
-    <p class="Section-description">The middleware plugins are invoked with the contents of each file, and any optional YAML front-matter.</p>
-
-    <div class="Section--how-column">
-      <figure class="Code">
-        <h1 class="Code-label">Source File</h1>
-        <pre class="Code-content"><code>---
-<b>title</b>: A Catchy Article Title
-<b>date</b>: 2014-12-01
----
-
-An informative article.
-
-</code></pre>
-      </figure>
-    </div>
-
-    <div class="Section--how-column">
-      <figure class="Code">
-        <h1 class="Code-label">Parsed File</h1>
-        <pre class="Code-content"><code>{
-  <b>'path/to/my-file.md'</b>: {
-    title: <b>'A Catchy Article Title'</b>,
-    date: new Date(<b>'2014-12-01'</b>),
-    contents: new Buffer(<b>'An informative article.'</b>)
-  }
-}</code></pre>
-      </figure>
-    </div>
-
-    <p class="Section-description">What makes Metalsmith powerful is that the plugins can manipulate the input any way they want. They could convert Markdown files to HTML, compress all images files, omit files by filename, add a generated RSS feed file, anything!</p>
-
-    <p class="Section-description">Check out <a class="Link" href="https://github.com/segmentio/metalsmith/tree/master/examples">the examples</a> to get an idea for what's possible.</p>
-  </section>
-
   <section class="Section Section--plugins">
     <h1 class="Section-title">Plugins</h1>
     <p class="Section-description">Metalsmith core doesn't have any plugins bundled with it by default, you just require plugins as needed. If you make your own plugin, submit a pull request and it will show up here.</p>
@@ -161,5 +180,7 @@ An informative article.
     <h1 class="Footer-title">Built by</h1>
     <h2 class="Footer-logo logo" data-logo="Segment.io"><a href="https://segment.io">Segment.io</a></h2>
   </footer>
+
+  <a class="Header-github-link" href="https://github.com/segmentio/metalsmith">Star on GitHub</a>
 </body>
 </html>

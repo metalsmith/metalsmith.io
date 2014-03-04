@@ -11,6 +11,7 @@
   var-black: #262727;
   var-sentinel: "Sentinel SSm A", "Sentinel SSm B", "Georgia", sans-serif;
   var-tungsten: "Tungsten A", "Tungsten B", "Impact", sans-serif;
+  var-source-code: "Source Code", monospace;
 }
 
 /**
@@ -29,7 +30,7 @@ body {
 }
 
 pre {
-  font: 300 12px/1.2 "Source Code", monospace;
+  font: 300 14px/1.2 var(source-code);
 }
 
 h1 {
@@ -51,16 +52,22 @@ ol {
 
 .Section {
   position: relative;
-  padding: 3em 1.5em;
+  padding: 4em 1.5em;
+  max-width: 34em;
+  margin: 0 auto;
+  clear: both;
 }
 
 .Section-title {
   margin-bottom: .5em;
-  text-align: center;
 }
 
 .Section-description {
-  margin-bottom: 1em;
+  margin: 1em 0;
+}
+
+.Section-figure {
+  margin-top: 1.5em 0;
 }
 
 /**
@@ -70,7 +77,8 @@ ol {
 .Code {
   position: relative;
   background-color: var(white);
-  padding: 1em;
+  border-left: 3px solid color(var(light-gray) shade(7%));
+  padding: 1em 2em;
   overflow: hidden;
 }
 
@@ -163,17 +171,19 @@ ol {
  * Header.
  */
 
-.Header {
-  text-align: center;
-}
-
 .Header-title {
   font-size: 3.75em;
   margin-bottom: .2em;
 }
 
 .Header-subtitle {
-  margin-bottom: .6em;
+  font-size: 1.2em;
+  margin-bottom: 2em;
+}
+
+.Header-description {
+  max-width: 35em;
+  margin: 0 auto;
 }
 
 .Header-github-link {
@@ -224,32 +234,18 @@ ol {
  * How section.
  */
 
-.Section--how {
-  max-width: 48em;
-  margin-right: auto;
-  margin-left: auto;
+.Section--how-figure {
+}
+
+.Section--how .Section-figure {
+  margin-right: -9em;
+  margin-left: -9em;
   overflow: hidden;
-}
-
-.Section--how p,
-.Section--how ol {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.Section--how p {
-  max-width: 33em;
-}
-
-.Section--how ol {
-  max-width: 35.25em;
 }
 
 .Section--how-column {
   float: left;
   width: 49.75%;
-  margin-top: 1em;
-  margin-bottom: 2em;
 }
 
 .Section--how-column + .Section--how-column {
@@ -259,12 +255,6 @@ ol {
 /**
  * Plugins section.
  */
-
-.Section--plugins {
-  max-width: 33em;
-  margin-right: auto;
-  margin-left: auto;
-}
 
 .Section--plugins .Plugin + .Plugin {
   margin-top: 1px;
@@ -303,7 +293,6 @@ ol {
    */
 
   .Header {
-    font-size: 1.2em;
     padding-top: 10em;
   }
 
