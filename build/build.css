@@ -765,6 +765,18 @@ pre {
 
 
 /**
+ * Symbolset.
+ */
+
+[class^="ss-"]::before {
+  color: #daae20;
+  font-size: 1.2em;
+  position: relative;
+  top: .2em;
+  padding-right: .4em;
+}
+
+/**
  * Base.
  */
 
@@ -773,7 +785,7 @@ html {
 }
 
 body {
-  font: 500 18px/1.6 "Sentinel SSm A", "Sentinel SSm B", "Georgia", sans-serif;
+  font: 500 18px/1.6 "Sentinel SSm A", "Sentinel SSm B", "Sentinel", "Georgia", sans-serif;
   color: #4a4848;
   background-color: #ededed;
   -webkit-box-sizing: border-box;
@@ -781,80 +793,66 @@ body {
   box-sizing: border-box;
 }
 
-pre {
-  font: 300 14px/1.2 "Source Code", monospace;
+section {
+  position: relative;
+  max-width: 34em;
+  margin: 0 auto;
+  padding: 4em 1.5em;
+  clear: both;
 }
 
 h1 {
   font-size: 2.5em;
-  font-family: "Tungsten A", "Tungsten B", "Impact", sans-serif;
+  margin-bottom: .5em;
+  font-family: "Tungsten A", "Tungsten B", "Tungsten", "Impact", sans-serif;
   text-transform: uppercase;
   color: #262727;
+  text-align: center;
 }
 
-ol {
-  margin: 1em 0 1em 2em;
-  list-style: decimal outside;
-  font-size: .85em;
-}
-
-/**
- * Sections.
- */
-
-.Section {
-  position: relative;
-  padding: 4em 1.5em;
-  max-width: 34em;
-  margin: 0 auto;
-  clear: both;
-}
-
-.Section-title {
-  margin-bottom: .5em;
-}
-
-.Section-description {
+p {
   margin: 1em 0;
 }
 
-.Section-figure {
-  margin-top: 1.5em 0;
-}
-
-/**
- * Code.
- */
-
-.Code {
-  position: relative;
-  background-color: #fefefe;
-  border-left: 3px solid rgb(220, 220, 220);
-  padding: 1em 2em;
-  overflow: hidden;
-}
-
-.Code + .Code {
-  margin-top: 1px;
-}
-
-.Code-label {
-  position: absolute;
-  font-size: 1em;
-  top: 1em;
-  right: 1em;
-  color: #a3a3a4;
-}
-
-.Code-content b {
-  font-weight: 600;
+p a {
+  text-decoration: underline;
   color: #262727;
 }
 
-.Code-content s {
+p a:hover {
+  color: #000;
+}
+
+figure {
+  margin: 1.5em 0;
+}
+
+ol {
+  margin: 1em 0 1em 2.5em;
+  list-style: decimal outside;
+  font-size: 0.8em;
+}
+
+pre {
+  font: 300 0.8em/1.2 "Source Code", monospace;
+  position: relative;
+  background-color: #fefefe;
+  border-left: 3px solid rgb(237, 215, 144);
+  padding: 1.5em 2em;
+  overflow: hidden;
+}
+
+pre + pre {
+  margin-top: 1px;
+}
+
+code b {
+  color: #262727;
+}
+
+code i {
+  color: #daae20;
   font-style: normal;
-  text-decoration: none;
-  color: #a3a3a4;
 }
 
 /**
@@ -873,7 +871,6 @@ ol {
 }
 
 .Example-list {
-  font-size: .85em;
   list-style: none;
   line-height: 2;
   margin: 0;
@@ -892,6 +889,13 @@ ol {
 .Plugin-title {
   font-size: 1.5em;
   margin-bottom: .25em;
+  text-align: left;
+}
+
+.Plugin-icon {
+  font-size: .7em;
+  color: #daae20;
+  margin-left: .4em;
 }
 
 .Plugin-description {
@@ -906,22 +910,17 @@ ol {
   color: rgb(218, 218, 219);
 }
 
-/**
- * Link.
- */
-
-.Link {
-  text-decoration: underline;
-  color: #262727;
-}
-
-.Link:hover {
-  color: #000;
+.Plugin + .Plugin {
+  margin-top: 1px;
 }
 
 /**
  * Header.
  */
+
+.Header {
+  text-align: center;
+}
 
 .Header-title {
   font-size: 3.75em;
@@ -933,12 +932,11 @@ ol {
   margin-bottom: 2em;
 }
 
-.Header-description {
-  max-width: 35em;
-  margin: 0 auto;
-}
+/**
+ * GitHub.
+ */
 
-.Header-github-link {
+.GitHub {
   display: block;
   position: absolute;
   top: 3em;
@@ -948,7 +946,7 @@ ol {
   text-align: center;
   background-color: #262727;
   text-transform: uppercase;
-  font-family: "Tungsten A", "Tungsten B", "Impact", sans-serif;
+  font-family: "Tungsten A", "Tungsten B", "Tungsten", "Impact", sans-serif;
   font-size: .9em;
   color: #fefefe;
   text-decoration: none;
@@ -964,59 +962,6 @@ ol {
 }
 
 /**
- * Examples sectin.
- */
-
-.Section--examples {
-  overflow: hidden;
-  max-width: 60em;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.Section--examples-column {
-  float: left;
-  width: 33%;
-}
-
-.Section--examples-column + .Section--examples-column {
-  margin-left: 1px;
-}
-
-.Section--examples .Example + .Example {
-  margin-top: 1px;
-}
-
-/**
- * How section.
- */
-
-
-
-.Section--how .Section-figure {
-  margin-right: -9em;
-  margin-left: -9em;
-  overflow: hidden;
-}
-
-.Section--how-column {
-  float: left;
-  width: 49.75%;
-}
-
-.Section--how-column + .Section--how-column {
-  margin-left: 1px;
-}
-
-/**
- * Plugins section.
- */
-
-.Section--plugins .Plugin + .Plugin {
-  margin-top: 1px;
-}
-
-/**
  * Footer.
  */
 
@@ -1026,7 +971,7 @@ ol {
 
 .Footer-title {
   color: #a3a3a4;
-  font-size: 1em;
+  font-size: 0.8em;
   margin-bottom: .5em;
 }
 
@@ -1043,16 +988,12 @@ ol {
     font-size: 18px;
   }
 
-  /**
-   * Header.
-   */
-
   .Header {
     padding-top: 10em;
   }
 
-  .Header-github-link {
+  .GitHub {
     top: 2.5em;
-    right: -5em;
+    right: -4.75em;
   }
 }

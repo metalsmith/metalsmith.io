@@ -9,9 +9,27 @@
   var-gray: #a3a3a4;
   var-dark-gray: #4a4848;
   var-black: #262727;
-  var-sentinel: "Sentinel SSm A", "Sentinel SSm B", "Georgia", sans-serif;
-  var-tungsten: "Tungsten A", "Tungsten B", "Impact", sans-serif;
+  var-gold: #daae20;
+
+  var-sentinel: "Sentinel SSm A", "Sentinel SSm B", "Sentinel", "Georgia", sans-serif;
+  var-tungsten: "Tungsten A", "Tungsten B", "Tungsten", "Impact", sans-serif;
   var-source-code: "Source Code", monospace;
+
+  var-multiplier: 1.25;
+  var-smaller: calc(1em / var(multiplier));
+  var-larger: calc(1em * var(multiplier));
+}
+
+/**
+ * Symbolset.
+ */
+
+[class^="ss-"]::before {
+  color: var(gold);
+  font-size: 1.2em;
+  position: relative;
+  top: .2em;
+  padding-right: .4em;
 }
 
 /**
@@ -29,80 +47,66 @@ body {
   box-sizing: border-box;
 }
 
-pre {
-  font: 300 14px/1.2 var(source-code);
+section {
+  position: relative;
+  max-width: 34em;
+  margin: 0 auto;
+  padding: 4em 1.5em;
+  clear: both;
 }
 
 h1 {
   font-size: 2.5em;
+  margin-bottom: .5em;
   font-family: var(tungsten);
   text-transform: uppercase;
   color: var(black);
+  text-align: center;
 }
 
-ol {
-  margin: 1em 0 1em 2em;
-  list-style: decimal outside;
-  font-size: .85em;
-}
-
-/**
- * Sections.
- */
-
-.Section {
-  position: relative;
-  padding: 4em 1.5em;
-  max-width: 34em;
-  margin: 0 auto;
-  clear: both;
-}
-
-.Section-title {
-  margin-bottom: .5em;
-}
-
-.Section-description {
+p {
   margin: 1em 0;
 }
 
-.Section-figure {
-  margin-top: 1.5em 0;
-}
-
-/**
- * Code.
- */
-
-.Code {
-  position: relative;
-  background-color: var(white);
-  border-left: 3px solid color(var(light-gray) shade(7%));
-  padding: 1em 2em;
-  overflow: hidden;
-}
-
-.Code + .Code {
-  margin-top: 1px;
-}
-
-.Code-label {
-  position: absolute;
-  font-size: 1em;
-  top: 1em;
-  right: 1em;
-  color: var(gray);
-}
-
-.Code-content b {
-  font-weight: 600;
+p a {
+  text-decoration: underline;
   color: var(black);
 }
 
-.Code-content s {
+p a:hover {
+  color: #000;
+}
+
+figure {
+  margin: 1.5em 0;
+}
+
+ol {
+  margin: 1em 0 1em 2.5em;
+  list-style: decimal outside;
+  font-size: var(smaller);
+}
+
+pre {
+  font: 300 var(smaller)/1.2 var(source-code);
+  position: relative;
+  background-color: var(white);
+  border-left: 3px solid color(var(gold) tint(50%));
+  padding: 1.5em 2em;
+  overflow: hidden;
+}
+
+pre + pre {
+  margin-top: 1px;
+}
+
+code b {
+  color: var(black);
+}
+
+code i {
+  color: var(gold);
   font-style: normal;
-  text-decoration: none;
-  color: var(gray);
 }
 
 /**
@@ -121,7 +125,6 @@ ol {
 }
 
 .Example-list {
-  font-size: .85em;
   list-style: none;
   line-height: 2;
   margin: 0;
@@ -140,6 +143,13 @@ ol {
 .Plugin-title {
   font-size: 1.5em;
   margin-bottom: .25em;
+  text-align: left;
+}
+
+.Plugin-icon {
+  font-size: .7em;
+  color: var(gold);
+  margin-left: .4em;
 }
 
 .Plugin-description {
@@ -154,22 +164,17 @@ ol {
   color: color(var(gray) tint(60%));
 }
 
-/**
- * Link.
- */
-
-.Link {
-  text-decoration: underline;
-  color: var(black);
-}
-
-.Link:hover {
-  color: #000;
+.Plugin + .Plugin {
+  margin-top: 1px;
 }
 
 /**
  * Header.
  */
+
+.Header {
+  text-align: center;
+}
 
 .Header-title {
   font-size: 3.75em;
@@ -181,12 +186,11 @@ ol {
   margin-bottom: 2em;
 }
 
-.Header-description {
-  max-width: 35em;
-  margin: 0 auto;
-}
+/**
+ * GitHub.
+ */
 
-.Header-github-link {
+.GitHub {
   display: block;
   position: absolute;
   top: 3em;
@@ -207,60 +211,6 @@ ol {
 }
 
 /**
- * Examples sectin.
- */
-
-.Section--examples {
-  overflow: hidden;
-  max-width: 60em;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.Section--examples-column {
-  float: left;
-  width: 33%;
-}
-
-.Section--examples-column + .Section--examples-column {
-  margin-left: 1px;
-}
-
-.Section--examples .Example + .Example {
-  margin-top: 1px;
-}
-
-/**
- * How section.
- */
-
-.Section--how-figure {
-}
-
-.Section--how .Section-figure {
-  margin-right: -9em;
-  margin-left: -9em;
-  overflow: hidden;
-}
-
-.Section--how-column {
-  float: left;
-  width: 49.75%;
-}
-
-.Section--how-column + .Section--how-column {
-  margin-left: 1px;
-}
-
-/**
- * Plugins section.
- */
-
-.Section--plugins .Plugin + .Plugin {
-  margin-top: 1px;
-}
-
-/**
  * Footer.
  */
 
@@ -270,7 +220,7 @@ ol {
 
 .Footer-title {
   color: var(gray);
-  font-size: 1em;
+  font-size: var(smaller);
   margin-bottom: .5em;
 }
 
@@ -288,17 +238,13 @@ ol {
     font-size: 18px;
   }
 
-  /**
-   * Header.
-   */
-
   .Header {
     padding-top: 10em;
   }
 
-  .Header-github-link {
+  .GitHub {
     top: 2.5em;
-    right: -5em;
+    right: -4.75em;
   }
 
 }
