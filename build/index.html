@@ -2,7 +2,9 @@
 <html>
 <head>
   <title>Metalsmith</title>
+  <meta name="description" content="An extremely simple, pluggable static site generator.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/images/favicon.png">
   <link rel="stylesheet" href="/build.css">
   <link rel="stylesheet" href="//cloud.typography.com/6692672/678184/css/fonts.css">
   <link rel="stylesheet" href="//cdn.symbolset.com/94440cd0456394a198fb9c3302ad80fe007e5eff/symbolset.css">
@@ -18,7 +20,7 @@
 
   <section class="Body">
     <hr>
-<h1 id="everything-is-a-plugin-">Everything is a Plugin!</h1>
+<h1 id="everything-is-a-plugin">Everything is a Plugin</h1>
 <p>All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here’s what the simplest blog looks like…</p>
 <pre><code class="lang-js">Metalsmith(__dirname)
   .use(markdown())

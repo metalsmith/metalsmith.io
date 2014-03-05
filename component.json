@@ -4,6 +4,7 @@
   "scripts": ["index.js"],
   "styles": ["index.css"],
   "images": [
+    "images/favicon.png",
     "images/ground.jpg",
     "images/divider-1.png",
     "images/divider-2.png",

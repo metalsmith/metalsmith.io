@@ -6,7 +6,7 @@ template: index.html
 ---
 
 
-# Everything is a Plugin!
+# Everything is a Plugin
 
 All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here's what the simplest blog looks like...
 
