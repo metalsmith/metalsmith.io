@@ -46,10 +46,18 @@ function require(path, parent, orig) {
 require.modules = {};
 
 /**
- * Registered aliases.
+ * Main definitions.
  */
 
-require.aliases = {};
+require.mains = {};
+
+/**
+ * Define a main.
+ */
+
+require.main = function(name, path){
+  require.mains[name] = path;
+};
 
 /**
  * Resolve `path`.
@@ -66,7 +74,7 @@ require.aliases = {};
  */
 
 require.resolve = function(path) {
-  if (path.charAt(0) === '/') path = path.slice(1);
+  if ('/' == path.charAt(0)) path = path.slice(1);
 
   var paths = [
     path,
@@ -76,10 +84,15 @@ require.resolve = function(path) {
     path + '/index.json'
   ];
 
-  for (var i = 0; i < paths.length; i++) {
+  if (require.mains[path]) {
+    paths = [path + '/' + require.mains[path]];
+  }
+
+  for (var i = 0, len = paths.length; i < len; i++) {
     var path = paths[i];
-    if (require.modules.hasOwnProperty(path)) return path;
-    if (require.aliases.hasOwnProperty(path)) return require.aliases[path];
+    if (require.modules.hasOwnProperty(path)) {
+      return path;
+    }
   }
 };
 
@@ -100,7 +113,7 @@ require.normalize = function(curr, path) {
   curr = curr.split('/');
   path = path.split('/');
 
-  for (var i = 0; i < path.length; ++i) {
+  for (var i = 0, len = path.length; i < len; ++i) {
     if ('..' == path[i]) {
       curr.pop();
     } else if ('.' != path[i] && '' != path[i]) {
@@ -124,21 +137,6 @@ require.register = function(path, definition) {
 };
 
 /**
- * Alias a module definition.
- *
- * @param {String} from
- * @param {String} to
- * @api private
- */
-
-require.alias = function(from, to) {
-  if (!require.modules.hasOwnProperty(from)) {
-    throw new Error('Failed to alias "' + from + '", it does not exist');
-  }
-  require.aliases[to] = from;
-};
-
-/**
  * Return a require function relative to the `parent` path.
  *
  * @param {String} parent
@@ -147,7 +145,7 @@ require.alias = function(from, to) {
  */
 
 require.relative = function(parent) {
-  var p = require.normalize(parent, '..');
+  var root = require.normalize(parent, '..');
 
   /**
    * lastIndexOf helper.
@@ -177,15 +175,7 @@ require.relative = function(parent) {
   localRequire.resolve = function(path) {
     var c = path.charAt(0);
     if ('/' == c) return path.slice(1);
-    if ('.' == c) return require.normalize(p, path);
-
-    // resolve deps by returning
-    // the dep in the nearest "deps"
-    // directory
-    var segs = parent.split('/');
-    var i = lastIndexOf(segs, 'deps') + 1;
-    if (!i) i = 0;
-    path = segs.slice(0, i + 1).join('/') + '/deps/' + path;
+    if ('.' == c) return require.normalize(root, path);
     return path;
   };
 
@@ -202,551 +192,532 @@ require.relative = function(parent) {
 
 
 
-require.register("timoxley-next-tick/index.js", function(exports, require, module){
-"use strict"
-
-if (typeof setImmediate == 'function') {
-  module.exports = function(f){ setImmediate(f) }
-}
-// legacy node.js
-else if (typeof process != 'undefined' && typeof process.nextTick == 'function') {
-  module.exports = process.nextTick
-}
-// fallback for other environments / postMessage behaves badly on IE8
-else if (typeof window == 'undefined' || window.ActiveXObject || !window.postMessage) {
-  module.exports = function(f){ setTimeout(f) };
-} else {
-  var q = [];
-
-  window.addEventListener('message', function(){
-    var i = 0;
-    while (i < q.length) {
-      try { q[i++](); }
-      catch (e) {
-        q = q.slice(i);
-        window.postMessage('tic!', '*');
-        throw e;
-      }
-    }
-    q.length = 0;
-  }, true);
-
-  module.exports = function(fn){
-    if (!q.length) window.postMessage('tic!', '*');
-    q.push(fn);
-  }
-}
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-require.register("component-props/index.js", function(exports, require, module){
-/**
- * Global Names
- */
-
-var globals = /\b(Array|Date|Object|Math|JSON)\b/g;
-
-/**
- * Return immediate identifiers parsed from `str`.
- *
- * @param {String} str
- * @param {String|Function} map function or prefix
- * @return {Array}
- * @api public
- */
-
-module.exports = function(str, fn){
-  var p = unique(props(str));
-  if (fn && 'string' == typeof fn) fn = prefixed(fn);
-  if (fn) return map(str, p, fn);
-  return p;
-};
-
-/**
- * Return immediate identifiers in `str`.
- *
- * @param {String} str
- * @return {Array}
- * @api private
- */
-
-function props(str) {
-  return str
-    .replace(/\.\w+|\w+ *\(|"[^"]*"|'[^']*'|\/([^/]+)\//g, '')
-    .replace(globals, '')
-    .match(/[a-zA-Z_]\w*/g)
-    || [];
-}
-
-/**
- * Return `str` with `props` mapped with `fn`.
- *
- * @param {String} str
- * @param {Array} props
- * @param {Function} fn
- * @return {String}
- * @api private
- */
-
-function map(str, props, fn) {
-  var re = /\.\w+|\w+ *\(|"[^"]*"|'[^']*'|\/([^/]+)\/|[a-zA-Z_]\w*/g;
-  return str.replace(re, function(_){
-    if ('(' == _[_.length - 1]) return fn(_);
-    if (!~props.indexOf(_)) return _;
-    return fn(_);
-  });
-}
-
-/**
- * Return unique array.
- *
- * @param {Array} arr
- * @return {Array}
- * @api private
- */
-
-function unique(arr) {
-  var ret = [];
-
-  for (var i = 0; i < arr.length; i++) {
-    if (~ret.indexOf(arr[i])) continue;
-    ret.push(arr[i]);
-  }
-
-  return ret;
-}
-
-/**
- * Map with prefix `str`.
- */
-
-function prefixed(str) {
-  return function(_){
-    return str + _;
-  };
-}
-
-});
-require.register("component-to-function/index.js", function(exports, require, module){
-/**
- * Module Dependencies
- */
-
-var expr = require('props');
-
-/**
- * Expose `toFunction()`.
- */
-
-module.exports = toFunction;
-
-/**
- * Convert `obj` to a `Function`.
- *
- * @param {Mixed} obj
- * @return {Function}
- * @api private
- */
-
-function toFunction(obj) {
-  switch ({}.toString.call(obj)) {
-    case '[object Object]':
-      return objectToFunction(obj);
-    case '[object Function]':
-      return obj;
-    case '[object String]':
-      return stringToFunction(obj);
-    case '[object RegExp]':
-      return regexpToFunction(obj);
-    default:
-      return defaultToFunction(obj);
-  }
-}
-
-/**
- * Default to strict equality.
- *
- * @param {Mixed} val
- * @return {Function}
- * @api private
- */
-
-function defaultToFunction(val) {
-  return function(obj){
-    return val === obj;
-  }
-}
-
-/**
- * Convert `re` to a function.
- *
- * @param {RegExp} re
- * @return {Function}
- * @api private
- */
-
-function regexpToFunction(re) {
-  return function(obj){
-    return re.test(obj);
-  }
-}
-
-/**
- * Convert property `str` to a function.
- *
- * @param {String} str
- * @return {Function}
- * @api private
- */
-
-function stringToFunction(str) {
-  // immediate such as "> 20"
-  if (/^ *\W+/.test(str)) return new Function('_', 'return _ ' + str);
-
-  // properties such as "name.first" or "age > 18" or "age > 18 && age < 36"
-  return new Function('_', 'return ' + get(str));
-}
-
-/**
- * Convert `object` to a function.
- *
- * @param {Object} object
- * @return {Function}
- * @api private
- */
-
-function objectToFunction(obj) {
-  var match = {}
-  for (var key in obj) {
-    match[key] = typeof obj[key] === 'string'
-      ? defaultToFunction(obj[key])
-      : toFunction(obj[key])
-  }
-  return function(val){
-    if (typeof val !== 'object') return false;
-    for (var key in match) {
-      if (!(key in val)) return false;
-      if (!match[key](val[key])) return false;
-    }
-    return true;
-  }
-}
-
-/**
- * Built the getter function. Supports getter style functions
- *
- * @param {String} str
- * @return {String}
- * @api private
- */
-
-function get(str) {
-  var props = expr(str);
-  if (!props.length) return '_.' + str;
-
-  var val;
-  for(var i = 0, prop; prop = props[i]; i++) {
-    val = '_.' + prop;
-    val = "('function' == typeof " + val + " ? " + val + "() : " + val + ")";
-    str = str.replace(new RegExp(prop, 'g'), val);
-  }
-
-  return str;
-}
-
-});
-require.register("component-each/index.js", function(exports, require, module){
-
-/**
- * Module dependencies.
- */
-
-var type = require('type');
-var toFunction = require('to-function');
-
-/**
- * HOP reference.
- */
-
-var has = Object.prototype.hasOwnProperty;
-
-/**
- * Iterate the given `obj` and invoke `fn(val, i)`
- * in optional context `ctx`.
- *
- * @param {String|Array|Object} obj
- * @param {Function} fn
- * @param {Object} [ctx]
- * @api public
- */
-
-module.exports = function(obj, fn, ctx){
-  fn = toFunction(fn);
-  ctx = ctx || this;
-  switch (type(obj)) {
-    case 'array':
-      return array(obj, fn, ctx);
-    case 'object':
-      if ('number' == typeof obj.length) return array(obj, fn, ctx);
-      return object(obj, fn, ctx);
-    case 'string':
-      return string(obj, fn, ctx);
-  }
-};
-
-/**
- * Iterate string chars.
- *
- * @param {String} obj
- * @param {Function} fn
- * @param {Object} ctx
- * @api private
- */
-
-function string(obj, fn, ctx) {
-  for (var i = 0; i < obj.length; ++i) {
-    fn.call(ctx, obj.charAt(i), i);
-  }
-}
-
-/**
- * Iterate object keys.
- *
- * @param {Object} obj
- * @param {Function} fn
- * @param {Object} ctx
- * @api private
- */
-
-function object(obj, fn, ctx) {
-  for (var key in obj) {
-    if (has.call(obj, key)) {
-      fn.call(ctx, key, obj[key]);
-    }
-  }
-}
-
-/**
- * Iterate array-ish.
- *
- * @param {Array|Object} obj
- * @param {Function} fn
- * @param {Object} ctx
- * @api private
- */
-
-function array(obj, fn, ctx) {
-  for (var i = 0; i < obj.length; ++i) {
-    fn.call(ctx, obj[i], i);
-  }
-}
-
-});
-require.register("component-type/index.js", function(exports, require, module){
-/**
- * toString ref.
- */
-
-var toString = Object.prototype.toString;
-
-/**
- * Return the type of `val`.
- *
- * @param {Mixed} val
- * @return {String}
- * @api public
- */
-
-module.exports = function(val){
-  switch (toString.call(val)) {
-    case '[object Date]': return 'date';
-    case '[object RegExp]': return 'regexp';
-    case '[object Arguments]': return 'arguments';
-    case '[object Array]': return 'array';
-    case '[object Error]': return 'error';
-  }
-
-  if (val === null) return 'null';
-  if (val === undefined) return 'undefined';
-  if (val !== val) return 'nan';
-  if (val && val.nodeType === 1) return 'element';
-
-  return typeof val.valueOf();
-};
-
-});
-require.register("yields-unserialize/index.js", function(exports, require, module){
-
-/**
- * Unserialize the given "stringified" javascript.
- * 
- * @param {String} val
- * @return {Mixed}
- */
-
-module.exports = function(val){
-  try {
-    return JSON.parse(val);
-  } catch (e) {
-    return val || undefined;
-  }
-};
-
-});
-require.register("yields-store/index.js", function(exports, require, module){
-
-/**
- * dependencies.
- */
-
-var each = require('each')
-  , unserialize = require('unserialize')
-  , storage = window.localStorage
-  , type = require('type');
-
-/**
- * Store the given `key` `val`.
- *
- * @param {String} key
- * @param {Mixed} val
- * @return {Mixed}
- */
-
-exports = module.exports = function(key, val){
-  switch (arguments.length) {
-    case 2: return set(key, val);
-    case 0: return all();
-    case 1: return 'object' == type(key)
-      ? each(key, set)
-      : get(key);
-  }
-};
-
-/**
- * supported flag.
- */
-
-exports.supported = !! storage;
-
-/**
- * export methods.
- */
-
-exports.set = set;
-exports.get = get;
-exports.all = all;
-
-/**
- * Set `key` to `val`.
- *
- * @param {String} key
- * @param {Mixed} val
- */
-
-function set(key, val){
-  return null == val
-    ? storage.removeItem(key)
-    : storage.setItem(key, JSON.stringify(val));
-}
-
-/**
- * Get `key`.
- *
- * @param {String} key
- * @return {Mixed}
- */
-
-function get(key){
-  return null == key
-    ? storage.clear()
-    : unserialize(storage.getItem(key));
-}
-
-/**
- * Get all.
- *
- * @return {Object}
- */
-
-function all(){
-  var len = storage.length
-    , ret = {}
-    , key
-    , val;
-
-  for (var i = 0; i < len; ++i) {
-    key = storage.key(i);
-    ret[key] = get(key);
-  }
-
-  return ret;
-}
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-require.alias("timoxley-next-tick/index.js", "metalsmith.io/deps/next-tick/index.js");
-require.alias("timoxley-next-tick/index.js", "next-tick/index.js");
-
-
-require.alias("yields-store/index.js", "metalsmith.io/deps/store/index.js");
-require.alias("yields-store/index.js", "store/index.js");
-require.alias("component-each/index.js", "yields-store/deps/each/index.js");
-require.alias("component-to-function/index.js", "component-each/deps/to-function/index.js");
-require.alias("component-props/index.js", "component-to-function/deps/props/index.js");
-
-require.alias("component-type/index.js", "component-each/deps/type/index.js");
-
-require.alias("component-type/index.js", "yields-store/deps/type/index.js");
-
-require.alias("yields-unserialize/index.js", "yields-store/deps/unserialize/index.js");
+require.register("timoxley-next-tick/index.js", Function("exports, require, module",
+"\"use strict\"\n\
+\n\
+if (typeof setImmediate == 'function') {\n\
+  module.exports = function(f){ setImmediate(f) }\n\
+}\n\
+// legacy node.js\n\
+else if (typeof process != 'undefined' && typeof process.nextTick == 'function') {\n\
+  module.exports = process.nextTick\n\
+}\n\
+// fallback for other environments / postMessage behaves badly on IE8\n\
+else if (typeof window == 'undefined' || window.ActiveXObject || !window.postMessage) {\n\
+  module.exports = function(f){ setTimeout(f) };\n\
+} else {\n\
+  var q = [];\n\
+\n\
+  window.addEventListener('message', function(){\n\
+    var i = 0;\n\
+    while (i < q.length) {\n\
+      try { q[i++](); }\n\
+      catch (e) {\n\
+        q = q.slice(i);\n\
+        window.postMessage('tic!', '*');\n\
+        throw e;\n\
+      }\n\
+    }\n\
+    q.length = 0;\n\
+  }, true);\n\
+\n\
+  module.exports = function(fn){\n\
+    if (!q.length) window.postMessage('tic!', '*');\n\
+    q.push(fn);\n\
+  }\n\
+}\n\
+//@ sourceURL=timoxley-next-tick/index.js"
+));
+
+
+
+
+
+
+
+
+
+
+
+
+require.register("component-props/index.js", Function("exports, require, module",
+"/**\n\
+ * Global Names\n\
+ */\n\
+\n\
+var globals = /\\b(Array|Date|Object|Math|JSON)\\b/g;\n\
+\n\
+/**\n\
+ * Return immediate identifiers parsed from `str`.\n\
+ *\n\
+ * @param {String} str\n\
+ * @param {String|Function} map function or prefix\n\
+ * @return {Array}\n\
+ * @api public\n\
+ */\n\
+\n\
+module.exports = function(str, fn){\n\
+  var p = unique(props(str));\n\
+  if (fn && 'string' == typeof fn) fn = prefixed(fn);\n\
+  if (fn) return map(str, p, fn);\n\
+  return p;\n\
+};\n\
+\n\
+/**\n\
+ * Return immediate identifiers in `str`.\n\
+ *\n\
+ * @param {String} str\n\
+ * @return {Array}\n\
+ * @api private\n\
+ */\n\
+\n\
+function props(str) {\n\
+  return str\n\
+    .replace(/\\.\\w+|\\w+ *\\(|\"[^\"]*\"|'[^']*'|\\/([^/]+)\\//g, '')\n\
+    .replace(globals, '')\n\
+    .match(/[a-zA-Z_]\\w*/g)\n\
+    || [];\n\
+}\n\
+\n\
+/**\n\
+ * Return `str` with `props` mapped with `fn`.\n\
+ *\n\
+ * @param {String} str\n\
+ * @param {Array} props\n\
+ * @param {Function} fn\n\
+ * @return {String}\n\
+ * @api private\n\
+ */\n\
+\n\
+function map(str, props, fn) {\n\
+  var re = /\\.\\w+|\\w+ *\\(|\"[^\"]*\"|'[^']*'|\\/([^/]+)\\/|[a-zA-Z_]\\w*/g;\n\
+  return str.replace(re, function(_){\n\
+    if ('(' == _[_.length - 1]) return fn(_);\n\
+    if (!~props.indexOf(_)) return _;\n\
+    return fn(_);\n\
+  });\n\
+}\n\
+\n\
+/**\n\
+ * Return unique array.\n\
+ *\n\
+ * @param {Array} arr\n\
+ * @return {Array}\n\
+ * @api private\n\
+ */\n\
+\n\
+function unique(arr) {\n\
+  var ret = [];\n\
+\n\
+  for (var i = 0; i < arr.length; i++) {\n\
+    if (~ret.indexOf(arr[i])) continue;\n\
+    ret.push(arr[i]);\n\
+  }\n\
+\n\
+  return ret;\n\
+}\n\
+\n\
+/**\n\
+ * Map with prefix `str`.\n\
+ */\n\
+\n\
+function prefixed(str) {\n\
+  return function(_){\n\
+    return str + _;\n\
+  };\n\
+}\n\
+//@ sourceURL=component-props/index.js"
+));
+require.register("component-to-function/index.js", Function("exports, require, module",
+"/**\n\
+ * Module Dependencies\n\
+ */\n\
+\n\
+var expr = require(\"component-props\");\n\
+\n\
+/**\n\
+ * Expose `toFunction()`.\n\
+ */\n\
+\n\
+module.exports = toFunction;\n\
+\n\
+/**\n\
+ * Convert `obj` to a `Function`.\n\
+ *\n\
+ * @param {Mixed} obj\n\
+ * @return {Function}\n\
+ * @api private\n\
+ */\n\
+\n\
+function toFunction(obj) {\n\
+  switch ({}.toString.call(obj)) {\n\
+    case '[object Object]':\n\
+      return objectToFunction(obj);\n\
+    case '[object Function]':\n\
+      return obj;\n\
+    case '[object String]':\n\
+      return stringToFunction(obj);\n\
+    case '[object RegExp]':\n\
+      return regexpToFunction(obj);\n\
+    default:\n\
+      return defaultToFunction(obj);\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Default to strict equality.\n\
+ *\n\
+ * @param {Mixed} val\n\
+ * @return {Function}\n\
+ * @api private\n\
+ */\n\
+\n\
+function defaultToFunction(val) {\n\
+  return function(obj){\n\
+    return val === obj;\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Convert `re` to a function.\n\
+ *\n\
+ * @param {RegExp} re\n\
+ * @return {Function}\n\
+ * @api private\n\
+ */\n\
+\n\
+function regexpToFunction(re) {\n\
+  return function(obj){\n\
+    return re.test(obj);\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Convert property `str` to a function.\n\
+ *\n\
+ * @param {String} str\n\
+ * @return {Function}\n\
+ * @api private\n\
+ */\n\
+\n\
+function stringToFunction(str) {\n\
+  // immediate such as \"> 20\"\n\
+  if (/^ *\\W+/.test(str)) return new Function('_', 'return _ ' + str);\n\
+\n\
+  // properties such as \"name.first\" or \"age > 18\" or \"age > 18 && age < 36\"\n\
+  return new Function('_', 'return ' + get(str));\n\
+}\n\
+\n\
+/**\n\
+ * Convert `object` to a function.\n\
+ *\n\
+ * @param {Object} object\n\
+ * @return {Function}\n\
+ * @api private\n\
+ */\n\
+\n\
+function objectToFunction(obj) {\n\
+  var match = {}\n\
+  for (var key in obj) {\n\
+    match[key] = typeof obj[key] === 'string'\n\
+      ? defaultToFunction(obj[key])\n\
+      : toFunction(obj[key])\n\
+  }\n\
+  return function(val){\n\
+    if (typeof val !== 'object') return false;\n\
+    for (var key in match) {\n\
+      if (!(key in val)) return false;\n\
+      if (!match[key](val[key])) return false;\n\
+    }\n\
+    return true;\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Built the getter function. Supports getter style functions\n\
+ *\n\
+ * @param {String} str\n\
+ * @return {String}\n\
+ * @api private\n\
+ */\n\
+\n\
+function get(str) {\n\
+  var props = expr(str);\n\
+  if (!props.length) return '_.' + str;\n\
+\n\
+  var val;\n\
+  for(var i = 0, prop; prop = props[i]; i++) {\n\
+    val = '_.' + prop;\n\
+    val = \"('function' == typeof \" + val + \" ? \" + val + \"() : \" + val + \")\";\n\
+    str = str.replace(new RegExp(prop, 'g'), val);\n\
+  }\n\
+\n\
+  return str;\n\
+}\n\
+//@ sourceURL=component-to-function/index.js"
+));
+require.register("component-each/index.js", Function("exports, require, module",
+"\n\
+/**\n\
+ * Module dependencies.\n\
+ */\n\
+\n\
+var type = require(\"component-type\");\n\
+var toFunction = require(\"component-to-function\");\n\
+\n\
+/**\n\
+ * HOP reference.\n\
+ */\n\
+\n\
+var has = Object.prototype.hasOwnProperty;\n\
+\n\
+/**\n\
+ * Iterate the given `obj` and invoke `fn(val, i)`\n\
+ * in optional context `ctx`.\n\
+ *\n\
+ * @param {String|Array|Object} obj\n\
+ * @param {Function} fn\n\
+ * @param {Object} [ctx]\n\
+ * @api public\n\
+ */\n\
+\n\
+module.exports = function(obj, fn, ctx){\n\
+  fn = toFunction(fn);\n\
+  ctx = ctx || this;\n\
+  switch (type(obj)) {\n\
+    case 'array':\n\
+      return array(obj, fn, ctx);\n\
+    case 'object':\n\
+      if ('number' == typeof obj.length) return array(obj, fn, ctx);\n\
+      return object(obj, fn, ctx);\n\
+    case 'string':\n\
+      return string(obj, fn, ctx);\n\
+  }\n\
+};\n\
+\n\
+/**\n\
+ * Iterate string chars.\n\
+ *\n\
+ * @param {String} obj\n\
+ * @param {Function} fn\n\
+ * @param {Object} ctx\n\
+ * @api private\n\
+ */\n\
+\n\
+function string(obj, fn, ctx) {\n\
+  for (var i = 0; i < obj.length; ++i) {\n\
+    fn.call(ctx, obj.charAt(i), i);\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Iterate object keys.\n\
+ *\n\
+ * @param {Object} obj\n\
+ * @param {Function} fn\n\
+ * @param {Object} ctx\n\
+ * @api private\n\
+ */\n\
+\n\
+function object(obj, fn, ctx) {\n\
+  for (var key in obj) {\n\
+    if (has.call(obj, key)) {\n\
+      fn.call(ctx, key, obj[key]);\n\
+    }\n\
+  }\n\
+}\n\
+\n\
+/**\n\
+ * Iterate array-ish.\n\
+ *\n\
+ * @param {Array|Object} obj\n\
+ * @param {Function} fn\n\
+ * @param {Object} ctx\n\
+ * @api private\n\
+ */\n\
+\n\
+function array(obj, fn, ctx) {\n\
+  for (var i = 0; i < obj.length; ++i) {\n\
+    fn.call(ctx, obj[i], i);\n\
+  }\n\
+}\n\
+//@ sourceURL=component-each/index.js"
+));
+require.register("component-type/index.js", Function("exports, require, module",
+"/**\n\
+ * toString ref.\n\
+ */\n\
+\n\
+var toString = Object.prototype.toString;\n\
+\n\
+/**\n\
+ * Return the type of `val`.\n\
+ *\n\
+ * @param {Mixed} val\n\
+ * @return {String}\n\
+ * @api public\n\
+ */\n\
+\n\
+module.exports = function(val){\n\
+  switch (toString.call(val)) {\n\
+    case '[object Date]': return 'date';\n\
+    case '[object RegExp]': return 'regexp';\n\
+    case '[object Arguments]': return 'arguments';\n\
+    case '[object Array]': return 'array';\n\
+    case '[object Error]': return 'error';\n\
+  }\n\
+\n\
+  if (val === null) return 'null';\n\
+  if (val === undefined) return 'undefined';\n\
+  if (val !== val) return 'nan';\n\
+  if (val && val.nodeType === 1) return 'element';\n\
+\n\
+  return typeof val.valueOf();\n\
+};\n\
+//@ sourceURL=component-type/index.js"
+));
+require.register("yields-unserialize/index.js", Function("exports, require, module",
+"\n\
+/**\n\
+ * Unserialize the given \"stringified\" javascript.\n\
+ * \n\
+ * @param {String} val\n\
+ * @return {Mixed}\n\
+ */\n\
+\n\
+module.exports = function(val){\n\
+  try {\n\
+    return JSON.parse(val);\n\
+  } catch (e) {\n\
+    return val || undefined;\n\
+  }\n\
+};\n\
+//@ sourceURL=yields-unserialize/index.js"
+));
+require.register("yields-store/index.js", Function("exports, require, module",
+"\n\
+/**\n\
+ * dependencies.\n\
+ */\n\
+\n\
+var each = require(\"component-each\")\n\
+  , unserialize = require(\"yields-unserialize\")\n\
+  , storage = window.localStorage\n\
+  , type = require(\"component-type\");\n\
+\n\
+/**\n\
+ * Store the given `key` `val`.\n\
+ *\n\
+ * @param {String} key\n\
+ * @param {Mixed} val\n\
+ * @return {Mixed}\n\
+ */\n\
+\n\
+exports = module.exports = function(key, val){\n\
+  switch (arguments.length) {\n\
+    case 2: return set(key, val);\n\
+    case 0: return all();\n\
+    case 1: return 'object' == type(key)\n\
+      ? each(key, set)\n\
+      : get(key);\n\
+  }\n\
+};\n\
+\n\
+/**\n\
+ * supported flag.\n\
+ */\n\
+\n\
+exports.supported = !! storage;\n\
+\n\
+/**\n\
+ * export methods.\n\
+ */\n\
+\n\
+exports.set = set;\n\
+exports.get = get;\n\
+exports.all = all;\n\
+\n\
+/**\n\
+ * Set `key` to `val`.\n\
+ *\n\
+ * @param {String} key\n\
+ * @param {Mixed} val\n\
+ */\n\
+\n\
+function set(key, val){\n\
+  return null == val\n\
+    ? storage.removeItem(key)\n\
+    : storage.setItem(key, JSON.stringify(val));\n\
+}\n\
+\n\
+/**\n\
+ * Get `key`.\n\
+ *\n\
+ * @param {String} key\n\
+ * @return {Mixed}\n\
+ */\n\
+\n\
+function get(key){\n\
+  return null == key\n\
+    ? storage.clear()\n\
+    : unserialize(storage.getItem(key));\n\
+}\n\
+\n\
+/**\n\
+ * Get all.\n\
+ *\n\
+ * @return {Object}\n\
+ */\n\
+\n\
+function all(){\n\
+  var len = storage.length\n\
+    , ret = {}\n\
+    , key\n\
+    , val;\n\
+\n\
+  for (var i = 0; i < len; ++i) {\n\
+    key = storage.key(i);\n\
+    ret[key] = get(key);\n\
+  }\n\
+\n\
+  return ret;\n\
+}\n\
+//@ sourceURL=yields-store/index.js"
+));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

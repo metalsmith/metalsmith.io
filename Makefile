@@ -1,7 +1,5 @@
 
-build: node_modules components index.css
-	@./node_modules/.bin/component build --copy
-	@./node_modules/.bin/myth build/build.css build/build.css
+default: server
 
 clean:
 	@rm -rf build components node_modules
@@ -12,10 +10,7 @@ components: component.json
 node_modules: package.json
 	@npm install
 
-server:
+server: node_modules components
 	@foreman start
 
-test: build
-	@open ../index.html
-
-.PHONY: clean server test
+.PHONY: clean server

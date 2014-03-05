@@ -1,0 +1,176 @@
+[
+  {
+    "name": "A Static Site",
+    "steps": [
+      {
+        "text": "Read posts from a source directory.",
+        "icon": "fastforward"
+      },
+      {
+        "text": "Remove draft posts.",
+        "icon": "erase"
+      },
+      {
+        "text": "Convert Markdown posts to HTML.",
+        "icon": "loading"
+      },
+      {
+        "text": "Rename files for permalinks.",
+        "icon": "link"
+      },
+      {
+        "text": "Generate an RSS feed.",
+        "icon": "database"
+      },
+      {
+        "text": "Render each file with a template.",
+        "icon": "gridlines"
+      },
+      {
+        "text": "Write HTML to a static directory.",
+        "icon": "rewind"
+      }
+    ]
+  },
+  {
+    "name": "A Project Scaffolder",
+    "steps": [
+      {
+        "text": "Read template files from a directory.",
+        "icon": "fastforward"
+      },
+      {
+        "text": "Parse files for template placeholders.",
+        "icon": "loading"
+      },
+      {
+        "text": "Prompt user to fill in each placeholder.",
+        "icon": "chat"
+      },
+      {
+        "text": "Render files with a templating engine.",
+        "icon": "gridlines"
+      },
+      {
+        "text": "Write filled-in files to a new directory.",
+        "icon": "rewind"
+      }
+    ]
+  },
+  {
+    "name": "A Build Tool",
+    "steps": [
+      {
+        "text": "Read files from a source directory.",
+        "icon": "fastforward"
+      },
+      {
+        "text": "Convert Sass files to CSS.",
+        "icon": "loading"
+      },
+      {
+        "text": "Concatenate CSS files.",
+        "icon": "layergroup"
+      },
+      {
+        "text": "Minify the CSS file.",
+        "icon": "scaledown"
+      },
+      {
+        "text": "Concatenate Javascript files.",
+        "icon": "layergroup"
+      },
+      {
+        "text": "Minify the Javascript file.",
+        "icon": "scaledown"
+      },
+      {
+        "text": "Compress images files.",
+        "icon": "scaledown"
+      },
+      {
+        "text": "Sprite images in a certain folder.",
+        "icon": "pixels"
+      },
+      {
+        "text": "Write files to a public directory.",
+        "icon": "rewind"
+      }
+    ]
+  },
+  {
+    "name": "Technical Docs",
+    "steps": [
+      {
+        "text": "Read files from a source directory.",
+        "icon": "fastforward"
+      },
+      {
+        "text": "Convert Markdown files to HTML.",
+        "icon": "loading"
+      },
+      {
+        "text": "Build a navigation from the tree.",
+        "icon": "signpost"
+      },
+      {
+        "text": "Add breadcrumbs from the tree.",
+        "icon": "sugarpackets"
+      },
+      {
+        "text": "Render each file with a template.",
+        "icon": "gridlines"
+      },
+      {
+        "text": "Write HTML to the static directory.",
+        "icon": "rewind"
+      }
+    ]
+  },
+  {
+    "name": "An eBook Generator",
+    "steps": [
+      {
+        "text": "Read chapter files from a directory.",
+        "icon": "fastforward"
+      },
+      {
+        "text": "Build a table of contents from the tree.",
+        "icon": "rows"
+      },
+      {
+        "text": "Convert Markdown to HTML.",
+        "icon": "loading"
+      },
+      {
+        "text": "Convert Markdown to PDF.",
+        "icon": "loading"
+      },
+      {
+        "text": "Convert Markdown to ePUB.",
+        "icon": "loading"
+      },
+      {
+        "text": "Write compiled files to a directory.",
+        "icon": "rewind"
+      }
+    ]
+  },
+  {
+    "name": "Anything",
+    "steps": [
+      {
+        "text": "Read files from a source directory.",
+        "icon": "fastforward"
+      },
+      {
+        "text": "Manipulate the files.",
+        "icon": "shuffle"
+      },
+      {
+        "text": "Write files to a destination directory.",
+        "icon": "rewind"
+      }
+    ]
+  }
+]

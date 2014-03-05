@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Build Date",
+    "icon": "clock",
+    "repository": "https://github.com/segmentio/metalsmith-build-date",
+    "description": "Add the a date to the metadata for when the directory was built."
+  },
+  {
+    "name": "Collections",
+    "icon": "layergroup",
+    "repository": "https://github.com/segmentio/metalsmith-collections",
+    "description": "Group files together into an ordered collection, like blog posts."
+  },
+  {
+    "name": "Drafts",
+    "icon": "erase",
+    "repository": "https://github.com/segmentio/metalsmith-drafts",
+    "description": "Hide any files marked as drafts."
+  },
+  {
+    "name": "Excerpts",
+    "icon": "unquote",
+    "repository": "https://github.com/segmentio/metalsmith-excerpts",
+    "description": "Extract an excerpt from the beginning of files."
+  },
+  {
+    "name": "Permalinks",
+    "icon": "link",
+    "repository": "https://github.com/segmentio/metalsmith-permalinks",
+    "description": "Rename files so that they're permalinked properly for static sites."
+  },
+  {
+    "name": "Templates",
+    "icon": "gridlines",
+    "repository": "https://github.com/segmentio/metalsmith-templates",
+    "description": "Render any file through a templating engine."
+  }
+]

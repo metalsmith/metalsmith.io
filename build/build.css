@@ -587,16 +587,16 @@ pre {
 }
 
 .logo[data-logo="Segment.io"] > * {
-  background-image: url("segmentio-logo/./images/logo.svg");
+  background-image: url("segmentio-logo/images/logo.svg");
   margin: .02em 0 .04em 0;
 }
 
 .logo[data-logo="Segment.io"][data-color="black"] > * {
-  background-image: url("segmentio-logo/./images/logo-black.svg");
+  background-image: url("segmentio-logo/images/logo-black.svg");
 }
 
 .logo[data-logo="Segment.io"][data-color="white"] > * {
-  background-image: url("segmentio-logo/./images/logo-white.svg");
+  background-image: url("segmentio-logo/images/logo-white.svg");
 }
 
 /**
@@ -609,16 +609,16 @@ pre {
 }
 
 .logo[data-logo="Segment.io"][data-variation="icon"] > * {
-  background-image: url("segmentio-logo/./images/icon.svg");
+  background-image: url("segmentio-logo/images/icon.svg");
   margin: -.3em;
 }
 
 .logo[data-logo="Segment.io"][data-variation="icon"][data-color="black"] > * {
-  background-image: url("segmentio-logo/./images/icon-black.svg");
+  background-image: url("segmentio-logo/images/icon-black.svg");
 }
 
 .logo[data-logo="Segment.io"][data-variation="icon"][data-color="white"] > * {
-  background-image: url("segmentio-logo/./images/icon-white.svg");
+  background-image: url("segmentio-logo/images/icon-white.svg");
 }
 
 .logo[data-logo="Metalsmith"] {
@@ -626,134 +626,134 @@ pre {
 }
 
 .logo[data-logo="Metalsmith"] > * {
-  background-image: url("segmentio-metalsmith-logo/./images/logo.svg");
+  background-image: url("segmentio-metalsmith-logo/images/logo.svg");
   margin: .1em 0;
 }
 
 .logo[data-logo="Metalsmith"][data-color="black"] > * {
-  background-image: url("segmentio-metalsmith-logo/./images/logo-black.svg");
+  background-image: url("segmentio-metalsmith-logo/images/logo-black.svg");
 }
 
 .logo[data-logo="Metalsmith"][data-color="white"] > * {
-  background-image: url("segmentio-metalsmith-logo/./images/logo-white.svg");
+  background-image: url("segmentio-metalsmith-logo/images/logo-white.svg");
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-extra-light/./fonts/source-sans-extra-light.eot");
-  src: url("typefaces-source-sans-extra-light/./fonts/source-sans-extra-light.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-extra-light/./fonts/source-sans-extra-light.woff") format('woff'),
-       url("typefaces-source-sans-extra-light/./fonts/source-sans-extra-light.ttf") format('truetype');
+  src: url("typefaces-source-sans-extra-light/fonts/source-sans-extra-light.eot");
+  src: url("typefaces-source-sans-extra-light/fonts/source-sans-extra-light.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-extra-light/fonts/source-sans-extra-light.woff") format('woff'),
+       url("typefaces-source-sans-extra-light/fonts/source-sans-extra-light.ttf") format('truetype');
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-extra-light-italic/./fonts/source-sans-extra-light-italic.eot");
-  src: url("typefaces-source-sans-extra-light-italic/./fonts/source-sans-extra-light-italic.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-extra-light-italic/./fonts/source-sans-extra-light-italic.woff") format('woff'),
-       url("typefaces-source-sans-extra-light-italic/./fonts/source-sans-extra-light-italic.ttf") format('truetype');
+  src: url("typefaces-source-sans-extra-light-italic/fonts/source-sans-extra-light-italic.eot");
+  src: url("typefaces-source-sans-extra-light-italic/fonts/source-sans-extra-light-italic.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-extra-light-italic/fonts/source-sans-extra-light-italic.woff") format('woff'),
+       url("typefaces-source-sans-extra-light-italic/fonts/source-sans-extra-light-italic.ttf") format('truetype');
   font-weight: 200;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-light/./fonts/source-sans-light.eot");
-  src: url("typefaces-source-sans-light/./fonts/source-sans-light.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-light/./fonts/source-sans-light.woff") format('woff'),
-       url("typefaces-source-sans-light/./fonts/source-sans-light.ttf") format('truetype');
+  src: url("typefaces-source-sans-light/fonts/source-sans-light.eot");
+  src: url("typefaces-source-sans-light/fonts/source-sans-light.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-light/fonts/source-sans-light.woff") format('woff'),
+       url("typefaces-source-sans-light/fonts/source-sans-light.ttf") format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-light-italic/./fonts/source-sans-light-italic.eot");
-  src: url("typefaces-source-sans-light-italic/./fonts/source-sans-light-italic.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-light-italic/./fonts/source-sans-light-italic.woff") format('woff'),
-       url("typefaces-source-sans-light-italic/./fonts/source-sans-light-italic.ttf") format('truetype');
+  src: url("typefaces-source-sans-light-italic/fonts/source-sans-light-italic.eot");
+  src: url("typefaces-source-sans-light-italic/fonts/source-sans-light-italic.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-light-italic/fonts/source-sans-light-italic.woff") format('woff'),
+       url("typefaces-source-sans-light-italic/fonts/source-sans-light-italic.ttf") format('truetype');
   font-weight: 300;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-regular/./fonts/source-sans-regular.eot");
-  src: url("typefaces-source-sans-regular/./fonts/source-sans-regular.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-regular/./fonts/source-sans-regular.woff") format('woff'),
-       url("typefaces-source-sans-regular/./fonts/source-sans-regular.ttf") format('truetype');
+  src: url("typefaces-source-sans-regular/fonts/source-sans-regular.eot");
+  src: url("typefaces-source-sans-regular/fonts/source-sans-regular.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-regular/fonts/source-sans-regular.woff") format('woff'),
+       url("typefaces-source-sans-regular/fonts/source-sans-regular.ttf") format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-italic/./fonts/source-sans-italic.eot");
-  src: url("typefaces-source-sans-italic/./fonts/source-sans-italic.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-italic/./fonts/source-sans-italic.woff") format('woff'),
-       url("typefaces-source-sans-italic/./fonts/source-sans-italic.ttf") format('truetype');
+  src: url("typefaces-source-sans-italic/fonts/source-sans-italic.eot");
+  src: url("typefaces-source-sans-italic/fonts/source-sans-italic.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-italic/fonts/source-sans-italic.woff") format('woff'),
+       url("typefaces-source-sans-italic/fonts/source-sans-italic.ttf") format('truetype');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-semibold/./fonts/source-sans-semibold.eot");
-  src: url("typefaces-source-sans-semibold/./fonts/source-sans-semibold.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-semibold/./fonts/source-sans-semibold.woff") format('woff'),
-       url("typefaces-source-sans-semibold/./fonts/source-sans-semibold.ttf") format('truetype');
+  src: url("typefaces-source-sans-semibold/fonts/source-sans-semibold.eot");
+  src: url("typefaces-source-sans-semibold/fonts/source-sans-semibold.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-semibold/fonts/source-sans-semibold.woff") format('woff'),
+       url("typefaces-source-sans-semibold/fonts/source-sans-semibold.ttf") format('truetype');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-semibold-italic/./fonts/source-sans-semibold-italic.eot");
-  src: url("typefaces-source-sans-semibold-italic/./fonts/source-sans-semibold-italic.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-semibold-italic/./fonts/source-sans-semibold-italic.woff") format('woff'),
-       url("typefaces-source-sans-semibold-italic/./fonts/source-sans-semibold-italic.ttf") format('truetype');
+  src: url("typefaces-source-sans-semibold-italic/fonts/source-sans-semibold-italic.eot");
+  src: url("typefaces-source-sans-semibold-italic/fonts/source-sans-semibold-italic.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-semibold-italic/fonts/source-sans-semibold-italic.woff") format('woff'),
+       url("typefaces-source-sans-semibold-italic/fonts/source-sans-semibold-italic.ttf") format('truetype');
   font-weight: 600;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-bold/./fonts/source-sans-bold.eot");
-  src: url("typefaces-source-sans-bold/./fonts/source-sans-bold.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-bold/./fonts/source-sans-bold.woff") format('woff'),
-       url("typefaces-source-sans-bold/./fonts/source-sans-bold.ttf") format('truetype');
+  src: url("typefaces-source-sans-bold/fonts/source-sans-bold.eot");
+  src: url("typefaces-source-sans-bold/fonts/source-sans-bold.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-bold/fonts/source-sans-bold.woff") format('woff'),
+       url("typefaces-source-sans-bold/fonts/source-sans-bold.ttf") format('truetype');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-bold-italic/./fonts/source-sans-bold-italic.eot");
-  src: url("typefaces-source-sans-bold-italic/./fonts/source-sans-bold-italic.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-bold-italic/./fonts/source-sans-bold-italic.woff") format('woff'),
-       url("typefaces-source-sans-bold-italic/./fonts/source-sans-bold-italic.ttf") format('truetype');
+  src: url("typefaces-source-sans-bold-italic/fonts/source-sans-bold-italic.eot");
+  src: url("typefaces-source-sans-bold-italic/fonts/source-sans-bold-italic.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-bold-italic/fonts/source-sans-bold-italic.woff") format('woff'),
+       url("typefaces-source-sans-bold-italic/fonts/source-sans-bold-italic.ttf") format('truetype');
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-black/./fonts/source-sans-black.eot");
-  src: url("typefaces-source-sans-black/./fonts/source-sans-black.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-black/./fonts/source-sans-black.woff") format('woff'),
-       url("typefaces-source-sans-black/./fonts/source-sans-black.ttf") format('truetype');
+  src: url("typefaces-source-sans-black/fonts/source-sans-black.eot");
+  src: url("typefaces-source-sans-black/fonts/source-sans-black.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-black/fonts/source-sans-black.woff") format('woff'),
+       url("typefaces-source-sans-black/fonts/source-sans-black.ttf") format('truetype');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Source Sans';
-  src: url("typefaces-source-sans-black-italic/./fonts/source-sans-black-italic.eot");
-  src: url("typefaces-source-sans-black-italic/./fonts/source-sans-black-italic.eot?#iefix") format('embedded-opentype'),
-       url("typefaces-source-sans-black-italic/./fonts/source-sans-black-italic.woff") format('woff'),
-       url("typefaces-source-sans-black-italic/./fonts/source-sans-black-italic.ttf") format('truetype');
+  src: url("typefaces-source-sans-black-italic/fonts/source-sans-black-italic.eot");
+  src: url("typefaces-source-sans-black-italic/fonts/source-sans-black-italic.eot?#iefix") format('embedded-opentype'),
+       url("typefaces-source-sans-black-italic/fonts/source-sans-black-italic.woff") format('woff'),
+       url("typefaces-source-sans-black-italic/fonts/source-sans-black-italic.ttf") format('truetype');
   font-weight: 900;
   font-style: italic;
 }
@@ -768,7 +768,7 @@ pre {
  * Symbolset.
  */
 
-[class^="ss-"]::before {
+[class*="ss-"]::before {
   color: #daae20;
   font-size: 1.2em;
   position: relative;
@@ -793,12 +793,8 @@ body {
   box-sizing: border-box;
 }
 
-section {
-  position: relative;
-  max-width: 34em;
-  margin: 0 auto;
-  padding: 4em 1.5em;
-  clear: both;
+img {
+  margin: 8em -10em;
 }
 
 h1 {
@@ -859,9 +855,20 @@ code i {
  * Example.
  */
 
+.Example-list {
+  overflow: hidden;
+  width: 9999em;
+}
+
+.Example + .Example {
+  margin-left: 1px;
+}
+
 .Example {
   padding: 2em;
   background-color: white;
+  width: 17em;
+  float: left;
 }
 
 .Example-title {
@@ -870,7 +877,7 @@ code i {
   text-align: center;
 }
 
-.Example-list {
+.Example-step-list {
   list-style: none;
   line-height: 2;
   margin: 0;
@@ -882,7 +889,7 @@ code i {
 
 .Plugin {
   position: relative;
-  padding: 2em;
+  padding: 1.5em 2em;
   background-color: white;
 }
 
@@ -898,16 +905,26 @@ code i {
   margin-left: .4em;
 }
 
-.Plugin-description {
-  font-size: .85em;
+.Plugin-icon::before {
+  top: .075em;
 }
 
-.Plugin-repo {
+.Plugin-description {
+  font-size: .85em;
+  margin: 0;
+}
+
+.Plugin-repository {
+  display: none;
   position: absolute;
-  top: 2.6em;
+  top: 2.1em;
   right: 2.7em;
   font-size: .8em;
   color: rgb(218, 218, 219);
+}
+
+.Plugin:hover .Plugin-repository {
+  display: block;
 }
 
 .Plugin + .Plugin {
@@ -919,24 +936,19 @@ code i {
  */
 
 .Header {
+  padding-top: 5em;
   text-align: center;
 }
 
 .Header-title {
   font-size: 3.75em;
-  margin-bottom: .2em;
 }
 
 .Header-subtitle {
   font-size: 1.2em;
-  margin-bottom: 2em;
 }
 
-/**
- * GitHub.
- */
-
-.GitHub {
+.Header-github {
   display: block;
   position: absolute;
   top: 3em;
@@ -962,17 +974,31 @@ code i {
 }
 
 /**
+ * Body.
+ */
+
+.Body {
+  max-width: 34em;
+  margin: 0 auto;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+}
+
+/**
  * Footer.
  */
 
 .Footer {
   text-align: center;
+  padding-bottom: 5em;
 }
 
-.Footer-title {
+.Footer-conjunction {
+  display: block;
+  text-transform: uppercase;
+  font-family: "Tungsten A", "Tungsten B", "Tungsten", "Impact", sans-serif;
   color: #a3a3a4;
   font-size: 0.8em;
-  margin-bottom: .5em;
 }
 
 .Footer-logo {
@@ -989,10 +1015,10 @@ code i {
   }
 
   .Header {
-    padding-top: 10em;
+    padding-top: 14em;
   }
 
-  .GitHub {
+  .Header-github {
     top: 2.5em;
     right: -4.75em;
   }

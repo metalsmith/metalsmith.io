@@ -1,31 +1,23 @@
 
-var cons = require('consolidate');
+var build = require('./build');
 var express = require('express');
-var port = process.env.PORT || 7777;
 
 /**
  * App.
  */
 
-var app = module.exports = express()
-  .engine('html', cons.handlebars)
-  .set('views', __dirname)
-  .use('/build', express.static(__dirname + '/build'));
+express()
+  .use(builder)
+  .use('/', express.static(__dirname + '/build'))
+  .listen(process.env.PORT, function(){
+    console.log('Server running at http://localhost:' + process.env.PORT + '');
+  });
 
 /**
- * Home.
+ * Build.
  */
 
-app.get('*', function (req, res, next) {
-  res.render('index.html');
-});
-
-/**
- * Listen.
- */
-
-app.listen(port, function () {
-  console.log();
-  console.log('  Listening on port ' + port + '...');
-  console.log();
-});
+function builder(req, res, next){
+  if ('production' == process.env.NODE_ENV) return next();
+  build(next);
+}

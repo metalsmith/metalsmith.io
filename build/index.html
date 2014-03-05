@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+<head>
+  <title>Metalsmith</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/build.css">
+  <link rel="stylesheet" href="//cloud.typography.com/6692672/678184/css/fonts.css">
+  <link rel="stylesheet" href="//cdn.symbolset.com/94440cd0456394a198fb9c3302ad80fe007e5eff/symbolset.css">
+  <script src="/build.js"></script>
+</head>
+<body>
+  <header class="Header">
+    <h1 class="Header-title logo" data-logo="Metalsmith">
+      <a href="/">Metalsmith</a>
+    </h1>
+    <p class="Header-subtitle">An extremely simple, <em>pluggable</em> static site generator.</p>
+    <a class="Header-github" href="https://github.com/segmentio/metalsmith">Star on GitHub</a>
+  </header>
+
+  <section class="Body">
+    <p><img src="" alt=""></p>
+<h1 id="everything-is-a-plugin">Everything is a Plugin</h1>
+<p>All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here&#39;s what the simplest blog looks like...</p>
+<pre><code class="lang-js">Metalsmith(__dirname)
+  .use(markdown())
+  .use(templates(&#39;handlebars&#39;))
+  .build();
+</code></pre>
+<p>...but say you want to get a little fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins...</p>
+<pre><code class="lang-js">Metalsmith(__dirname)
+  .use(drafts())
+  .use(markdown())
+  .use(permalinks(&#39;posts/:title&#39;))
+  .use(templates(&#39;handlebars&#39;))
+  .build();
+</code></pre>
+<p>...it&#39;s as easy as that.</p>
+<p><img src="" alt=""></p>
+<h1 id="how-does-it-work-">How does it work?</h1>
+<p>Metalsmith works in three simple steps:</p>
+<ol>
+<li>Read all the files in a source directory.</li>
+<li>Invoke a series of plugins that manipulate the files.</li>
+<li>Write the results to a destination directory.</li>
+</ol>
+<p>Each plugin is invoked with a map of the entire source directory. And every file is parsed for optional YAML front-matter, like so...</p>
+<pre><code>---
+title: A Catchy Article Title
+draft: true
+---
+
+An unfinished article...
+</code></pre><pre><code class="lang-js">{
+  &#39;path/to/my-file.md&#39;: {
+    title: &#39;A Catchy Article Title&#39;,
+    draft: true,
+    contents: new Buffer(&#39;An unfinished article...&#39;)
+  }
+}
+</code></pre>
+<p>The plugins themselves can manipulate the files however they want, and writing them is super easy. Here&#39;s the code for the drafts plugin from above:</p>
+<pre><code class="lang-js">function drafts(){
+  return function(files, metalsmith, done){
+    for (var file in files) {
+      if (files[file].draft) delete files[file];
+    }
+    done();
+  };
+}
+</code></pre>
+<p>Of course they can get a lot more complicated too. That&#39;s what makes Metalsmith powerful--the plugins can do anything you want.</p>
+<p><img src="" alt=""></p>
+<h1 id="a-little-secret">A Little Secret</h1>
+<p>We keep referring to Metalsmith as a &quot;static site generator&quot;, but really it&#39;s a lot more than that. Since everything is a plugin, the core library is really just an abstraction for manipulating a source directory.</p>
+<p>Which means you could just as easily use it to make...</p>
+<ul class="Example-list">
+
+  <li class="Example">
+    <h1 class="Example-title">A Static Site</h1>
+    <ol class="Example-step-list">
+
+      <li class="Example-step ss-fastforward">Read posts from a source directory.</li>
+
+      <li class="Example-step ss-erase">Remove draft posts.</li>
+
+      <li class="Example-step ss-loading">Convert Markdown posts to HTML.</li>
+
+      <li class="Example-step ss-link">Rename files for permalinks.</li>
+
+      <li class="Example-step ss-database">Generate an RSS feed.</li>
+
+      <li class="Example-step ss-gridlines">Render each file with a template.</li>
+
+      <li class="Example-step ss-rewind">Write HTML to a static directory.</li>
+
+    </ol>
+  </li>
+
+  <li class="Example">
+    <h1 class="Example-title">A Project Scaffolder</h1>
+    <ol class="Example-step-list">
+
+      <li class="Example-step ss-fastforward">Read template files from a directory.</li>
+
+      <li class="Example-step ss-loading">Parse files for template placeholders.</li>
+
+      <li class="Example-step ss-chat">Prompt user to fill in each placeholder.</li>
+
+      <li class="Example-step ss-gridlines">Render files with a templating engine.</li>
+
+      <li class="Example-step ss-rewind">Write filled-in files to a new directory.</li>
+
+    </ol>
+  </li>
+
+  <li class="Example">
+    <h1 class="Example-title">A Build Tool</h1>
+    <ol class="Example-step-list">
+
+      <li class="Example-step ss-fastforward">Read files from a source directory.</li>
+
+      <li class="Example-step ss-loading">Convert Sass files to CSS.</li>
+
+      <li class="Example-step ss-layergroup">Concatenate CSS files.</li>
+
+      <li class="Example-step ss-scaledown">Minify the CSS file.</li>
+
+      <li class="Example-step ss-layergroup">Concatenate Javascript files.</li>
+
+      <li class="Example-step ss-scaledown">Minify the Javascript file.</li>
+
+      <li class="Example-step ss-scaledown">Compress images files.</li>
+
+      <li class="Example-step ss-pixels">Sprite images in a certain folder.</li>
+
+      <li class="Example-step ss-rewind">Write files to a public directory.</li>
+
+    </ol>
+  </li>
+
+  <li class="Example">
+    <h1 class="Example-title">Technical Docs</h1>
+    <ol class="Example-step-list">
+
+      <li class="Example-step ss-fastforward">Read files from a source directory.</li>
+
+      <li class="Example-step ss-loading">Convert Markdown files to HTML.</li>
+
+      <li class="Example-step ss-signpost">Build a navigation from the tree.</li>
+
+      <li class="Example-step ss-sugarpackets">Add breadcrumbs from the tree.</li>
+
+      <li class="Example-step ss-gridlines">Render each file with a template.</li>
+
+      <li class="Example-step ss-rewind">Write HTML to the static directory.</li>
+
+    </ol>
+  </li>
+
+  <li class="Example">
+    <h1 class="Example-title">An eBook Generator</h1>
+    <ol class="Example-step-list">
+
+      <li class="Example-step ss-fastforward">Read chapter files from a directory.</li>
+
+      <li class="Example-step ss-rows">Build a table of contents from the tree.</li>
+
+      <li class="Example-step ss-loading">Convert Markdown to HTML.</li>
+
+      <li class="Example-step ss-loading">Convert Markdown to PDF.</li>
+
+      <li class="Example-step ss-loading">Convert Markdown to ePUB.</li>
+
+      <li class="Example-step ss-rewind">Write compiled files to a directory.</li>
+
+    </ol>
+  </li>
+
+  <li class="Example">
+    <h1 class="Example-title">Anything</h1>
+    <ol class="Example-step-list">
+
+      <li class="Example-step ss-fastforward">Read files from a source directory.</li>
+
+      <li class="Example-step ss-shuffle">Manipulate the files.</li>
+
+      <li class="Example-step ss-rewind">Write files to a destination directory.</li>
+
+    </ol>
+  </li>
+
+</ul>
+
+<p>And you can use the same plugins for all of them. That PDF generator plugin in the eBook Generator? Use it to generate PDFs for each of your blog posts!</p>
+<p>Check out <a href="https://github.com/segmentio/metalsmith/tree/master/examples">the examples</a> to get an idea for what&#39;s possible.</p>
+<p><img src="" alt=""></p>
+<h1 id="plugins">Plugins</h1>
+<p>Metalsmith core doesn&#39;t have any plugins bundled with it by default, you just require plugins as needed. If you make your own plugin, submit a pull request and it will show up here.</p>
+<ul class="Plugin-list">
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-build-date">
+      <h1 class="Plugin-title">Build Date<i class="Plugin-icon ss-clock"></i></h1>
+      <span class="Plugin-repository">segmentio/metalsmith-build-date</span>
+      <p class="Plugin-description">Add the a date to the metadata for when the directory was built.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-collections">
+      <h1 class="Plugin-title">Collections<i class="Plugin-icon ss-layergroup"></i></h1>
+      <span class="Plugin-repository">segmentio/metalsmith-collections</span>
+      <p class="Plugin-description">Group files together into an ordered collection, like blog posts.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-drafts">
+      <h1 class="Plugin-title">Drafts<i class="Plugin-icon ss-erase"></i></h1>
+      <span class="Plugin-repository">segmentio/metalsmith-drafts</span>
+      <p class="Plugin-description">Hide any files marked as drafts.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-excerpts">
+      <h1 class="Plugin-title">Excerpts<i class="Plugin-icon ss-unquote"></i></h1>
+      <span class="Plugin-repository">segmentio/metalsmith-excerpts</span>
+      <p class="Plugin-description">Extract an excerpt from the beginning of files.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-permalinks">
+      <h1 class="Plugin-title">Permalinks<i class="Plugin-icon ss-link"></i></h1>
+      <span class="Plugin-repository">segmentio/metalsmith-permalinks</span>
+      <p class="Plugin-description">Rename files so that they&#39;re permalinked properly for static sites.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-templates">
+      <h1 class="Plugin-title">Templates<i class="Plugin-icon ss-gridlines"></i></h1>
+      <span class="Plugin-repository">segmentio/metalsmith-templates</span>
+      <p class="Plugin-description">Render any file through a templating engine.</p>
+    </a>
+  </li>
+
+</ul>
+
+
+<p><img src="" alt=""></p>
+
+  </section>
+
+  <footer class="Footer">
+    <span class="Footer-conjunction">By</span>
+    <h2 class="Footer-logo logo" data-logo="Segment.io"><a href="https://segment.io">Segment.io</a></h2>
+  </footer>
+</body>
+</html>

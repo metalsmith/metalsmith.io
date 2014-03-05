@@ -24,7 +24,7 @@
  * Symbolset.
  */
 
-[class^="ss-"]::before {
+[class*="ss-"]::before {
   color: var(gold);
   font-size: 1.2em;
   position: relative;
@@ -47,12 +47,8 @@ body {
   box-sizing: border-box;
 }
 
-section {
-  position: relative;
-  max-width: 34em;
-  margin: 0 auto;
-  padding: 4em 1.5em;
-  clear: both;
+img {
+  margin: 8em -10em;
 }
 
 h1 {
@@ -113,9 +109,20 @@ code i {
  * Example.
  */
 
+.Example-list {
+  overflow: hidden;
+  width: 9999em;
+}
+
+.Example + .Example {
+  margin-left: 1px;
+}
+
 .Example {
   padding: 2em;
   background-color: white;
+  width: 17em;
+  float: left;
 }
 
 .Example-title {
@@ -124,7 +131,7 @@ code i {
   text-align: center;
 }
 
-.Example-list {
+.Example-step-list {
   list-style: none;
   line-height: 2;
   margin: 0;
@@ -136,7 +143,7 @@ code i {
 
 .Plugin {
   position: relative;
-  padding: 2em;
+  padding: 1.5em 2em;
   background-color: white;
 }
 
@@ -152,16 +159,26 @@ code i {
   margin-left: .4em;
 }
 
-.Plugin-description {
-  font-size: .85em;
+.Plugin-icon::before {
+  top: .075em;
 }
 
-.Plugin-repo {
+.Plugin-description {
+  font-size: .85em;
+  margin: 0;
+}
+
+.Plugin-repository {
+  display: none;
   position: absolute;
-  top: 2.6em;
+  top: 2.1em;
   right: 2.7em;
   font-size: .8em;
   color: color(var(gray) tint(60%));
+}
+
+.Plugin:hover .Plugin-repository {
+  display: block;
 }
 
 .Plugin + .Plugin {
@@ -173,24 +190,19 @@ code i {
  */
 
 .Header {
+  padding-top: 5em;
   text-align: center;
 }
 
 .Header-title {
   font-size: 3.75em;
-  margin-bottom: .2em;
 }
 
 .Header-subtitle {
   font-size: 1.2em;
-  margin-bottom: 2em;
 }
 
-/**
- * GitHub.
- */
-
-.GitHub {
+.Header-github {
   display: block;
   position: absolute;
   top: 3em;
@@ -211,17 +223,31 @@ code i {
 }
 
 /**
+ * Body.
+ */
+
+.Body {
+  max-width: 34em;
+  margin: 0 auto;
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+}
+
+/**
  * Footer.
  */
 
 .Footer {
   text-align: center;
+  padding-bottom: 5em;
 }
 
-.Footer-title {
+.Footer-conjunction {
+  display: block;
+  text-transform: uppercase;
+  font-family: var(tungsten);
   color: var(gray);
   font-size: var(smaller);
-  margin-bottom: .5em;
 }
 
 .Footer-logo {
@@ -239,10 +265,10 @@ code i {
   }
 
   .Header {
-    padding-top: 10em;
+    padding-top: 14em;
   }
 
-  .GitHub {
+  .Header-github {
     top: 2.5em;
     right: -4.75em;
   }
