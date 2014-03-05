@@ -31,12 +31,8 @@ html {
 body {
   font: 500 18px/1.6 var(sentinel);
   color: var(dark-gray);
-  background-color: var(light-gray);
+  background: url('images/ground.jpg') var(light-gray);
   box-sizing: border-box;
-}
-
-hr {
-  margin: 8em -10em;
 }
 
 h1 {
@@ -213,7 +209,7 @@ code i {
 }
 
 .Header-title {
-  font-size: 3.75em;
+  font-size: 4em;
 }
 
 .Header-subtitle {
@@ -253,6 +249,40 @@ code i {
   margin: 0 auto;
   padding-right: 1.5em;
   padding-left: 1.5em;
+}
+
+/**
+ * Dividers.
+ */
+
+hr {
+  border: none;
+  height: 200px;
+  width: 300px;
+  margin: 2em auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+}
+
+hr:nth-of-type(1) {
+  background-image: url('images/small-divider-1.jpg');
+}
+
+hr:nth-of-type(2) {
+  background-image: url('images/small-divider-2.jpg');
+}
+
+hr:nth-of-type(3) {
+  background-image: url('images/small-divider-3.jpg');
+}
+
+hr:nth-of-type(4) {
+  background-image: url('images/small-divider-4.jpg');
+}
+
+hr:nth-of-type(5) {
+  background-image: url('images/small-divider-5.jpg');
 }
 
 /**

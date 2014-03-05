@@ -3,6 +3,18 @@
   "private": true,
   "scripts": ["index.js"],
   "styles": ["index.css"],
+  "images": [
+    "images/ground.jpg",
+    "images/divider-1.jpg",
+    "images/divider-2.jpg",
+    "images/divider-3.jpg",
+    "images/divider-4.jpg",
+    "images/small-divider-1.jpg",
+    "images/small-divider-2.jpg",
+    "images/small-divider-3.jpg",
+    "images/small-divider-4.jpg",
+    "images/small-divider-5.jpg"
+  ],
   "dependencies": {
     "ianstormtaylor/reset": "*",
     "segmentio/highlight": "*",
