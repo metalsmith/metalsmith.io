@@ -1,0 +1,15 @@
+{
+  "name": "escape-html",
+  "description": "Escape HTML entities",
+  "version": "1.0.1",
+  "keywords": [
+    "escape",
+    "html",
+    "utility"
+  ],
+  "dependencies": {},
+  "scripts": [
+    "index.js"
+  ],
+  "repo": "https://raw.github.com/component/escape-html"
+}
