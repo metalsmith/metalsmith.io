@@ -6,11 +6,30 @@ var express = require('express');
  * App.
  */
 
-express()
-  .use('/', express.static(__dirname + '/build'))
-  .listen(process.env.PORT, function(){
-    console.log('Server running at http://localhost:' + process.env.PORT + '');
-  });
+var app = express();
+
+/**
+ * Development.
+ */
+
+app.configure('development', function(){
+  app.use(express.logger('dev'));
+  app.use(builder);
+});
+
+/**
+ * Static.
+ */
+
+app.use(express.static(__dirname + '/build'));
+
+/**
+ * Listen.
+ */
+
+app.listen(process.env.PORT, function(){
+  console.log('Server running at http://localhost:' + process.env.PORT + '');
+});
 
 /**
  * Builder middleware.
@@ -21,7 +40,6 @@ express()
  */
 
 function builder(req, res, next){
-  if ('production' == process.env.NODE_ENV) return next();
   if ('/' != req.path) return next();
   build(function(err){
     if (err) return next(err);
