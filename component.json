@@ -5,11 +5,11 @@
   "styles": ["index.css"],
   "images": [
     "images/ground.jpg",
-    "images/small-divider-retina-1.png",
-    "images/small-divider-retina-2.png",
-    "images/small-divider-retina-3.png",
-    "images/small-divider-retina-4.png",
-    "images/small-divider-retina-5.png"
+    "images/divider-1.png",
+    "images/divider-2.png",
+    "images/divider-3.png",
+    "images/divider-4.png",
+    "images/divider-5.png"
   ],
   "dependencies": {
     "ianstormtaylor/reset": "*",

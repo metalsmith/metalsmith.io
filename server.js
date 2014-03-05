@@ -7,7 +7,8 @@ var express = require('express');
  */
 
 express()
-  .use(builder)
+  .use(express.logger('dev'))
+  .use('/', builder)
   .use('/', express.static(__dirname + '/build'))
   .listen(process.env.PORT, function(){
     console.log('Server running at http://localhost:' + process.env.PORT + '');
@@ -19,5 +20,10 @@ express()
 
 function builder(req, res, next){
   if ('production' == process.env.NODE_ENV) return next();
-  build(next);
+  if ('/' != req.path) return next();
+  build(function(err){
+    if (err) return next(err);
+    console.log('Built');
+    next();
+  });
 }

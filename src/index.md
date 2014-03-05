@@ -6,7 +6,7 @@ template: index.html
 ---
 
 
-# Everything is a Plugin
+# Everything is a Plugin!
 
 All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here's what the simplest blog looks like...
 
@@ -82,7 +82,7 @@ Of course they can get a lot more complicated too. That's what makes Metalsmith 
 
 
 # A Little Secret
-We keep referring to Metalsmith as a "static site generator", but really it's a lot more than that. Since everything is a plugin, the core library is really just an abstraction for manipulating a source directory.
+We keep referring to Metalsmith as a "static site generator", but it's a lot more than that. Since everything is a plugin, the core library is actually just an abstraction for manipulating a directory of files.
 
 Which means you could just as easily use it to make...
 
@@ -109,8 +109,8 @@ Check out [the examples](https://github.com/segmentio/metalsmith/tree/master/exa
 ---
 
 
-# Plugins
-Metalsmith core doesn't have any plugins bundled with it by default, you just require plugins as needed. If you make your own plugin, submit a pull request and it will show up here.
+# The Plugins
+The core Metalsmith library doesn't have any plugins bundled with it by default, you just require them as needed. Here's a list of them:
 
 <figure class="Plugins">
   <ul class="Plugin-list">
@@ -125,6 +125,8 @@ Metalsmith core doesn't have any plugins bundled with it by default, you just re
   {% endfor %}
   </ul>
 </figure>
+
+If you write your own plugin, submit a pull request to the [segmentio/metalsmith.io](https://github.com/segmentio/metalsmith.io/tree/master/src/plugins.json) repository and it will show up here!
 
 
 ---
