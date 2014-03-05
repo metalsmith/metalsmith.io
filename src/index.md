@@ -3,7 +3,7 @@ template: index.html
 ---
 
 
-![]()
+---
 
 
 # Everything is a Plugin
@@ -31,7 +31,7 @@ Metalsmith(__dirname)
 ...it's as easy as that.
 
 
-![]()
+---
 
 
 # How does it work?
@@ -78,7 +78,7 @@ function drafts(){
 Of course they can get a lot more complicated too. That's what makes Metalsmith powerful--the plugins can do anything you want.
 
 
-![]()
+---
 
 
 # A Little Secret
@@ -86,41 +86,45 @@ We keep referring to Metalsmith as a "static site generator", but really it's a 
 
 Which means you could just as easily use it to make...
 
-<ul class="Example-list">
-{% for example in examples %}
-  <li class="Example">
-    <h1 class="Example-title">{{ example.name }}</h1>
-    <ol class="Example-step-list">
-    {% for step in example.steps %}
-      <li class="Example-step ss-{{ step.icon }}">{{ step.text }}</li>
-    {% endfor %}
-    </ol>
-  </li>
-{% endfor %}
-</ul>
+<figure class="Examples">
+  <ul class="Example-list">
+  {% for example in examples %}
+    <li class="Example">
+      <h1 class="Example-title">{{ example.name }}</h1>
+      <ol class="Example-step-list">
+      {% for step in example.steps %}
+        <li class="Example-step ss-{{ step.icon }}">{{ step.text }}</li>
+      {% endfor %}
+      </ol>
+    </li>
+  {% endfor %}
+  </ul>
+</figure>
 
-And you can use the same plugins for all of them. That PDF generator plugin in the eBook Generator? Use it to generate PDFs for each of your blog posts!
+And you can use the same plugins for all of them. That PDF generator plugin in the eBook Generator? Use it to generate PDFs for each of your blog posts too!
 
 Check out [the examples](https://github.com/segmentio/metalsmith/tree/master/examples) to get an idea for what's possible.
 
 
-![]()
+---
 
 
 # Plugins
 Metalsmith core doesn't have any plugins bundled with it by default, you just require plugins as needed. If you make your own plugin, submit a pull request and it will show up here.
 
-<ul class="Plugin-list">
-{% for plugin in plugins %}
-  <li class="Plugin">
-    <a class="Plugin-link" href="{{ plugin.repository }}">
-      <h1 class="Plugin-title">{{ plugin.name }}<i class="Plugin-icon ss-{{ plugin.icon }}"></i></h1>
-      <span class="Plugin-repository">{{ plugin.repository | replace('https://github.com/', '') }}</span>
-      <p class="Plugin-description">{{ plugin.description }}</p>
-    </a>
-  </li>
-{% endfor %}
-</ul>
+<figure class="Plugins">
+  <ul class="Plugin-list">
+  {% for plugin in plugins %}
+    <li class="Plugin">
+      <a class="Plugin-link" href="{{ plugin.repository }}">
+        <h1 class="Plugin-title">{{ plugin.name }}<i class="Plugin-icon ss-{{ plugin.icon }}"></i></h1>
+        <span class="Plugin-repository">{{ plugin.repository | replace('https://github.com/', '') }}</span>
+        <p class="Plugin-description">{{ plugin.description }}</p>
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+</figure>
 
 
-![]()
+---

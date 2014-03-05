@@ -1,0 +1,22 @@
+{
+  "name": "infinite-carousel",
+  "version": "0.0.1",
+  "description": "an infinite carousel",
+  "keywords": [
+    "carousel",
+    "slider",
+    "infinite"
+  ],
+  "author": "stagas",
+  "licence": "MIT",
+  "dependencies": {
+    "component/classes": "*"
+  },
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "carousel.css"
+  ],
+  "repo": "https://raw.github.com/stagas/infinite-carousel"
+}

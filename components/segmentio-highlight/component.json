@@ -1,0 +1,19 @@
+{
+  "name": "highlight",
+  "version": "0.0.2",
+  "repo": "segmentio/highlight",
+  "description": "A simple, pluggable API for syntax highlighting.",
+  "keywords": [],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": [
+    "lib/index.js"
+  ],
+  "dependencies": {
+    "component/escape-html": "*"
+  },
+  "development": {
+    "component/assert": "*",
+    "component/domify": "*"
+  }
+}

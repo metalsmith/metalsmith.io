@@ -638,6 +638,95 @@ pre {
   background-image: url("segmentio-metalsmith-logo/images/logo-white.svg");
 }
 
+.carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel li {
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  display: none;
+  position: relative;
+}
+
+.carousel .carousel-active,
+.carousel .carousel-prev,
+.carousel .carousel-next {
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.carousel .carousel-prev,
+.carousel .carousel-next {
+  position: absolute;
+}
+
+.carousel .carousel-active {
+  left: 0;
+  z-index: 10;
+}
+
+.carousel .carousel-prev {
+  left: -100%;
+  z-index: -10;
+}
+
+.carousel .carousel-next {
+  left: 100%;
+  z-index: -10;
+}
+
+.carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel > div {
+  display: none;
+  position: relative;
+}
+
+.carousel .carousel-visible,
+.carousel .carousel-prev,
+.carousel .carousel-next {
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.carousel .carousel-prev,
+.carousel .carousel-next {
+  position: absolute;
+}
+
+.carousel .carousel-visible {
+  left: 0;
+}
+
+.carousel .carousel-prev {
+  left: -100%;
+}
+
+.carousel .carousel-next {
+  left: 100%;
+}
+
+.carousel-slide {
+  transition: .4s all ease;
+  -webkit-transition: .4s all ease;
+}
+
 @font-face {
   font-family: 'Source Sans';
   src: url("typefaces-source-sans-extra-light/fonts/source-sans-extra-light.eot");
@@ -765,18 +854,6 @@ pre {
 
 
 /**
- * Symbolset.
- */
-
-[class*="ss-"]::before {
-  color: #daae20;
-  font-size: 1.2em;
-  position: relative;
-  top: .2em;
-  padding-right: .4em;
-}
-
-/**
  * Base.
  */
 
@@ -793,7 +870,7 @@ body {
   box-sizing: border-box;
 }
 
-img {
+hr {
   margin: 8em -10em;
 }
 
@@ -833,7 +910,7 @@ pre {
   font: 300 0.8em/1.2 "Source Code", monospace;
   position: relative;
   background-color: #fefefe;
-  border-left: 3px solid rgb(237, 215, 144);
+  border-left: 3px solid rgb(209, 209, 210);
   padding: 1.5em 2em;
   overflow: hidden;
 }
@@ -852,8 +929,39 @@ code i {
 }
 
 /**
+ * Symbolset.
+ */
+
+[class*="ss-"]::before {
+  color: #daae20;
+  font-size: 1.2em;
+  position: relative;
+  top: .2em;
+  padding-right: .4em;
+}
+
+/**
+ * Highlight.
+ */
+
+.Highlight-boolean,
+.Highlight-class,
+.Highlight-keyword {
+  font-weight: bold;
+}
+
+.Highlight-string {
+  color: #daae20;
+}
+
+/**
  * Example.
  */
+
+.Examples {
+  -webkit-transition: .4s all ease;
+  transition: .4s all ease;
+}
 
 .Example-list {
   overflow: hidden;
@@ -886,6 +994,10 @@ code i {
 /**
  * Plugin.
  */
+
+.Plugin + .Plugin {
+  margin-top: 1px;
+}
 
 .Plugin {
   position: relative;
@@ -925,10 +1037,6 @@ code i {
 
 .Plugin:hover .Plugin-repository {
   display: block;
-}
-
-.Plugin + .Plugin {
-  margin-top: 1px;
 }
 
 /**
@@ -971,6 +1079,10 @@ code i {
   transform-origin: 50% 50%;
   -webkit-transition: background-color .2s;
   transition: background-color .2s;
+}
+
+.Header-github:hover {
+  background-color: #daae20;
 }
 
 /**

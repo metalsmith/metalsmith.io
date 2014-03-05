@@ -1,0 +1,6 @@
+.carousel-slide {
+  transition: .4s all ease;     
+  -webkit-transition: .4s all ease;     
+  -moz-transition: .4s all ease;     
+  -o-transition: .4s all ease;     
+}

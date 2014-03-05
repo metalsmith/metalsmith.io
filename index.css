@@ -21,18 +21,6 @@
 }
 
 /**
- * Symbolset.
- */
-
-[class*="ss-"]::before {
-  color: var(gold);
-  font-size: 1.2em;
-  position: relative;
-  top: .2em;
-  padding-right: .4em;
-}
-
-/**
  * Base.
  */
 
@@ -47,7 +35,7 @@ body {
   box-sizing: border-box;
 }
 
-img {
+hr {
   margin: 8em -10em;
 }
 
@@ -87,7 +75,7 @@ pre {
   font: 300 var(smaller)/1.2 var(source-code);
   position: relative;
   background-color: var(white);
-  border-left: 3px solid color(var(gold) tint(50%));
+  border-left: 3px solid color(var(gray) tint(50%));
   padding: 1.5em 2em;
   overflow: hidden;
 }
@@ -106,8 +94,38 @@ code i {
 }
 
 /**
+ * Symbolset.
+ */
+
+[class*="ss-"]::before {
+  color: var(gold);
+  font-size: 1.2em;
+  position: relative;
+  top: .2em;
+  padding-right: .4em;
+}
+
+/**
+ * Highlight.
+ */
+
+.Highlight-boolean,
+.Highlight-class,
+.Highlight-keyword {
+  font-weight: bold;
+}
+
+.Highlight-string {
+  color: var(gold);
+}
+
+/**
  * Example.
  */
+
+.Examples {
+  transition: .4s all ease;
+}
 
 .Example-list {
   overflow: hidden;
@@ -140,6 +158,10 @@ code i {
 /**
  * Plugin.
  */
+
+.Plugin + .Plugin {
+  margin-top: 1px;
+}
 
 .Plugin {
   position: relative;
@@ -181,10 +203,6 @@ code i {
   display: block;
 }
 
-.Plugin + .Plugin {
-  margin-top: 1px;
-}
-
 /**
  * Header.
  */
@@ -220,6 +238,10 @@ code i {
   transform: rotate(45deg);
   transform-origin: 50% 50%;
   transition: background-color .2s;
+}
+
+.Header-github:hover {
+  background-color: var(gold);
 }
 
 /**

@@ -1,12 +1,17 @@
 {
   "name": "metalsmith.io",
   "private": true,
+  "scripts": ["index.js"],
   "styles": ["index.css"],
   "dependencies": {
     "ianstormtaylor/reset": "*",
+    "segmentio/highlight": "*",
+    "segmentio/highlight-javascript": "*",
     "segmentio/logo": "*",
     "segmentio/metalsmith-logo": "*",
+    "stagas/infinite-carousel": "*",
     "timoxley/next-tick": "*",
+    "tomerdmnt/carousel-slide": "*",
     "typefaces/source-sans": "*",
     "yields/store": "*"
   }

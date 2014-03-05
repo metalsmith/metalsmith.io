@@ -41,7 +41,12 @@ function build(fn){
   m.use(require('./metalsmith-template-markdown')({
     engine: 'swig'
   }));
-  m.use(markdown());
+  m.use(markdown({
+    smartypants: true,
+    smartLists: true,
+    gfm: true,
+    tables: true
+  }));
   m.use(templates({
     engine: 'swig',
     directory: './'

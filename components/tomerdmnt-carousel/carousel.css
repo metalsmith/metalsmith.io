@@ -1,0 +1,36 @@
+.carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel > div {
+  display: none;
+  position: relative;
+}
+
+.carousel .carousel-visible,
+.carousel .carousel-prev,
+.carousel .carousel-next {
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.carousel .carousel-prev,
+.carousel .carousel-next {
+  position: absolute;
+}
+
+.carousel .carousel-visible {
+  left: 0;
+}
+
+.carousel .carousel-prev {
+  left: -100%;
+}
+
+.carousel .carousel-next {
+  left: 100%;
+}
+
