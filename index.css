@@ -259,30 +259,30 @@ hr {
   border: none;
   height: 200px;
   width: 300px;
-  margin: 2em auto;
+  margin: 5em auto;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 50% 50%;
 }
 
 hr:nth-of-type(1) {
-  background-image: url('images/small-divider-1.jpg');
+  background-image: url('images/small-divider-retina-1.png');
 }
 
 hr:nth-of-type(2) {
-  background-image: url('images/small-divider-2.jpg');
+  background-image: url('images/small-divider-retina-2.png');
 }
 
 hr:nth-of-type(3) {
-  background-image: url('images/small-divider-3.jpg');
+  background-image: url('images/small-divider-retina-3.png');
 }
 
 hr:nth-of-type(4) {
-  background-image: url('images/small-divider-4.jpg');
+  background-image: url('images/small-divider-retina-4.png');
 }
 
 hr:nth-of-type(5) {
-  background-image: url('images/small-divider-5.jpg');
+  background-image: url('images/small-divider-retina-5.png');
 }
 
 /**
@@ -291,7 +291,7 @@ hr:nth-of-type(5) {
 
 .Footer {
   text-align: center;
-  padding-bottom: 5em;
+  padding-bottom: 6em;
 }
 
 .Footer-conjunction {
@@ -317,7 +317,7 @@ hr:nth-of-type(5) {
   }
 
   .Header {
-    padding-top: 14em;
+    padding-top: 15em;
   }
 
   .Header-github {
