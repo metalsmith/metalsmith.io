@@ -31,6 +31,7 @@ function build(fn){
   c.copyAssetsTo('build');
   c.development();
   c.addSourceURLs();
+  c.copyFiles();
 
   /**
    * Metalsmith.
