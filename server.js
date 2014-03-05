@@ -15,7 +15,11 @@ express()
   });
 
 /**
- * Build.
+ * Builder middleware.
+ *
+ * @param {Request} req
+ * @param {Response} res
+ * @param {Function} next
  */
 
 function builder(req, res, next){
