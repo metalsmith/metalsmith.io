@@ -14,8 +14,5 @@
     "metalsmith-markdown": "^0.2.1",
     "async": "^0.2.10",
     "extend": "^1.2.1"
-  },
-  "scripts": {
-    "start": "node server.js"
   }
 }
