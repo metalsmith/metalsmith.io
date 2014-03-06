@@ -24,6 +24,18 @@
     "description": "Extract an excerpt from the beginning of each file."
   },
   {
+    "name": "Ignore",
+    "icon": "ban",
+    "repository": "https://github.com/segmentio/metalsmith-ignore",
+    "description": "An easy way to ignore certain files in your source directory."
+  },
+  {
+    "name": "Metadata",
+    "icon": "tag",
+    "repository": "https://github.com/segmentio/metalsmith-metadata",
+    "description": "Load global metadata from files."
+  },
+  {
     "name": "Permalinks",
     "icon": "link",
     "repository": "https://github.com/segmentio/metalsmith-permalinks",
