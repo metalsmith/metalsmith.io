@@ -15,9 +15,11 @@
   var-tungsten: "Tungsten A", "Tungsten B", "Tungsten", "Impact", sans-serif;
   var-source-code: "Source Code", monospace;
 
-  var-multiplier: 1.25;
-  var-smaller: calc(1em / var(multiplier));
-  var-larger: calc(1em * var(multiplier));
+  var-m: 1.25;
+  var-much-smaller: calc(1em / var(m) / var(m));
+  var-smaller: calc(1em / var(m));
+  var-larger: calc(1em * var(m));
+  var-much-larger: calc(1em * var(m) * var(m));
 }
 
 /**
@@ -25,18 +27,15 @@
  */
 
 html {
+  box-sizing: border-box;
   overflow-x: hidden;
-}
-
-body {
-  font: 500 18px/1.6 var(sentinel);
+  font: 500 16px/1.6 var(sentinel);
   color: var(dark-gray);
   background: url('images/ground.jpg') var(light-gray);
-  box-sizing: border-box;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 2em;
   margin-bottom: .5em;
   font-family: var(tungsten);
   text-transform: uppercase;
@@ -68,12 +67,10 @@ ol {
 }
 
 pre {
-  font: 300 var(smaller)/1.2 var(source-code);
+  font: 300 var(much-smaller)/1.3 var(source-code);
   position: relative;
   background-color: var(white);
-  border-left: 3px solid color(var(gray) tint(50%));
-  padding: 1.5em 2em;
-  overflow: hidden;
+  padding: 1.5em;
 }
 
 pre + pre {
@@ -85,8 +82,46 @@ code b {
 }
 
 code i {
-  color: var(gold);
   font-style: normal;
+  color: var(gold);
+}
+
+/**
+ * Dividers.
+ */
+
+hr {
+  border: none;
+  height: 100px;
+  width: 150px;
+  margin: 8em auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+hr:nth-of-type(1) {
+  background-image: url('images/divider-1.png');
+}
+
+hr:nth-of-type(2) {
+  background-image: url('images/divider-2.png');
+}
+
+hr:nth-of-type(3) {
+  background-image: url('images/divider-3.png');
+}
+
+hr:nth-of-type(4) {
+  background-image: url('images/divider-4.png');
+}
+
+hr:nth-of-type(5) {
+  background-image: url('images/divider-5.png');
+}
+
+hr:nth-of-type(6) {
+  background-image: url('images/divider-6.png');
 }
 
 /**
@@ -119,29 +154,16 @@ code i {
  * Example.
  */
 
-.Examples {
-  transition: .4s all ease;
-}
-
-.Example-list {
-  overflow: hidden;
-  width: 9999em;
-}
-
-.Example + .Example {
-  margin-left: 1px;
-}
-
 .Example {
-  padding: 2em;
+  max-width: 17em;
+  margin-top: 1px;
+  padding: 1.5em;
   background-color: white;
-  width: 17em;
-  float: left;
 }
 
 .Example-title {
   font-size: 1.5em;
-  margin-bottom: .75em;
+  margin-bottom: .4em;
   text-align: center;
 }
 
@@ -155,14 +177,14 @@ code i {
  * Plugin.
  */
 
-.Plugin + .Plugin {
-  margin-top: 1px;
-}
-
 .Plugin {
   position: relative;
-  padding: 1.5em 2em;
+  padding: 1.5em;
   background-color: white;
+}
+
+.Plugin + .Plugin {
+  margin-top: 1px;
 }
 
 .Plugin-title {
@@ -204,12 +226,12 @@ code i {
  */
 
 .Header {
-  padding-top: 5em;
+  padding-top: 8em;
   text-align: center;
 }
 
 .Header-title {
-  font-size: 4em;
+  font-size: 3em;
 }
 
 .Header-subtitle {
@@ -219,8 +241,8 @@ code i {
 .Header-github {
   display: block;
   position: absolute;
-  top: 3em;
-  right: -6.5em;
+  top: 1.5em;
+  right: -6em;
   padding: .4em 1em;
   width: 15em;
   text-align: center;
@@ -247,42 +269,8 @@ code i {
 .Body {
   max-width: 34em;
   margin: 0 auto;
-  padding-right: 1.5em;
-  padding-left: 1.5em;
-}
-
-/**
- * Dividers.
- */
-
-hr {
-  border: none;
-  height: 200px;
-  width: 300px;
-  margin: 5em auto;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: 50% 50%;
-}
-
-hr:nth-of-type(1) {
-  background-image: url('images/divider-1.png');
-}
-
-hr:nth-of-type(2) {
-  background-image: url('images/divider-2.png');
-}
-
-hr:nth-of-type(3) {
-  background-image: url('images/divider-3.png');
-}
-
-hr:nth-of-type(4) {
-  background-image: url('images/divider-4.png');
-}
-
-hr:nth-of-type(5) {
-  background-image: url('images/divider-5.png');
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 /**
@@ -291,7 +279,7 @@ hr:nth-of-type(5) {
 
 .Footer {
   text-align: center;
-  padding-bottom: 6em;
+  padding-bottom: 7em;
 }
 
 .Footer-conjunction {
@@ -316,8 +304,54 @@ hr:nth-of-type(5) {
     font-size: 18px;
   }
 
+  h1 {
+    font-size: 2.5em;
+  }
+
+  pre {
+    font-size: var(smaller);
+    padding: 1.5em 2em;
+  }
+
+  /**
+   * Example.
+   */
+
+  .Example-list {
+    overflow: hidden;
+    margin: 0 -4em;
+    column-count: 2;
+    column-gap: 1px;
+    column-break-inside: avoid;
+  }
+
+  .Example {
+    padding: 1.5em 2em;
+    margin-top: 0;
+  }
+
+  .Example:nth-child(2n) {
+    margin-top: 1px;
+  }
+
+  /**
+   * Plugin.
+   */
+
+  .Plugin {
+    padding: 1.5em 2em;
+  }
+
+  /**
+   * Header.
+   */
+
   .Header {
     padding-top: 15em;
+  }
+
+  .Header-title {
+    font-size: 4em;
   }
 
   .Header-github {

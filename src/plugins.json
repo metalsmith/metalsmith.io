@@ -3,7 +3,7 @@
     "name": "Build Date",
     "icon": "clock",
     "repository": "https://github.com/segmentio/metalsmith-build-date",
-    "description": "Add the a date to the metadata for when the directory was built."
+    "description": "Add the build date to the global metadata, for things like feeds or sitemaps."
   },
   {
     "name": "Collections",
@@ -21,7 +21,7 @@
     "name": "Excerpts",
     "icon": "unquote",
     "repository": "https://github.com/segmentio/metalsmith-excerpts",
-    "description": "Extract an excerpt from the beginning of files."
+    "description": "Extract an excerpt from the beginning of each file."
   },
   {
     "name": "Permalinks",
@@ -33,6 +33,6 @@
     "name": "Templates",
     "icon": "gridlines",
     "repository": "https://github.com/segmentio/metalsmith-templates",
-    "description": "Render any file through a templating engine."
+    "description": "Render any file through a templating engine of your choice."
   }
 ]

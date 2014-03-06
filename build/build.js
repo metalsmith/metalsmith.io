@@ -507,17 +507,7 @@ require.main("segmentio-highlight-javascript", "lib/index.js")
 
 
 require.register("metalsmith.io/index.js", Function("exports, require, module",
-"\n\
-var Highlight = require(\"segmentio-highlight\");\n\
-var js = require(\"segmentio-highlight-javascript\");\n\
-\n\
-/**\n\
- * Highlight.\n\
- */\n\
-\n\
-Highlight()\n\
-  .use(js)\n\
-  .all();//@ sourceURL=metalsmith.io/index.js"
+"//@ sourceURL=metalsmith.io/index.js"
 ));
 
 
