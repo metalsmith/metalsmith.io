@@ -208,13 +208,20 @@ hr:nth-of-type(6) {
   margin: 0;
 }
 
-.Plugin-repository {
-  display: none;
+.Plugin-arrow {
   position: absolute;
-  top: 2.1em;
-  right: 2.7em;
-  font-size: .8em;
-  color: color(var(gray) tint(60%));
+  top: 1.2em;
+  right: 1.5em;
+  opacity: .3;
+  transition: opacity .2s;
+}
+
+.Plugin-arrow::before {
+  color: var(gray);
+}
+
+.Plugin:hover .Plugin-arrow {
+  opacity: 1;
 }
 
 .Plugin:hover .Plugin-repository {

@@ -953,13 +953,21 @@ hr:nth-of-type(6) {
   margin: 0;
 }
 
-.Plugin-repository {
-  display: none;
+.Plugin-arrow {
   position: absolute;
-  top: 2.1em;
-  right: 2.7em;
-  font-size: .8em;
-  color: rgb(218, 218, 219);
+  top: 1.2em;
+  right: 1.5em;
+  opacity: .3;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+}
+
+.Plugin-arrow::before {
+  color: #a3a3a4;
+}
+
+.Plugin:hover .Plugin-arrow {
+  opacity: 1;
 }
 
 .Plugin:hover .Plugin-repository {

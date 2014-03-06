@@ -122,7 +122,7 @@ The core Metalsmith library doesn't have any plugins bundled with it by default.
   <li class="Plugin">
     <a class="Plugin-link" href="{{ plugin.repository }}">
       <h1 class="Plugin-title">{{ plugin.name }}<i class="Plugin-icon ss-{{ plugin.icon }}"></i></h1>
-      <span class="Plugin-repository">{{ plugin.repository | replace('https://github.com/', '') }}</span>
+      <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">{{ plugin.description }}</p>
     </a>
   </li>
