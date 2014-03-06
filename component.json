@@ -1,7 +1,6 @@
 {
   "name": "metalsmith.io",
   "private": true,
-  "scripts": ["index.js"],
   "styles": ["index.css"],
   "images": [
     "images/favicon.png",
@@ -15,10 +14,7 @@
   ],
   "dependencies": {
     "ianstormtaylor/reset": "*",
-    "segmentio/highlight": "*",
-    "segmentio/highlight-javascript": "*",
     "segmentio/logo": "*",
-    "segmentio/metalsmith-logo": "*",
-    "typefaces/source-sans": "*"
+    "segmentio/metalsmith-logo": "*"
   }
 }
