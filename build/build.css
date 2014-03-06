@@ -649,10 +649,6 @@ pre {
  */
 
 html {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  overflow-x: hidden;
   font: 500 16px/1.6 "Sentinel SSm A", "Sentinel SSm B", "Sentinel", "Georgia", sans-serif;
   color: #4a4848;
   background: url("metalsmith.io/images/ground.jpg") #ededed;
@@ -859,8 +855,10 @@ hr:nth-of-type(6) {
  */
 
 .Header {
+  position: relative;
   padding-top: 8em;
   text-align: center;
+  overflow: hidden;
 }
 
 .Header-title {

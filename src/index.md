@@ -75,9 +75,9 @@ Of course they can get a lot more complicated too. That's what makes Metalsmith 
 ---
 
 
-# Install it!
+# Install it
 
-Metalsmith and any of it's plugins can be install with npm:
+Metalsmith and any of it's plugins can be installed with npm:
 
 <pre><code>$ <b>npm</b> install <i>metalsmith</i></code></pre>
 
