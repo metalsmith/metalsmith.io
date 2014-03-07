@@ -3,13 +3,13 @@
     "name": "Build Date",
     "icon": "clock",
     "repository": "https://github.com/segmentio/metalsmith-build-date",
-    "description": "Add the build date to the global metadata, for things like feeds or sitemaps."
+    "description": "Add a build date, for things like feeds or sitemaps."
   },
   {
     "name": "Collections",
     "icon": "layergroup",
     "repository": "https://github.com/segmentio/metalsmith-collections",
-    "description": "Group files together into an ordered collection, like blog posts."
+    "description": "Group files together, like blog posts. That way you can loop over them to generate an index, or add 'next' and 'previous' links between them."
   },
   {
     "name": "Drafts",
@@ -21,25 +21,31 @@
     "name": "Excerpts",
     "icon": "unquote",
     "repository": "https://github.com/segmentio/metalsmith-excerpts",
-    "description": "Extract an excerpt from the beginning of each file."
+    "description": "Extract the first paragraph from the beginning of any Markdown file."
   },
   {
     "name": "Ignore",
     "icon": "ban",
     "repository": "https://github.com/segmentio/metalsmith-ignore",
-    "description": "An easy way to ignore certain files in your source directory."
+    "description": "Ignore any files that match a pattern."
+  },
+  {
+    "name": "Markdown",
+    "icon": "compose",
+    "repository": "https://github.com/segmentio/metalsmith-markdown",
+    "description": "Convert Markdown files to HTML."
   },
   {
     "name": "Metadata",
     "icon": "tag",
     "repository": "https://github.com/segmentio/metalsmith-metadata",
-    "description": "Load global metadata from files."
+    "description": "Load metadata from JSON or YAML files."
   },
   {
     "name": "Permalinks",
     "icon": "link",
     "repository": "https://github.com/segmentio/metalsmith-permalinks",
-    "description": "Rename files so that they're permalinked properly for static sites."
+    "description": "Apply custom permalinks and rename files to be nested properly for static sites, basically converting `about.html` into `about/index.html`."
   },
   {
     "name": "Templates",

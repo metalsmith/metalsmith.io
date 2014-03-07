@@ -28,7 +28,7 @@
   .build();
 </code></pre>
 
-<p>…but what if you want to get a little fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins…</p>
+<p>…but what if you want to get fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins…</p>
 <pre><code><b>Metalsmith</b>(__dirname)
   .use(<b>drafts</b>)
   .use(markdown)
@@ -37,7 +37,7 @@
   .build();
 </code></pre>
 
-<p>…it’s as easy as that.</p>
+<p>…it’s as easy as that!</p>
 <hr>
 <h1 id="how-does-it-work-">How does it work?</h1>
 <p>Metalsmith works in three simple steps:</p>
@@ -76,7 +76,7 @@ An unfinished article...
 <p>Of course they can get a lot more complicated too. That’s what makes Metalsmith powerful; the plugins can do anything you want.</p>
 <hr>
 <h1 id="install-it">Install it</h1>
-<p>Metalsmith and any of it’s plugins can be installed with npm:</p>
+<p>Metalsmith and its plugins can be installed with npm:</p>
 <pre><code>$ <b>npm</b> install <i>metalsmith</i></code></pre>
 
 <p>The package exposes both a <a href="https://github.com/segmentio/metalsmith#javascript-api">Javascript API</a>, and <a href="https://github.com/segmentio/metalsmith#cli">CLI</a> in case you’re used to that type of workflow from other static site generators.</p>
@@ -168,14 +168,15 @@ An unfinished article...
 <p>Check out <a href="https://github.com/segmentio/metalsmith/tree/master/examples">the code examples</a> to get an idea for what’s possible.</p>
 <hr>
 <h1 id="the-plugins">The Plugins</h1>
-<p>The core Metalsmith library doesn’t have any plugins bundled with it by default. You just require them as needed. Here’s a list of them:</p>
+<p>The core Metalsmith library doesn’t bundle any plugins by default. You just require new ones as needed, or make your own! </p>
+<p>Here’s a list of the current plugins:</p>
 <ul class="Plugin-list">
 
   <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-build-date">
       <h1 class="Plugin-title">Build Date<i class="Plugin-icon ss-clock"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
-      <p class="Plugin-description">Add the build date to the global metadata, for things like feeds or sitemaps.</p>
+      <p class="Plugin-description">Add a build date, for things like feeds or sitemaps.</p>
     </a>
   </li>
 
@@ -183,7 +184,7 @@ An unfinished article...
     <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-collections">
       <h1 class="Plugin-title">Collections<i class="Plugin-icon ss-layergroup"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
-      <p class="Plugin-description">Group files together into an ordered collection, like blog posts.</p>
+      <p class="Plugin-description">Group files together, like blog posts. That way you can loop over them to generate an index, or add &#39;next&#39; and &#39;previous&#39; links between them.</p>
     </a>
   </li>
 
@@ -199,7 +200,31 @@ An unfinished article...
     <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-excerpts">
       <h1 class="Plugin-title">Excerpts<i class="Plugin-icon ss-unquote"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
-      <p class="Plugin-description">Extract an excerpt from the beginning of each file.</p>
+      <p class="Plugin-description">Extract the first paragraph from the beginning of any Markdown file.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-ignore">
+      <h1 class="Plugin-title">Ignore<i class="Plugin-icon ss-ban"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Ignore any files that match a pattern.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-markdown">
+      <h1 class="Plugin-title">Markdown<i class="Plugin-icon ss-compose"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Convert Markdown files to HTML.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-metadata">
+      <h1 class="Plugin-title">Metadata<i class="Plugin-icon ss-tag"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Load metadata from JSON or YAML files.</p>
     </a>
   </li>
 
@@ -207,7 +232,7 @@ An unfinished article...
     <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-permalinks">
       <h1 class="Plugin-title">Permalinks<i class="Plugin-icon ss-link"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
-      <p class="Plugin-description">Rename files so that they&#39;re permalinked properly for static sites.</p>
+      <p class="Plugin-description">Apply custom permalinks and rename files to be nested properly for static sites, basically converting <code>about.html</code> into <code>about/index.html</code>.</p>
     </a>
   </li>
 

@@ -16,7 +16,7 @@ All of the logic in Metalsmith is handled by plugins. You simply chain them toge
   .build();
 </code></pre>
 
-...but what if you want to get a little fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins...
+...but what if you want to get fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins...
 
 <pre><code><b>Metalsmith</b>(__dirname)
   .use(<b>drafts</b>)
@@ -26,7 +26,7 @@ All of the logic in Metalsmith is handled by plugins. You simply chain them toge
   .build();
 </code></pre>
 
-...it's as easy as that.
+...it's as easy as that!
 
 
 ---
@@ -77,11 +77,11 @@ Of course they can get a lot more complicated too. That's what makes Metalsmith 
 
 # Install it
 
-Metalsmith and any of it's plugins can be installed with npm:
+Metalsmith and its plugins can be installed with npm:
 
 <pre><code>$ <b>npm</b> install <i>metalsmith</i></code></pre>
 
-The package exposes both a [Javascript API](https://github.com/segmentio/metalsmith#javascript-api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators.
+The package exposes both a [Javascript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators.
 
 
 ---
@@ -115,7 +115,9 @@ Check out [the code examples](https://github.com/segmentio/metalsmith/tree/maste
 
 
 # The Plugins
-The core Metalsmith library doesn't have any plugins bundled with it by default. You just require them as needed. Here's a list of them:
+The core Metalsmith library doesn't bundle any plugins by default. You just require new ones as needed, or make your own! 
+
+Here's a list of the current plugins:
 
 <ul class="Plugin-list">
 {% for plugin in plugins %}
