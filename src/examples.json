@@ -1,58 +1,25 @@
 [
   {
-    "name": "Technical Docs",
+    "name": "A Project Scaffolder",
     "steps": [
       {
-        "text": "Read files from a source directory.",
+        "text": "Read template files from a directory.",
         "icon": "fastforward"
       },
       {
-        "text": "Convert Markdown files to HTML.",
+        "text": "Parse files for template placeholders.",
         "icon": "loading"
       },
       {
-        "text": "Build a navigation from the tree.",
-        "icon": "signpost"
+        "text": "Prompt user to fill in each placeholder.",
+        "icon": "chat"
       },
       {
-        "text": "Render each file with a template.",
+        "text": "Render files with a templating engine.",
         "icon": "gridlines"
       },
       {
-        "text": "Write HTML to the static directory.",
-        "icon": "rewind"
-      }
-    ]
-  },
-  {
-    "name": "An eBook Generator",
-    "steps": [
-      {
-        "text": "Read chapter files from a directory.",
-        "icon": "fastforward"
-      },
-      {
-        "text": "Build a table of contents from the tree.",
-        "icon": "rows"
-      },
-      {
-        "text": "Convert Markdown to HTML.",
-        "icon": "loading"
-      },
-      {
-        "text": "Convert Markdown to PDF.",
-        "icon": "loading"
-      },
-      {
-        "text": "Convert Markdown to ePUB.",
-        "icon": "loading"
-      },
-      {
-        "text": "Convert Markdown to MOBI.",
-        "icon": "loading"
-      },
-      {
-        "text": "Write compiled files to a directory.",
+        "text": "Write filled-in files to a new directory.",
         "icon": "rewind"
       }
     ]
@@ -91,26 +58,59 @@
     ]
   },
   {
-    "name": "A Project Scaffolder",
+    "name": "An eBook Generator",
     "steps": [
       {
-        "text": "Read template files from a directory.",
+        "text": "Read chapter files from a directory.",
         "icon": "fastforward"
       },
       {
-        "text": "Parse files for template placeholders.",
+        "text": "Build a table of contents from the tree.",
+        "icon": "rows"
+      },
+      {
+        "text": "Convert Markdown to HTML.",
         "icon": "loading"
       },
       {
-        "text": "Prompt user to fill in each placeholder.",
-        "icon": "chat"
+        "text": "Convert Markdown to PDF.",
+        "icon": "loading"
       },
       {
-        "text": "Render files with a templating engine.",
+        "text": "Convert Markdown to ePUB.",
+        "icon": "loading"
+      },
+      {
+        "text": "Convert Markdown to MOBI.",
+        "icon": "loading"
+      },
+      {
+        "text": "Write compiled files to a directory.",
+        "icon": "rewind"
+      }
+    ]
+  },
+  {
+    "name": "Technical Docs",
+    "steps": [
+      {
+        "text": "Read files from a source directory.",
+        "icon": "fastforward"
+      },
+      {
+        "text": "Convert Markdown files to HTML.",
+        "icon": "loading"
+      },
+      {
+        "text": "Build a navigation from the tree.",
+        "icon": "signpost"
+      },
+      {
+        "text": "Render each file with a template.",
         "icon": "gridlines"
       },
       {
-        "text": "Write filled-in files to a new directory.",
+        "text": "Write HTML to the static directory.",
         "icon": "rewind"
       }
     ]
