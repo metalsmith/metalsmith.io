@@ -52,5 +52,11 @@
     "icon": "gridlines",
     "repository": "https://github.com/segmentio/metalsmith-templates",
     "description": "Render any file through a templating engine of your choice."
+  },
+  {
+    "name": "Static",
+    "icon": "layergroup",
+    "repository": "https://github.com/TheHydroImpulse/metalsmith-static",
+    "description": "Copy public assets into the build directory."
   }
 ]
