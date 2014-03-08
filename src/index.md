@@ -81,7 +81,7 @@ Metalsmith and its plugins can be installed with npm:
 
 <pre><code>$ <b>npm</b> install <i>metalsmith</i></code></pre>
 
-The package exposes both a [Javascript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators.
+The package exposes both a [Javascript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators. To see how they're used check out the [examples](https://github.com/segmentio/metalsmith/tree/master/examples).
 
 
 ---
