@@ -48,6 +48,12 @@
     "description": "Apply custom permalinks and rename files to be nested properly for static sites, basically converting `about.html` into `about/index.html`."
   },
   {
+    "name": "Prompt",
+    "icon": "chat",
+    "repository": "https://github.com/segmentio/metalsmith-prompt",
+    "description": "Prompt the user for series of answers in the command line and add them to the global metadata."
+  },
+  {
     "name": "Static",
     "icon": "layergroup",
     "repository": "https://github.com/TheHydroImpulse/metalsmith-static",
