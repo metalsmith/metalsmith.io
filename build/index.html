@@ -70,7 +70,7 @@ An unfinished article...
 </code></pre>
 
 <p>The plugins can manipulate the files however they want, and writing one is super simple. Here’s the code for the drafts plugin from above:</p>
-<pre><code><b>function</b> <i>plugin</i>(){
+<pre><code><b>function</b>(){
   <b>return function</b> <i>drafts</i>(files, metalsmith, done){
     <b>for</b> (<b>var</b> file <b>in</b> files) {
       <b>if</b> (files[file].draft) <b>delete</b> files[file];
@@ -264,6 +264,14 @@ An unfinished article...
       <h1 class="Plugin-title">Templates<i class="Plugin-icon ss-gridlines"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Render any file through a templating engine of your choice.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/FWeinb/metalsmith-watch">
+      <h1 class="Plugin-title">Watch<i class="Plugin-icon ss-view"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Watching for file changes and trigger rebuilds.</p>
     </a>
   </li>
 
