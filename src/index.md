@@ -11,7 +11,7 @@ template: index.html
 All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here's what the simplest blog looks like...
 
 <pre><code><b>Metalsmith</b>(__dirname)
-  .use(<b>markdown</b>)
+  .use(<b>markdown()</b>)
   .use(<b>templates</b>(<i>'handlebars'</i>))
   .build();
 </code></pre>
@@ -19,8 +19,8 @@ All of the logic in Metalsmith is handled by plugins. You simply chain them toge
 ...but what if you want to get fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins...
 
 <pre><code><b>Metalsmith</b>(__dirname)
-  .use(<b>drafts</b>)
-  .use(markdown)
+  .use(<b>drafts()</b>)
+  .use(markdown())
   .use(<b>permalinks</b>(<i>'posts/:title'</i>))
   .use(templates(<i>'handlebars'</i>))
   .build();
