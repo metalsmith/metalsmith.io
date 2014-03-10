@@ -28,15 +28,15 @@
 <h1 id="everything-is-a-plugin">Everything is a Plugin</h1>
 <p>All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here’s what the simplest blog looks like…</p>
 <pre><code><b>Metalsmith</b>(__dirname)
-  .use(<b>markdown</b>)
+  .use(<b>markdown()</b>)
   .use(<b>templates</b>(<i>'handlebars'</i>))
   .build();
 </code></pre>
 
 <p>…but what if you want to get fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins…</p>
 <pre><code><b>Metalsmith</b>(__dirname)
-  .use(<b>drafts</b>)
-  .use(markdown)
+  .use(<b>drafts()</b>)
+  .use(markdown())
   .use(<b>permalinks</b>(<i>'posts/:title'</i>))
   .use(templates(<i>'handlebars'</i>))
   .build();
@@ -70,11 +70,13 @@ An unfinished article...
 </code></pre>
 
 <p>The plugins can manipulate the files however they want, and writing one is super simple. Here’s the code for the drafts plugin from above:</p>
-<pre><code><b>function</b> <i>drafts</i>(files, metalsmith, done){
-  <b>for</b> (<b>var</b> file <b>in</b> files) {
-    <b>if</b> (files[file].draft) <b>delete</b> files[file];
-  }
-  done();
+<pre><code><b>function</b> <i>plugin</i>(){
+  <b>return function</b> <i>drafts</i>(files, metalsmith, done){
+    <b>for</b> (<b>var</b> file <b>in</b> files) {
+      <b>if</b> (files[file].draft) <b>delete</b> files[file];
+    }
+    done();
+  };
 }
 </code></pre>
 
@@ -84,7 +86,7 @@ An unfinished article...
 <p>Metalsmith and its plugins can be installed with npm:</p>
 <pre><code>$ <b>npm</b> install <i>metalsmith</i></code></pre>
 
-<p>The package exposes both a <a href="https://github.com/segmentio/metalsmith#api">Javascript API</a>, and <a href="https://github.com/segmentio/metalsmith#cli">CLI</a> in case you’re used to that type of workflow from other static site generators.</p>
+<p>The package exposes both a <a href="https://github.com/segmentio/metalsmith#api">Javascript API</a>, and <a href="https://github.com/segmentio/metalsmith#cli">CLI</a> in case you’re used to that type of workflow from other static site generators. To see how they’re used check out the <a href="https://github.com/segmentio/metalsmith/tree/master/examples">examples</a>.</p>
 <hr>
 <h1 id="a-little-secret">A Little Secret</h1>
 <p>We keep referring to Metalsmith as a “static site generator”, but it’s a lot more than that. Since everything is a plugin, the core library is actually just an abstraction for manipulating a directory of files.</p>
@@ -238,6 +240,22 @@ An unfinished article...
       <h1 class="Plugin-title">Permalinks<i class="Plugin-icon ss-link"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Apply custom permalinks and rename files to be nested properly for static sites, basically converting <code>about.html</code> into <code>about/index.html</code>.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-prompt">
+      <h1 class="Plugin-title">Prompt<i class="Plugin-icon ss-chat"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Prompt the user for series of answers in the command line and add them to the global metadata.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/TheHydroImpulse/metalsmith-static">
+      <h1 class="Plugin-title">Static<i class="Plugin-icon ss-layergroup"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Copy public assets into the build directory.</p>
     </a>
   </li>
 

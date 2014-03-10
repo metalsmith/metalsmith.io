@@ -61,11 +61,13 @@ An unfinished article...
 
 The plugins can manipulate the files however they want, and writing one is super simple. Here's the code for the drafts plugin from above:
 
-<pre><code><b>function</b> <i>drafts</i>(files, metalsmith, done){
-  <b>for</b> (<b>var</b> file <b>in</b> files) {
-    <b>if</b> (files[file].draft) <b>delete</b> files[file];
-  }
-  done();
+<pre><code><b>function</b>(){
+  <b>return function</b> <i>drafts</i>(files, metalsmith, done){
+    <b>for</b> (<b>var</b> file <b>in</b> files) {
+      <b>if</b> (files[file].draft) <b>delete</b> files[file];
+    }
+    done();
+  };
 }
 </code></pre>
 
