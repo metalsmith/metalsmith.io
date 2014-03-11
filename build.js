@@ -51,8 +51,6 @@ function build(fn){
   m.use(markdown({
     smartypants: true,
     smartLists: true,
-    gfm: true,
-    tables: true
   }));
   m.use(templates({
     engine: 'swig',
