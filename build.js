@@ -3,6 +3,7 @@ var basename = require('path').basename;
 var Component = require('component-builder');
 var extname = require('path').extname;
 var markdown = require('metalsmith-markdown');
+var metadata = require('metalsmith-metadata');
 var Metalsmith = require('metalsmith');
 var mkdir = require('mkdirp');
 var myth = require('myth');
@@ -38,9 +39,14 @@ function build(fn){
    */
 
   var m = Metalsmith(__dirname);
-  m.use(metadata);
-  m.use(require('./metalsmith-template-markdown')({
-    engine: 'swig'
+  m.use(metadata({
+    plugins: 'plugins.json',
+    examples: 'examples.json'
+  }));
+  m.use(templates({
+    engine: 'swig',
+    inPlace: true,
+    pattern: '**/*.md'
   }));
   m.use(markdown({
     smartypants: true,
@@ -64,29 +70,4 @@ function build(fn){
     write('build/build.css', myth(res.css));
     m.build(fn);
   });
-}
-
-/**
- * Metalsmith plugin to extend metadata with JSON files.
- *
- * @param {Object} files
- * @param {Metalsmith} metalsmith
- * @param {Function} done
- */
-
-function metadata(files, metalsmith, done){
-  var data = {};
-
-  for (var file in files) {
-    var ext = extname(file);
-    if ('.json' != ext) continue;
-    var str = files[file].contents.toString();
-    var json = JSON.parse(str);
-    var key = basename(file, ext);
-    data[key] = json;
-    delete files[file];
-  }
-
-  metalsmith.metadata(data);
-  done();
 }
