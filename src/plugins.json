@@ -54,6 +54,12 @@
     "description": "Prompt the user for series of answers in the command line and add them to the global metadata."
   },
   {
+    "name": "Sass",
+    "icon": "files",
+    "repository": "https://github.com/stevenschobert/metalsmith-sass",
+    "description": "Convert Sass files to CSS."
+  },
+  {
     "name": "Static",
     "icon": "layergroup",
     "repository": "https://github.com/TheHydroImpulse/metalsmith-static",
