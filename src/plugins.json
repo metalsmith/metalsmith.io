@@ -30,6 +30,12 @@
     "description": "Ignore any files that match a pattern."
   },
   {
+    "name": "LESS",
+    "icon": "files",
+    "repository": "https://github.com/christophercliff/metalsmith-less",
+    "description": "Convert LESS files to CSS."
+  },
+  {
     "name": "Markdown",
     "icon": "compose",
     "repository": "https://github.com/segmentio/metalsmith-markdown",
