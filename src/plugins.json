@@ -12,6 +12,12 @@
     "description": "Group files together, like blog posts. That way you can loop over them to generate an index, or add 'next' and 'previous' links between them."
   },
   {
+    "name": "Coffee",
+    "icon": "files",
+    "repository": "https://github.com/joaoafrmartins/metalsmith-coffee",
+    "description": "Compile CoffeeScript files to Javascript."
+  },
+  {
     "name": "Drafts",
     "icon": "erase",
     "repository": "https://github.com/segmentio/metalsmith-drafts",
