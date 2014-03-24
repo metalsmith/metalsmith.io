@@ -82,5 +82,11 @@
     "icon": "view",
     "repository": "https://github.com/FWeinb/metalsmith-watch",
     "description": "Watching for file changes and trigger rebuilds."
+  },
+  {
+    "name": "Title",
+    "icon": "view",
+    "repository": "https://github.com/OzzyCzech/metalsmith-title",
+    "description": "Automatically generate page title from first heading in processed file."
   }
 ]
