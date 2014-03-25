@@ -18,6 +18,12 @@
     "description": "Compile CoffeeScript files to Javascript."
   },
   {
+    "name": "Uglify",
+    "icon": "shredder",
+    "repository": "https://github.com/ksmithut/metalsmith-uglify",
+    "description": "Uglifies/minifies your JavaScript files"
+  },
+  {
     "name": "Drafts",
     "icon": "erase",
     "repository": "https://github.com/segmentio/metalsmith-drafts",
