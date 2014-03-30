@@ -100,5 +100,11 @@
     "icon": "view",
     "repository": "https://github.com/FWeinb/metalsmith-watch",
     "description": "Watching for file changes and trigger rebuilds."
+  },
+  {
+    "name": "Shortcodes",
+    "icon": "gridlines",
+    "repository": "https://github.com/ericgj/metalsmith-shortcodes",
+    "description": "A metalsmith plugin to render wordpress-esque shortcodes via templates."
   }
 ]
