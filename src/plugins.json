@@ -6,6 +6,12 @@
     "description": "Add a build date, for things like feeds or sitemaps."
   },
   {
+    "name": "Clean Script",
+    "icon": "shredder",
+    "repository": "https://github.com/srcreigh/metalsmith-cleanscript",
+    "description": "Generate a script to cleanup the build directory, if you are adding more than just Metalsmith files."
+  },
+  {
     "name": "Collections",
     "icon": "layergroup",
     "repository": "https://github.com/segmentio/metalsmith-collections",
@@ -78,6 +84,12 @@
     "description": "Convert Sass files to CSS."
   },
   {
+    "name": "Shortcodes",
+    "icon": "gridlines",
+    "repository": "https://github.com/ericgj/metalsmith-shortcodes",
+    "description": "Render wordpress-esque shortcodes via templates."
+  },
+  {
     "name": "Static",
     "icon": "layergroup",
     "repository": "https://github.com/TheHydroImpulse/metalsmith-static",
@@ -87,7 +99,7 @@
     "name": "Title",
     "icon": "lightbulb",
     "repository": "https://github.com/OzzyCzech/metalsmith-title",
-    "description": "Automatically generatea  page title from first heading in each file."
+    "description": "Automatically generate a page title from first heading in each file."
   },
   {
     "name": "Templates",
@@ -100,11 +112,5 @@
     "icon": "view",
     "repository": "https://github.com/FWeinb/metalsmith-watch",
     "description": "Watching for file changes and trigger rebuilds."
-  },
-  {
-    "name": "Shortcodes",
-    "icon": "gridlines",
-    "repository": "https://github.com/ericgj/metalsmith-shortcodes",
-    "description": "A metalsmith plugin to render wordpress-esque shortcodes via templates."
   }
 ]
