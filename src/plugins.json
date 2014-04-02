@@ -42,6 +42,12 @@
     "description": "Insert a hash of the content into the file name."
   },
   {
+    "name": "Headings",
+    "icon": "rows",
+    "repository": "https://github.com/segmentio/metalsmith-headings",
+    "description": "Extract headings from HTML files and attach them to the file's metadata. Useful for automatically building navigation for a document."
+  },
+  {
     "name": "Ignore",
     "icon": "ban",
     "repository": "https://github.com/segmentio/metalsmith-ignore",
