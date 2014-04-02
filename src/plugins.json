@@ -24,12 +24,6 @@
     "description": "Compile CoffeeScript files to Javascript."
   },
   {
-    "name": "Uglify",
-    "icon": "shredder",
-    "repository": "https://github.com/ksmithut/metalsmith-uglify",
-    "description": "Uglifies/minifies your JavaScript files"
-  },
-  {
     "name": "Drafts",
     "icon": "erase",
     "repository": "https://github.com/segmentio/metalsmith-drafts",
@@ -40,6 +34,12 @@
     "icon": "unquote",
     "repository": "https://github.com/segmentio/metalsmith-excerpts",
     "description": "Extract the first paragraph from the beginning of any Markdown file."
+  },
+  {
+    "name": "Fingerprint",
+    "icon": "files",
+    "repository": "https://github.com/christophercliff/metalsmith-fingerprint",
+    "description": "Insert a hash of the content into the file name."
   },
   {
     "name": "Ignore",
@@ -108,9 +108,21 @@
     "description": "Render any file through a templating engine of your choice."
   },
   {
+    "name": "Uglify",
+    "icon": "shredder",
+    "repository": "https://github.com/ksmithut/metalsmith-uglify",
+    "description": "Uglifies/minifies your JavaScript files"
+  },
+  {
     "name": "Watch",
     "icon": "view",
     "repository": "https://github.com/FWeinb/metalsmith-watch",
     "description": "Watching for file changes and trigger rebuilds."
+  },
+  {
+    "name": "webpack",
+    "icon": "files",
+    "repository": "https://github.com/christophercliff/metalsmith-webpack",
+    "description": "Bundle CommonJS, AMD and ES6 modules."
   }
 ]
