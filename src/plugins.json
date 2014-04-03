@@ -1,4 +1,10 @@
 [
+   {
+    "name": "Autoprefixer",
+    "icon": "files",
+    "repository": "https://github.com/esundahl/metalsmith-autoprefixer",
+    "description": "Automatically add vendor prefixes to CSS."
+  },
   {
     "name": "Build Date",
     "icon": "clock",
@@ -101,6 +107,12 @@
     "repository": "https://github.com/TheHydroImpulse/metalsmith-static",
     "description": "Copy public assets into the build directory."
   },
+   {
+    "name": "Stylus",
+    "icon": "files",
+    "repository": "https://github.com/esundahl/metalsmith-stylus",
+    "description": "Convert Stylus files to CSS."
+  },
   {
     "name": "Title",
     "icon": "lightbulb",
@@ -130,17 +142,5 @@
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-webpack",
     "description": "Bundle CommonJS, AMD and ES6 modules."
-  },
-   {
-    "name": "Stylus",
-    "icon": "files",
-    "repository": "https://github.com/esundahl/metalsmith-stylus",
-    "description": "Convert Stylus files to CSS."
-  },
-   {
-    "name": "Autoprefixer",
-    "icon": "files",
-    "repository": "https://github.com/esundahl/metalsmith-autoprefixer",
-    "description": "Add vendor prefixes to CSS"
   }
 ]
