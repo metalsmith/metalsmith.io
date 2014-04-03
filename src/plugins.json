@@ -130,5 +130,17 @@
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-webpack",
     "description": "Bundle CommonJS, AMD and ES6 modules."
+  },
+   {
+    "name": "Stylus",
+    "icon": "files",
+    "repository": "https://github.com/esundahl/metalsmith-stylus",
+    "description": "Convert Stylus files to CSS."
+  },
+   {
+    "name": "Autoprefixer",
+    "icon": "files",
+    "repository": "https://github.com/esundahl/metalsmith-autoprefixer",
+    "description": "Add vendor prefixes to CSS"
   }
 ]
