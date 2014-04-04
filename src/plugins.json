@@ -142,5 +142,23 @@
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-webpack",
     "description": "Bundle CommonJS, AMD and ES6 modules."
+  },
+  {
+    "name": "Replace",
+    "icon": "files",
+    "repository": "https://github.com/Jeremial/metalsmith-replace",
+    "description": "An attribute's value replace plugin for metalsmith."
+  },
+  {
+    "name": "Except",
+    "icon": "files",
+    "repository": "https://github.com/Jeremial/metalsmith-except",
+    "description": "A file's attribute except filter for metalsmith."
+  },
+  {
+    "name": "Only",
+    "icon": "files",
+    "repository": "https://github.com/Jeremial/metalsmith-only",
+    "description": "A file's attribute only filter for metalsmith."
   }
 ]
