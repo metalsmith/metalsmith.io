@@ -36,6 +36,12 @@
     "description": "Hide any files marked as drafts."
   },
   {
+    "name": "Except",
+    "icon": "files",
+    "repository": "https://github.com/Jeremial/metalsmith-except",
+    "description": "Omit attributes from each file's metadata."
+  },
+  {
     "name": "Excerpts",
     "icon": "unquote",
     "repository": "https://github.com/segmentio/metalsmith-excerpts",
@@ -78,6 +84,12 @@
     "description": "Load metadata from JSON or YAML files."
   },
   {
+    "name": "Only",
+    "icon": "files",
+    "repository": "https://github.com/Jeremial/metalsmith-only",
+    "description": "Filter out attributes from each file's metadata."
+  },
+  {
     "name": "Permalinks",
     "icon": "link",
     "repository": "https://github.com/segmentio/metalsmith-permalinks",
@@ -88,6 +100,12 @@
     "icon": "chat",
     "repository": "https://github.com/segmentio/metalsmith-prompt",
     "description": "Prompt the user for series of answers in the command line and add them to the global metadata."
+  },
+  {
+    "name": "Replace",
+    "icon": "files",
+    "repository": "https://github.com/Jeremial/metalsmith-replace",
+    "description": "Replace attribute values in each file's metadata."
   },
   {
     "name": "Sass",
@@ -142,23 +160,5 @@
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-webpack",
     "description": "Bundle CommonJS, AMD and ES6 modules."
-  },
-  {
-    "name": "Replace",
-    "icon": "files",
-    "repository": "https://github.com/Jeremial/metalsmith-replace",
-    "description": "An attribute's value replace plugin for metalsmith."
-  },
-  {
-    "name": "Except",
-    "icon": "files",
-    "repository": "https://github.com/Jeremial/metalsmith-except",
-    "description": "A file's attribute except filter for metalsmith."
-  },
-  {
-    "name": "Only",
-    "icon": "files",
-    "repository": "https://github.com/Jeremial/metalsmith-only",
-    "description": "A file's attribute only filter for metalsmith."
   }
 ]
