@@ -90,6 +90,12 @@
     "description": "Filter out attributes from each file's metadata."
   },
   {
+    "name": "Paginate",
+    "icon": "files",
+    "repository": "https://github.com/RobinThrift/metalsmith-paginate",
+    "description": "A simple plugin that uses metalsmith-collections to create a paginated collection."
+  },
+  {
     "name": "Permalinks",
     "icon": "link",
     "repository": "https://github.com/segmentio/metalsmith-permalinks",
