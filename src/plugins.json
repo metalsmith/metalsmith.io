@@ -36,6 +36,12 @@
     "description": "Hide any files marked as drafts."
   },
   {
+    "name": "Encode HTML",
+    "icon": "files",
+    "repository": "https://github.com/jscheel/metalsmith-encode-html",
+    "description": "Easily encode HTML entities in any HTML file by surrounding target code in triple backticks."
+  },
+  {
     "name": "Except",
     "icon": "files",
     "repository": "https://github.com/Jeremial/metalsmith-except",
