@@ -6,6 +6,12 @@
     "description": "Automatically add vendor prefixes to CSS."
   },
   {
+    "name": "Branch",
+    "icon": "????",
+    "repository": "https://github.com/ericgj/metalsmith-branch",
+    "description": "Run separate metalsmith pipelines on selected files."
+  },
+  {
     "name": "Build Date",
     "icon": "clock",
     "repository": "https://github.com/segmentio/metalsmith-build-date",
