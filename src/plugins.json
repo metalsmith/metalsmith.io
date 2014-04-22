@@ -7,7 +7,7 @@
   },
   {
     "name": "Branch",
-    "icon": "????",
+    "icon": "fork",
     "repository": "https://github.com/ericgj/metalsmith-branch",
     "description": "Run separate metalsmith pipelines on selected files."
   },
