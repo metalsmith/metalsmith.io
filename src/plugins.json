@@ -6,6 +6,12 @@
     "description": "Automatically add vendor prefixes to CSS."
   },
   {
+    "name": "Assets",
+    "icon": "addfile",
+    "repository": "https://github.com/treygriffith/metalsmith-assets",
+    "description": "Include static assets in your build."
+  },
+  {
     "name": "Branch",
     "icon": "fork",
     "repository": "https://github.com/ericgj/metalsmith-branch",
