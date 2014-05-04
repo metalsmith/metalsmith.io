@@ -42,6 +42,12 @@
     "description": "Compile CoffeeScript files to Javascript."
   },
   {
+    "name": "Copy",
+    "icon": "addfile",
+    "repository": "https://github.com/mattwidmann/metalsmith-copy",
+    "description": "Copy and rename files."
+  },
+  {
     "name": "Drafts",
     "icon": "erase",
     "repository": "https://github.com/segmentio/metalsmith-drafts",
