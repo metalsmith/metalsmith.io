@@ -90,6 +90,12 @@
     "description": "Ignore any files that match a pattern."
   },
   {
+    "name": "Include",
+    "icon": "downloadfolder",
+    "repository": "https://github.com/treygriffith/metalsmith-include",
+    "description": "Make other source files available as properties."
+  },
+  {
     "name": "LESS",
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-less",
