@@ -114,6 +114,12 @@
     "description": "Load metadata from JSON or YAML files."
   },
   {
+    "name": "More",
+    "icon": "crop",
+    "repository": "https://github.com/kfranqueiro/metalsmith-more",
+    "description": "Stores the content before the \"more\" comment tag in HTML files."
+  },
+  {
     "name": "Only",
     "icon": "files",
     "repository": "https://github.com/Jeremial/metalsmith-only",
