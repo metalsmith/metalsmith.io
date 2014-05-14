@@ -72,6 +72,12 @@
     "description": "Extract the first paragraph from the beginning of any Markdown file."
   },
   {
+    "name": "File metadata",
+    "icon": "files",
+    "repository": "https://github.com/dpobel/metalsmith-filemetadata",
+    "description": "Add metadata on files based on a pattern"
+  },
+  {
     "name": "Fingerprint",
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-fingerprint",
