@@ -84,6 +84,12 @@
     "description": "Insert a hash of the content into the file name."
   },
   {
+    "name": "gulpsmith",
+    "icon": "fork",
+    "repository": "https://github.com/pjeby/gulpsmith",
+    "description": "Use Gulp plugins in Metalsmith, or Metalsmith as a Gulp plugin.  Useful for uploading files, reading less than an entire directory tree, using external front matter, etc."
+  },
+  {
     "name": "Headings",
     "icon": "rows",
     "repository": "https://github.com/segmentio/metalsmith-headings",
