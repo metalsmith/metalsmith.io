@@ -12,6 +12,12 @@
     "description": "Include static assets in your build."
   },
   {
+    "name": "Beautifier",
+    "icon": "file",
+    "repository": "https://github.com/boushley/metalsmith-beautify",
+    "description": "Nicely format your html, css or js files."
+  },
+  {
     "name": "Branch",
     "icon": "fork",
     "repository": "https://github.com/ericgj/metalsmith-branch",
