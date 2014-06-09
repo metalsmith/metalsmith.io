@@ -114,6 +114,12 @@
     "description": "Make other source files available as properties."
   },
   {
+    "name": "JSON",
+    "icon": "files",
+    "repository": "https://github.com/antiBaconMachine/metalsmith-json",
+    "description": "Parse .json files and make their properties available to downstream plugins."
+  },
+  {
     "name": "LESS",
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-less",
