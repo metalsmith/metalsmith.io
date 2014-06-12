@@ -60,6 +60,12 @@
     "description": "Hide any files marked as drafts."
   },
   {
+     "name": "Define",
+     "icon": "tag",
+     "repostory": "https://github.com/aymericbeaumet/metalsmith-define",
+     "description": "Manually define values in the metadata."
+  },
+  {
     "name": "Encode HTML",
     "icon": "files",
     "repository": "https://github.com/jscheel/metalsmith-encode-html",
