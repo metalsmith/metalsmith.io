@@ -132,6 +132,12 @@
     "description": "Convert Markdown files to HTML."
   },
   {
+    "name": "Jade",
+    "icon": "compose",
+    "repository": "https://github.com/skinkworks/metalsmith-jade",
+    "description": "Convert Jade files to HTML."
+  },
+  {
     "name": "Metadata",
     "icon": "tag",
     "repository": "https://github.com/segmentio/metalsmith-metadata",
