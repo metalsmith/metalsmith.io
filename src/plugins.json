@@ -178,7 +178,7 @@
      "icon": "link",
      "repository": "https://github.com/aymericbeaumet/metalsmith-redirect",
      "description": "A simple plugin to create client-side HTTP redirections."
-  }
+  },
   {
     "name": "Replace",
     "icon": "files",
@@ -203,7 +203,7 @@
     "repository": "https://github.com/TheHydroImpulse/metalsmith-static",
     "description": "Copy public assets into the build directory."
   },
-   {
+  {
     "name": "Stylus",
     "icon": "files",
     "repository": "https://github.com/esundahl/metalsmith-stylus",
