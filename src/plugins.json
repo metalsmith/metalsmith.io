@@ -186,6 +186,12 @@
     "description": "Replace attribute values in each file's metadata."
   },
   {
+    "name": "Rho",
+    "icon": "compose",
+    "repository": "https://github.com/inca/metalsmith-rho",
+    "description": "Convert Rho files to HTML."
+  },
+  {
     "name": "Sass",
     "icon": "files",
     "repository": "https://github.com/stevenschobert/metalsmith-sass",
