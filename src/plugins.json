@@ -62,7 +62,7 @@
   {
      "name": "Define",
      "icon": "tag",
-     "repostory": "https://github.com/aymericbeaumet/metalsmith-define",
+     "repository": "https://github.com/aymericbeaumet/metalsmith-define",
      "description": "Manually define values in the metadata."
   },
   {
