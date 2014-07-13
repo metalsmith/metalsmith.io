@@ -222,6 +222,12 @@
     "description": "Convert Stylus files to CSS."
   },
   {
+    "name": "Tags",
+    "icon": "tag",
+    "repository": "https://github.com/totocaster/metalsmith-tags",
+    "description": "Generate tag listing pages based on tags provided in pages."
+  },
+  {
     "name": "Title",
     "icon": "lightbulb",
     "repository": "https://github.com/OzzyCzech/metalsmith-title",
