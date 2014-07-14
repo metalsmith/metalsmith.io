@@ -96,6 +96,12 @@
     "description": "Insert a hash of the content into the file name."
   },
   {
+    "name": "Gravatar",
+    "icon": "users",
+    "repository": "https://github.com/stevenschobert/metalsmith-gravatar",
+    "description": "Pull in images from Gravatar.com."
+  },
+  {
     "name": "gulpsmith",
     "icon": "fork",
     "repository": "https://github.com/pjeby/gulpsmith",
