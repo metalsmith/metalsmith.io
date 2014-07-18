@@ -262,5 +262,11 @@
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-webpack",
     "description": "Bundle CommonJS, AMD and ES6 modules."
+  },
+  {
+    "name": "Contentful",
+    "icon": "layergroup",
+    "repository": "https://github.com/contentful/contentful-metalsmith",
+    "description": "Create static sites with data stored at Contentful.com"
   }
 ]
