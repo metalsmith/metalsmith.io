@@ -48,6 +48,12 @@
     "description": "Compile CoffeeScript files to Javascript."
   },
   {
+     "name": "Concat",
+     "icon": "shredder",
+     "repository": "https://github.com/aymericbeaumet/metalsmith-concat",
+     "description": "Concatenate your files.".
+  },
+  {
     "name": "Copy",
     "icon": "addfile",
     "repository": "https://github.com/mattwidmann/metalsmith-copy",
