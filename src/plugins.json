@@ -30,6 +30,12 @@
     "description": "Add a build date, for things like feeds or sitemaps."
   },
   {
+     "name": "Clean CSS",
+     "icon": "shredder",
+     "repository": "https://github.com/aymericbeaumet/metalsmith-clean-css",
+     "description": "Minify your CSS Files."
+  },
+  {
     "name": "Clean Script",
     "icon": "shredder",
     "repository": "https://github.com/srcreigh/metalsmith-cleanscript",
