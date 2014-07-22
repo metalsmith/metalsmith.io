@@ -49,9 +49,9 @@
   },
   {
      "name": "Concat",
-     "icon": "shredder",
+     "icon": "files",
      "repository": "https://github.com/aymericbeaumet/metalsmith-concat",
-     "description": "Concatenate your files.".
+     "description": "Concatenate your files."
   },
   {
     "name": "Copy",
