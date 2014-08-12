@@ -126,6 +126,12 @@
     "description": "Extract headings from HTML files and attach them to the file's metadata. Useful for automatically building navigation for a document."
   },
   {
+    "name": "HTML Minifier",
+    "icon": "shredder",
+    "repository": "https://github.com/whymarrh/metalsmith-html-minifier",
+    "description": "Minify your HTML files."
+  },
+  {
     "name": "Ignore",
     "icon": "ban",
     "repository": "https://github.com/segmentio/metalsmith-ignore",
