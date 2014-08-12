@@ -102,7 +102,7 @@
     "description": "Extract the first paragraph from the beginning of any Markdown file."
   },
   {
-    "name": "File metadata",
+    "name": "File Metadata",
     "icon": "files",
     "repository": "https://github.com/dpobel/metalsmith-filemetadata",
     "description": "Add metadata on files based on a pattern"
@@ -184,6 +184,12 @@
     "icon": "crop",
     "repository": "https://github.com/kfranqueiro/metalsmith-more",
     "description": "Stores the content before the \"more\" comment tag in HTML files."
+  },
+  {
+    "name": "Mtime",
+    "icon": "clock",
+    "repository": "https://github.com/jkuczm/metalsmith-mtime",
+    "description": "Add files last modification times to their metadata."
   },
   {
     "name": "Only",
