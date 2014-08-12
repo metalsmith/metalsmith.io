@@ -60,22 +60,28 @@
      "description": "Concatenate your files."
   },
   {
+    "name": "Contentful",
+    "icon": "layergroup",
+    "repository": "https://github.com/contentful/contentful-metalsmith",
+    "description": "Create static sites with data stored at Contentful.com"
+  },
+  {
     "name": "Copy",
     "icon": "addfile",
     "repository": "https://github.com/mattwidmann/metalsmith-copy",
     "description": "Copy and rename files."
   },
   {
-    "name": "Drafts",
-    "icon": "erase",
-    "repository": "https://github.com/segmentio/metalsmith-drafts",
-    "description": "Hide any files marked as drafts."
-  },
-  {
      "name": "Define",
      "icon": "tag",
      "repository": "https://github.com/aymericbeaumet/metalsmith-define",
      "description": "Manually define values in the metadata."
+  },
+  {
+    "name": "Drafts",
+    "icon": "erase",
+    "repository": "https://github.com/segmentio/metalsmith-drafts",
+    "description": "Hide any files marked as drafts."
   },
   {
     "name": "Encode HTML",
@@ -114,7 +120,7 @@
     "description": "Pull in images from Gravatar.com."
   },
   {
-    "name": "gulpsmith",
+    "name": "Gulpsmith",
     "icon": "fork",
     "repository": "https://github.com/pjeby/gulpsmith",
     "description": "Use Gulp plugins in Metalsmith, or Metalsmith as a Gulp plugin.  Useful for uploading files, reading less than an entire directory tree, using external front matter, etc."
@@ -144,6 +150,12 @@
     "description": "Make other source files available as properties."
   },
   {
+    "name": "Jade",
+    "icon": "compose",
+    "repository": "https://github.com/skinkworks/metalsmith-jade",
+    "description": "Convert Jade files to HTML."
+  },
+  {
     "name": "JSON",
     "icon": "files",
     "repository": "https://github.com/antiBaconMachine/metalsmith-json",
@@ -160,12 +172,6 @@
     "icon": "compose",
     "repository": "https://github.com/segmentio/metalsmith-markdown",
     "description": "Convert Markdown files to HTML."
-  },
-  {
-    "name": "Jade",
-    "icon": "compose",
-    "repository": "https://github.com/skinkworks/metalsmith-jade",
-    "description": "Convert Jade files to HTML."
   },
   {
     "name": "Metadata",
@@ -276,15 +282,9 @@
     "description": "Watching for file changes and trigger rebuilds."
   },
   {
-    "name": "webpack",
+    "name": "Webpack",
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-webpack",
     "description": "Bundle CommonJS, AMD and ES6 modules."
-  },
-  {
-    "name": "Contentful",
-    "icon": "layergroup",
-    "repository": "https://github.com/contentful/contentful-metalsmith",
-    "description": "Create static sites with data stored at Contentful.com"
   }
 ]
