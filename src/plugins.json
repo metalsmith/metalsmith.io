@@ -168,6 +168,12 @@
     "description": "Convert LESS files to CSS."
   },
   {
+    "name": "Lunr Search",
+    "icon": "search",
+    "repository": "https://github.com/CMClay/metalsmith-lunr",
+    "description": "Implement Lunr.js client-side search engine."
+  },
+  {
     "name": "Markdown",
     "icon": "compose",
     "repository": "https://github.com/segmentio/metalsmith-markdown",
