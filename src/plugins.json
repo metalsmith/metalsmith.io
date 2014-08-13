@@ -92,7 +92,7 @@
   {
     "name": "Except",
     "icon": "files",
-    "repository": "https://github.com/Jeremial/metalsmith-except",
+    "repository": "https://github.com/Treri/metalsmith-except",
     "description": "Omit attributes from each file's metadata."
   },
   {
@@ -194,7 +194,7 @@
   {
     "name": "Only",
     "icon": "files",
-    "repository": "https://github.com/Jeremial/metalsmith-only",
+    "repository": "https://github.com/Treri/metalsmith-only",
     "description": "Filter out attributes from each file's metadata."
   },
   {
@@ -224,7 +224,7 @@
   {
     "name": "Replace",
     "icon": "files",
-    "repository": "https://github.com/Jeremial/metalsmith-replace",
+    "repository": "https://github.com/Treri/metalsmith-replace",
     "description": "Replace attribute values in each file's metadata."
   },
   {
