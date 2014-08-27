@@ -216,6 +216,12 @@
     "description": "Apply custom permalinks and rename files to be nested properly for static sites, basically converting `about.html` into `about/index.html`."
   },
   {
+    "name": "Prismic",
+    "icon": "layergroup",
+    "repository": "https://github.com/mbanting/metalsmith-prismic",
+    "description": "Create static sites with data stored at Prismic.io"
+  },  
+  {
     "name": "Prompt",
     "icon": "chat",
     "repository": "https://github.com/segmentio/metalsmith-prompt",
