@@ -229,7 +229,7 @@
   },
   {
     "name": "Publish",
-    "icon": "chat",
+    "icon": "files",
     "repository": "https://github.com/mikestopcontinues/metalsmith-publish",
     "description": "Declare files as draft, private, or future-dated and use callback to automate rebuilds."
   },
