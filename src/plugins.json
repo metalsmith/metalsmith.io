@@ -228,6 +228,12 @@
     "description": "Prompt the user for series of answers in the command line and add them to the global metadata."
   },
   {
+    "name": "Publish",
+    "icon": "chat",
+    "repository": "https://github.com/mikestopcontinues/metalsmith-publish",
+    "description": "Declare files as draft, private, or future-dated and use callback to automate rebuilds."
+  },
+  {
      "name": "Redirect",
      "icon": "link",
      "repository": "https://github.com/aymericbeaumet/metalsmith-redirect",
