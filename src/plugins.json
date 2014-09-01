@@ -220,7 +220,7 @@
     "icon": "layergroup",
     "repository": "https://github.com/mbanting/metalsmith-prismic",
     "description": "Create static sites with data stored at Prismic.io"
-  },  
+  },
   {
     "name": "Prompt",
     "icon": "chat",
@@ -262,6 +262,12 @@
     "icon": "gridlines",
     "repository": "https://github.com/ericgj/metalsmith-shortcodes",
     "description": "Render wordpress-esque shortcodes via templates."
+  },
+  {
+    "name": "Slug",
+    "icon": "hyphen",
+    "repository": "https://github.com/nsonnad/metalsmith-slug",
+    "description": "Add a slug property to file metadata, based on a another property."
   },
   {
     "name": "Static",
