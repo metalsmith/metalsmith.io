@@ -126,6 +126,12 @@
     "description": "Use Gulp plugins in Metalsmith, or Metalsmith as a Gulp plugin.  Useful for uploading files, reading less than an entire directory tree, using external front matter, etc."
   },
   {
+    "name": "Gzip",
+    "icon": "files",
+    "repository": "https://github.com/ludovicofischer/metalsmith-gzip",
+    "description": "Compress files with gzip."
+  },
+  {
     "name": "Headings",
     "icon": "rows",
     "repository": "https://github.com/segmentio/metalsmith-headings",
