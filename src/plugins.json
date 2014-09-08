@@ -84,6 +84,12 @@
     "description": "Hide any files marked as drafts."
   },
   {
+    "name": "Duo",
+    "icon": "files",
+    "repository": "https://github.com/axyz/metalsmith-duo",
+    "description": "Compile assets with Duo."
+  },
+  {
     "name": "Encode HTML",
     "icon": "files",
     "repository": "https://github.com/jscheel/metalsmith-encode-html",
