@@ -210,6 +210,12 @@
     "description": "Add files last modification times to their metadata."
   },
   {
+    "name": "Navigation",
+    "icon": "signpost",
+    "repository": "https://github.com/unstoppablecarl/metalsmith-navigation",
+    "description": "Generate navigation based on file trees"
+  }
+  {
     "name": "Only",
     "icon": "files",
     "repository": "https://github.com/Treri/metalsmith-only",
