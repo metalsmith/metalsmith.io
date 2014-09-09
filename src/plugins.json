@@ -214,7 +214,7 @@
     "icon": "signpost",
     "repository": "https://github.com/unstoppablecarl/metalsmith-navigation",
     "description": "Generate navigation based on file trees"
-  }
+  },
   {
     "name": "Only",
     "icon": "files",
