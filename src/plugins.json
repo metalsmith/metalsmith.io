@@ -204,12 +204,6 @@
     "description": "Stores the content before the \"more\" comment tag in HTML files."
   },
   {
-    "name": "Mtime",
-    "icon": "clock",
-    "repository": "https://github.com/jkuczm/metalsmith-mtime",
-    "description": "Add files last modification times to their metadata."
-  },
-  {
     "name": "Navigation",
     "icon": "signpost",
     "repository": "https://github.com/unstoppablecarl/metalsmith-navigation",
