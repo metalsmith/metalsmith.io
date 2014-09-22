@@ -90,6 +90,12 @@
     "description": "Compile assets with Duo."
   },
   {
+    "name": "Each",
+    "icon": "comb",
+    "repository": "https://github.com/wilsaj/metalsmith-each",
+    "description": "Easily apply a function to each file or filename."
+  },
+  {
     "name": "Encode HTML",
     "icon": "files",
     "repository": "https://github.com/jscheel/metalsmith-encode-html",
