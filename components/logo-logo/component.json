@@ -1,7 +1,7 @@
 {
   "name": "logo",
   "repo": "logo/logo",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "description": "Easily include a logo on your site without editing images.",
   "styles": [
