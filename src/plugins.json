@@ -48,6 +48,12 @@
     "description": "Group files together, like blog posts. That way you can loop over them to generate an index, or add 'next' and 'previous' links between them."
   },
   {
+    "name": "Collections Paginate",
+    "icon": "layergroup",
+    "repository": "https://github.com/blakeembrey/metalsmith-collections-paginate",
+    "description": "Paginate collections into multiple files."
+  }
+  {
     "name": "Coffee",
     "icon": "files",
     "repository": "https://github.com/joaoafrmartins/metalsmith-coffee",
@@ -292,6 +298,12 @@
     "icon": "hyphen",
     "repository": "https://github.com/nsonnad/metalsmith-slug",
     "description": "Add a slug property to file metadata, based on a another property."
+  },
+  {
+    "name": "Snippet",
+    "icon": "unquote",
+    "repository": "https://github.com/blakeembrey/metalsmith-snippet",
+    "description": "Extract snippets from files, limited by a maximum number of characters."
   },
   {
     "name": "Static",
