@@ -52,7 +52,7 @@
     "icon": "layergroup",
     "repository": "https://github.com/blakeembrey/metalsmith-collections-paginate",
     "description": "Paginate collections into multiple files."
-  }
+  },
   {
     "name": "Coffee",
     "icon": "files",
