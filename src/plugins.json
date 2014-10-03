@@ -210,6 +210,12 @@
     "description": "Load metadata from JSON or YAML files."
   },
   {
+    "name": "Metallic",
+    "icon": "rainbow",
+    "repository": "https://github.com/weswigham/metalsmith-metallic",
+    "description": "Highlight code in markdown files with highlight.js."
+  },
+  {
     "name": "More",
     "icon": "crop",
     "repository": "https://github.com/kfranqueiro/metalsmith-more",
