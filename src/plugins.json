@@ -288,6 +288,12 @@
     "description": "Convert Sass files to CSS."
   },
   {
+    "name": "Serve",
+    "icon": "steampot",
+    "repository": "https://github.com/mayo/metalsmith-serve",
+    "description": "Simple http server for development. Best used with metalsmith-watch."
+  },
+  {
     "name": "Shortcodes",
     "icon": "gridlines",
     "repository": "https://github.com/ericgj/metalsmith-shortcodes",
