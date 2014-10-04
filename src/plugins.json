@@ -120,10 +120,16 @@
     "description": "Extract the first paragraph from the beginning of any Markdown file."
   },
   {
+     "name": "Feed",
+     "icon": "sugarpackets",
+     "repository": "https://github.com/hurrymaplelad/metalsmith-feed",
+     "description": "Generate an RSS feed for a collection."
+  },
+  {
     "name": "File Metadata",
     "icon": "files",
     "repository": "https://github.com/dpobel/metalsmith-filemetadata",
-    "description": "Add metadata on files based on a pattern"
+    "description": "Add metadata on files based on a pattern."
   },
   {
     "name": "Fingerprint",
