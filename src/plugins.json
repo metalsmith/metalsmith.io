@@ -72,6 +72,12 @@
     "description": "Create static sites with data stored at Contentful.com"
   },
   {
+    "name": "Convert",
+    "icon": "files",
+    "repository": "https://github.com/tomterl/metalsmith-convert",
+    "description": "Convert image files with imagemagick."
+  },
+  {
     "name": "Copy",
     "icon": "addfile",
     "repository": "https://github.com/mattwidmann/metalsmith-copy",
