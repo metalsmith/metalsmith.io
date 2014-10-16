@@ -234,6 +234,12 @@
     "description": "Stores the content before the \"more\" comment tag in HTML files."
   },
   {
+    "name": "Myth",
+    "icon": "files",
+    "repository": "https://github.com/kasperisager/metalsmith-myth",
+    "description": "Preprocess CSS files with Myth."
+  },
+  {
     "name": "Navigation",
     "icon": "signpost",
     "repository": "https://github.com/unstoppablecarl/metalsmith-navigation",
