@@ -144,6 +144,12 @@
     "description": "Insert a hash of the content into the file name."
   },
   {
+    "name": "Gist",
+    "icon": "fork",
+    "repository": "https://github.com/expalmer/metalsmith-gist",
+    "description": "Lets you get gists from Github Gist"
+  },
+  {
     "name": "Gravatar",
     "icon": "users",
     "repository": "https://github.com/stevenschobert/metalsmith-gravatar",
