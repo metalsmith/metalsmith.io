@@ -84,9 +84,9 @@
     "description": "Copy and rename files."
   },
   {
-     "name": "Datamarkdown",
+     "name": "Data Markdown",
      "icon": "gridlines",
-     "repository": "https://github.com/majodev/metalsmith-datamarkdown",
+     "repository": "https://github.com/majodev/metalsmith-data-markdown",
      "description": "Use markdown content within html tags via data-markdown attribute."
   },
   {
@@ -180,9 +180,9 @@
     "description": "Extract headings from HTML files and attach them to the file's metadata. Useful for automatically building navigation for a document."
   },
   {
-    "name": "Headingsidentifier",
+    "name": "Headings Identifier",
     "icon": "rows",
-    "repository": "https://github.com/majodev/metalsmith-headingsidentifier",
+    "repository": "https://github.com/majodev/metalsmith-headings-identifier",
     "description": "Add an id and anchor to all headings on a page. Ideal for permalinks."
   },
   {
@@ -408,9 +408,9 @@
     "description": "Bundle CommonJS, AMD and ES6 modules."
   },
   {
-    "name": "Wordcount",
+    "name": "Word Count",
     "icon": "lightbulb",
-    "repository": "https://github.com/majodev/metalsmith-wordcount",
+    "repository": "https://github.com/majodev/metalsmith-word-count",
     "description": "Compute wordcount and average reading time."
   }
 ]
