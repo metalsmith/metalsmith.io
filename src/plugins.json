@@ -222,6 +222,12 @@
     "description": "Convert Markdown files to HTML."
   },
   {
+    "name": "MultiMarkdown",
+    "icon": "compose",
+    "repository": "https://github.com/mgnt/metalsmith-multimarkdown",
+    "description": "Convert Markdown files to HTML using MultiMarkdown-4 syntax."
+  },
+  {
     "name": "Metadata",
     "icon": "tag",
     "repository": "https://github.com/segmentio/metalsmith-metadata",
