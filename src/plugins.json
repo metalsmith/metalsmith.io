@@ -90,6 +90,12 @@
      "description": "Use markdown content within html tags via data-markdown attribute."
   },
   {
+     "name": "Date in filename",
+     "icon": "files",
+     "repository": "https://github.com/sanx/metalsmith-date-in-filename",
+     "description": "Enrich file metadata with dates present in source filenames."
+  },
+  {
      "name": "Define",
      "icon": "tag",
      "repository": "https://github.com/aymericbeaumet/metalsmith-define",
