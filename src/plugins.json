@@ -48,12 +48,6 @@
     "description": "Group files together, like blog posts. That way you can loop over them to generate an index, or add 'next' and 'previous' links between them."
   },
   {
-    "name": "Collections Paginate",
-    "icon": "layergroup",
-    "repository": "https://github.com/blakeembrey/metalsmith-collections-paginate",
-    "description": "Paginate collections into multiple files."
-  },
-  {
     "name": "Coffee",
     "icon": "files",
     "repository": "https://github.com/joaoafrmartins/metalsmith-coffee",
@@ -286,6 +280,12 @@
     "icon": "files",
     "repository": "https://github.com/RobinThrift/metalsmith-paginate",
     "description": "A simple plugin that uses metalsmith-collections to create a paginated collection."
+  },
+  {
+    "name": "Pagination",
+    "icon": "files",
+    "repository": "https://github.com/blakeembrey/metalsmith-pagination",
+    "description": "Paginate arrays and collections into multiple files."
   },
   {
     "name": "Permalinks",
