@@ -222,6 +222,12 @@
     "description": "Parse .json files and make their properties available to downstream plugins."
   },
   {
+    "name": "KSS",
+    "icon": "files",
+    "repository": "https://github.com/kwizzn/metalsmith-kss",
+    "description": "Add KSS styleguide information."
+  },
+  {
     "name": "LESS",
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-less",
