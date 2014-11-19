@@ -22,7 +22,7 @@ module.exports = build;
  * @param {Function} fn(err)
  */
 
-function build(fn){
+function build(fn) {
 
   /**
    * Component.
