@@ -198,6 +198,12 @@
     "description": "Ignore any files that match a pattern."
   },
   {
+    "name": "In-place",
+    "icon": "files",
+    "repository": "https://github.com/superwolff/metalsmith-in-place",
+    "description": "In-place templating, render templates in your source files."
+  },
+  {
     "name": "Include",
     "icon": "downloadfolder",
     "repository": "https://github.com/treygriffith/metalsmith-include",
@@ -220,6 +226,12 @@
     "icon": "files",
     "repository": "https://github.com/kwizzn/metalsmith-kss",
     "description": "Add KSS styleguide information."
+  },
+  {
+    "name": "Layouts",
+    "icon": "files",
+    "repository": "https://github.com/superwolff/metalsmith-layouts",
+    "description": "Apply layouts to your source files."
   },
   {
     "name": "LESS",
