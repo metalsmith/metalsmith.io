@@ -294,6 +294,12 @@
     "description": "Paginate arrays and collections into multiple files."
   },
   {
+     "name": "PDF",
+     "icon": "pdf",
+     "repository": "https://github.com/jjclark1982/metalsmith-pdf",
+     "description": "Convert HTML files to PDF using wkhtmltopdf"
+  },
+  {
     "name": "Permalinks",
     "icon": "link",
     "repository": "https://github.com/segmentio/metalsmith-permalinks",
