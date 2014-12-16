@@ -150,6 +150,12 @@
     "description": "Insert a hash of the content into the file name."
   },
   {
+    "name": "Flatten",
+    "icon": "files",
+    "repository": "https://github.com/chadly/metalsmith-flatten",
+    "description": "Flatten a directory hierarchy."
+  },
+  {
     "name": "Gist",
     "icon": "fork",
     "repository": "https://github.com/expalmer/metalsmith-gist",
