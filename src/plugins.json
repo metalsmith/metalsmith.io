@@ -414,6 +414,12 @@
     "description": "Convert Stylus files to CSS."
   },
   {
+    "name": "SUITCSS",
+    "icon": "files",
+    "repository": "https://github.com/jeffjewiss/metalsmith-suitcss",
+    "description": "Preprocess CSS files with SUITCSS"
+  },
+  {
     "name": "Tags",
     "icon": "tag",
     "repository": "https://github.com/totocaster/metalsmith-tags",
