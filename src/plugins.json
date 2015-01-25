@@ -306,6 +306,12 @@
     "description": "Filter out attributes from each file's metadata."
   },
   {
+    "name": "Partial",
+    "icon": "file",
+    "repository": "https://github.com/anatoo/metalsmith-partial",
+    "description": "Provide 'partial' helper to include other files."
+  },
+  {
     "name": "Paginate",
     "icon": "files",
     "repository": "https://github.com/RobinThrift/metalsmith-paginate",
@@ -429,7 +435,13 @@
     "name": "SUITCSS",
     "icon": "files",
     "repository": "https://github.com/jeffjewiss/metalsmith-suitcss",
-    "description": "Preprocess CSS files with SUITCSS"
+    "description": "Preprocess CSS files with SUITCSS."
+  },
+  {
+    "name": "Table of Contents",
+    "icon": "file",
+    "repository": "https://github.com/anatoo/metalsmith-autotoc",
+    "description": "Generate a table of contents from a document headers."
   },
   {
     "name": "Tags",
