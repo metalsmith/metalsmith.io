@@ -306,6 +306,12 @@
     "description": "Paginate arrays and collections into multiple files."
   },
   {
+    "name": "Pandoc",
+    "icon": "compose",
+    "repository": "https://github.com/arve0/metalsmith-pandoc",
+    "description": "Convert files with pandoc."
+  },
+  {
      "name": "PDF",
      "icon": "pdf",
      "repository": "https://github.com/jjclark1982/metalsmith-pdf",
