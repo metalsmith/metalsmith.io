@@ -378,6 +378,12 @@
     "description": "Convert Sass files to CSS."
   },
   {
+    "name": "Series",
+    "icon": "signpost",
+    "repository": "https://github.com/jocelynlecomte/metalsmith-series",
+    "description": "Groups files into series for easier navigation"
+  },
+  {
     "name": "Serve",
     "icon": "steampot",
     "repository": "https://github.com/mayo/metalsmith-serve",
