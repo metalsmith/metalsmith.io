@@ -204,6 +204,12 @@
     "description": "Ignore any files that match a pattern."
   },
   {
+    "name": "Imagemin",
+    "icon": "picture",
+    "repository": "https://github.com/ahmadnassri/metalsmith-imagemin",
+    "description": "A Metalsmith plugin to minify images using imagemin."
+  },
+  {
     "name": "In-place",
     "icon": "files",
     "repository": "https://github.com/superwolff/metalsmith-in-place",
