@@ -444,6 +444,12 @@
     "description": "Preprocess CSS files with SUITCSS."
   },
   {
+    "name": "Swig Helpers",
+    "icon": "gridlines",
+    "repository": "https://github.com/madeofpeople/metalsmith-swig-helpers/",
+    "description": "Useful bits for those of us using swig"
+  },
+  {
     "name": "Table of Contents",
     "icon": "file",
     "repository": "https://github.com/anatoo/metalsmith-autotoc",
