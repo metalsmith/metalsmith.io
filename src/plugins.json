@@ -264,6 +264,12 @@
     "description": "Convert Markdown files to HTML."
   },
   {
+    "name": "Markdown-it",
+    "icon": "compose",
+    "repository": "https://github.com/mayo/metalsmith-markdownit",
+    "description": "Convert Markdown files to HTML using markdown-it."
+  },
+  {
     "name": "MultiMarkdown",
     "icon": "compose",
     "repository": "https://github.com/mgnt/metalsmith-multimarkdown",
