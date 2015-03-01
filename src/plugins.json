@@ -372,6 +372,12 @@
     "description": "Declare files as draft, private, or future-dated and use callback to automate rebuilds."
   },
   {
+    "name": "React Templates",
+    "icon": "gridlines",
+    "repository": "https://github.com/yeojz/metalsmith-react-templates",
+    "description": "Render any file using React JS based component templates"
+  },
+  {
      "name": "Redirect",
      "icon": "link",
      "repository": "https://github.com/aymericbeaumet/metalsmith-redirect",
