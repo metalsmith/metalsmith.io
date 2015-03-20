@@ -514,5 +514,11 @@
     "icon": "lightbulb",
     "repository": "https://github.com/majodev/metalsmith-word-count",
     "description": "Compute wordcount and average reading time."
+  },
+  {
+    "name": "Write Metadata",
+    "icon": "files",
+    "repository": "https://github.com/Waxolunist/metalsmith-writemetadata",
+    "description": "Write the metadata excerpted from the files to the filesystem as json files."
   }
 ]
