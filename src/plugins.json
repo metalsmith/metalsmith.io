@@ -354,6 +354,12 @@
     "description": "A Metalsmith plugin to retrieve data stored in PooleApp.com."
   },
   {
+     "name": "Placeholder",
+     "icon": "files",
+     "repository": "https://github.com/mattly/metalsmith-placeholder",
+     "description": "Stub content-less files from JSON/Yaml metadata files"
+  },
+  {
     "name": "Prismic",
     "icon": "layergroup",
     "repository": "https://github.com/mbanting/metalsmith-prismic",
