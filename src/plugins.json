@@ -270,6 +270,12 @@
     "description": "Convert Markdown files to HTML using markdown-it."
   },
   {
+    "name": "Markdown-Remarkable",
+    "icon": "compose",
+    "repository": "https://github.com/attentif/metalsmith-markdown-remarkable",
+    "description": "Convert Markdown files to HTML using Remarkable."
+  },
+  {
     "name": "MultiMarkdown",
     "icon": "compose",
     "repository": "https://github.com/mgnt/metalsmith-multimarkdown",
