@@ -498,6 +498,12 @@
     "description": "Render any file through a templating engine of your choice."
   },
   {
+    "name": "Typography",
+    "icon": "compose",
+    "repository": "https://github.com/algenon/metalsmith-typography",
+    "description": "Enhance typography in HTML files."
+  },
+  {
     "name": "Uglify",
     "icon": "shredder",
     "repository": "https://github.com/ksmithut/metalsmith-uglify",
