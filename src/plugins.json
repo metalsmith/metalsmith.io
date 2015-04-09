@@ -114,6 +114,12 @@
     "description": "Easily apply a function to each file or filename."
   },
   {
+    "name": "Elevate",
+    "icon": "files",
+    "repository": "https://github.com/tylersticka/metalsmith-elevate",
+    "description": "Bump files up one or more directories."
+  },
+  {
     "name": "Encode HTML",
     "icon": "files",
     "repository": "https://github.com/jscheel/metalsmith-encode-html",
