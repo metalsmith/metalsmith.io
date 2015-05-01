@@ -330,6 +330,12 @@
     "description": "Filter out attributes from each file's metadata."
   },
   {
+    "name": "Paths",
+    "icon": "file",
+    "repository": "https://github.com/ahmadnassri/metalsmith-paths",
+    "description": "adds file path values (dirname, extname, basename, path) to metadata"
+  },
+  {
     "name": "Partial",
     "icon": "file",
     "repository": "https://github.com/anatoo/metalsmith-partial",
