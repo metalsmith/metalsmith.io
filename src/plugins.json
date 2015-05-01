@@ -240,6 +240,12 @@
     "description": "Convert Jade files to HTML."
   },
   {
+    "name": "jQuery",
+    "icon": "file",
+    "repository": "https://github.com/manheim/metalsmith-jquery",
+    "description": "Manipulate your HTML files with jQuery."
+  },
+  {
     "name": "JSON",
     "icon": "files",
     "repository": "https://github.com/antiBaconMachine/metalsmith-json",
