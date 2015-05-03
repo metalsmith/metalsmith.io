@@ -24,6 +24,12 @@
     "description": "Run separate metalsmith pipelines on selected files."
   },
   {
+    "name": "Broken Link Checker",
+    "icon": "link",
+    "repository": "https://github.com/davidxmoody/metalsmith-broken-link-checker",
+    "description": "Check for relative and root-relative broken links."
+  },
+  {
     "name": "Browser Sync",
     "icon": "steampot",
     "repository": "https://github.com/mdvorscak/metalsmith-browser-sync",
