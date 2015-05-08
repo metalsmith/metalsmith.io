@@ -330,6 +330,12 @@
     "description": "Preprocess CSS files with Myth."
   },
   {
+     "name": "Move Up",
+     "icon": "files",
+     "repository": "https://github.com/mcdonnelldean/metalsmith-move-up",
+     "description": "Move whole directories and their contents up one or more levels."
+  }
+  {
     "name": "Navigation",
     "icon": "signpost",
     "repository": "https://github.com/unstoppablecarl/metalsmith-navigation",
