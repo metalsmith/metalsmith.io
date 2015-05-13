@@ -444,6 +444,12 @@
     "description": "Convert Rho files to HTML."
   },
   {
+    "name": "Request",
+    "icon": "globe",
+    "repository": "https://github.com/ahmadnassri/metalsmith-request",
+    "description": "Grab content from the web and expose the results to metadata."
+  },
+  {
     "name": "S3",
     "icon": "files",
     "repository": "https://github.com/mwishek/metalsmith-s3",
