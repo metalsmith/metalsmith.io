@@ -42,6 +42,12 @@
     "description": "Add a build date, for things like feeds or sitemaps."
   },
   {
+    "name": "Changed",
+    "icon": "shredder",
+    "repository": "https://github.com/arve0/metalsmith-changed",
+    "description": "Process only files that have changed."
+  },
+  {
      "name": "Clean CSS",
      "icon": "shredder",
      "repository": "https://github.com/aymericbeaumet/metalsmith-clean-css",
