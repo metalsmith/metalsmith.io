@@ -348,6 +348,12 @@
     "description": "Filter out attributes from each file's metadata."
   },
   {
+    "name": "PackageJSON",
+    "icon": "gift",
+    "repository": "https://www.npmjs.com/package/metalsmith-packagejson",
+    "description": "Parses the contents of package.json and makes them available in a global 'pkg'"
+  },
+  {
     "name": "Paths",
     "icon": "file",
     "repository": "https://github.com/ahmadnassri/metalsmith-paths",
