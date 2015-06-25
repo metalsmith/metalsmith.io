@@ -162,6 +162,12 @@
     "description": "Add metadata on files based on a pattern."
   },
   {
+    "name": "File Transform",
+    "icon": "files",
+    "repository": "https://github.com/yeojz/metalsmith-transform",
+    "description": "Allows quick manipulation of the file object."
+  },
+  {
     "name": "Fingerprint",
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-fingerprint",
