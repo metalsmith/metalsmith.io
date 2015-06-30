@@ -172,18 +172,25 @@ hr:nth-of-type(6) {
 }
 
 /**
- * Plugin.
+ * Plugin search.
  */
+.Plugin-search {
+  padding: 1.5em 2em;
+  background-color: white;
+  margin-bottom: 1px;
+}
+
 .Plugin-search input {
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-  box-sizing: border-box;         /* Opera/IE 8+ */
   width: 100%;
+  box-sizing: border-box;
   padding: .5em;
   border: var(light-gray) 1px solid;
   border-radius: 3px;
 }
 
+/**
+ * Plugin.
+ */
 .Plugin {
   position: relative;
   padding: 1.5em;

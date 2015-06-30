@@ -177,9 +177,10 @@ An unfinished article...
 <h1 id="the-plugins">The Plugins</h1>
 <p>The core Metalsmith library doesn’t bundle any plugins by default. You just require new ones as needed, or make your own! </p>
 <p>Here’s a list of the current plugins:</p>
-<p><div class="Plugin Plugin-search">
+<div class="Plugin-search">
   <input placeholder="Search…" />
-</div></p>
+</div>
+
 <ul class="Plugin-list">
 
   <li class="Plugin">
@@ -960,32 +961,6 @@ An unfinished article...
 
 </ul>
 
-
-<script>
-  var search  = document.querySelector('.Plugin-search input');
-  var plugins = [];
-
-  [].forEach.call(document.querySelectorAll('.Plugin-list .Plugin'), function (el) {
-    plugins.push({
-      el:    el,
-      title: el.querySelector('.Plugin-title').textContent.toLowerCase(),
-      desc:  el.querySelector('.Plugin-description').textContent.toLowerCase()
-    });
-  });
-
-  search.addEventListener('keyup', function () {
-    var value = this.value.toLowerCase();
-
-    plugins.forEach(function (p) {
-      var visible = (value == '') ||
-                    (p.title.indexOf(value) !== -1 || p.desc.indexOf(value) !== -1);
-
-      p.el.style.display = visible ? '' : 'none';
-    });
-  });
-</script>
-
-
 <p>If you write your own plugin, submit a pull request to the <a href="https://github.com/segmentio/metalsmith.io/tree/master/src/plugins.json">metalsmith.io</a> repository and it will show up here!</p>
 <hr>
 
@@ -995,5 +970,8 @@ An unfinished article...
     <span class="Footer-conjunction">Built by</span>
     <h2 class="Footer-logo logo" data-logo="Segment.io"><a href="https://segment.io">Segment.io</a></h2>
   </footer>
+
+  <script type="text/javascript" src="/build.js"></script>
+  <script type="text/javascript">require('metalsmith.io');</script>
 </body>
 </html>
