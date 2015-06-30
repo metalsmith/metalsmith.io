@@ -121,6 +121,10 @@ The core Metalsmith library doesn't bundle any plugins by default. You just requ
 
 Here's a list of the current plugins:
 
+<div class="Plugin Plugin-search">
+  <input placeholder="Search…" />
+</div>
+
 <ul class="Plugin-list">
 {% for plugin in plugins %}
   <li class="Plugin">
@@ -132,6 +136,32 @@ Here's a list of the current plugins:
   </li>
 {% endfor %}
 </ul>
+
+{% autoescape false %}
+<script>
+  var search  = document.querySelector('.Plugin-search input');
+  var plugins = [];
+
+  [].forEach.call(document.querySelectorAll('.Plugin-list .Plugin'), function (el) {
+    plugins.push({
+      el:    el,
+      title: el.querySelector('.Plugin-title').textContent.toLowerCase(),
+      desc:  el.querySelector('.Plugin-description').textContent.toLowerCase()
+    });
+  });
+
+  search.addEventListener('keyup', function () {
+    var value = this.value.toLowerCase();
+
+    plugins.forEach(function (p) {
+      var visible = (value == '') ||
+                    (p.title.indexOf(value) !== -1 || p.desc.indexOf(value) !== -1);
+
+      p.el.style.display = visible ? '' : 'none';
+    });
+  });
+</script>
+{% endautoescape %}
 
 If you write your own plugin, submit a pull request to the [metalsmith.io](https://github.com/segmentio/metalsmith.io/tree/master/src/plugins.json) repository and it will show up here!
 

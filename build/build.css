@@ -806,6 +806,19 @@ hr:nth-of-type(6) {
  * Plugin.
  */
 
+.Plugin-search input {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+  width: 100%;
+  padding: .5em;
+  border: #ededed 1px solid;
+  border-radius: 3px;
+}
+
 .Plugin {
   position: relative;
   padding: 1.5em;
