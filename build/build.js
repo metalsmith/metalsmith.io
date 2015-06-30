@@ -204,7 +204,7 @@ var plugins = [];\n\
   });\n\
 });\n\
 \n\
-search.addEventListener('keyup', function () {\n\
+function filterPlugins() {\n\
   var value = this.value.toLowerCase();\n\
 \n\
   plugins.forEach(function (p) {\n\
@@ -213,7 +213,14 @@ search.addEventListener('keyup', function () {\n\
 \n\
     p.el.style.display = visible ? '' : 'none';\n\
   });\n\
-});\n\
+}\n\
+\n\
+// Set keyup event\n\
+search.addEventListener('keyup', filterPlugins);\n\
+\n\
+// We filter on Init in case there is some text in the search input\n\
+// this may when clicking back in the browser\n\
+filterPlugins.call(search);\n\
 //@ sourceURL=metalsmith.io/index.js"
 ));
 

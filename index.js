@@ -9,7 +9,7 @@ var plugins = [];
   });
 });
 
-search.addEventListener('keyup', function () {
+function filterPlugins() {
   var value = this.value.toLowerCase();
 
   plugins.forEach(function (p) {
@@ -18,4 +18,11 @@ search.addEventListener('keyup', function () {
 
     p.el.style.display = visible ? '' : 'none';
   });
-});
+}
+
+// Set keyup event
+search.addEventListener('keyup', filterPlugins);
+
+// Do a first filtering in case there is some text in the search input
+// this may happen when clicking back in the browser
+filterPlugins.call(search);
