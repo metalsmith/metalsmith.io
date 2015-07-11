@@ -13,7 +13,9 @@ All of the logic in Metalsmith is handled by plugins. You simply chain them toge
 <pre><code><b>Metalsmith</b>(__dirname)
   .use(<b>markdown()</b>)
   .use(<b>templates</b>(<i>'handlebars'</i>))
-  .build();
+  .build(function(err) {
+    if (err) throw err;
+  });
 </code></pre>
 
 ...but what if you want to get fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins...
@@ -23,7 +25,9 @@ All of the logic in Metalsmith is handled by plugins. You simply chain them toge
   .use(markdown())
   .use(<b>permalinks</b>(<i>'posts/:title'</i>))
   .use(templates(<i>'handlebars'</i>))
-  .build();
+  .build(function(err) {
+    if (err) throw err;
+  });
 </code></pre>
 
 ...it's as easy as that!

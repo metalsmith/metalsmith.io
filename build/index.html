@@ -30,7 +30,9 @@
 <pre><code><b>Metalsmith</b>(__dirname)
   .use(<b>markdown()</b>)
   .use(<b>templates</b>(<i>'handlebars'</i>))
-  .build();
+  .build(function(err) {
+    if (err) throw err;
+  });
 </code></pre>
 
 <p>…but what if you want to get fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins…</p>
@@ -39,7 +41,9 @@
   .use(markdown())
   .use(<b>permalinks</b>(<i>'posts/:title'</i>))
   .use(templates(<i>'handlebars'</i>))
-  .build();
+  .build(function(err) {
+    if (err) throw err;
+  });
 </code></pre>
 
 <p>…it’s as easy as that!</p>
