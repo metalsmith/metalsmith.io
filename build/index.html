@@ -177,6 +177,11 @@ An unfinished article...
 <h1 id="the-plugins">The Plugins</h1>
 <p>The core Metalsmith library doesn’t bundle any plugins by default. You just require new ones as needed, or make your own! </p>
 <p>Here’s a list of the current plugins:</p>
+<div class="Plugin-filter">
+  <i class="Plugin-filter-icon ss-search"></i>
+  <input class="Plugin-filter-input" placeholder="Filter plugins…" />
+</div>
+
 <ul class="Plugin-list">
 
   <li class="Plugin">
@@ -184,6 +189,14 @@ An unfinished article...
       <h1 class="Plugin-title">Autoprefixer<i class="Plugin-icon ss-files"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Automatically add vendor prefixes to CSS.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/hellatan/metalsmith-archive">
+      <h1 class="Plugin-title">Archive<i class="Plugin-icon ss-files"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Create an archives page organized by date fields.</p>
     </a>
   </li>
 
@@ -232,6 +245,14 @@ An unfinished article...
       <h1 class="Plugin-title">Build Date<i class="Plugin-icon ss-clock"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Add a build date, for things like feeds or sitemaps.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/arve0/metalsmith-changed">
+      <h1 class="Plugin-title">Changed<i class="Plugin-icon ss-shredder"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Process only files that have changed.</p>
     </a>
   </li>
 
@@ -316,6 +337,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/hellatan/metalsmith-date-formatter">
+      <h1 class="Plugin-title">Date Formatter<i class="Plugin-icon ss-files"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Format dates defined in the YAML Front Matter</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/aymericbeaumet/metalsmith-define">
       <h1 class="Plugin-title">Define<i class="Plugin-icon ss-tag"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -375,7 +404,7 @@ An unfinished article...
     <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-excerpts">
       <h1 class="Plugin-title">Excerpts<i class="Plugin-icon ss-unquote"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
-      <p class="Plugin-description">Extract the first paragraph from the beginning of any Markdown file.</p>
+      <p class="Plugin-description">Extract the first paragraph from the beginning of any HTML file.</p>
     </a>
   </li>
 
@@ -392,6 +421,14 @@ An unfinished article...
       <h1 class="Plugin-title">File Metadata<i class="Plugin-icon ss-files"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Add metadata on files based on a pattern.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/yeojz/metalsmith-transform">
+      <h1 class="Plugin-title">File Transform<i class="Plugin-icon ss-files"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Allows quick manipulation of the file object.</p>
     </a>
   </li>
 
@@ -464,6 +501,22 @@ An unfinished article...
       <h1 class="Plugin-title">HTML Minifier<i class="Plugin-icon ss-shredder"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Minify your HTML files.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/saneef/metalsmith-hyphenate">
+      <h1 class="Plugin-title">Hyphenate<i class="Plugin-icon ss-hyphen"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Use Hypher hyphenation engine in your HTMLs.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/deltamualpha/metalsmith-if">
+      <h1 class="Plugin-title">If<i class="Plugin-icon ss-branch"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Run plugins in the build sequence conditionally.</p>
     </a>
   </li>
 
@@ -644,6 +697,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://www.npmjs.com/package/metalsmith-packagejson">
+      <h1 class="Plugin-title">PackageJSON<i class="Plugin-icon ss-gift"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Parses the contents of package.json and makes them available in a global &#39;pkg&#39;</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/ahmadnassri/metalsmith-paths">
       <h1 class="Plugin-title">Paths<i class="Plugin-icon ss-file"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -692,6 +753,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/hellatan/metalsmith-page-titles">
+      <h1 class="Plugin-title">Page Title<i class="Plugin-icon ss-compose"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Add a global site title to every <code>&amp;lt;title&amp;gt;</code> tag.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-permalinks">
       <h1 class="Plugin-title">Permalinks<i class="Plugin-icon ss-link"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -712,6 +781,14 @@ An unfinished article...
       <h1 class="Plugin-title">Placeholder<i class="Plugin-icon ss-files"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Stub content-less files from JSON/Yaml metadata files</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/Availity/metalsmith-prism">
+      <h1 class="Plugin-title">Prism Syntax Highlighting<i class="Plugin-icon ss-rainbow"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Syntax highlighting for HTML templates using Prism.js.</p>
     </a>
   </li>
 
@@ -884,6 +961,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/deltamualpha/metalsmith-timer">
+      <h1 class="Plugin-title">Timer<i class="Plugin-icon ss-clock"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Clock how long it takes for plugins in your build sequence to run.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/OzzyCzech/metalsmith-title">
       <h1 class="Plugin-title">Title<i class="Plugin-icon ss-lightbulb"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -966,5 +1051,8 @@ An unfinished article...
     <span class="Footer-conjunction">Built by</span>
     <h2 class="Footer-logo logo" data-logo="Segment.io"><a href="https://segment.io">Segment.io</a></h2>
   </footer>
+
+  <script type="text/javascript" src="/build.js"></script>
+  <script type="text/javascript">require('metalsmith.io');</script>
 </body>
 </html>

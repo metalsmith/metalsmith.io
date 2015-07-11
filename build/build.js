@@ -192,6 +192,37 @@ require.relative = function(parent) {
 
 
 
+require.register("metalsmith.io/index.js", Function("exports, require, module",
+"var search  = document.querySelector('.Plugin-search input');\n\
+var plugins = [];\n\
+\n\
+[].forEach.call(document.querySelectorAll('.Plugin-list .Plugin'), function (el) {\n\
+  plugins.push({\n\
+    el:    el,\n\
+    title: el.querySelector('.Plugin-title').textContent.toLowerCase(),\n\
+    desc:  el.querySelector('.Plugin-description').textContent.toLowerCase()\n\
+  });\n\
+});\n\
+\n\
+function filterPlugins() {\n\
+  var value = this.value.toLowerCase();\n\
+\n\
+  plugins.forEach(function (p) {\n\
+    var visible = (value == '') ||\n\
+                  (p.title.indexOf(value) !== -1 || p.desc.indexOf(value) !== -1);\n\
+\n\
+    p.el.style.display = visible ? '' : 'none';\n\
+  });\n\
+}\n\
+\n\
+// Set keyup event\n\
+search.addEventListener('keyup', filterPlugins);\n\
+\n\
+// Do a first filtering in case there is some text in the search input\n\
+// this may happen when clicking back in the browser\n\
+filterPlugins.call(search);\n\
+//@ sourceURL=metalsmith.io/index.js"
+));
 
 
 
