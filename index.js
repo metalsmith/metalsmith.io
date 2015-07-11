@@ -1,28 +1,44 @@
-var search  = document.querySelector('.Plugin-search input');
+
+var input = document.querySelector('.Plugin-filter-input');
 var plugins = [];
+
+/**
+ * Build index.
+ */
 
 [].forEach.call(document.querySelectorAll('.Plugin-list .Plugin'), function (el) {
   plugins.push({
-    el:    el,
+    el: el,
     title: el.querySelector('.Plugin-title').textContent.toLowerCase(),
-    desc:  el.querySelector('.Plugin-description').textContent.toLowerCase()
+    description: el.querySelector('.Plugin-description').textContent.toLowerCase()
   });
 });
 
-function filterPlugins() {
-  var value = this.value.toLowerCase();
+/**
+ * Filter to start, in case there is some text in the search input, which may
+ * happen when clicking "back" in the browser. And then set a listener for
+ * future filtering.
+ */
 
-  plugins.forEach(function (p) {
-    var visible = (value == '') ||
-                  (p.title.indexOf(value) !== -1 || p.desc.indexOf(value) !== -1);
+filter();
+input.addEventListener('keyup', filter);
 
-    p.el.style.display = visible ? '' : 'none';
+/**
+ * Filter plugins.
+ */
+
+function filter() {
+  var value = input.value.toLowerCase();
+
+  plugins.forEach(function(plugin){
+    var el = plugin.el;
+    var title = plugin.title;
+    var desc = plugin.description;
+    plugin.el.style.display = '';
+
+    if (!value) return;
+    if (!~title.indexOf(value) && !~desc.indexOf(value)) {
+      el.style.display = 'none';
+    }
   });
 }
-
-// Set keyup event
-search.addEventListener('keyup', filterPlugins);
-
-// Do a first filtering in case there is some text in the search input
-// this may happen when clicking back in the browser
-filterPlugins.call(search);

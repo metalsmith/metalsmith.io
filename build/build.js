@@ -193,35 +193,50 @@ require.relative = function(parent) {
 
 
 require.register("metalsmith.io/index.js", Function("exports, require, module",
-"var search  = document.querySelector('.Plugin-search input');\n\
+"\n\
+var input = document.querySelector('.Plugin-filter-input');\n\
 var plugins = [];\n\
+\n\
+/**\n\
+ * Build index.\n\
+ */\n\
 \n\
 [].forEach.call(document.querySelectorAll('.Plugin-list .Plugin'), function (el) {\n\
   plugins.push({\n\
-    el:    el,\n\
+    el: el,\n\
     title: el.querySelector('.Plugin-title').textContent.toLowerCase(),\n\
-    desc:  el.querySelector('.Plugin-description').textContent.toLowerCase()\n\
+    description: el.querySelector('.Plugin-description').textContent.toLowerCase()\n\
   });\n\
 });\n\
 \n\
-function filterPlugins() {\n\
-  var value = this.value.toLowerCase();\n\
+/**\n\
+ * Filter to start, in case there is some text in the search input, which may\n\
+ * happen when clicking \"back\" in the browser. And then set a listener for\n\
+ * future filtering.\n\
+ */\n\
 \n\
-  plugins.forEach(function (p) {\n\
-    var visible = (value == '') ||\n\
-                  (p.title.indexOf(value) !== -1 || p.desc.indexOf(value) !== -1);\n\
+filter();\n\
+input.addEventListener('keyup', filter);\n\
 \n\
-    p.el.style.display = visible ? '' : 'none';\n\
+/**\n\
+ * Filter plugins.\n\
+ */\n\
+\n\
+function filter() {\n\
+  var value = input.value.toLowerCase();\n\
+\n\
+  plugins.forEach(function(plugin){\n\
+    var el = plugin.el;\n\
+    var title = plugin.title;\n\
+    var desc = plugin.description;\n\
+    plugin.el.style.display = '';\n\
+\n\
+    if (!value) return;\n\
+    if (!~title.indexOf(value) && !~desc.indexOf(value)) {\n\
+      el.style.display = 'none';\n\
+    }\n\
   });\n\
-}\n\
-\n\
-// Set keyup event\n\
-search.addEventListener('keyup', filterPlugins);\n\
-\n\
-// Do a first filtering in case there is some text in the search input\n\
-// this may happen when clicking back in the browser\n\
-filterPlugins.call(search);\n\
-//@ sourceURL=metalsmith.io/index.js"
+}//@ sourceURL=metalsmith.io/index.js"
 ));
 
 
