@@ -241,6 +241,12 @@
     "description": "Minify your HTML files."
   },
   {
+    "name": "Hyphenate",
+    "icon": "hyphen",
+    "repository": "https://github.com/saneef/metalsmith-hyphenate",
+    "description": "Use Hypher hyphenation engine in your HTMLs."
+  },
+  {
     "name": "Ignore",
     "icon": "ban",
     "repository": "https://github.com/segmentio/metalsmith-ignore",
