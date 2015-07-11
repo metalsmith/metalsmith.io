@@ -1,9 +1,15 @@
 [
-   {
+  {
     "name": "Autoprefixer",
     "icon": "files",
     "repository": "https://github.com/esundahl/metalsmith-autoprefixer",
     "description": "Automatically add vendor prefixes to CSS."
+  },
+  {
+    "name": "Archive",
+    "icon": "files",
+    "repository": "https://github.com/hellatan/metalsmith-archive",
+    "description": "Create an archives page organized by date fields."
   },
   {
     "name": "Assets",
@@ -106,6 +112,13 @@
      "icon": "files",
      "repository": "https://github.com/sanx/metalsmith-date-in-filename",
      "description": "Enrich file metadata with dates present in source filenames."
+  },
+
+  {
+    "name": "Date Formatter",
+    "icon": "files",
+    "repository": "https://github.com/hellatan/metalsmith-date-formatter",
+    "description": "Format dates defined in the YAML Front Matter"
   },
   {
      "name": "Define",
@@ -389,6 +402,13 @@
      "repository": "https://github.com/jjclark1982/metalsmith-pdf",
      "description": "Convert HTML files to PDF using wkhtmltopdf"
   },
+  {
+    "name": "Page Title",
+    "icon": "compose",
+    "repository": "https://github.com/hellatan/metalsmith-page-titles",
+    "description": "Add a global site title to every `<title>` tag."
+  },
+
   {
     "name": "Permalinks",
     "icon": "link",
