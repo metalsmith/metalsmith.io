@@ -408,6 +408,12 @@
      "description": "Stub content-less files from JSON/Yaml metadata files"
   },
   {
+    "name": "Prism Syntax Highlighting",
+    "icon": "rainbow",
+    "repository": "https://github.com/Availity/metalsmith-prism",
+    "description": "Syntax highlighting for HTML templates using Prism.js."
+  },
+  {
     "name": "Prismic",
     "icon": "layergroup",
     "repository": "https://github.com/mbanting/metalsmith-prismic",
