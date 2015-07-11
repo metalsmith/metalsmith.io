@@ -166,7 +166,7 @@
     "name": "Excerpts",
     "icon": "unquote",
     "repository": "https://github.com/segmentio/metalsmith-excerpts",
-    "description": "Extract the first paragraph from the beginning of any Markdown file."
+    "description": "Extract the first paragraph from the beginning of any HTML file."
   },
   {
      "name": "Feed",
