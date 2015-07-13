@@ -277,6 +277,12 @@
     "description": "Make other source files available as properties."
   },
   {
+    "name": "Hover",
+    "icon": "files",
+    "repository": "https://github.com/lambtron/metalsmith-hover",
+    "description": "Display image and gif links on mouse hover."
+  },
+  {
     "name": "Jade",
     "icon": "compose",
     "repository": "https://github.com/ahmadnassri/metalsmith-jade",
