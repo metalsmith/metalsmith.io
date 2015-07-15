@@ -247,6 +247,12 @@
     "description": "Use Hypher hyphenation engine in your HTMLs."
   },
   {
+    "name": "i18n",
+    "icon": "globe",
+    "repository": "https://github.com/doup/metalsmith-i18n",
+    "description": "Translate your strings."
+  },
+  {
     "name": "If",
     "icon": "branch",
     "repository": "https://github.com/deltamualpha/metalsmith-if",
@@ -341,6 +347,18 @@
     "icon": "compose",
     "repository": "https://github.com/attentif/metalsmith-markdown-remarkable",
     "description": "Convert Markdown files to HTML using Remarkable."
+  },
+  {
+    "name": "Mingo",
+    "icon": "layergroup",
+    "repository": "https://github.com/doup/metalsmith-mingo",
+    "description": "Wrapper for the Mingo library which allows to make MongoDB style queries."
+  },
+  {
+    "name": "Multi Language",
+    "icon": "globe",
+    "repository": "https://github.com/doup/metalsmith-multi-language",
+    "description": "Adds multi-language support to your projects."
   },
   {
     "name": "MultiMarkdown",
