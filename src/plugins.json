@@ -307,6 +307,24 @@
     "description": "Parse .json files and make their properties available to downstream plugins."
   },
   {
+    "name": "JSTransformer",
+    "icon": "files",
+    "repository": "https://github.com/RobLoach/metalsmith-jstransformer",
+    "description": "Compile content with any JSTransformer."
+  },
+  {
+    "name": "JSTransformer Layouts",
+    "icon": "gridlines",
+    "repository": "https://github.com/RobLoach/metalsmith-jstransformer-layouts",
+    "description": "Apply layouts to your source files through any JSTransformer."
+  },
+  {
+    "name": "JSTransformer Partials",
+    "icon": "file",
+    "repository": "https://github.com/RobLoach/metalsmith-jstransformer-partials",
+    "description": "Provide `partial` helpers with any JSTransformer."
+  },
+  {
     "name": "KSS",
     "icon": "files",
     "repository": "https://github.com/kwizzn/metalsmith-kss",
