@@ -644,6 +644,12 @@
     "description": "Render any file through a templating engine of your choice."
   },
   {
+    "name": "Twig",
+    "icon": "gridlines",
+    "repository": "https://github.com/PKuebler/metalsmith-twig",
+    "description": "Renders all files with the Twig template engine."
+  },
+  {
     "name": "Typography",
     "icon": "compose",
     "repository": "https://github.com/algenon/metalsmith-typography",
