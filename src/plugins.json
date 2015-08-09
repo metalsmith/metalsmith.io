@@ -764,6 +764,12 @@
     "description": "Remove unused CSS rules with UnCSS"
   },
   {
+    "name": "Unlisted",
+    "icon": "files",
+    "repository": "https://github.com/alisdair/metalsmith-unlisted",
+    "description": "Remove pages from collections, but still allow them to build"
+  },
+  {
     "name": "Validate",
     "icon": "files",
     "repository": "https://github.com/mikestopcontinues/metalsmith-validate",
