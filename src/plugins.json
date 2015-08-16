@@ -632,6 +632,12 @@
     "description": "Clock how long it takes for plugins in your build sequence to run."
   },
   {
+    "name": "Timestamp",
+    "icon": "clock",
+    "repository": "https://github.com/danielhusar/metalsmith-timestamp",
+    "description": "Add timestamp comment to html files"
+  },
+  {
     "name": "Title",
     "icon": "lightbulb",
     "repository": "https://github.com/OzzyCzech/metalsmith-title",
