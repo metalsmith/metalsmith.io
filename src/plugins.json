@@ -548,6 +548,12 @@
     "description": "Grab content from the web and expose the results to metadata."
   },
   {
+    "name": "Root Path",
+    "icon": "link",
+    "repository": "https://github.com/radiovisual/metalsmith-rootpath",
+    "description": "Auto-calculate the relative path to your root directory in template urls."
+  },
+  {
     "name": "S3",
     "icon": "files",
     "repository": "https://github.com/mwishek/metalsmith-s3",
