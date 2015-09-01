@@ -193,6 +193,12 @@
     "description": "Insert a hash of the content into the file name."
   },
   {
+    "name": "Fingerprint Ignore",
+    "icon": "files",
+    "repository": "https://github.com/superwolff/metalsmith-fingerprint-ignore",
+    "description": "Insert a hash of the content into the file name and discard the original file."
+  },
+  {
     "name": "Flatten",
     "icon": "files",
     "repository": "https://github.com/chadly/metalsmith-flatten",
