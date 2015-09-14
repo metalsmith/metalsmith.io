@@ -125,10 +125,10 @@ The core Metalsmith library doesn't bundle any plugins by default. You just requ
 
 Here's a list of the current plugins:
 
-<div class="Plugin-filter">
+<label class="Plugin-filter">
   <i class="Plugin-filter-icon ss-search"></i>
   <input class="Plugin-filter-input" placeholder="Filter plugins…" />
-</div>
+</label>
 
 <ul class="Plugin-list">
 {% for plugin in plugins %}
