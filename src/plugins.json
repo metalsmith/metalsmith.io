@@ -157,6 +157,12 @@
     "description": "Easily encode HTML entities in any HTML file by surrounding target code in triple backticks."
   },
   {
+    "name": "Excel-Markdown",
+    "icon": "files",
+    "repository": "https://github.com/patm2013/metalsmith-excel-markdown",
+    "description": "Query Excel files with SQL and convert to Markdown tables."
+  },
+  {
     "name": "Except",
     "icon": "files",
     "repository": "https://github.com/Treri/metalsmith-except",
