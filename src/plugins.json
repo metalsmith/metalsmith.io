@@ -307,6 +307,12 @@
     "description": "Parse .json files and make their properties available to downstream plugins."
   },
   {
+    "name": "JSON to files",
+    "icon": "files",
+    "repository": "https://github.com/woodyrew/metalsmith-json-to-files",
+    "description": "Creates files from the properties within .json files with filename patterns and permalinks."
+  },
+  {
     "name": "JSTransformer",
     "icon": "files",
     "repository": "https://github.com/RobLoach/metalsmith-jstransformer",
