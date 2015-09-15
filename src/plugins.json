@@ -301,6 +301,12 @@
     "description": "Display image and gif links on mouse hover."
   },
   {
+    "name": "Icons",
+    "icon": "files",
+    "repository": "https://github.com/colophonemes/metalsmith-icons",
+    "description": "Automatically generate icon font files using Fontello."
+  },
+  {
     "name": "Jade",
     "icon": "compose",
     "repository": "https://github.com/ahmadnassri/metalsmith-jade",
