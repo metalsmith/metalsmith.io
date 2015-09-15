@@ -674,6 +674,12 @@
     "description": "Uglifies/minifies your JavaScript files"
   },
   {
+    "name": "UnCSS",
+    "icon": "scaledown",
+    "repository": "https://github.com/colophonemes/metalsmith-uncss",
+    "description": "Remove unused CSS rules with UnCSS"
+  },
+  {
     "name": "Validate",
     "icon": "files",
     "repository": "https://github.com/mikestopcontinues/metalsmith-validate",
