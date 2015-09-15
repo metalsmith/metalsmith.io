@@ -211,6 +211,12 @@
     "description": "Flatten a directory hierarchy."
   },
   {
+    "name": "Gallery",
+    "icon": "image",
+    "repository": "https://github.com/clemsos/metalsmith-scan-images",
+    "description": "Scan for images in folders and add them to metadata."
+  },
+  {
     "name": "Gist",
     "icon": "fork",
     "repository": "https://github.com/expalmer/metalsmith-gist",
