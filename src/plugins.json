@@ -54,6 +54,12 @@
     "description": "Process only files that have changed."
   },
   {
+    "name": "Check All Links",
+    "icon": "link",
+    "repository": "https://gitlab.com/blue-systems-group/code.metalsmith-linkcheck",
+    "description": "Check all links, both internal and external, in anchors, images, and external page resources."
+  },
+  {
      "name": "Clean CSS",
      "icon": "shredder",
      "repository": "https://github.com/aymericbeaumet/metalsmith-clean-css",
