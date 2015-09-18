@@ -253,6 +253,12 @@
     "description": "Add an id and anchor to all headings on a page. Ideal for permalinks."
   },
   {
+    "name": "HTML5 Format Checker",
+    "icon": "files",
+    "repository": "https://gitlab.com/blue-systems-group/code.metalsmith-formatcheck",
+    "description": "Use html-validator to validate your HTML."
+  },
+  {
     "name": "HTML Minifier",
     "icon": "shredder",
     "repository": "https://github.com/whymarrh/metalsmith-html-minifier",
