@@ -524,6 +524,12 @@
      "description": "Stub content-less files from JSON/Yaml metadata files"
   },
   {
+    "name": "Prefixoid",
+    "icon": "compose",
+    "repository": "https://github.com/evoja/metalsmith-prefixoid",
+    "description": "Modifies internal urls with some prefix."
+  },
+  {
     "name": "Prism Syntax Highlighting",
     "icon": "rainbow",
     "repository": "https://github.com/Availity/metalsmith-prism",
