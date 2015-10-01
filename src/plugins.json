@@ -157,6 +157,12 @@
     "description": "Easily apply a function to each file or filename."
   },
   {
+    "name": "Eslint",
+    "icon": "files",
+    "repository": "https://github.com/ubenzer/metalsmith-eslint",
+    "description": "Eslint your JavaScript files."
+  },
+  {
     "name": "Elevate",
     "icon": "files",
     "repository": "https://github.com/tylersticka/metalsmith-elevate",
