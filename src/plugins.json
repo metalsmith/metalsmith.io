@@ -397,6 +397,12 @@
     "description": "Implement Lunr.js client-side search engine."
   },
   {
+    "name": "Mapsite",
+    "icon": "addfile",
+    "repository": "https://github.com/superwolff/metalsmith-mapsite",
+    "description": "Generate a sitemap.xml file with sitemap.js."
+  },
+  {
     "name": "Markdown",
     "icon": "compose",
     "repository": "https://github.com/segmentio/metalsmith-markdown",
