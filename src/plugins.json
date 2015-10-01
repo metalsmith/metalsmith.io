@@ -662,6 +662,12 @@
     "description": "Extract snippets from files, limited by a maximum number of characters."
   },
   {
+    "name": "Spell Checking",
+    "icon": "compose",
+    "repository": "https://gitlab.com/blue-systems-group/code.metalsmith-spellcheck",
+    "description": "Spell check your site."
+  },
+  {
     "name": "Static",
     "icon": "layergroup",
     "repository": "https://github.com/TheHydroImpulse/metalsmith-static",
