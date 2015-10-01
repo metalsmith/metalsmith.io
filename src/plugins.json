@@ -102,6 +102,12 @@
     "description": "Copy and rename files."
   },
   {
+    "name": "Creation and Update Timestamps",
+    "icon": "clock",
+    "repository": "https://gitlab.com/blue-systems-group/code.metalsmith-updated",
+    "description": "Add creation and updated timestamps"
+  },
+  {
      "name": "Data Markdown",
      "icon": "gridlines",
      "repository": "https://github.com/majodev/metalsmith-data-markdown",
