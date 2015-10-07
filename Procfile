@@ -1,1 +1,1 @@
-web: make server
+web: node server.js
