@@ -725,7 +725,7 @@
     "name": "Templates",
     "icon": "gridlines",
     "repository": "https://github.com/segmentio/metalsmith-templates",
-    "description": "Render any file through a templating engine of your choice."
+    "description": "Deprecated in favor of metalsmith-layouts and metalsmith-in-place."
   },
   {
     "name": "Twig",
