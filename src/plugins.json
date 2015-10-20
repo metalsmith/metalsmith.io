@@ -656,6 +656,12 @@
     "description": "Render wordpress-esque shortcodes via templates."
   },
   {
+    "name": "Skeleton Gallery",
+    "icon": "image",
+    "repository": "https://github.com/petermorlion/metalsmith-skeleton-gallery",
+    "description": "Generate an image gallery, using the Skeleton CSS framework."
+  },
+  {
     "name": "Slug",
     "icon": "hyphen",
     "repository": "https://github.com/nsonnad/metalsmith-slug",
