@@ -786,5 +786,11 @@
     "icon": "files",
     "repository": "https://github.com/Waxolunist/metalsmith-writemetadata",
     "description": "Write the metadata excerpted from the files to the filesystem as json files."
+  },
+  {
+    "name": "XO",
+    "icon": "files",
+    "repository": "https://github.com/blainsmith/metalsmith-xo",
+    "description": "XO lint your JavaScript files."
   }
 ]
