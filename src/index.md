@@ -12,7 +12,7 @@ All of the logic in Metalsmith is handled by plugins. You simply chain them toge
 
 <pre><code><b>Metalsmith</b>(__dirname)
   .use(<b>markdown()</b>)
-  .use(<b>templates</b>(<i>'handlebars'</i>))
+  .use(<b>layouts</b>(<i>'handlebars'</i>))
   .build(function(err) {
     if (err) throw err;
   });
@@ -24,7 +24,7 @@ All of the logic in Metalsmith is handled by plugins. You simply chain them toge
   .use(<b>drafts()</b>)
   .use(markdown())
   .use(<b>permalinks</b>(<i>'posts/:title'</i>))
-  .use(templates(<i>'handlebars'</i>))
+  .use(layouts(<i>'handlebars'</i>))
   .build(function(err) {
     if (err) throw err;
   });
@@ -121,14 +121,14 @@ Check out [the code examples](https://github.com/segmentio/metalsmith/tree/maste
 
 
 # The Plugins
-The core Metalsmith library doesn't bundle any plugins by default. You just require new ones as needed, or make your own! 
+The core Metalsmith library doesn't bundle any plugins by default. You just require new ones as needed, or make your own!
 
 Here's a list of the current plugins:
 
-<div class="Plugin-filter">
+<label class="Plugin-filter">
   <i class="Plugin-filter-icon ss-search"></i>
   <input class="Plugin-filter-input" placeholder="Filter plugins…" />
-</div>
+</label>
 
 <ul class="Plugin-list">
 {% for plugin in plugins %}

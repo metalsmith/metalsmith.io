@@ -2,12 +2,13 @@
 var basename = require('path').basename;
 var Component = require('component-builder');
 var extname = require('path').extname;
+var inPlace = require('metalsmith-in-place');
+var layouts = require('metalsmith-layouts');
 var markdown = require('metalsmith-markdown');
 var metadata = require('metalsmith-metadata');
 var Metalsmith = require('metalsmith');
 var mkdir = require('mkdirp');
 var myth = require('myth');
-var templates = require('metalsmith-templates');
 var write = require('fs').writeFileSync;
 
 /**
@@ -43,16 +44,15 @@ function build(fn){
     plugins: 'plugins.json',
     examples: 'examples.json'
   }));
-  m.use(templates({
+  m.use(inPlace({
     engine: 'swig',
-    inPlace: true,
     pattern: '**/*.md'
   }));
   m.use(markdown({
     smartypants: true,
     smartLists: true,
   }));
-  m.use(templates({
+  m.use(layouts({
     engine: 'swig',
     directory: './'
   }));
