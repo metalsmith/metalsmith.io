@@ -193,6 +193,12 @@
     "description": "Extract the first paragraph from the beginning of any HTML file."
   },
   {
+    "name": "Express",
+    "icon": "files",
+    "repository": "https://github.com/chiefy/metalsmith-express",
+    "description": "Serve static files with express, built-in support for liveReload."
+  },
+  {
      "name": "Feed",
      "icon": "sugarpackets",
      "repository": "https://github.com/hurrymaplelad/metalsmith-feed",
