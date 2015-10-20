@@ -810,6 +810,7 @@ hr:nth-of-type(6) {
   padding: 1em 2em;
   background-color: white;
   margin-bottom: 1px;
+  display: block;
 }
 
 .Plugin-filter-icon {
@@ -932,6 +933,35 @@ hr:nth-of-type(6) {
 
 .Header-github:hover {
   background-color: #daae20;
+}
+
+.Header-slack {
+  display: block;
+  position: absolute;
+  top: 5em;
+  right: -10em;
+  padding: .4em 1em;
+  width: 30em;
+  text-align: center;
+  background-color: #6ec9dc;
+  text-transform: uppercase;
+  font-family: "Tungsten A", "Tungsten B", "Tungsten", "Impact", sans-serif;
+  font-size: .9em;
+  color: #fefefe;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+}
+
+.Header-slack:hover {
+  background-color: #3eb991;
 }
 
 /**

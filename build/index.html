@@ -21,15 +21,17 @@
     </h1>
     <p class="Header-subtitle">An extremely simple, <em>pluggable</em> static site generator.</p>
     <a class="Header-github" href="https://github.com/segmentio/metalsmith">Star on GitHub</a>
+    <a class="Header-slack" href="https://metalsmith-slack.herokuapp.com">Join the Slack Channel</a>
   </header>
 
   <section class="Body">
-    <hr>
+
+<hr>
 <h1 id="everything-is-a-plugin">Everything is a Plugin</h1>
 <p>All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here’s what the simplest blog looks like…</p>
 <pre><code><b>Metalsmith</b>(__dirname)
   .use(<b>markdown()</b>)
-  .use(<b>templates</b>(<i>'handlebars'</i>))
+  .use(<b>layouts</b>(<i>'handlebars'</i>))
   .build(function(err) {
     if (err) throw err;
   });
@@ -40,7 +42,7 @@
   .use(<b>drafts()</b>)
   .use(markdown())
   .use(<b>permalinks</b>(<i>'posts/:title'</i>))
-  .use(templates(<i>'handlebars'</i>))
+  .use(layouts(<i>'handlebars'</i>))
   .build(function(err) {
     if (err) throw err;
   });
@@ -179,12 +181,12 @@ An unfinished article...
 <p>Check out <a href="https://github.com/segmentio/metalsmith/tree/master/examples">the code examples</a> to get an idea for what’s possible.</p>
 <hr>
 <h1 id="the-plugins">The Plugins</h1>
-<p>The core Metalsmith library doesn’t bundle any plugins by default. You just require new ones as needed, or make your own! </p>
+<p>The core Metalsmith library doesn’t bundle any plugins by default. You just require new ones as needed, or make your own!</p>
 <p>Here’s a list of the current plugins:</p>
-<div class="Plugin-filter">
+<label class="Plugin-filter">
   <i class="Plugin-filter-icon ss-search"></i>
   <input class="Plugin-filter-input" placeholder="Filter plugins…" />
-</div>
+</label>
 
 <ul class="Plugin-list">
 
@@ -1152,7 +1154,7 @@ An unfinished article...
     <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-templates">
       <h1 class="Plugin-title">Templates<i class="Plugin-icon ss-gridlines"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
-      <p class="Plugin-description">Render any file through a templating engine of your choice.</p>
+      <p class="Plugin-description">Deprecated in favor of metalsmith-layouts and metalsmith-in-place.</p>
     </a>
   </li>
 
