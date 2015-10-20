@@ -193,6 +193,12 @@
     "description": "Extract the first paragraph from the beginning of any HTML file."
   },
   {
+    "name": "Express",
+    "icon": "files",
+    "repository": "https://github.com/chiefy/metalsmith-express",
+    "description": "Serve static files with express, built-in support for liveReload."
+  },
+  {
      "name": "Feed",
      "icon": "sugarpackets",
      "repository": "https://github.com/hurrymaplelad/metalsmith-feed",
@@ -650,6 +656,12 @@
     "description": "Render wordpress-esque shortcodes via templates."
   },
   {
+    "name": "Skeleton Gallery",
+    "icon": "image",
+    "repository": "https://github.com/petermorlion/metalsmith-skeleton-gallery",
+    "description": "Generate an image gallery, using the Skeleton CSS framework."
+  },
+  {
     "name": "Slug",
     "icon": "hyphen",
     "repository": "https://github.com/nsonnad/metalsmith-slug",
@@ -780,5 +792,11 @@
     "icon": "files",
     "repository": "https://github.com/Waxolunist/metalsmith-writemetadata",
     "description": "Write the metadata excerpted from the files to the filesystem as json files."
+  },
+  {
+    "name": "XO",
+    "icon": "files",
+    "repository": "https://github.com/blainsmith/metalsmith-xo",
+    "description": "XO lint your JavaScript files."
   }
 ]
