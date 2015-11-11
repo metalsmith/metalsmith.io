@@ -235,6 +235,12 @@
     "description": "Flatten a directory hierarchy."
   },
   {
+    "name": "Project images",
+    "icon": "image",
+    "repository": "https://github.com/hoetmaaiers/metalsmith-project-images",
+    "description": "Scan images in specified subfolder and add it to metadata."
+  },
+  {
     "name": "Gallery",
     "icon": "image",
     "repository": "https://github.com/clemsos/metalsmith-scan-images",
