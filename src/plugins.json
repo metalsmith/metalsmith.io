@@ -216,6 +216,12 @@
     "description": "Allows quick manipulation of the file object."
   },
   {
+    "name": "FileTree",
+    "icon": "files",
+    "repository": "https://github.com/aubergene/metalsmith-filetree",
+    "description": "Build a tree of files within the project. Useful for build menus, etc."
+  },
+  {
     "name": "Fingerprint",
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-fingerprint",
