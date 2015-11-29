@@ -1,11 +1,5 @@
 [
   {
-    "name": "Autoprefixer",
-    "icon": "files",
-    "repository": "https://github.com/esundahl/metalsmith-autoprefixer",
-    "description": "Automatically add vendor prefixes to CSS."
-  },
-  {
     "name": "Archive",
     "icon": "files",
     "repository": "https://github.com/hellatan/metalsmith-archive",
@@ -16,6 +10,12 @@
     "icon": "addfile",
     "repository": "https://github.com/treygriffith/metalsmith-assets",
     "description": "Include static assets in your build."
+  },
+  {
+    "name": "Autoprefixer",
+    "icon": "files",
+    "repository": "https://github.com/esundahl/metalsmith-autoprefixer",
+    "description": "Automatically add vendor prefixes to CSS."
   },
   {
     "name": "Beautifier",
@@ -60,10 +60,10 @@
     "description": "Check all links, both internal and external, in anchors, images, and external page resources."
   },
   {
-     "name": "Clean CSS",
-     "icon": "shredder",
-     "repository": "https://github.com/aymericbeaumet/metalsmith-clean-css",
-     "description": "Minify your CSS Files."
+    "name": "Clean CSS",
+    "icon": "shredder",
+    "repository": "https://github.com/aymericbeaumet/metalsmith-clean-css",
+    "description": "Minify your CSS Files."
   },
   {
     "name": "Clean Script",
@@ -72,22 +72,22 @@
     "description": "Generate a script to cleanup the build directory, if you are adding more than just Metalsmith files."
   },
   {
-    "name": "Collections",
-    "icon": "layergroup",
-    "repository": "https://github.com/segmentio/metalsmith-collections",
-    "description": "Group files together, like blog posts. That way you can loop over them to generate an index, or add 'next' and 'previous' links between them."
-  },
-  {
     "name": "Coffee",
     "icon": "files",
     "repository": "https://github.com/joaoafrmartins/metalsmith-coffee",
     "description": "Compile CoffeeScript files to Javascript."
   },
   {
-     "name": "Concat",
-     "icon": "files",
-     "repository": "https://github.com/aymericbeaumet/metalsmith-concat",
-     "description": "Concatenate your files."
+    "name": "Collections",
+    "icon": "layergroup",
+    "repository": "https://github.com/segmentio/metalsmith-collections",
+    "description": "Group files together, like blog posts. That way you can loop over them to generate an index, or add 'next' and 'previous' links between them."
+  },
+  {
+    "name": "Concat",
+    "icon": "files",
+    "repository": "https://github.com/aymericbeaumet/metalsmith-concat",
+    "description": "Concatenate your files."
   },
   {
     "name": "Contentful",
@@ -114,18 +114,11 @@
     "description": "Add creation and updated timestamps"
   },
   {
-     "name": "Data Markdown",
-     "icon": "gridlines",
-     "repository": "https://github.com/majodev/metalsmith-data-markdown",
-     "description": "Use markdown content within html tags via data-markdown attribute."
+    "name": "Data Markdown",
+    "icon": "gridlines",
+    "repository": "https://github.com/majodev/metalsmith-data-markdown",
+    "description": "Use markdown content within html tags via data-markdown attribute."
   },
-  {
-     "name": "Date in filename",
-     "icon": "files",
-     "repository": "https://github.com/sanx/metalsmith-date-in-filename",
-     "description": "Enrich file metadata with dates present in source filenames."
-  },
-
   {
     "name": "Date Formatter",
     "icon": "files",
@@ -133,10 +126,16 @@
     "description": "Format dates defined in the YAML Front Matter"
   },
   {
-     "name": "Define",
-     "icon": "tag",
-     "repository": "https://github.com/aymericbeaumet/metalsmith-define",
-     "description": "Manually define values in the metadata."
+    "name": "Date in filename",
+    "icon": "files",
+    "repository": "https://github.com/sanx/metalsmith-date-in-filename",
+    "description": "Enrich file metadata with dates present in source filenames."
+  },
+  {
+    "name": "Define",
+    "icon": "tag",
+    "repository": "https://github.com/aymericbeaumet/metalsmith-define",
+    "description": "Manually define values in the metadata."
   },
   {
     "name": "Drafts",
@@ -157,12 +156,6 @@
     "description": "Easily apply a function to each file or filename."
   },
   {
-    "name": "Eslint",
-    "icon": "files",
-    "repository": "https://github.com/ubenzer/metalsmith-eslint",
-    "description": "Eslint your JavaScript files."
-  },
-  {
     "name": "Elevate",
     "icon": "files",
     "repository": "https://github.com/tylersticka/metalsmith-elevate",
@@ -173,6 +166,12 @@
     "icon": "files",
     "repository": "https://github.com/jscheel/metalsmith-encode-html",
     "description": "Easily encode HTML entities in any HTML file by surrounding target code in triple backticks."
+  },
+  {
+    "name": "Eslint",
+    "icon": "files",
+    "repository": "https://github.com/ubenzer/metalsmith-eslint",
+    "description": "Eslint your JavaScript files."
   },
   {
     "name": "Excel-Markdown",
@@ -199,10 +198,10 @@
     "description": "Serve static files with express, built-in support for liveReload."
   },
   {
-     "name": "Feed",
-     "icon": "sugarpackets",
-     "repository": "https://github.com/hurrymaplelad/metalsmith-feed",
-     "description": "Generate an RSS feed for a collection."
+    "name": "Feed",
+    "icon": "sugarpackets",
+    "repository": "https://github.com/hurrymaplelad/metalsmith-feed",
+    "description": "Generate an RSS feed for a collection."
   },
   {
     "name": "File Metadata",
@@ -277,16 +276,22 @@
     "description": "Add an id and anchor to all headings on a page. Ideal for permalinks."
   },
   {
-    "name": "HTML5 Format Checker",
+    "name": "Hover",
     "icon": "files",
-    "repository": "https://github.com/gchallen/code.metalsmith-formatcheck",
-    "description": "Use html-validator to validate your HTML."
+    "repository": "https://github.com/lambtron/metalsmith-hover",
+    "description": "Display image and gif links on mouse hover."
   },
   {
     "name": "HTML Minifier",
     "icon": "shredder",
     "repository": "https://github.com/whymarrh/metalsmith-html-minifier",
     "description": "Minify your HTML files."
+  },
+  {
+    "name": "HTML5 Format Checker",
+    "icon": "files",
+    "repository": "https://github.com/gchallen/code.metalsmith-formatcheck",
+    "description": "Use html-validator to validate your HTML."
   },
   {
     "name": "Hyphenate",
@@ -299,6 +304,12 @@
     "icon": "globe",
     "repository": "https://github.com/doup/metalsmith-i18n",
     "description": "Translate your strings."
+  },
+  {
+    "name": "Icons",
+    "icon": "files",
+    "repository": "https://github.com/colophonemes/metalsmith-icons",
+    "description": "Automatically generate icon font files using Fontello."
   },
   {
     "name": "If",
@@ -329,18 +340,6 @@
     "icon": "downloadfolder",
     "repository": "https://github.com/treygriffith/metalsmith-include",
     "description": "Make other source files available as properties."
-  },
-  {
-    "name": "Hover",
-    "icon": "files",
-    "repository": "https://github.com/lambtron/metalsmith-hover",
-    "description": "Display image and gif links on mouse hover."
-  },
-  {
-    "name": "Icons",
-    "icon": "files",
-    "repository": "https://github.com/colophonemes/metalsmith-icons",
-    "description": "Automatically generate icon font files using Fontello."
   },
   {
     "name": "Jade",
@@ -433,10 +432,34 @@
     "description": "Convert Markdown files to HTML using Remarkable."
   },
   {
+    "name": "Metadata",
+    "icon": "tag",
+    "repository": "https://github.com/segmentio/metalsmith-metadata",
+    "description": "Load metadata from JSON or YAML files."
+  },
+  {
+    "name": "Metallic",
+    "icon": "rainbow",
+    "repository": "https://github.com/weswigham/metalsmith-metallic",
+    "description": "Highlight code in markdown files with highlight.js."
+  },
+  {
     "name": "Mingo",
     "icon": "layergroup",
     "repository": "https://github.com/doup/metalsmith-mingo",
     "description": "Wrapper for the Mingo library which allows to make MongoDB style queries."
+  },
+  {
+    "name": "More",
+    "icon": "crop",
+    "repository": "https://github.com/kfranqueiro/metalsmith-more",
+    "description": "Stores the content before the \"more\" comment tag in HTML files."
+  },
+  {
+    "name": "Move Up",
+    "icon": "files",
+    "repository": "https://github.com/mcdonnelldean/metalsmith-move-up",
+    "description": "Move whole directories and their contents up one or more levels."
   },
   {
     "name": "Multi Language",
@@ -451,34 +474,10 @@
     "description": "Convert Markdown files to HTML using MultiMarkdown-4 syntax."
   },
   {
-    "name": "Metadata",
-    "icon": "tag",
-    "repository": "https://github.com/segmentio/metalsmith-metadata",
-    "description": "Load metadata from JSON or YAML files."
-  },
-  {
-    "name": "Metallic",
-    "icon": "rainbow",
-    "repository": "https://github.com/weswigham/metalsmith-metallic",
-    "description": "Highlight code in markdown files with highlight.js."
-  },
-  {
-    "name": "More",
-    "icon": "crop",
-    "repository": "https://github.com/kfranqueiro/metalsmith-more",
-    "description": "Stores the content before the \"more\" comment tag in HTML files."
-  },
-  {
     "name": "Myth",
     "icon": "files",
     "repository": "https://github.com/kasperisager/metalsmith-myth",
     "description": "Preprocess CSS files with Myth."
-  },
-  {
-     "name": "Move Up",
-     "icon": "files",
-     "repository": "https://github.com/mcdonnelldean/metalsmith-move-up",
-     "description": "Move whole directories and their contents up one or more levels."
   },
   {
     "name": "Navigation",
@@ -499,16 +498,10 @@
     "description": "Parses the contents of package.json and makes them available in a global 'pkg'"
   },
   {
-    "name": "Paths",
-    "icon": "file",
-    "repository": "https://github.com/ahmadnassri/metalsmith-paths",
-    "description": "adds file path values (dirname, extname, basename, path) to metadata"
-  },
-  {
-    "name": "Partial",
-    "icon": "file",
-    "repository": "https://github.com/anatoo/metalsmith-partial",
-    "description": "Provide 'partial' helper to include other files."
+    "name": "Page Title",
+    "icon": "compose",
+    "repository": "https://github.com/hellatan/metalsmith-page-titles",
+    "description": "Add a global site title to every `<title>` tag."
   },
   {
     "name": "Paginate",
@@ -529,18 +522,23 @@
     "description": "Convert files with pandoc."
   },
   {
-     "name": "PDF",
-     "icon": "pdf",
-     "repository": "https://github.com/jjclark1982/metalsmith-pdf",
-     "description": "Convert HTML files to PDF using wkhtmltopdf"
+    "name": "Partial",
+    "icon": "file",
+    "repository": "https://github.com/anatoo/metalsmith-partial",
+    "description": "Provide 'partial' helper to include other files."
   },
   {
-    "name": "Page Title",
-    "icon": "compose",
-    "repository": "https://github.com/hellatan/metalsmith-page-titles",
-    "description": "Add a global site title to every `<title>` tag."
+    "name": "Paths",
+    "icon": "file",
+    "repository": "https://github.com/ahmadnassri/metalsmith-paths",
+    "description": "adds file path values (dirname, extname, basename, path) to metadata"
   },
-
+  {
+    "name": "PDF",
+    "icon": "pdf",
+    "repository": "https://github.com/jjclark1982/metalsmith-pdf",
+    "description": "Convert HTML files to PDF using wkhtmltopdf"
+  },
   {
     "name": "Permalinks",
     "icon": "link",
@@ -548,16 +546,16 @@
     "description": "Apply custom permalinks and rename files to be nested properly for static sites, basically converting `about.html` into `about/index.html`."
   },
   {
+    "name": "Placeholder",
+    "icon": "files",
+    "repository": "https://github.com/mattly/metalsmith-placeholder",
+    "description": "Stub content-less files from JSON/Yaml metadata files"
+  },
+  {
     "name": "PooleApp",
     "icon": "write",
     "repository": "https://github.com/dpobel/metalsmith-pooleapp",
     "description": "A Metalsmith plugin to retrieve data stored in PooleApp.com."
-  },
-  {
-     "name": "Placeholder",
-     "icon": "files",
-     "repository": "https://github.com/mattly/metalsmith-placeholder",
-     "description": "Stub content-less files from JSON/Yaml metadata files"
   },
   {
     "name": "Prefixoid",
@@ -596,10 +594,10 @@
     "description": "Render any file using React JS based component templates"
   },
   {
-     "name": "Redirect",
-     "icon": "link",
-     "repository": "https://github.com/aymericbeaumet/metalsmith-redirect",
-     "description": "A simple plugin to create client-side HTTP redirections."
+    "name": "Redirect",
+    "icon": "link",
+    "repository": "https://github.com/aymericbeaumet/metalsmith-redirect",
+    "description": "A simple plugin to create client-side HTTP redirections."
   },
   {
     "name": "Replace",
@@ -608,16 +606,16 @@
     "description": "Replace attribute values in each file's metadata."
   },
   {
-    "name": "Rho",
-    "icon": "compose",
-    "repository": "https://github.com/inca/metalsmith-rho",
-    "description": "Convert Rho files to HTML."
-  },
-  {
     "name": "Request",
     "icon": "globe",
     "repository": "https://github.com/ahmadnassri/metalsmith-request",
     "description": "Grab content from the web and expose the results to metadata."
+  },
+  {
+    "name": "Rho",
+    "icon": "compose",
+    "repository": "https://github.com/inca/metalsmith-rho",
+    "description": "Convert Rho files to HTML."
   },
   {
     "name": "Root Path",
@@ -716,6 +714,12 @@
     "description": "Generate tag listing pages based on tags provided in pages."
   },
   {
+    "name": "Templates",
+    "icon": "gridlines",
+    "repository": "https://github.com/segmentio/metalsmith-templates",
+    "description": "Deprecated in favor of metalsmith-layouts and metalsmith-in-place."
+  },
+  {
     "name": "Timer",
     "icon": "clock",
     "repository": "https://github.com/deltamualpha/metalsmith-timer",
@@ -732,12 +736,6 @@
     "icon": "lightbulb",
     "repository": "https://github.com/OzzyCzech/metalsmith-title",
     "description": "Automatically generate a page title from first heading in each file."
-  },
-  {
-    "name": "Templates",
-    "icon": "gridlines",
-    "repository": "https://github.com/segmentio/metalsmith-templates",
-    "description": "Deprecated in favor of metalsmith-layouts and metalsmith-in-place."
   },
   {
     "name": "Twig",
