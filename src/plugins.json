@@ -90,6 +90,12 @@
      "description": "Concatenate your files."
   },
   {
+     "name": "Concat Convention",
+     "icon": "files",
+     "repository": "https://github.com/RobLoach/metalsmith-concat-convention",
+     "description": "Concatenate your files through file conventions, rather than configuration."
+  },
+  {
     "name": "Contentful",
     "icon": "layergroup",
     "repository": "https://github.com/contentful/contentful-metalsmith",
