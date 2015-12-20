@@ -469,6 +469,12 @@
     "description": "Highlight code in markdown files with highlight.js."
   },
   {
+    "name": "Metalsmith Matters",
+    "icon": "file",
+    "repository": "https://github.com/Ajedi32/metalsmith-matters",
+    "description": "Read file metadata from frontmatter."
+  },
+  {
     "name": "More",
     "icon": "crop",
     "repository": "https://github.com/kfranqueiro/metalsmith-more",
