@@ -145,6 +145,18 @@
      "description": "Manually define values in the metadata."
   },
   {
+    "name": "Discover Helpers",
+    "icon": "file",
+    "repository": "https://github.com/timdp/metalsmith-discover-helpers",
+    "description": "Discovers your template helpers and registers them with Handlebars."
+  },
+  {
+    "name": "Discover Partials",
+    "icon": "file",
+    "repository": "https://github.com/timdp/metalsmith-discover-partials",
+    "description": "Discovers your template partials and registers them with Handlebars."
+  },
+  {
     "name": "Drafts",
     "icon": "erase",
     "repository": "https://github.com/segmentio/metalsmith-drafts",
