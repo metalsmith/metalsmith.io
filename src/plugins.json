@@ -319,6 +319,12 @@
     "description": "Translate your strings."
   },
   {
+    "name": "i18next",
+    "icon": "globe",
+    "repository": "https://github.com/macprog-guy/metalsmith-i18next",
+    "description": "Easily create multiple localised branches of your site using the excellent i18next library."
+  },
+  {
     "name": "If",
     "icon": "branch",
     "repository": "https://github.com/deltamualpha/metalsmith-if",
