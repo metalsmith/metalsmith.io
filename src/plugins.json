@@ -253,6 +253,12 @@
     "description": "Lets you get gists from Github Gist"
   },
   {
+    "name": "Google Analytics",
+    "icon": "write",
+    "repository": "https://github.com/doodzik/metalsmith-google-analytics",
+    "description": "Adds the Google Analytics script to your html files"
+  },
+  {
     "name": "Gravatar",
     "icon": "users",
     "repository": "https://github.com/stevenschobert/metalsmith-gravatar",
