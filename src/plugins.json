@@ -463,6 +463,12 @@
     "description": "Load metadata from JSON or YAML files."
   },
   {
+    "name": "Metafiles",
+    "icon": "files",
+    "repository": "https://github.com/Ajedi32/metalsmith-metafiles",
+    "description": "Read file metadata from separate files (as an alternative to frontmatter)."
+  },
+  {
     "name": "Metallic",
     "icon": "rainbow",
     "repository": "https://github.com/weswigham/metalsmith-metallic",
