@@ -656,6 +656,12 @@
      "description": "A simple plugin to create client-side HTTP redirections."
   },
   {
+     "name": "Renamer",
+     "icon": "loading",
+     "repository": "https://github.com/alex-ketch/metalsmith-renamer",
+     "description": "Rename files matching a given pattern."
+  },
+  {
     "name": "Replace",
     "icon": "files",
     "repository": "https://github.com/Treri/metalsmith-replace",
