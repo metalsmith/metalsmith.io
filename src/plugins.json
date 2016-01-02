@@ -90,6 +90,12 @@
      "description": "Concatenate your files."
   },
   {
+     "name": "Concat Convention",
+     "icon": "files",
+     "repository": "https://github.com/RobLoach/metalsmith-concat-convention",
+     "description": "Concatenate your files through file conventions, rather than configuration."
+  },
+  {
     "name": "Contentful",
     "icon": "layergroup",
     "repository": "https://github.com/contentful/contentful-metalsmith",
@@ -139,6 +145,18 @@
      "description": "Manually define values in the metadata."
   },
   {
+    "name": "Discover Helpers",
+    "icon": "file",
+    "repository": "https://github.com/timdp/metalsmith-discover-helpers",
+    "description": "Discovers your template helpers and registers them with Handlebars."
+  },
+  {
+    "name": "Discover Partials",
+    "icon": "file",
+    "repository": "https://github.com/timdp/metalsmith-discover-partials",
+    "description": "Discovers your template partials and registers them with Handlebars."
+  },
+  {
     "name": "Drafts",
     "icon": "erase",
     "repository": "https://github.com/segmentio/metalsmith-drafts",
@@ -173,6 +191,12 @@
     "icon": "files",
     "repository": "https://github.com/jscheel/metalsmith-encode-html",
     "description": "Easily encode HTML entities in any HTML file by surrounding target code in triple backticks."
+  },
+  {
+    "name": "Env",
+    "icon": "tag",
+    "repository": "https://github.com/kalamuna/metalsmith-env",
+    "description": "Register all environment variables as metadata."
   },
   {
     "name": "Excel-Markdown",
@@ -235,6 +259,12 @@
     "description": "Flatten a directory hierarchy."
   },
   {
+    "name": "Project images",
+    "icon": "image",
+    "repository": "https://github.com/hoetmaaiers/metalsmith-project-images",
+    "description": "Scan images in specified subfolder and add it to metadata."
+  },
+  {
     "name": "Gallery",
     "icon": "image",
     "repository": "https://github.com/clemsos/metalsmith-scan-images",
@@ -245,6 +275,12 @@
     "icon": "fork",
     "repository": "https://github.com/expalmer/metalsmith-gist",
     "description": "Lets you get gists from Github Gist"
+  },
+  {
+    "name": "Google Analytics",
+    "icon": "write",
+    "repository": "https://github.com/doodzik/metalsmith-google-analytics",
+    "description": "Adds the Google Analytics script to your html files"
   },
   {
     "name": "Gravatar",
@@ -299,6 +335,12 @@
     "icon": "globe",
     "repository": "https://github.com/doup/metalsmith-i18n",
     "description": "Translate your strings."
+  },
+  {
+    "name": "i18next",
+    "icon": "globe",
+    "repository": "https://github.com/macprog-guy/metalsmith-i18next",
+    "description": "Easily create multiple localised branches of your site using the excellent i18next library."
   },
   {
     "name": "If",
@@ -457,10 +499,22 @@
     "description": "Load metadata from JSON or YAML files."
   },
   {
+    "name": "Metafiles",
+    "icon": "files",
+    "repository": "https://github.com/Ajedi32/metalsmith-metafiles",
+    "description": "Read file metadata from separate files (as an alternative to frontmatter)."
+  },
+  {
     "name": "Metallic",
     "icon": "rainbow",
     "repository": "https://github.com/weswigham/metalsmith-metallic",
     "description": "Highlight code in markdown files with highlight.js."
+  },
+  {
+    "name": "Metalsmith Matters",
+    "icon": "file",
+    "repository": "https://github.com/Ajedi32/metalsmith-matters",
+    "description": "Read file metadata from frontmatter."
   },
   {
     "name": "More",
@@ -600,6 +654,12 @@
      "icon": "link",
      "repository": "https://github.com/aymericbeaumet/metalsmith-redirect",
      "description": "A simple plugin to create client-side HTTP redirections."
+  },
+  {
+     "name": "Renamer",
+     "icon": "loading",
+     "repository": "https://github.com/alex-ketch/metalsmith-renamer",
+     "description": "Rename files matching a given pattern."
   },
   {
     "name": "Replace",
@@ -762,6 +822,12 @@
     "icon": "scaledown",
     "repository": "https://github.com/colophonemes/metalsmith-uncss",
     "description": "Remove unused CSS rules with UnCSS"
+  },
+  {
+    "name": "Unlisted",
+    "icon": "files",
+    "repository": "https://github.com/alisdair/metalsmith-unlisted",
+    "description": "Remove pages from collections, but still allow them to build"
   },
   {
     "name": "Validate",
