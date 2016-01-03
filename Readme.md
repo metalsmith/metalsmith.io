@@ -3,7 +3,7 @@
 
   The site for [Metalsmith](https://github.com/segmentio/metalsmith).
 
-# Developing
+## Developing
 
 You'll need [`foreman`](https://github.com/ddollar/foreman) and [`node`](https://nodejs.org/en/).
 
