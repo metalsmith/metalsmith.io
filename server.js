@@ -1,6 +1,7 @@
 
 var build = require('./build');
 var express = require('express');
+var port = process.env.PORT || 3000;
 
 /**
  * App.
@@ -27,8 +28,8 @@ app.use(express.static(__dirname + '/build'));
  * Listen.
  */
 
-app.listen(process.env.PORT, function(){
-  console.log('Server running at http://localhost:' + process.env.PORT + '');
+app.listen(port, function(){
+  console.log('Server running at http://localhost:' + port + '');
 });
 
 /**
