@@ -25,7 +25,7 @@
   </header>
 
   <section class="Body">
-<hr>
+    <hr>
 <h1 id="everything-is-a-plugin">Everything is a Plugin</h1>
 <p>All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here’s what the simplest blog looks like…</p>
 <pre><code><b>Metalsmith</b>(__dirname)
@@ -86,6 +86,7 @@ An unfinished article...
 </code></pre>
 
 <p>Of course they can get a lot more complicated too. That’s what makes Metalsmith powerful; the plugins can do anything you want.</p>
+<p><i><b>Note:</b> The order the plugins are invoked is the order they are in the build script or the metalsmith.json file for cli implementations.  This is important for using a plugin that requires a plugins output to work.</i></p>
 <hr>
 <h1 id="install-it">Install it</h1>
 <p>Metalsmith and its plugins can be installed with npm:</p>
@@ -310,6 +311,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/RobLoach/metalsmith-concat-convention">
+      <h1 class="Plugin-title">Concat Convention<i class="Plugin-icon ss-files"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Concatenate your files through file conventions, rather than configuration.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/contentful/contentful-metalsmith">
       <h1 class="Plugin-title">Contentful<i class="Plugin-icon ss-layergroup"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -374,6 +383,22 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/timdp/metalsmith-discover-helpers">
+      <h1 class="Plugin-title">Discover Helpers<i class="Plugin-icon ss-file"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Discovers your template helpers and registers them with Handlebars.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/timdp/metalsmith-discover-partials">
+      <h1 class="Plugin-title">Discover Partials<i class="Plugin-icon ss-file"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Discovers your template partials and registers them with Handlebars.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-drafts">
       <h1 class="Plugin-title">Drafts<i class="Plugin-icon ss-erase"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -418,6 +443,14 @@ An unfinished article...
       <h1 class="Plugin-title">Encode HTML<i class="Plugin-icon ss-files"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Easily encode HTML entities in any HTML file by surrounding target code in triple backticks.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/kalamuna/metalsmith-env">
+      <h1 class="Plugin-title">Env<i class="Plugin-icon ss-tag"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Register all environment variables as metadata.</p>
     </a>
   </li>
 
@@ -502,6 +535,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/hoetmaaiers/metalsmith-project-images">
+      <h1 class="Plugin-title">Project images<i class="Plugin-icon ss-image"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Scan images in specified subfolder and add it to metadata.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/clemsos/metalsmith-scan-images">
       <h1 class="Plugin-title">Gallery<i class="Plugin-icon ss-image"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -514,6 +555,14 @@ An unfinished article...
       <h1 class="Plugin-title">Gist<i class="Plugin-icon ss-fork"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Lets you get gists from Github Gist</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/doodzik/metalsmith-google-analytics">
+      <h1 class="Plugin-title">Google Analytics<i class="Plugin-icon ss-write"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Adds the Google Analytics script to your html files</p>
     </a>
   </li>
 
@@ -586,6 +635,14 @@ An unfinished article...
       <h1 class="Plugin-title">i18n<i class="Plugin-icon ss-globe"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Translate your strings.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/macprog-guy/metalsmith-i18next">
+      <h1 class="Plugin-title">i18next<i class="Plugin-icon ss-globe"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Easily create multiple localised branches of your site using the excellent i18next library.</p>
     </a>
   </li>
 
@@ -798,10 +855,26 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/Ajedi32/metalsmith-metafiles">
+      <h1 class="Plugin-title">Metafiles<i class="Plugin-icon ss-files"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Read file metadata from separate files (as an alternative to frontmatter).</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/weswigham/metalsmith-metallic">
       <h1 class="Plugin-title">Metallic<i class="Plugin-icon ss-rainbow"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Highlight code in markdown files with highlight.js.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/Ajedi32/metalsmith-matters">
+      <h1 class="Plugin-title">Metalsmith Matters<i class="Plugin-icon ss-file"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Read file metadata from frontmatter.</p>
     </a>
   </li>
 
@@ -986,6 +1059,14 @@ An unfinished article...
       <h1 class="Plugin-title">Redirect<i class="Plugin-icon ss-link"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">A simple plugin to create client-side HTTP redirections.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/alex-ketch/metalsmith-renamer">
+      <h1 class="Plugin-title">Renamer<i class="Plugin-icon ss-loading"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Rename files matching a given pattern.</p>
     </a>
   </li>
 
@@ -1202,6 +1283,14 @@ An unfinished article...
       <h1 class="Plugin-title">UnCSS<i class="Plugin-icon ss-scaledown"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Remove unused CSS rules with UnCSS</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/alisdair/metalsmith-unlisted">
+      <h1 class="Plugin-title">Unlisted<i class="Plugin-icon ss-files"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Remove pages from collections, but still allow them to build</p>
     </a>
   </li>
 

@@ -1,7 +1,13 @@
 
-# metalsmith.io
+# Metalsmith.io
 
   The site for [Metalsmith](https://github.com/segmentio/metalsmith).
+
+# Developing
+
+You'll need [`foreman`](https://github.com/ddollar/foreman) and [`node`](https://nodejs.org/en/).
+
+Run `make` or `make server` and go to the URL with your browser.
 
 ## License
 

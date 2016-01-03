@@ -50,7 +50,7 @@ function build(fn){
   }));
   m.use(markdown({
     smartypants: true,
-    smartLists: true,
+    smartLists: true
   }));
   m.use(layouts({
     engine: 'swig',
@@ -61,11 +61,14 @@ function build(fn){
    * Build.
    */
 
-  c.build(function(err, res){
+  m.build(function(err, res) {
     if (err) return fn(err);
-    mkdir('build');
-    write('build/build.js', res.require + res.js);
-    write('build/build.css', myth(res.css));
-    m.build(fn);
+    c.build(function(err, res) {
+      if (err) return fn(err);
+      mkdir('build');
+      write('build/build.js', res.require + res.js);
+      write('build/build.css', myth(res.css));
+      fn(err, res);
+    });
   });
 }
