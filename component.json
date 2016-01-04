@@ -11,7 +11,9 @@
     "images/divider-3.png",
     "images/divider-4.png",
     "images/divider-5.png",
-    "images/divider-6.png"
+    "images/divider-6.png",
+    "images/facebook-image.png",
+    "images/twitter-image.png"
   ],
   "dependencies": {
     "ianstormtaylor/reset": "*",
