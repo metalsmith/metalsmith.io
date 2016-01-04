@@ -1,4 +1,6 @@
 ---
+title: "Metalsmith"
+description: "An extremely simple, pluggable static site generator."
 layout: index.html
 ---
 
