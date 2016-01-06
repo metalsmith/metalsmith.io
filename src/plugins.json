@@ -1,5 +1,11 @@
 [
   {
+    "name": "Alias",
+    "icon": "link",
+    "repository": "https://github.com/fortes/metalsmith-alias",
+    "description": "Create URL aliases for any page."
+  },
+  {
     "name": "Autoprefixer",
     "icon": "files",
     "repository": "https://github.com/esundahl/metalsmith-autoprefixer",
@@ -72,16 +78,22 @@
     "description": "Generate a script to cleanup the build directory, if you are adding more than just Metalsmith files."
   },
   {
-    "name": "Collections",
-    "icon": "layergroup",
-    "repository": "https://github.com/segmentio/metalsmith-collections",
-    "description": "Group files together, like blog posts. That way you can loop over them to generate an index, or add 'next' and 'previous' links between them."
+    "name": "Code Highlight",
+    "icon": "rainbow",
+    "repository": "https://github.com/fortes/metalsmith-code-highlight",
+    "description": "Syntax highlighting for code within Markdown and HTML files."
   },
   {
     "name": "Coffee",
     "icon": "files",
     "repository": "https://github.com/joaoafrmartins/metalsmith-coffee",
     "description": "Compile CoffeeScript files to Javascript."
+  },
+  {
+    "name": "Collections",
+    "icon": "layergroup",
+    "repository": "https://github.com/segmentio/metalsmith-collections",
+    "description": "Group files together, like blog posts. That way you can loop over them to generate an index, or add 'next' and 'previous' links between them."
   },
   {
      "name": "Concat",
@@ -389,6 +401,12 @@
     "icon": "compose",
     "repository": "https://github.com/ahmadnassri/metalsmith-jade",
     "description": "Convert Jade files to HTML."
+  },
+  {
+    "name": "Jekyll Dates",
+    "icon": "clock",
+    "repository": "https://github.com/fortes/metalsmith-jekyll-dates",
+    "description": "Automatically extract dates from Jekyll-style filenames."
   },
   {
     "name": "jQuery",
