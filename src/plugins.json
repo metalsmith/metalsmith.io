@@ -535,6 +535,12 @@
     "description": "Read file metadata from frontmatter."
   },
   {
+    "name": "Moment",
+    "icon": "clock",
+    "repository": "https://github.com/dpobel/metalsmith-moment",
+    "description": "Converts file metadata to moment.js object"
+  },
+  {
     "name": "More",
     "icon": "crop",
     "repository": "https://github.com/kfranqueiro/metalsmith-more",
