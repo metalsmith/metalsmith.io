@@ -888,5 +888,11 @@
     "icon": "files",
     "repository": "https://github.com/blainsmith/metalsmith-xo",
     "description": "XO lint your JavaScript files."
+  },
+  {
+    "name": "Localize Collection",
+    "icon": "globe",
+    "repository": "https://github.com/der-On/metalsmith-localize-collection",
+    "description": "Creates localized branches of a collection."
   }
 ]
