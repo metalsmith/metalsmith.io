@@ -505,6 +505,12 @@
     "description": "Wrapper for the Mingo library which allows to make MongoDB style queries."
   },
   {
+    "name": "Mithril",
+    "icon": "compose",
+    "repository": "https://github.com/kopa-app/metalsmith-mithril",
+    "description": "Convert mithril.js Javascript files to html."
+  },
+  {
     "name": "Multi Language",
     "icon": "globe",
     "repository": "https://github.com/doup/metalsmith-multi-language",
