@@ -692,6 +692,12 @@
     "description": "Render any file using React JS based component templates"
   },
   {
+    "name": "React tpl",
+    "icon": "gridlines",
+    "repository": "https://github.com/richardstevens/metalsmith-react-tpl",
+    "description": "Use React in metalsmith as a templating language"
+  },
+  {
      "name": "Redirect",
      "icon": "link",
      "repository": "https://github.com/aymericbeaumet/metalsmith-redirect",
