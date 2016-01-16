@@ -391,6 +391,12 @@
     "description": "Make other source files available as properties."
   },
   {
+    "name": "Include Content",
+    "icon": "files",
+    "repository": "https://github.com/mintbridge/metalsmith-include-content",
+    "description": "Allows content to be included (nested) within other content by including the file path"
+  },
+  {
     "name": "Hover",
     "icon": "files",
     "repository": "https://github.com/lambtron/metalsmith-hover",
