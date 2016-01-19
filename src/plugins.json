@@ -229,6 +229,12 @@
     "description": "Omit attributes from each file's metadata."
   },
   {
+    "name": "Exceptor",
+    "icon": "compose",
+    "repository": "https://github.com/helq/metalsmith-excerptor",
+    "description": "Metalsmith plugin to create an excerpt of a html file."
+  },
+  {
     "name": "Excerpts",
     "icon": "unquote",
     "repository": "https://github.com/segmentio/metalsmith-excerpts",
