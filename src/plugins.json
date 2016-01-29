@@ -157,6 +157,12 @@
     "description": "Format dates defined in the YAML Front Matter"
   },
   {
+     "name": "Default Values",
+     "icon": "tag",
+     "repository": "https://github.com/woodyrew/metalsmith-default-values",
+     "description": "Sets default values to frontmatter metadata if they don't exist."
+  },
+  {
      "name": "Define",
      "icon": "tag",
      "repository": "https://github.com/aymericbeaumet/metalsmith-define",
