@@ -625,6 +625,12 @@
     "description": "Provide 'partial' helper to include other files."
   },
   {
+    "name": "Pager",
+    "icon": "files",
+    "repository": "https://github.com/brunoscopelliti/metalsmith-pager",
+    "description": "Paginate collections of file; it's meant to be used with metalsmith-collections."
+  },
+  {
     "name": "Paginate",
     "icon": "files",
     "repository": "https://github.com/RobinThrift/metalsmith-paginate",
