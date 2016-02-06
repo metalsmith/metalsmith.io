@@ -680,6 +680,12 @@
      "description": "Stub content-less files from JSON/Yaml metadata files"
   },
   {
+    "name": "Markdown-Precompiler",
+    "icon": "compose",
+    "repository": "https://github.com/brunoscopelliti/metalsmith-markdown-precompiler",
+    "description": "Precompiles markdown files replacing templates with their real content."
+  },
+  {
     "name": "Prefixoid",
     "icon": "compose",
     "repository": "https://github.com/evoja/metalsmith-prefixoid",
