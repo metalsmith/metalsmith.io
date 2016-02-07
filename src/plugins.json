@@ -517,6 +517,12 @@
     "description": "Convert Markdown files to HTML using markdown-it."
   },
   {
+    "name": "Markdown-Precompiler",
+    "icon": "compose",
+    "repository": "https://github.com/brunoscopelliti/metalsmith-markdown-precompiler",
+    "description": "Precompiles markdown files replacing templates with their real content."
+  },
+  {
     "name": "Markdown-Remarkable",
     "icon": "compose",
     "repository": "https://github.com/attentif/metalsmith-markdown-remarkable",
@@ -678,12 +684,6 @@
      "icon": "files",
      "repository": "https://github.com/mattly/metalsmith-placeholder",
      "description": "Stub content-less files from JSON/Yaml metadata files"
-  },
-  {
-    "name": "Markdown-Precompiler",
-    "icon": "compose",
-    "repository": "https://github.com/brunoscopelliti/metalsmith-markdown-precompiler",
-    "description": "Precompiles markdown files replacing templates with their real content."
   },
   {
     "name": "Prefixoid",
