@@ -409,6 +409,12 @@
     "description": "Allows content to be included (nested) within other content by including the file path"
   },
   {
+    "name": "Inline Source",
+    "icon": "addfile",
+    "repository": "https://github.com/alexnewmannn/metalsmith-inline-source",
+    "description": "Inlines static assets like SVG, Javascript and CSS"
+  },
+  {
     "name": "Hover",
     "icon": "files",
     "repository": "https://github.com/lambtron/metalsmith-hover",
