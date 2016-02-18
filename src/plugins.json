@@ -680,6 +680,12 @@
     "description": "Apply custom permalinks and rename files to be nested properly for static sites, basically converting `about.html` into `about/index.html`."
   },
   {
+    "name": "Polyglot",
+    "icon": "globe",
+    "repository": "https://github.com/fdoxyz/metalsmith-polyglot",
+    "description": "Simple mirror translations for blog-like entries."
+  },
+  {
     "name": "PooleApp",
     "icon": "write",
     "repository": "https://github.com/dpobel/metalsmith-pooleapp",
@@ -948,11 +954,5 @@
     "icon": "files",
     "repository": "https://github.com/blainsmith/metalsmith-xo",
     "description": "XO lint your JavaScript files."
-  },
-  {
-    "name": "Polyglot",
-    "icon": "globe",
-    "repository": "https://github.com/fdoxyz/metalsmith-polyglot",
-    "description": "Simple mirror translations for blog-like entries."
   }
 ]
