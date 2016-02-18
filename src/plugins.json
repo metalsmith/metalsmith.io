@@ -948,5 +948,11 @@
     "icon": "files",
     "repository": "https://github.com/blainsmith/metalsmith-xo",
     "description": "XO lint your JavaScript files."
+  },
+  {
+    "name": "Polyglot",
+    "icon": "globe",
+    "repository": "https://github.com/fdoxyz/metalsmith-polyglot",
+    "description": "Simple mirror translations for blog-like entries."
   }
 ]
