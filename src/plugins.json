@@ -327,7 +327,7 @@
   {
     "name": "Gzip",
     "icon": "files",
-    "repository": "https://github.com/ludovicofischer/metalsmith-sgzip",
+    "repository": "https://github.com/ludovicofischer/metalsmith-gzip",
     "description": "Compress files with gzip."
   },
   {
