@@ -415,6 +415,12 @@
     "description": "Inlines static assets like SVG, Javascript and CSS"
   },
   {
+    "name": "Inline SVG",
+    "icon": "picture",
+    "repository": "https://github.com/meatysolutions/metalsmith-inline-svg",
+    "description": "Inlines SVG images into your HTML files"
+  },
+  {
     "name": "Hover",
     "icon": "files",
     "repository": "https://github.com/lambtron/metalsmith-hover",
