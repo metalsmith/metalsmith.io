@@ -319,6 +319,12 @@
     "description": "Pull in images from Gravatar.com."
   },
   {
+    "name": "gulp-metalsmith",
+    "icon": "layergroup",
+    "repository": "https://github.com/jelz/gulp-metalsmith",
+    "description": "A lightweight plugin that incorporates Metalsmith builds into gulp pipelines."
+  },
+  {
     "name": "Gulpsmith",
     "icon": "fork",
     "repository": "https://github.com/pjeby/gulpsmith",
