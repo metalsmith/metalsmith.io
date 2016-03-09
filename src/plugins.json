@@ -84,6 +84,12 @@
     "description": "Generate a script to cleanup the build directory, if you are adding more than just Metalsmith files."
   },
   {
+    "name": "Cloudinary",
+    "icon": "layergroup",
+    "repository": "https://github.com/superwolff/metalsmith-cloudinary",
+    "description": "Retrieve data from the Cloudinary API, for cache-busting and on-the-fly transformations of your images."
+  },
+  {
     "name": "Code Highlight",
     "icon": "rainbow",
     "repository": "https://github.com/fortes/metalsmith-code-highlight",
@@ -780,6 +786,12 @@
     "icon": "globe",
     "repository": "https://github.com/ahmadnassri/metalsmith-request",
     "description": "Grab content from the web and expose the results to metadata."
+  },
+  {
+    "name": "Robots",
+    "icon": "addfile",
+    "repository": "https://github.com/superwolff/metalsmith-robots",
+    "description": "Generates a robots.txt file."
   },
   {
     "name": "Root Path",
