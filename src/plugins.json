@@ -319,6 +319,12 @@
     "description": "Adds the Google Analytics script to your html files"
   },
   {
+    "name": "Google Sheets",
+    "icon": "table",
+    "repository": "https://github.com/kalamuna/metalsmith-google-sheets",
+    "description": "Pull in data from a google spreadsheet using the API."
+  },
+  {
     "name": "Gravatar",
     "icon": "users",
     "repository": "https://github.com/stevenschobert/metalsmith-gravatar",
