@@ -321,7 +321,7 @@
   {
     "name": "Google Sheets",
     "icon": "table",
-    "repository": "https://github.com/madeofpeople/metalsmith-google-sheets",
+    "repository": "https://github.com/kalamuna/metalsmith-google-sheets",
     "description": "Pull in data from a google spreadsheet using the API."
   },
   {
