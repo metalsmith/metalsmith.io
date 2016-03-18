@@ -637,6 +637,12 @@
     "description": "Generate navigation based on file trees"
   },
   {
+    "name": "npm",
+    "icon": "addfile",
+    "repository": "https://github.com/altano/metalsmith-npm",
+    "description": "Include npm modules in your globals"
+  },
+  {
     "name": "Only",
     "icon": "files",
     "repository": "https://github.com/Treri/metalsmith-only",
