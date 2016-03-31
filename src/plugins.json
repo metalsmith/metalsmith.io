@@ -607,7 +607,7 @@
     "description": "Read file metadata from frontmatter."
   },
   {
-    "name": "Metalsmith Models",
+    "name": "Models",
     "icon": "files",
     "repository": "https://github.com/jaichandra/metalsmith-models",
     "description": "Include JSON models into files and expose the data as metadata on the file object"
