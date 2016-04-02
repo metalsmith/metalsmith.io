@@ -806,6 +806,12 @@
     "description": "Generates a robots.txt file."
   },
   {
+    "name": "Rollup",
+    "icon": "files",
+    "repository": "https://github.com/attila/metalsmith-rollup",
+    "description": "Bundle JavaScript with Rollup."
+  },
+  {
     "name": "Root Path",
     "icon": "link",
     "repository": "https://github.com/radiovisual/metalsmith-rootpath",
