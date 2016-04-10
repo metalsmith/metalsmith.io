@@ -409,6 +409,12 @@
     "description": "A Metalsmith plugin to minify images using imagemin."
   },
   {
+    "name": "Image Resizer",
+    "icon": "picture",
+    "repository": "https://github.com/kenhoff/metalsmith-image-resizer",
+    "description": "An image resizing plugin for Metalsmith. Not dependent on imagemagick/graphicsmagick!"
+  },
+  {
     "name": "In-place",
     "icon": "files",
     "repository": "https://github.com/superwolff/metalsmith-in-place",
