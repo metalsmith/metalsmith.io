@@ -265,6 +265,12 @@
      "description": "Generate an RSS feed for a collection."
   },
   {
+     "name": "Feed Atom",
+     "icon": "sugarpackets",
+     "repository": "https://github.com/almirfilho/metalsmith-feed-atom",
+     "description": "Generate Atom feed for a collection."
+  },
+  {
     "name": "File Metadata",
     "icon": "files",
     "repository": "https://github.com/dpobel/metalsmith-filemetadata",
