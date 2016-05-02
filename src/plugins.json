@@ -6,6 +6,12 @@
     "description": "Create URL aliases for any page."
   },
   {
+    "name": "Author",
+    "icon": "users",
+    "repository": "https://github.com/almirfilho/metalsmith-author",
+    "description": "Include authors information in collection files."
+  },
+  {
     "name": "Autoprefixer",
     "icon": "files",
     "repository": "https://github.com/esundahl/metalsmith-autoprefixer",
