@@ -108,6 +108,12 @@
     "description": "Compile CoffeeScript files to Javascript."
   },
   {
+    "name": "Collection Metadata",
+    "icon": "tag",
+    "repository": "https://github.com/rbardini/metalsmith-collection-metadata",
+    "description": "Add metadata to every file in a collection"
+  },
+  {
     "name": "Collections",
     "icon": "layergroup",
     "repository": "https://github.com/segmentio/metalsmith-collections",
