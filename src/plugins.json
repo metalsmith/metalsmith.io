@@ -673,6 +673,12 @@
     "description": "Filter out attributes from each file's metadata."
   },
   {
+    "name": "org",
+    "icon": "compose",
+    "repository": "https://github.com/crshd/metalsmith-org",
+    "description": "Convert org-mode files to HTML."
+  },
+  {
     "name": "PackageJSON",
     "icon": "gift",
     "repository": "https://www.npmjs.com/package/metalsmith-packagejson",
