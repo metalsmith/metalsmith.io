@@ -92,7 +92,7 @@ All of the logic in Metalsmith is handled by plugins. You simply chain them toge
 
 Metalsmith works in three simple steps:
 
-  1. Read all the files in a source directory and transform them into an array Javascript objects.
+  1. Read all the files in a source directory and transform them into an array of Javascript objects.
   2. Invoke a series of plugins that manipulate these objects.
   3. According to the information contained in the resulting objects write them as files into a destination directory
 
