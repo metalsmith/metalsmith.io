@@ -4,30 +4,80 @@ description: "An extremely simple, pluggable static site generator."
 layout: index.html
 ---
 
+---
+
+# Install it
+
+Metalsmith and its plugins can be installed with npm:
+
+<pre><code>$ <b>npm</b> install <i>metalsmith</i></code></pre>
+
+The package exposes both a [Javascript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators. To see how they're used check out the [examples](https://github.com/segmentio/metalsmith/tree/master/examples).
+
 
 ---
 
 
-# Everything is a Plugin
+# Introduction
 
-All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here's what the simplest blog looks like...
+Metalsmith is an extremely simple, pluggable static site generator. So let us explain why:
 
-<pre><code><b>Metalsmith</b>(__dirname)
-  .use(<b>markdown()</b>)
-  .use(<b>layouts</b>(<i>'handlebars'</i>))
-  .build(function(err) {
-    if (err) throw err;
+## Why is Metalsmith a pluggable static site generator?
+
+The task of a static site generator is to produce static build files that can be deployed to a web server. These files are built from source files. Basically for a static site generator this means:
+
+1. from a source directory read the source files and extract their information
+2. manipulate the information
+3. write the manipulated information to files into a destination directory
+
+Metalsmith is build on this reasoning. It takes the information from the source files from a source directory and it writes the manipulated information to files into a destination directory. All manipulations, however, it exclusively leaves to plugins.
+
+Manipulations can be anything: translating templates, transpiling code, replacing variables, wrapping layouts around content, grouping files, moving files and so on. This is why we say *»Everything is a Plugin«*. And of course, several manipulations can be applied one after another. Obviously, in this case the sequence matters.
+
+
+## Why is Metalsmith *extremely simple*?
+
+1. When all manipulations are performed by plugins, the only thing Metalsmith has to do in its core is to provide for an underlying logic of actually how manipulations are dealt with and for a defined interface for the plugins. To achieve this, we only needed around 400 lines of code --- have a [look at the source yourself](https://github.com/metalsmith/metalsmith/blob/master/lib/index.js). We believe this is rather simple.
+
+2. For manipulations Metalsmith uses a very clever, but extremely simple idea. All source files are initially converted into Javascript objects with the usual **`{property: property value}`** pairs. These **`{property: property value}`** pairs contain information on the original file itself (such as its **`birthtime`** or **`path`**) and on its **`content`**. The Javascript object for each file is then supplemented with all variables either specified in the front-matter of the file or elsewhere. The manipulations performed by the plugins are now nothing else then modifications applied to the Javascript objects either by changing the properties or the property values.
+
+3. Breaking down Metalsmith into a core and many plugins has several advantages. It gives the user the freedom to use exactly only those plugins he or she needs. Furthermore, it distributes the honor and the burdon of maintaining the Metalsmith core and its plugins onto the Metalsmith community. With this approach we hope to keep the Metalsmith environment pretty up-to-date.
+
+4. Writing plugins itself is also rather simple. The plugin-interface is easy to understand and most plugins are also rather short.
+
+5. Every site needs Javascript anyway. Just like the popular task runners [gulp](http://gulpjs.com/) or [grunt](http://gruntjs.com/) Metalsmith is programmed in Javascript. So, you do not have to rely on a further language such as Ruby, Python or Go. This also helps to keep your workflow simple.
+
+---
+
+# Everything is a Plugin --- A first example
+
+All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here's what the simplest blog looks like. It uses only two plugins, **`markdown()`** and **`layouts()`**...
+
+<pre><code><b>Metalsmith</b>(__dirname)            // instantiate Metalsmith in the cwd
+  .source('path/to/source')      // specify source directory
+  .destination('path/to/dest')   // specify destination directory
+  .use(<b>markdown()</b>)               // transpile markdown into html
+  .use(<b>layouts</b>(<i>'handlebars'</i>))    // wrap a handlebars-layout
+                                 // around transpiled html
+  .build(function(err) {         // this is the actual build process
+    if (err) throw err;          // throwing errors is required
   });
 </code></pre>
 
-...but what if you want to get fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins...
+... and by the way, if you do not want your destination directory to be cleaned before a new build, just add <b>`.clean(false)`</b>. But what if you want to get fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins...
+
 
 <pre><code><b>Metalsmith</b>(__dirname)
-  .use(<b>drafts()</b>)
+  .source('path/to/source')      
+  .destination('path/to/dest')
+  <b>.clean(false)</b>                    // clean destination directory
+                                   // before new build   
+  .use(<b>drafts()</b>)                   // only files that are NOT drafts
   .use(markdown())
-  .use(<b>permalinks</b>(<i>'posts/:title'</i>))
+  .use(<b>permalinks</b>(<i>'posts/:title'</i>)) // make a permalink output path
+                                   // as specified
   .use(layouts(<i>'handlebars'</i>))
-  .build(function(err) {
+  .build(function(err) {    
     if (err) throw err;
   });
 </code></pre>
@@ -38,16 +88,17 @@ All of the logic in Metalsmith is handled by plugins. You simply chain them toge
 ---
 
 
-# How does it work?
+# How does it work in more detail?
 
 Metalsmith works in three simple steps:
 
-  1. Read all the files in a source directory.
-  2. Invoke a series of plugins that manipulate the files.
-  3. Write the results to a destination directory!
+  1. Read all the files in a source directory and transform them into an array Javascript objects.
+  2. Invoke a series of plugins that manipulate these objects.
+  3. According to the information contained in the resulting objects write them as files into a destination directory
 
-Each plugin is invoked with the contents of the source directory, with every file parsed for optional YAML front-matter, like so...
+Every file in the source directory is transformed into a Javascript Object. For instance,
 
+`my-file.md:`
 <pre><code>---
 <b>title</b>: A Catchy Title
 <b>draft</b>: true
@@ -56,16 +107,22 @@ Each plugin is invoked with the contents of the source directory, with every fil
 An unfinished article...
 </code></pre>
 
+becomes
+
+</code></pre>
+
 <pre><code>{
   <i>'path/to/my-file.md'</i>: {
     title: <i>'A Catchy Title'</i>,
     draft: <b>true</b>,
-    contents: <b>new</b> Buffer(<i>'An unfinished article...'</i>)
+    contents: <i>'An unfinished article...'</i>
   }
 }
 </code></pre>
 
-The plugins can manipulate the files however they want, and writing one is super simple. Here's the code for the drafts plugin from above:
+where the content of the file is always put into the property value of **`contents`** and with every file parsed for optional YAML front-matter. Thus, we finally have an array of Javascript objects, that we usally denominate with **`files`**.
+
+The plugins can manipulate the Javascript objects representing the original files however they want, and writing one is super simple. Here's the code for the **`drafts()`** plugin from above. The code just runs through the array `files` of source files Javascript Objects and deletes all Javascript objects that contain that have a property value of **`true`** for the property **`draft`**:
 
 <pre><code><b>function</b>(){
   <b>return function</b> <i>drafts</i>(files, metalsmith, done){
@@ -77,20 +134,60 @@ The plugins can manipulate the files however they want, and writing one is super
 }
 </code></pre>
 
-Of course they can get a lot more complicated too. That's what makes Metalsmith powerful; the plugins can do anything you want.
+Of course they can get a lot more complicated too. That's what makes Metalsmith powerful; the plugins can do anything you want and the community has written a large amount of plugins already.
 
 <i><b>Note:</b> The order the plugins are invoked is the order they are in the build script or the metalsmith.json file for cli implementations.  This is important for using a plugin that requires a plugins output to work.</i>
 
+If you are still struggling with the concept we like to recommend you the [**`writemetadata()`**](https://github.com/Waxolunist/metalsmith-writemetadata) plugin. It is a metalsmith plugin that writes the **`{property: property value}`** pairs excerpted from the Javascript objects representing the files to the filesystem as json files.
+
+<pre><code><b>Metalsmith</b>(__dirname)            
+  .source('path/to/source')      
+  .destination('path/to/dest')   
+  .use(markdown())          
+  .use(layouts(<i>'handlebars'</i>))
+  .use(<b>writemetadata</b>({   // writes the file's JS objects into .json
+      pattern: ['**/*'],
+      ignorekeys: ['next', 'previous'],
+      bufferencoding: 'utf8'
+  }))
+  .build(function(err) {         
+    if (err) throw err;          
+  });
+</code></pre>
+
+
 ---
 
+# Metadata
 
-# Install it
+For Metalsmith we have stated that everything is a plugin. That is true, but in addition the Metalsmith core also provides for a **`metadata()`** function. You can specify arbitrary **`{property: property value}`** pairs and these information will be globally accessible from each plugin.
 
-Metalsmith and its plugins can be installed with npm:
+<pre><code><b>Metalsmith</b>(__dirname)            
+  .source('path/to/source')      
+  .destination('path/to/dest')   
+  .clean(false)             // clean destination before new build
+  <b>.metadata</b>({<i>
+      author: 'John Doe',
+      site: 'http://example.com'</i>
+  })
+  .use(markdown())          // transpile markdown into html
+  .use(layouts('handlebars'))
+  .use(<b>writemetadata</b>())     // writes the file's JS objects into .json
+  .build(function(err) {         
+    if (err) throw err;          
+  });
+</code></pre>
 
-<pre><code>$ <b>npm</b> install <i>metalsmith</i></code></pre>
 
-The package exposes both a [Javascript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators. To see how they're used check out the [examples](https://github.com/segmentio/metalsmith/tree/master/examples).
+
+
+
+---
+
+# Further information
+
+Yes, we know. The documentation can be improved. If you want to help, give us a shout. But in the meantime have a look at the [Awesome Metalsmith list](https://github.com/metalsmith/awesome-metalsmith). There you will find references to a number of excellent tutorials, examples and use cases.
+
 
 
 ---
@@ -124,9 +221,9 @@ Check out [the code examples](https://github.com/segmentio/metalsmith/tree/maste
 
 
 # The Plugins
-The core Metalsmith library doesn't bundle any plugins by default. You just require new ones as needed, or make your own!
+The core Metalsmith library doesn't bundle any plugins by default.
 
-Here's a list of the current plugins:
+Here's a list of plugins that are provided by the awesome Metalsmith community. But mind you, this list is by no means complete, because not every author PRs his or her plugin. So you might want to search for further plugins:
 
 <label class="Plugin-filter">
   <i class="Plugin-filter-icon ss-search"></i>
