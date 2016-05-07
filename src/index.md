@@ -155,6 +155,8 @@ If you are still struggling with the concept we like to recommend you the [**`wr
   });
 </code></pre>
 
+We believe, that understanding the internal representation of files as Javascript objects is really key to fully grasp the concept of Metalsmith. Many plugins either change variables in or add variables to the Javascript objects representing files. These variables can then be used by templating languages such as [Jade/Pug](http://jade-lang.com/) or [Handlebars](http://handlebarsjs.com/). Other plugins manipulate the variable **`contents`**, for instance, by transpiling its value from Markdown to Html.
+
 
 ---
 
