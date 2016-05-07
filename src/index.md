@@ -41,7 +41,7 @@ Manipulations can be anything: translating templates, transpiling code, replacin
 
 2. For manipulations Metalsmith uses a very clever, but extremely simple idea. All source files are initially converted into Javascript objects with the usual **`{property: property value}`** pairs. These **`{property: property value}`** pairs contain information on the original file itself (such as its **`birthtime`** or **`path`**) and on its **`content`**. The Javascript object for each file is then supplemented with all variables either specified in the front-matter of the file or elsewhere. The manipulations performed by the plugins are now nothing else then modifications applied to the Javascript objects either by changing the properties or the property values.
 
-3. Breaking down Metalsmith into a core and many plugins has several advantages. It gives the user the freedom to use exactly only those plugins he or she needs. Furthermore, it distributes the honor and the burdon of maintaining the Metalsmith core and its plugins onto the Metalsmith community. With this approach we hope to keep the Metalsmith environment pretty up-to-date.
+3. Breaking down Metalsmith into a core and many plugins has several advantages. It reduces complexity. It gives the user the freedom to use exactly only those plugins he or she needs. Furthermore, it distributes the honor and the burdon of maintaining the Metalsmith core and its plugins onto the Metalsmith community. With this approach we hope to keep the Metalsmith environment pretty up-to-date.
 
 4. Writing plugins itself is also rather simple. The plugin-interface is easy to understand and most plugins are also rather short.
 
@@ -122,7 +122,7 @@ becomes
 
 where the content of the file is always put into the property value of **`contents`** and with every file parsed for optional YAML front-matter. Thus, we finally have an array of Javascript objects, that we usally denominate with **`files`**.
 
-The plugins can manipulate the Javascript objects representing the original files however they want, and writing one is super simple. Here's the code for the **`drafts()`** plugin from above. The code just runs through the array `files` of source files Javascript Objects and deletes all Javascript objects that contain that have a property value of **`true`** for the property **`draft`**:
+The plugins can manipulate the Javascript objects representing the original files however they want, and writing one is super simple. Here's the code for the **`drafts()`** plugin from above. The code just runs through the array **`files`** containing the Javascript Objects of the source files and deletes all Javascript objects that contain a property value of **`true`** for the property **`draft`**:
 
 <pre><code><b>function</b>(){
   <b>return function</b> <i>drafts</i>(files, metalsmith, done){
@@ -134,11 +134,11 @@ The plugins can manipulate the Javascript objects representing the original file
 }
 </code></pre>
 
-Of course they can get a lot more complicated too. That's what makes Metalsmith powerful; the plugins can do anything you want and the community has written a large amount of plugins already.
+Of course plugins can get a lot more complicated too. That's what makes Metalsmith powerful; the plugins can do anything you want and the community has written a large amount of plugins already.
 
 <i><b>Note:</b> The order the plugins are invoked is the order they are in the build script or the metalsmith.json file for cli implementations.  This is important for using a plugin that requires a plugins output to work.</i>
 
-If you are still struggling with the concept we like to recommend you the [**`writemetadata()`**](https://github.com/Waxolunist/metalsmith-writemetadata) plugin. It is a metalsmith plugin that writes the **`{property: property value}`** pairs excerpted from the Javascript objects representing the files to the filesystem as json files.
+If you are still struggling with the concept we like to recommend you the [**`writemetadata()`**](https://github.com/Waxolunist/metalsmith-writemetadata) plugin. It is a metalsmith plugin that writes the **`{property: property value}`** pairs excerpted from the Javascript objects representing the files to the filesystem as json files. You can then view the json files to find out how files are represented internally in Metalsmith.
 
 <pre><code><b>Metalsmith</b>(__dirname)            
   .source('path/to/source')      
