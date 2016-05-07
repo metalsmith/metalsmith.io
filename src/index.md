@@ -103,7 +103,7 @@ Every file in the source directory is transformed into a Javascript Object. For 
 `my-file.md:`
 <pre><code>---
 <b>title</b>: A Catchy Title
-<b>draft</b>: true
+<b>draft</b>: false
 ---
 
 An unfinished article...
@@ -114,7 +114,7 @@ becomes
 <pre><code>{
   <i>'sourcepath/to/my-file.md'</i>: {
     title: <i>'A Catchy Title'</i>,
-    draft: <b>true</b>,
+    draft: <b>false</b>,
     contents: <i>'An unfinished article...'</i>
   }
 }
@@ -163,7 +163,7 @@ So, within the Markdown chain above after applying **`.use(markdown())`** the in
 {
   'sourcepath/to/my-file.html': {
     title: 'A Catchy Title',
-    draft: true,
+    draft: false,
     contents: '<p>An unfinished article...</p>'
   }
 }
@@ -176,7 +176,7 @@ end after applying **`.use(permalinks())`** it becomes:
 {
   'sourcepath/to/my-file/index.html': {
     title: 'A Catchy Title',
-    draft: true,
+    draft: false,
     contents: '<p>An unfinished article...</p>'
   }
 }
@@ -207,7 +207,7 @@ Assuming somewhere amongst the source files we have defined a very simple standa
 {
   'sourcepath/to/my-file/index.html': {
     title: 'A Catchy Title',
-    draft: true,
+    draft: false,
     contents: '<!doctype html><html><head>
                <title>A Catchy Title</title></head><body>
                <p>An unfinished article...</p>
