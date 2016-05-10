@@ -12,7 +12,7 @@ Metalsmith and its plugins can be installed with npm:
 
 <pre><code>$ <b>npm</b> install <i>metalsmith</i></code></pre>
 
-The package exposes both a [Javascript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators. To see how they're used check out the [examples](https://github.com/segmentio/metalsmith/tree/master/examples).
+The package exposes both a [JavaScript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators. To see how they're used check out the [examples](https://github.com/segmentio/metalsmith/tree/master/examples).
 
 
 ---
@@ -39,13 +39,13 @@ Manipulations can be anything: translating templates, transpiling code, replacin
 
 1. When all manipulations are performed by plugins, the only thing Metalsmith has to do in its core is to provide for an underlying logic of actually how manipulations are dealt with and for a defined interface for the plugins. To achieve this, we only needed around 400 lines of code --- have a [look at the source yourself](https://github.com/metalsmith/metalsmith/blob/master/lib/index.js). We believe this is rather simple.
 
-2. For manipulations Metalsmith uses a very clever, but extremely simple idea. All source files are initially converted into Javascript objects with the usual **`{property: property value}`** pairs. These **`{property: property value}`** pairs contain information on the original file itself (such as its **`birthtime`** or **`path`**) and on its **`content`**. The Javascript object for each file is then supplemented with all variables either specified in the front-matter of the file or elsewhere. The manipulations performed by the plugins are now nothing else then modifications applied to the Javascript objects either by changing the properties or the property values.
+2. For manipulations Metalsmith uses a very clever, but extremely simple idea. All source files are initially converted into JavaScript objects with the usual **`{property: property value}`** pairs. These **`{property: property value}`** pairs contain information on the original file itself (such as its **`birthtime`** or **`path`**) and on its **`content`**. The JavaScript object for each file is then supplemented with all variables either specified in the front-matter of the file or elsewhere. The manipulations performed by the plugins are now nothing else then modifications applied to the JavaScript objects either by changing the properties or the property values.
 
 3. Breaking down Metalsmith into a core and many plugins has several advantages. It reduces complexity. It gives the user the freedom to use exactly only those plugins he or she needs. Furthermore, it distributes the honor and the burdon of maintaining the Metalsmith core and its plugins onto the Metalsmith community. With this approach we hope to keep the Metalsmith environment pretty up-to-date.
 
 4. Writing plugins itself is also rather simple. The plugin-interface is easy to understand and most plugins are also rather short.
 
-5. Every site needs Javascript anyway. Just like the popular task runners [gulp](http://gulpjs.com/) or [grunt](http://gruntjs.com/) Metalsmith is programmed in Javascript. So, you do not have to rely on a further language such as Ruby, Python or Go. This also helps to keep your workflow simple.
+5. Every site needs JavaScript anyway. Just like the popular task runners [gulp](http://gulpjs.com/) or [grunt](http://gruntjs.com/) Metalsmith is programmed in JavaScript. So, you do not have to rely on a further language such as Ruby, Python or Go. This also helps to keep your workflow simple.
 
 ---
 
@@ -57,7 +57,8 @@ All of the logic in Metalsmith is handled by plugins. You simply chain them toge
   .source('sourcepath')          // specify source directory
   .destination('destpath')       // specify destination directory
   .use(<b>markdown()</b>)               // transpile markdown into html
-  .use(<b>layouts</b>({<i>engine: 'handlebars'</i>}))    // wrap a handlebars-layout
+  .use(<b>layouts</b>({<i>engine: 'handlebars'</i>}))    
+                                 // wrap a handlebars-layout
                                  // around transpiled html
   .build(function(err) {         // this is the actual build process
     if (err) throw err;          // throwing errors is required
@@ -94,11 +95,11 @@ A small comment. Instead of [Handlebars](http://handlebarsjs.com/) you can also 
 
 Metalsmith works in three simple steps:
 
-  1. Read all the files in a source directory and transform them into an array of Javascript objects.
+  1. Read all the files in a source directory and transform them into a JavaScript object of JavaScript objects.
   2. Invoke a series of plugins that manipulate these objects.
   3. According to the information contained in the resulting objects write them as files into a destination directory
 
-Every file in the source directory is transformed into a Javascript Object. For instance,
+Every file in the source directory is transformed into a JavaScript Object. For instance,
 
 `my-file.md:`
 <pre><code>---
@@ -120,9 +121,22 @@ becomes
 }
 </code></pre>
 
-where the content of the file is always put into the property value of **`contents`** and with every file parsed for optional YAML front-matter. Thus, we finally have an array of Javascript objects, that we usally denominate with **`files`**.
+where the content of the file is always put into the property value of **`contents`** and with every file parsed for optional YAML front-matter. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called **`files`** since it contains all the JavaScript objects that represent the files.
 
-The plugins can manipulate the Javascript objects representing the original files however they want, and writing one is super simple. Here's the code for the **`drafts()`** plugin from above. The code just runs through the array **`files`** containing the Javascript Objects of the source files and deletes all Javascript objects that contain a property value of **`true`** for the property **`draft`**:
+```
+{
+  "sourcepath/to/file1.md": {
+    title: 'A Catchy Title',
+    contents: 'An unfinished article...'
+  },
+  "sourcepath/to/file2.md": {
+    title: 'An Even Better Title',
+    contents: 'One more unfinished article...'
+  }
+}
+```
+
+The plugins can manipulate the JavaScript objects representing the original files however they want, and writing one is super simple. Here's the code for the **`drafts()`** plugin from above. The code just runs through the JS object **`files`** and deletes all contained JavaScript objects that have a property value of **`true`** for the property **`draft`**:
 
 <pre><code><b>function</b>(){
   <b>return function</b> <i>drafts</i>(files, metalsmith, done){
@@ -138,7 +152,7 @@ Of course plugins can get a lot more complicated too. That's what makes Metalsmi
 
 <i><b>Note:</b> The order the plugins are invoked is the order they are in the build script or the metalsmith.json file for cli implementations.  This is important for using a plugin that requires a plugins output to work.</i>
 
-If you are still struggling with the concept we like to recommend you the [**`writemetadata()`**](https://github.com/Waxolunist/metalsmith-writemetadata) plugin. It is a metalsmith plugin that writes the **`{property: property value}`** pairs excerpted from the Javascript objects representing the files to the filesystem as json files. You can then view the json files to find out how files are represented internally in Metalsmith.
+If you are still struggling with the concept we like to recommend you the [**`writemetadata()`**](https://github.com/Waxolunist/metalsmith-writemetadata) plugin. It is a metalsmith plugin that writes the **`{property: property value}`** pairs excerpted from the JavaScript objects representing the files to the filesystem as json files. You can then view the json files to find out how files are represented internally in Metalsmith.
 
 <pre><code>Metalsmith(__dirname)            
   .source('sourcepath')      
@@ -155,7 +169,7 @@ If you are still struggling with the concept we like to recommend you the [**`wr
   });
 </code></pre>
 
-We believe, that understanding the internal representation of files as Javascript objects is really key to fully grasp the concept of Metalsmith. To see this, we look at what happens in the second example chain above:
+We believe, that understanding the internal representation of files as JavaScript objects is really key to fully grasp the concept of Metalsmith. To see this, we look at what happens in the second example chain above:
 
 So, within the Markdown chain above after applying **`.use(markdown())`** the initial representation of the `my-file.md` becomes `my-file.html`...
 
@@ -201,7 +215,7 @@ Assuming somewhere amongst the source files we have defined a very simple standa
 ```
 {% endraw %}
 
-... after applying **`.use(layouts())`** in our Metalsmith chain our Javascript object becomes:
+... after applying **`.use(layouts())`** in our Metalsmith chain our JavaScript object becomes:
 
 ```
 {
@@ -217,7 +231,7 @@ Assuming somewhere amongst the source files we have defined a very simple standa
 
 ```
 
-Finally when the **`.build(function(err))`** is performed our Javascript object is written to `destpath/to/myfile/index.html`. So you see, how the chain works. It's rather straight forward, isn't it?
+Finally when the **`.build(function(err))`** is performed our JavaScript object is written to `destpath/to/myfile/index.html`. So you see, how the chain works. It's rather straight forward, isn't it?
 
 ---
 
