@@ -247,17 +247,20 @@ end after applying **`.use(permalinks())`** it becomes:
     title: 'A Catchy Title',
     draft: false,
     contents: '<p>An unfinished article...</p>'
+    path: 'to/myfile'
   }
 }
 
 ```
+
+ Note, that `permalinks()` is also adding a `path`--property by default.
 
 Assuming somewhere amongst the source files we have defined a very simple standard handlebars layout file...
 
 `layout.html`
 
 {% raw %}
-```HTML
+```Handlebars
 <!doctype html>
 <html>
 <head>
