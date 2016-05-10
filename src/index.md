@@ -283,7 +283,7 @@ Assuming somewhere amongst the source files we have defined a very simple standa
     contents: '<!doctype html><html><head>
                <title>A Catchy Title</title></head><body>
                <p>An unfinished article...</p>
-               </body></html>'
+               </body></html>',
     path: 'to/myfile'               
   }
 }
