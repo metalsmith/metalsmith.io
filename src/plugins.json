@@ -788,6 +788,12 @@
     "description": "Prompt the user for series of answers in the command line and add them to the global metadata."
   },
   {
+    "name": "Propdown",
+    "icon": "compose",
+    "repository": "https://github.com/almirfilho/metalsmith-propdown",
+    "description": "A metalsmith plugin to convert a property value from markdown to HTML."
+  },
+  {
     "name": "Publish",
     "icon": "files",
     "repository": "https://github.com/mikestopcontinues/metalsmith-publish",
