@@ -8,7 +8,7 @@ layout: index.html
 
 # Welcome
 
-You want to build a website or blog with a static site generator. Well, here is our elevator pitch. Its as easy as that:
+You want to build a website or blog with a static site generator. Well, here is our elevator pitch. It's as easy as that:
 
 ```JavaScript
 var Metalsmith  = require('metalsmith');
@@ -37,9 +37,9 @@ Metalsmith(__dirname)
     });
 ```
 
-You want to try, if all this magic works. Have a go:
+You want to try yourself, if it is really this easy. Have a go:
 
-```
+```bash
 $ git clone https://github.com/metalsmith/metalsmith.git
 $ cd metalsmith/examples/static-site
 $ make
@@ -53,7 +53,9 @@ $ build/index.html
 
 Metalsmith and its plugins can be installed with npm:
 
-<pre><code>$ <b>npm</b> install <i>metalsmith</i></code></pre>
+```bash
+$ npm install metalsmith
+```
 
 The package exposes both a [JavaScript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators. To see how they're used check out the [examples](https://github.com/segmentio/metalsmith/tree/master/examples).
 
@@ -96,34 +98,36 @@ Manipulations can be anything: translating templates, transpiling code, replacin
 
 All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here's what the simplest blog looks like. It uses only two plugins, **`markdown()`** and **`layouts()`**...
 
-<pre><code><b>Metalsmith</b>(__dirname)            // instantiate Metalsmith in the cwd
-  .source('sourcepath')          // specify source directory
-  .destination('destpath')       // specify destination directory
-  .use(<b>markdown()</b>)               // transpile markdown into html
-  .use(<b>layouts</b>({<i>engine: 'handlebars'</i>}))    
-                                 // wrap a handlebars-layout
-                                 // around transpiled html
-  .build(function(err) {         // this is the actual build process
-    if (err) throw err;          // throwing errors is required
+```JavaScript
+Metalsmith(__dirname)          // instantiate Metalsmith in the cwd
+  .source('sourcepath')        // specify source directory
+  .destination('destpath')     // specify destination directory
+  .use(markdown())             // transpile markdown into html
+  .use(layouts({engine: 'handlebars'}))    
+                               // wrap a handlebars-layout
+                               // around transpiled html
+  .build(function(err) {       // this is the actual build process
+    if (err) throw err;        // throwing errors is required
   });
-</code></pre>
+```
+
 
 ... and by the way, if you do not want your destination directory to be cleaned before a new build, just add <b>`.clean(false)`</b>. But what if you want to get fancier by hiding your unfinished drafts and using permalinks? Just add plugins...
 
-
-<pre><code><b>Metalsmith</b>(__dirname)
+```JavaScript
+Metalsmith(__dirname)
   .source('sourcepath')      
   .destination('destpath')
-  <b>.clean(false)</b>                  // clean destination directory
+  .clean(false)                  // clean destination directory
                                  // before new build   
-  .use(<b>drafts()</b>)                 // only files that are NOT drafts
+  .use(drafts())                 // only files that are NOT drafts
   .use(markdown())
-  .use(<b>permalinks()</b>)             // make a permalink output path
-  .use(layouts({<i>engine: 'handlebars'</i>}))
+  .use(permalinks())             // make a permalink output path
+  .use(layouts({engine: 'handlebars'}))
   .build(function(err) {    
     if (err) throw err;
   });
-</code></pre>
+```
 
 ...it's as easy as that!
 
@@ -145,35 +149,40 @@ Metalsmith works in three simple steps:
 Every file in the source directory is transformed into a JavaScript Object. For instance,
 
 `my-file.md:`
-<pre><code>---
-<b>title</b>: A Catchy Title
-<b>draft</b>: false
+
+```Markdown
+---
+title: A Catchy Title
+draft: false
 ---
 
 An unfinished article...
-</code></pre>
+```
 
 becomes
 
-<pre><code>{
-  <i>'sourcepath/to/my-file.md'</i>: {
-    title: <i>'A Catchy Title'</i>,
-    draft: <b>false</b>,
-    contents: <i>'An unfinished article...'</i>
+```JavaScript
+{
+  'sourcepath/to/my-file.md': {
+    title: 'A Catchy Title',
+    draft: false,
+    contents: 'An unfinished article...'
   }
 }
-</code></pre>
+```
 
 where the content of the file is always put into the property value of **`contents`** and with every file parsed for optional YAML front-matter. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called **`files`** since it contains all the JavaScript objects that represent the files.
 
-```
+```JavaScript
 {
   "sourcepath/to/file1.md": {
     title: 'A Catchy Title',
+    draft: false,
     contents: 'An unfinished article...'
   },
   "sourcepath/to/file2.md": {
     title: 'An Even Better Title',
+    draft: false,
     contents: 'One more unfinished article...'
   }
 }
@@ -181,15 +190,17 @@ where the content of the file is always put into the property value of **`conten
 
 The plugins can manipulate the JavaScript objects representing the original files however they want, and writing one is super simple. Here's the code for the **`drafts()`** plugin from above. The code just runs through the JS object **`files`** and deletes all contained JavaScript objects that have a property value of **`true`** for the property **`draft`**:
 
-<pre><code><b>function</b>(){
-  <b>return function</b> <i>drafts</i>(files, metalsmith, done){
-    <b>for</b> (<b>var</b> file <b>in</b> files) {
-      <b>if</b> (files[file].draft) <b>delete</b> files[file];
+```JavaScript
+function(){
+  return function drafts (files, metalsmith, done){
+    for (var file in files) {
+      if (files[file].draft) delete files[file];
     }
     done();
   };
 }
-</code></pre>
+```
+
 
 Of course plugins can get a lot more complicated too. That's what makes Metalsmith powerful; the plugins can do anything you want and the community has written a large amount of plugins already.
 
@@ -197,12 +208,13 @@ Of course plugins can get a lot more complicated too. That's what makes Metalsmi
 
 If you are still struggling with the concept we like to recommend you the [**`writemetadata()`**](https://github.com/Waxolunist/metalsmith-writemetadata) plugin. It is a metalsmith plugin that writes the **`{property: property value}`** pairs excerpted from the JavaScript objects representing the files to the filesystem as json files. You can then view the json files to find out how files are represented internally in Metalsmith.
 
-<pre><code>Metalsmith(__dirname)            
+```JavaScript
+Metalsmith(__dirname)            
   .source('sourcepath')      
   .destination('destpath')   
   .use(markdown())          
   .use(layouts({engine: 'handlebars'}))
-  .use(<b>writemetadata</b>({   // writes the file's JS objects into .json
+  .use(writemetadata({   // writes the file's JS objects into .json
     pattern: ['**/*'],
     ignorekeys: ['next', 'previous'],
     bufferencoding: 'utf8'
@@ -210,13 +222,13 @@ If you are still struggling with the concept we like to recommend you the [**`wr
   .build(function(err) {         
     if (err) throw err;          
   });
-</code></pre>
+```
 
 We believe, that understanding the internal representation of files as JavaScript objects is really key to fully grasp the concept of Metalsmith. To see this, we look at what happens in the second example chain above:
 
 So, within the Markdown chain above after applying **`.use(markdown())`** the initial representation of the `my-file.md` becomes `my-file.html`...
 
-```
+```JavaScript
 {
   'sourcepath/to/my-file.html': {
     title: 'A Catchy Title',
@@ -229,7 +241,7 @@ So, within the Markdown chain above after applying **`.use(markdown())`** the in
 
 end after applying **`.use(permalinks())`** it becomes:
 
-```
+```JavaScript
 {
   'sourcepath/to/my-file/index.html': {
     title: 'A Catchy Title',
@@ -245,14 +257,14 @@ Assuming somewhere amongst the source files we have defined a very simple standa
 `layout.html`
 
 {% raw %}
-```
+```HTML
 <!doctype html>
 <html>
 <head>
   <title>{{title}}</title>
 </head>
 <body>
-  {{contents}}
+  {{{contents}}}
 </body>
 </html>
 ```
@@ -260,7 +272,7 @@ Assuming somewhere amongst the source files we have defined a very simple standa
 
 ... after applying **`.use(layouts())`** in our Metalsmith chain our JavaScript object becomes:
 
-```
+```JavaScript
 {
   'sourcepath/to/my-file/index.html': {
     title: 'A Catchy Title',
@@ -282,21 +294,22 @@ Finally when the **`.build(function(err))`** is performed our JavaScript object 
 
 For Metalsmith we have stated that everything is a plugin. That is true, but in addition the Metalsmith core also provides for a **`metadata()`** function. You can specify arbitrary **`{property: property value}`** pairs and these information will be globally accessible from each plugin.
 
-<pre><code><b>Metalsmith</b>(__dirname)            
+```JavaScript
+Metalsmith(__dirname)            
   .source('sourcepath')      
   .destination('destpath')   
   .clean(false)             // clean destination before new build
-  <b>.metadata</b>({<i>
+  .metadata({
       author: 'John Doe',
-      site: 'http://example.com'</i>
+      site: 'http://example.com'
   })
   .use(markdown())          // transpile markdown into html
   .use(layouts({engine: 'handlebars'}))
-  .use(<b>writemetadata</b>())     // writes the file's JS objects into .json
+  .use(writemetadata())     // writes the file's JS objects into .json
   .build(function(err) {         
     if (err) throw err;          
   });
-</code></pre>
+```
 
 
 
