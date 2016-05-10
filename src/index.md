@@ -6,6 +6,49 @@ layout: index.html
 
 ---
 
+# Welcome
+
+You want to build a website or blog with a static site generator. Well, here is our elevator pitch. Its as easy as that:
+
+```JavaScript
+var Metalsmith  = require('metalsmith');
+    markdown    = require('metalsmith-markdown');
+    layouts     = require('metalsmith-layouts');
+    permalinks  = require('metalsmith-permalinks'),
+
+
+Metalsmith(__dirname)
+    .metadata({
+      title: "My Static Site & Blog",
+      description: "It's about saying »Hello« to the World.",
+      generator: "Metalsmith",
+      url: "http://www.metalsmith.io/"
+    })
+    .source('./src')
+    .destination('./build')
+    .clean(false)
+    .use(markdown())
+    .use(permalinks())
+    .use(layouts({
+      engine: 'handlebars',
+    }))
+    .build(function(err, files) {
+        if (err) { throw err; }
+    });
+```
+
+You want to try, if all this magic works. Have a go:
+
+```
+$ git clone https://github.com/metalsmith/metalsmith.git
+$ cd metalsmith/examples/static-site
+$ make
+$ build/index.html
+```
+
+
+---
+
 # Install it
 
 Metalsmith and its plugins can be installed with npm:
