@@ -284,6 +284,7 @@ Assuming somewhere amongst the source files we have defined a very simple standa
                <title>A Catchy Title</title></head><body>
                <p>An unfinished article...</p>
                </body></html>'
+    path: 'to/myfile'               
   }
 }
 
