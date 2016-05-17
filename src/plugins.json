@@ -391,6 +391,12 @@
     "description": "Minify your HTML files."
   },
   {
+    "name": "HTML Tidy",
+    "icon": "dishwasher",
+    "repository": "https://github.com/hoosteeno/metalsmith-html-tidy",
+    "description": "Tidy your HTML files to make your source beautiful."
+  },
+  {
     "name": "Hyphenate",
     "icon": "hyphen",
     "repository": "https://github.com/saneef/metalsmith-hyphenate",
