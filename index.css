@@ -138,6 +138,14 @@ hr:nth-of-type(10) {
   background-image: url('images/divider-4.png');
 }
 
+hr:nth-of-type(11) {
+  background-image: url('images/divider-5.png');
+}
+
+hr:nth-of-type(12) {
+  background-image: url('images/divider-6.png');
+}
+
 /**
  * Symbolset.
  */

@@ -171,7 +171,7 @@ becomes
 }
 ```
 
-where the content of the file is always put into the property value of **`contents`** and with every file parsed for optional YAML front-matter. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called **`files`** since it contains all the JavaScript objects that represent the files.
+where the content of the file is always put into the property value of **`contents`**. Technically the property value of **`contents`** is realised as a `new Buffer('...')` object, in order to also handle straight binary data well. Furthermore, the file is also parsed for YAML-front-matter information, which will then also be put into the JS Object. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called **`files`** since it contains all the JavaScript objects that represent the files.
 
 ```JavaScript
 {
@@ -188,19 +188,30 @@ where the content of the file is always put into the property value of **`conten
 }
 ```
 
-The plugins can manipulate the JavaScript objects representing the original files however they want, and writing one is super simple. Here's the code for the **`drafts()`** plugin from above. The code just runs through the JS object **`files`** and deletes all contained JavaScript objects that have a property value of **`true`** for the property **`draft`**:
+The plugins can manipulate the JavaScript objects representing the original files however they want, and writing one is super simple. Here's the code for the **`drafts()`** plugin from above. You can also find the code in the [github repository for `metalsmith-drafts`](https://github.com/segmentio/metalsmith-drafts). The code just runs through the JS object **`files`** and deletes all contained JavaScript objects that have a property value of **`true`** for the property **`draft`**:
 
 ```JavaScript
-function(){
-  return function drafts (files, metalsmith, done){
-    for (var file in files) {
-      if (files[file].draft) delete files[file];
-    }
-    done();
+/**
+ * Expose `plugin`.
+ */
+module.exports = plugin;
+
+/**
+ * Metalsmith plugin to hide drafts from the output.
+ *
+ * @return {Function}
+ */
+
+function plugin() {
+  return function(files, metalsmith, done){
+    setImmediate(done);
+    Object.keys(files).forEach(function(file){
+      var data = files[file];
+      if (data.draft) delete files[file];
+    });
   };
 }
 ```
-
 
 Of course plugins can get a lot more complicated too. That's what makes Metalsmith powerful; the plugins can do anything you want and the community has written a large amount of plugins already.
 
@@ -253,7 +264,7 @@ end after applying **`.use(permalinks())`** it becomes:
 
 ```
 
- Note, that `permalinks()` is also adding a `path`--property by default.
+Note, that `permalinks()` is also adding a `path`--property by default.
 
 Assuming somewhere amongst the source files we have defined a very simple standard handlebars layout file...
 
@@ -353,11 +364,50 @@ The plugins are all reusable. That PDF generator plugin for eBooks? Use it to ge
 
 Check out [the code examples](https://github.com/segmentio/metalsmith/tree/master/examples) to get an idea for what's possible.
 
+---
+
+# Writing A Plugin
+
+Writing a plugin is not difficult as you have seen above with the `metalsmith-drafts` plugin. In order to achieve more complicated tasks you will most likely find and can use `npm`-packages. Look at how others have done it. Here is an example using `debug` (which we appreciate if you use it) and `multimatch`:
+
+`metalsmith-myplugin`:
+
+```JavaScript
+// we would like you to use debug
+var debug = require('debug')('metalsmith-myplugin');
+var multimatch = require('multimatch');
+
+
+// Expose `plugin`.
+module.exports = plugin;
+
+
+function plugin(opts){
+  opts.pattern = opts.pattern || [];
+
+  return function (files, metalsmith, done){
+
+    setImmediate(done);
+    Object.keys(files).forEach(function(file){
+      if(multimatch(file, opts.pattern).length) {
+        debug('myplugin working on: %s', file);
+
+        //
+        // here would be your code
+        //
+
+      }
+
+    });
+
+  };
+}
+```
 
 ---
 
 
-# The Plugins
+# The Community Plugins
 The core Metalsmith library doesn't bundle any plugins by default.
 
 Here's a list of plugins that are provided by the awesome Metalsmith community. But mind you, this list is by no means complete, because not every author PRs his or her plugin. So you might want to search for further plugins:
