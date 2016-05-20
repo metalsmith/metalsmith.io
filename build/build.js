@@ -193,49 +193,49 @@ require.relative = function(parent) {
 
 
 require.register("metalsmith.io/index.js", Function("exports, require, module",
-"\n\
-var input = document.querySelector('.Plugin-filter-input');\n\
-var plugins = [];\n\
-\n\
-/**\n\
- * Build index.\n\
- */\n\
-\n\
-[].forEach.call(document.querySelectorAll('.Plugin-list .Plugin'), function (el) {\n\
-  plugins.push({\n\
-    el: el,\n\
-    title: el.querySelector('.Plugin-title').textContent.toLowerCase(),\n\
-    description: el.querySelector('.Plugin-description').textContent.toLowerCase()\n\
-  });\n\
-});\n\
-\n\
-/**\n\
- * Filter to start, in case there is some text in the search input, which may\n\
- * happen when clicking \"back\" in the browser. And then set a listener for\n\
- * future filtering.\n\
- */\n\
-\n\
-filter();\n\
-input.addEventListener('keyup', filter);\n\
-\n\
-/**\n\
- * Filter plugins.\n\
- */\n\
-\n\
-function filter() {\n\
-  var value = input.value.toLowerCase();\n\
-\n\
-  plugins.forEach(function(plugin){\n\
-    var el = plugin.el;\n\
-    var title = plugin.title;\n\
-    var desc = plugin.description;\n\
-    plugin.el.style.display = '';\n\
-\n\
-    if (!value) return;\n\
-    if (!~title.indexOf(value) && !~desc.indexOf(value)) {\n\
-      el.style.display = 'none';\n\
-    }\n\
-  });\n\
+"\r\n\
+var input = document.querySelector('.Plugin-filter-input');\r\n\
+var plugins = [];\r\n\
+\r\n\
+/**\r\n\
+ * Build index.\r\n\
+ */\r\n\
+\r\n\
+[].forEach.call(document.querySelectorAll('.Plugin-list .Plugin'), function (el) {\r\n\
+  plugins.push({\r\n\
+    el: el,\r\n\
+    title: el.querySelector('.Plugin-title').textContent.toLowerCase(),\r\n\
+    description: el.querySelector('.Plugin-description').textContent.toLowerCase()\r\n\
+  });\r\n\
+});\r\n\
+\r\n\
+/**\r\n\
+ * Filter to start, in case there is some text in the search input, which may\r\n\
+ * happen when clicking \"back\" in the browser. And then set a listener for\r\n\
+ * future filtering.\r\n\
+ */\r\n\
+\r\n\
+filter();\r\n\
+input.addEventListener('keyup', filter);\r\n\
+\r\n\
+/**\r\n\
+ * Filter plugins.\r\n\
+ */\r\n\
+\r\n\
+function filter() {\r\n\
+  var value = input.value.toLowerCase();\r\n\
+\r\n\
+  plugins.forEach(function(plugin){\r\n\
+    var el = plugin.el;\r\n\
+    var title = plugin.title;\r\n\
+    var desc = plugin.description;\r\n\
+    plugin.el.style.display = '';\r\n\
+\r\n\
+    if (!value) return;\r\n\
+    if (!~title.indexOf(value) && !~desc.indexOf(value)) {\r\n\
+      el.style.display = 'none';\r\n\
+    }\r\n\
+  });\r\n\
 }//@ sourceURL=metalsmith.io/index.js"
 ));
 
