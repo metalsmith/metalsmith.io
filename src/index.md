@@ -12,8 +12,8 @@ You want to build a website or blog with a static site generator. Well, here is 
 
 ```JavaScript
 var Metalsmith  = require('metalsmith');
-var markdown    = require('metalsmith-markdown');
 var layouts     = require('metalsmith-layouts');
+var markdown    = require('metalsmith-markdown');
 var permalinks  = require('metalsmith-permalinks');
 
 
@@ -26,14 +26,14 @@ Metalsmith(__dirname)
   })
   .source('./src')
   .destination('./build')
-  .clean(false)
+  .clean(true)
   .use(markdown())
   .use(permalinks())
   .use(layouts({
     engine: 'handlebars',
   }))
-  .build(function(err, files) {
-      if (err) { throw err; }
+  .build(function(err) {
+    if (err) throw err;
   });
 ```
 
@@ -43,7 +43,6 @@ You want to try yourself, if it is really this easy. Have a go:
 $ git clone https://github.com/metalsmith/metalsmith.git
 $ cd metalsmith/examples/static-site
 $ make
-$ build/index.html
 ```
 
 
@@ -67,7 +66,7 @@ The package exposes both a [JavaScript API](https://github.com/segmentio/metalsm
 
 Metalsmith is an extremely simple, pluggable static site generator. So let us explain why:
 
-## Why is Metalsmith a pluggable static site generator?
+## Why is Metalsmith a *pluggable static site generator*?
 
 The task of a static site generator is to produce static build files that can be deployed to a web server. These files are built from source files. Basically for a static site generator this means:
 
@@ -104,10 +103,10 @@ Metalsmith(__dirname)          // instantiate Metalsmith in the cwd
   .destination('destpath')     // specify destination directory
   .use(markdown())             // transpile markdown into html
   .use(layouts({               // wrap a handlebars-layout
-    engine: 'handlebars'       // around transpiled html
+    engine: 'handlebars'       // around transpiled html-files
   }))    
   .build(function(err) {       // this is the actual build process
-    if (err) throw err;        // throwing errors is required
+    if (err) throw err;    // throwing errors is required
   });
 ```
 
@@ -118,8 +117,8 @@ Metalsmith(__dirname)          // instantiate Metalsmith in the cwd
 Metalsmith(__dirname)
   .source('sourcepath')      
   .destination('destpath')
-  .clean(false)                  // clean destination directory
-                                 // before new build   
+  .clean(false)                  // do not clean destination
+                                 // directory before new build   
   .use(drafts())                 // only files that are NOT drafts
   .use(markdown())
   .use(permalinks())             // make a permalink output path
@@ -226,11 +225,13 @@ Metalsmith(__dirname)
   .source('sourcepath')      
   .destination('destpath')   
   .use(markdown())          
-  .use(layouts({engine: 'handlebars'}))
-  .use(writemetadata({   // writes the file's JS objects into .json
-    pattern: ['**/*'],
+  .use(layouts({
+    engine: 'handlebars'
+  }))
+  .use(writemetadata({            // write the JS object
+    pattern: ['**/*'],            // for each file into .json
     ignorekeys: ['next', 'previous'],
-    bufferencoding: 'utf8'
+    bufferencoding: 'utf8'        // also put 'content' into .json
   }))
   .build(function(err) {         
     if (err) throw err;          
@@ -315,16 +316,18 @@ For Metalsmith we have stated that everything is a plugin. That is true, but in 
 Metalsmith(__dirname)            
   .source('sourcepath')      
   .destination('destpath')   
-  .clean(false)             // clean destination before new build
+  .clean(false)
   .metadata({
       author: 'John Doe',
       site: 'http://example.com'
   })
-  .use(markdown())          // transpile markdown into html
-  .use(layouts({engine: 'handlebars'}))
-  .use(writemetadata())     // writes the file's JS objects into .json
+  .use(markdown())
+  .use(layouts({
+    engine: 'handlebars'
+  }))
+  .use(writemetadata())         
   .build(function(err) {         
-    if (err) throw err;          
+    if (err) throw err;
   });
 ```
 
