@@ -12,29 +12,29 @@ You want to build a website or blog with a static site generator. Well, here is 
 
 ```JavaScript
 var Metalsmith  = require('metalsmith');
-    markdown    = require('metalsmith-markdown');
-    layouts     = require('metalsmith-layouts');
-    permalinks  = require('metalsmith-permalinks'),
+var markdown    = require('metalsmith-markdown');
+var layouts     = require('metalsmith-layouts');
+var permalinks  = require('metalsmith-permalinks');
 
 
 Metalsmith(__dirname)
-    .metadata({
-      title: "My Static Site & Blog",
-      description: "It's about saying »Hello« to the World.",
-      generator: "Metalsmith",
-      url: "http://www.metalsmith.io/"
-    })
-    .source('./src')
-    .destination('./build')
-    .clean(false)
-    .use(markdown())
-    .use(permalinks())
-    .use(layouts({
-      engine: 'handlebars',
-    }))
-    .build(function(err, files) {
-        if (err) { throw err; }
-    });
+  .metadata({
+    title: "My Static Site & Blog",
+    description: "It's about saying »Hello« to the World.",
+    generator: "Metalsmith",
+    url: "http://www.metalsmith.io/"
+  })
+  .source('./src')
+  .destination('./build')
+  .clean(false)
+  .use(markdown())
+  .use(permalinks())
+  .use(layouts({
+    engine: 'handlebars',
+  }))
+  .build(function(err, files) {
+      if (err) { throw err; }
+  });
 ```
 
 You want to try yourself, if it is really this easy. Have a go:
@@ -103,9 +103,9 @@ Metalsmith(__dirname)          // instantiate Metalsmith in the cwd
   .source('sourcepath')        // specify source directory
   .destination('destpath')     // specify destination directory
   .use(markdown())             // transpile markdown into html
-  .use(layouts({engine: 'handlebars'}))    
-                               // wrap a handlebars-layout
-                               // around transpiled html
+  .use(layouts({               // wrap a handlebars-layout
+    engine: 'handlebars'       // around transpiled html
+  }))    
   .build(function(err) {       // this is the actual build process
     if (err) throw err;        // throwing errors is required
   });
@@ -123,7 +123,9 @@ Metalsmith(__dirname)
   .use(drafts())                 // only files that are NOT drafts
   .use(markdown())
   .use(permalinks())             // make a permalink output path
-  .use(layouts({engine: 'handlebars'}))
+  .use(layouts({
+    engine: 'handlebars'
+  }))
   .build(function(err) {    
     if (err) throw err;
   });
