@@ -48,10 +48,11 @@
 
 Metalsmith(__dirname)
   .metadata({
-    title: <span class="hljs-string">"My Static Site &amp; Blog"</span>,
+    siteurl: <span class="hljs-string">"http://example.com/"</span>,
+    sitename: <span class="hljs-string">"My Static Site &amp; Blog"</span>,
     description: <span class="hljs-string">"It's about saying »Hello« to the World."</span>,
     generator: <span class="hljs-string">"Metalsmith"</span>,
-    url: <span class="hljs-string">"http://www.metalsmith.io/"</span>
+    generatorurl: <span class="hljs-string">"http://metalsmith.io/"</span>
   })
   .source(<span class="hljs-string">'./src'</span>)
   .destination(<span class="hljs-string">'./build'</span>)
