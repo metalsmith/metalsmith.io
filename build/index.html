@@ -41,29 +41,37 @@
 <h1 id="welcome">Welcome</h1>
 <p>You want to build a website or blog with a static site generator. Well, here is our elevator pitch. It’s as easy as that:</p>
 <pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> Metalsmith  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith'</span>);
+<span class="hljs-keyword">var</span> collections = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-collections'</span>);
 <span class="hljs-keyword">var</span> layouts     = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-layouts'</span>);
 <span class="hljs-keyword">var</span> markdown    = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-markdown'</span>);
 <span class="hljs-keyword">var</span> permalinks  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-permalinks'</span>);
 
 
-Metalsmith(__dirname)
-  .metadata({
-    siteurl: <span class="hljs-string">"http://example.com/"</span>,
+Metalsmith(__dirname)         <span class="hljs-comment">// __dirname defined by node.js:</span>
+                              <span class="hljs-comment">// name of current working directory</span>
+  .metadata({                 <span class="hljs-comment">// add any variable you want</span>
+                              <span class="hljs-comment">// use them in layout-files</span>
     sitename: <span class="hljs-string">"My Static Site &amp; Blog"</span>,
-    description: <span class="hljs-string">"It's about saying »Hello« to the World."</span>,
-    generator: <span class="hljs-string">"Metalsmith"</span>,
+    siteurl: <span class="hljs-string">"http://example.com/"</span>,
+    description: <span class="hljs-string">"It's about saying »Hello« to the world."</span>,
+    generatorname: <span class="hljs-string">"Metalsmith"</span>,
     generatorurl: <span class="hljs-string">"http://metalsmith.io/"</span>
   })
-  .source(<span class="hljs-string">'./src'</span>)
-  .destination(<span class="hljs-string">'./build'</span>)
-  .clean(<span class="hljs-literal">true</span>)
-  .use(markdown())
-  .use(permalinks())
-  .use(layouts({
-    engine: <span class="hljs-string">'handlebars'</span>,
+  .source(<span class="hljs-string">'./src'</span>)            <span class="hljs-comment">// source directory</span>
+  .destination(<span class="hljs-string">'./build'</span>)     <span class="hljs-comment">// destination directory</span>
+  .clean(<span class="hljs-literal">true</span>)                <span class="hljs-comment">// clean destination before</span>
+  .use(collections({          <span class="hljs-comment">// group all blog posts by internally</span>
+    posts: <span class="hljs-string">'posts/*.md'</span>       <span class="hljs-comment">// adding key 'collections':'posts'</span>
+  }))                         <span class="hljs-comment">// use `collections.posts` in layouts</span>
+  .use(markdown())            <span class="hljs-comment">// transpile all md into html</span>
+  .use(permalinks({           <span class="hljs-comment">// change URLs to permalink URLs</span>
+    relative: <span class="hljs-literal">false</span>           <span class="hljs-comment">// put css only in /css</span>
   }))
-  .build(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
-    <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;
+  .use(layouts({              <span class="hljs-comment">// wrap layouts around html</span>
+    engine: <span class="hljs-string">'handlebars'</span>,     <span class="hljs-comment">// use the layout engine you like</span>
+  }))
+  .build(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{      <span class="hljs-comment">// build process</span>
+    <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;       <span class="hljs-comment">// error handling is required</span>
   });</code></pre>
 
 <p>You want to try yourself, if it is really this easy. Have a go:</p>
