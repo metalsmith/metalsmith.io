@@ -777,6 +777,10 @@ hr:nth-of-type(12) {
   background-image: url("metalsmith.io/images/divider-6.png");
 }
 
+hr:nth-of-type(13) {
+  background-image: url("metalsmith.io/images/divider-1.png");
+}
+
 /**
  * Symbolset.
  */

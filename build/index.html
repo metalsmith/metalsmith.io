@@ -421,6 +421,38 @@ An unfinished article...</code></pre>
 }</code></pre>
 
 <hr>
+<h1 id="check-for-pattern-matching">Check for pattern matching</h1>
+<p>Even though we touched on the topic already, we did not tackle it explicitly. We mentioned that plugins usually run through all files presented to <code>metalsmith</code>. This happens in a loop like this:</p>
+<pre><code class="hljs JavaScript"><span class="hljs-built_in">Object</span>.keys(files).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file</span>)</span>{
+  <span class="hljs-comment">//</span>
+  <span class="hljs-comment">// here would be your code</span>
+  <span class="hljs-comment">//</span>
+});</code></pre>
+
+<p>The question now is, how does for instance a markdown-engine know, which files to transpile? The answer is easy. Per default, <code>metalsmith-markdown</code> is checking if <code>file</code> has a <code>.md</code> or <code>.markdown</code> extension. Remember, <code>file</code> is a JavaScript object that has its full filename (including its path) as a value.
+If the check is not true it jumps over it, otherwise it is passing the file to the engine. After processing it, <code>metalsmith-markdown</code> replaces the <code>.md</code> extension with an <code>.html</code> and the next plugin can now check against the new filename and so on.</p>
+<p>A process such as this is called check for pattern matching. Many <code>metalsmith</code>-plugins employ such checking. Either they check against internally set patterns or requirements or they offer an explicit option to check against user defined patterns, like we have already seen in the <code>writemetadata</code>-plugin:</p>
+<pre><code class="hljs JavaScript">.use(writemetadata({            <span class="hljs-comment">// write the JS object</span>
+  pattern: [<span class="hljs-string">'**/*'</span>],            <span class="hljs-comment">// for each file into .json</span>
+  ignorekeys: [<span class="hljs-string">'next'</span>, <span class="hljs-string">'previous'</span>],
+  bufferencoding: <span class="hljs-string">'utf8'</span>        <span class="hljs-comment">// also put 'content' into .json</span>
+}))</code></pre>
+
+<p>Pattern matching is normally based on <a href="https://github.com/isaacs/node-glob">glob</a> pattern. Many plugins employ either own functions or rely on <a href="https://www.npmjs.com/package/minimatch"><code>minimatch</code></a> or <a href="https://www.npmjs.com/package/multimatch"><code>multimatch</code></a>.</p>
+<pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> multimatch = <span class="hljs-built_in">require</span>(<span class="hljs-string">'multimatch'</span>);
+
+[...]
+
+  <span class="hljs-comment">// Checks whether files should be processed</span>
+  <span class="hljs-comment">// length is zero if no matching pattern was found</span>
+  <span class="hljs-keyword">if</span> (multimatch(file, opts.pattern).length) {
+
+    <span class="hljs-comment">// process file</span>
+
+  }</code></pre>
+
+
+<hr>
 <h1 id="the-community-plugins">The Community Plugins</h1>
 <p>The core Metalsmith library doesn’t bundle any plugins by default.</p>
 <p>Here’s a list of plugins that are provided by the awesome Metalsmith community. But mind you, this list is by no means complete, because not every author PRs his or her plugin. So you might want to search for further plugins:</p>
