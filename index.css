@@ -41,11 +41,26 @@ h1 {
   text-align: center;
 }
 
-p {
+h2 {
+  font-size: 1.5em;
+  margin-bottom: .5em;
+  font-family: var(tungsten);
+  color: var(black);
+}
+
+h3 {
+  font-size: 1.25em;
+  margin-bottom: .5em;
+  font-family: var(tungsten);
+  color: var(black);
+}
+
+
+p, ul {
   margin: 1em 0;
 }
 
-p a {
+p a, ul a {
   text-decoration: underline;
   color: var(black);
 }
@@ -148,6 +163,10 @@ hr:nth-of-type(12) {
 
 hr:nth-of-type(13) {
   background-image: url('images/divider-1.png');
+}
+
+hr:nth-of-type(14) {
+  background-image: url('images/divider-2.png');
 }
 
 /**

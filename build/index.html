@@ -1843,6 +1843,92 @@ If the check is not true it jumps over it, otherwise it is passing the file to t
 
 <p>If you write your own plugin, submit a pull request to the <a href="https://github.com/segmentio/metalsmith.io/tree/master/src/plugins.json">metalsmith.io</a> repository and it will show up here!</p>
 <hr>
+<h1 id="api">API</h1>
+<p>Checkout the <a href="examples/project-scaffolder">project scaffolder</a> or <a href="examples/build-tool">build tool</a> examples to see a real example of the Javascript API in use.</p>
+<h3 id="new-metalsmith-dir-">new Metalsmith(dir)</h3>
+<p>Create a new <code>Metalsmith</code> instance for a working <code>dir</code>.</p>
+<h3 id="-use-plugin-">.use(plugin)</h3>
+<p>Add the given <code>plugin</code> function to the middleware stack. Metalsmith uses
+<a href="https://github.com/segmentio/ware">ware</a> to support middleware, so plugins
+should follow the same pattern of taking arguments of <code>(files, metalsmith, callback)</code>,
+modifying the <code>files</code> or <code>metalsmith.metadata()</code> argument by reference, and then
+calling <code>callback</code> to trigger the next step.</p>
+<h3 id="-build-fn-">.build(fn)</h3>
+<p>Build with the given settings and a callback having signature <code>fn(err, files)</code>.</p>
+<h3 id="-source-path-">.source(path)</h3>
+<p>Set the relative <code>path</code> to the source directory, or get the full one if no <code>path</code> is provided. The source directory defaults to <code>./src</code>.</p>
+<h3 id="-destination-path-">.destination(path)</h3>
+<p>Set the relative <code>path</code> to the destination directory, or get the full one if no <code>path</code> is provided. The destination directory defaults to <code>./build</code>.</p>
+<h3 id="-concurrency-max-">.concurrency(max)</h3>
+<p>Set the maximum number of files to open at once when reading or writing.  Defaults to <code>Infinity</code>.  To avoid having too many files open at once (<code>EMFILE</code> errors), set the concurrency to something lower than <code>ulimit -n</code>.</p>
+<h3 id="-clean-boolean-">.clean(boolean)</h3>
+<p>Set whether to remove the destination directory before writing to it, or get the current setting. Defaults to <code>true</code>.</p>
+<h3 id="-frontmatter-boolean-">.frontmatter(boolean)</h3>
+<p>Set whether to parse YAML frontmatter. Defaults to <code>true</code>.</p>
+<h3 id="-ignore-path-">.ignore(path)</h3>
+<p>Ignore files/paths from being loaded into Metalsmith.</p>
+<p><code>path</code> can be a string, a function, or an array of strings and/or functions.
+Strings use the glob syntax from
+<a href="https://github.com/isaacs/minimatch">minimatch</a> to match files and directories
+to ignore. Functions are called with the full path to the file as their first
+argument, and the <code>lstat</code> object returned by Node’s <code>fs.lstat</code> function as their
+second argument, and must return either <code>true</code> to ignore the file, or <code>false</code> to
+keep it.</p>
+<h3 id="-metadata-json-">.metadata(json)</h3>
+<p>Get the global metadata. This is useful for plugins that want to set global-level metadata that can be applied to all files.</p>
+<h3 id="-path-paths-">.path(paths…)</h3>
+<p>Resolve any amount of <code>paths...</code> relative to the working directory. This is useful for plugins who want to read extra assets from another directory, for example <code>./layouts</code>.</p>
+<h3 id="-run-files-fn-">.run(files, fn)</h3>
+<p>Run all of the middleware functions on a dictionary of <code>files</code> and callback with <code>fn(err, files)</code>, where <code>files</code> is the altered dictionary.</p>
+<h1 id="metadata-api">Metadata API</h1>
+<p>Add metadata to your files to access these build features. By default, Metalsmith uses a few different metadata fields:</p>
+<ul>
+<li><code>contents</code> - The body content of the file, not including any <a href="https://middlemanapp.com/basics/frontmatter/">YAML frontmatter</a>.</li>
+<li><code>mode</code> - The numeric version of the <a href="http://en.wikipedia.org/wiki/Modes_%28Unix%29">file’s mode</a>.</li>
+</ul>
+<p>You can add your own metadata in two ways:</p>
+<ul>
+<li>Using <a href="https://middlemanapp.com/basics/frontmatter/">YAML frontmatter</a> at the top of any file.</li>
+<li>Enabling <a href="https://github.com/segmentio/metalsmith/blob/master/Readme.md#plugins">a plugin</a> that adds metadata programmatically.</li>
+</ul>
+<h3 id="mode">mode</h3>
+<p>Set the mode of the file. For example,</p>
+<pre><code class="hljs bash">$ cat cleanup.sh
+
+--
+mode: <span class="hljs-number">0764</span>
+--
+
+rm -rf .</code></pre>
+
+<p>would be built with mode <code>-rwxrw-r--</code>, i.e. user-executable.</p>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<h2 id="node-version-requirements">Node Version Requirements</h2>
+<p>Metalsmith v2.0 and above uses <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator">generators</a> which has some considerations for <code>node.js 0.12.x</code> and below.</p>
+<h3 id="using-node-js-0-10-x">Using node.js 0.10.x</h3>
+<p>You have two options:</p>
+<ol>
+<li>Upgrade to latest stable version of <code>node.js</code> (&gt;= <code>0.12.x</code> — see “<em>Using <code>node.js 0.12.x</code></em>“ section below)</li>
+<li>Use Metalsmith v1.7. Put <code>&quot;metalsmith&quot;: &quot;^1.7.0&quot;</code> in your <code>package.json</code> and <code>npm install</code> that version.</li>
+</ol>
+<h3 id="using-node-js-0-12-x">Using node.js 0.12.x</h3>
+<p>You have three options:</p>
+<ol>
+<li>Run <code>node.js</code> with <code>--harmony_generators</code> flag set.<ol>
+<li><code>node --harmony_generators my_script.js</code></li>
+<li>Using <code>package.json</code>: <code>&quot;scripts&quot;: {&quot;start&quot;: &quot;node --harmony_generators my_script.js&quot;}</code>. Run with <code>npm run</code></li>
+</ol>
+</li>
+<li><code>npm install</code> <a href="https://www.npmjs.com/package/harmonize">harmonize</a> and require before Metalsmith is used. e.g. <code>require(&quot;harmonize&quot;)([&quot;harmony-generators&quot;]);</code></li>
+<li>Use Metalsmith v1.7. Put <code>&quot;metalsmith&quot;: &quot;^1.7.0&quot;</code> in your <code>package.json</code> and <code>npm install</code> that version.</li>
+</ol>
+<h1 id="license">License</h1>
+<p>The MIT License (MIT)</p>
+<p>Copyright &copy; 2014, Segment.io \<a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#102;&#114;&#105;&#101;&#110;&#x64;&#x73;&#64;&#115;&#x65;&#x67;&#x6d;&#x65;&#110;&#116;&#x2e;&#x69;&#x6f;&#x5c;">&#102;&#114;&#105;&#101;&#110;&#x64;&#x73;&#64;&#115;&#x65;&#x67;&#x6d;&#x65;&#110;&#116;&#x2e;&#x69;&#x6f;&#x5c;</a></p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+<hr>
 
   </section>
 
