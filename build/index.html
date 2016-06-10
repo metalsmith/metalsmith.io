@@ -163,24 +163,36 @@ An unfinished article...</code></pre>
 
 <p>becomes</p>
 <pre><code class="hljs JavaScript">{
-  <span class="hljs-string">'sourcepath/to/my-file.md'</span>: {
+  <span class="hljs-string">'relative_to_sourcepath/my-file.md'</span>: {
     title: <span class="hljs-string">'A Catchy Title'</span>,
     draft: <span class="hljs-literal">false</span>,
-    contents: <span class="hljs-string">'An unfinished article...'</span>
+    contents: <span class="hljs-string">'An unfinished article...'</span>,
+    mode: <span class="hljs-string">'0664'</span>,
+    stats: {
+      <span class="hljs-comment">/* keys with information on the file */</span>
+    }    
   }
 }</code></pre>
 
-<p>where the content of the file is always put into the property value of <strong><code>contents</code></strong>. Technically the property value of <strong><code>contents</code></strong> is realised as a <code>new Buffer(&#39;...&#39;)</code> object, in order to also handle straight binary data well. Furthermore, the file is also parsed for YAML-front-matter information, which will then also be put into the JS Object. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called <strong><code>files</code></strong> since it contains all the JavaScript objects that represent the files.</p>
+<p>where the content of the file is always put into the property value of <strong><code>contents</code></strong>. For illustration purposes only we display the value of <strong><code>contents</code></strong> as a string. Technically, however, the property value of <strong><code>contents</code></strong> is realised as a <code>new Buffer(&#39;...&#39;)</code> object, in order to also handle straight binary data well. <strong><code>mode</code></strong> contains the permission the file has and <strong><code>stats</code></strong> has more technical information on the file such as <code>size</code> or <code>birthtime</code>. Furthermore, the file is also parsed for YAML-front-matter information, which will then also be put into the JS Object. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called <strong><code>files</code></strong> since it contains all the JavaScript objects that represent the files.</p>
 <pre><code class="hljs JavaScript">{
-  <span class="hljs-string">"sourcepath/to/file1.md"</span>: {
+  <span class="hljs-string">"relative_to_sourcepath/file1.md"</span>: {
     title: <span class="hljs-string">'A Catchy Title'</span>,
     draft: <span class="hljs-literal">false</span>,
-    contents: <span class="hljs-string">'An unfinished article...'</span>
+    contents: <span class="hljs-string">'An unfinished article...'</span>,
+    mode: <span class="hljs-string">'0664'</span>,
+    stats: {
+      <span class="hljs-comment">/* keys with information on the file */</span>
+    }    
   },
-  <span class="hljs-string">"sourcepath/to/file2.md"</span>: {
+  <span class="hljs-string">"relative_to_sourcepath/file2.md"</span>: {
     title: <span class="hljs-string">'An Even Better Title'</span>,
     draft: <span class="hljs-literal">false</span>,
-    contents: <span class="hljs-string">'One more unfinished article...'</span>
+    contents: <span class="hljs-string">'One more unfinished article...'</span>,
+    mode: <span class="hljs-string">'0664'</span>,
+    stats: {
+      <span class="hljs-comment">/* keys with information on the file */</span>
+    }    
   }
 }</code></pre>
 
@@ -228,20 +240,22 @@ An unfinished article...</code></pre>
 <p>We believe, that understanding the internal representation of files as JavaScript objects is really key to fully grasp the concept of Metalsmith. To see this, we look at what happens in the second example chain above:</p>
 <p>So, within the Markdown chain above after applying <strong><code>.use(markdown())</code></strong> the initial representation of the <code>my-file.md</code> becomes <code>my-file.html</code>…</p>
 <pre><code class="hljs JavaScript">{
-  <span class="hljs-string">'sourcepath/to/my-file.html'</span>: {
+  <span class="hljs-string">'relative_to_sourcepath/my-file.html'</span>: {
     title: <span class="hljs-string">'A Catchy Title'</span>,
     draft: <span class="hljs-literal">false</span>,
-    contents: <span class="hljs-string">'&lt;p&gt;An unfinished article...&lt;/p&gt;'</span>
+    contents: <span class="hljs-string">'&lt;p&gt;An unfinished article...&lt;/p&gt;'</span>,
+    ...
   }
 }</code></pre>
 
 <p>end after applying <strong><code>.use(permalinks())</code></strong> it becomes:</p>
 <pre><code class="hljs JavaScript">{
-  <span class="hljs-string">'sourcepath/to/my-file/index.html'</span>: {
+  <span class="hljs-string">'relative_to_sourcepath/my-file/index.html'</span>: {
     title: <span class="hljs-string">'A Catchy Title'</span>,
     draft: <span class="hljs-literal">false</span>,
-    contents: <span class="hljs-string">'&lt;p&gt;An unfinished article...&lt;/p&gt;'</span>
-    path: <span class="hljs-string">'to/myfile'</span>
+    contents: <span class="hljs-string">'&lt;p&gt;An unfinished article...&lt;/p&gt;'</span>,
+    path: <span class="hljs-string">'myfile'</span>,
+    ...
   }
 }</code></pre>
 
@@ -261,18 +275,19 @@ An unfinished article...</code></pre>
 
 <p>… after applying <strong><code>.use(layouts())</code></strong> in our Metalsmith chain our JavaScript object becomes:</p>
 <pre><code class="hljs JavaScript">{
-  'sourcepath/to/my-file/index.html': {
+  'relative_to_sourcepath/my-file/index.html': {
     title: 'A Catchy Title',
     draft: false,
     contents: '&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;
                &lt;title&gt;A Catchy Title&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
                &lt;p&gt;An unfinished article...&lt;/p&gt;
                &lt;/body&gt;&lt;/html&gt;',
-    path: 'to/myfile'               
+    path: 'myfile',
+    ...      
   }
 }</code></pre>
 
-<p>Finally when the <strong><code>.build(function(err))</code></strong> is performed our JavaScript object is written to <code>destpath/to/myfile/index.html</code>. So you see, how the chain works. It’s rather straight forward, isn’t it?</p>
+<p>Finally when the <strong><code>.build(function(err))</code></strong> is performed our JavaScript object is written to <code>relative_to_destpath/myfile/index.html</code>. So you see, how the chain works. It’s rather straight forward, isn’t it?</p>
 <hr>
 <h1 id="metadata">Metadata</h1>
 <p>For Metalsmith we have stated that everything is a plugin. That is true, but in addition the Metalsmith core also provides for a <strong><code>metadata()</code></strong> function. You can specify arbitrary <strong><code>{property: property value}</code></strong> pairs and these information will be globally accessible from each plugin.</p>
@@ -1844,7 +1859,7 @@ If the check is not true it jumps over it, otherwise it is passing the file to t
 <p>If you write your own plugin, submit a pull request to the <a href="https://github.com/segmentio/metalsmith.io/tree/master/src/plugins.json">metalsmith.io</a> repository and it will show up here!</p>
 <hr>
 <h1 id="api">API</h1>
-<p>Checkout the <a href="examples/project-scaffolder">project scaffolder</a> or <a href="examples/build-tool">build tool</a> examples to see a real example of the Javascript API in use.</p>
+<p>Checkout the <a href="https://github.com/metalsmith/metalsmith/tree/master/examples/project-scaffolder">project scaffolder</a> or <a href="https://github.com/metalsmith/metalsmith/tree/master/examples/build-tool">build tool</a> examples to see a real example of the Javascript API in use.</p>
 <h3 id="new-metalsmith-dir-">new Metalsmith(dir)</h3>
 <p>Create a new <code>Metalsmith</code> instance for a working <code>dir</code>.</p>
 <h3 id="-use-plugin-">.use(plugin)</h3>
@@ -1924,7 +1939,7 @@ rm -rf .</code></pre>
 </ol>
 <h1 id="license">License</h1>
 <p>The MIT License (MIT)</p>
-<p>Copyright &copy; 2014, Segment.io \<a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#102;&#114;&#105;&#101;&#110;&#x64;&#x73;&#64;&#115;&#x65;&#x67;&#x6d;&#x65;&#110;&#116;&#x2e;&#x69;&#x6f;&#x5c;">&#102;&#114;&#105;&#101;&#110;&#x64;&#x73;&#64;&#115;&#x65;&#x67;&#x6d;&#x65;&#110;&#116;&#x2e;&#x69;&#x6f;&#x5c;</a></p>
+<p>Copyright &copy; 2014, Segment.io \<a href="&#x6d;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#x66;&#x72;&#x69;&#101;&#x6e;&#100;&#115;&#64;&#115;&#x65;&#x67;&#x6d;&#101;&#x6e;&#116;&#46;&#x69;&#111;&#x5c;">&#x66;&#x72;&#x69;&#101;&#x6e;&#100;&#115;&#64;&#115;&#x65;&#x67;&#x6d;&#101;&#x6e;&#116;&#46;&#x69;&#111;&#x5c;</a></p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>

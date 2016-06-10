@@ -173,27 +173,39 @@ becomes
 
 ```JavaScript
 {
-  'sourcepath/to/my-file.md': {
+  'relative_to_sourcepath/my-file.md': {
     title: 'A Catchy Title',
     draft: false,
-    contents: 'An unfinished article...'
+    contents: 'An unfinished article...',
+    mode: '0664',
+    stats: {
+      /* keys with information on the file */
+    }    
   }
 }
 ```
 
-where the content of the file is always put into the property value of **`contents`**. Technically the property value of **`contents`** is realised as a `new Buffer('...')` object, in order to also handle straight binary data well. Furthermore, the file is also parsed for YAML-front-matter information, which will then also be put into the JS Object. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called **`files`** since it contains all the JavaScript objects that represent the files.
+where the content of the file is always put into the property value of **`contents`**. For illustration purposes only we display the value of **`contents`** as a string. Technically, however, the property value of **`contents`** is realised as a `new Buffer('...')` object, in order to also handle straight binary data well. **`mode`** contains the permission the file has and **`stats`** has more technical information on the file such as `size` or `birthtime`. Furthermore, the file is also parsed for YAML-front-matter information, which will then also be put into the JS Object. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called **`files`** since it contains all the JavaScript objects that represent the files.
 
 ```JavaScript
 {
-  "sourcepath/to/file1.md": {
+  "relative_to_sourcepath/file1.md": {
     title: 'A Catchy Title',
     draft: false,
-    contents: 'An unfinished article...'
+    contents: 'An unfinished article...',
+    mode: '0664',
+    stats: {
+      /* keys with information on the file */
+    }    
   },
-  "sourcepath/to/file2.md": {
+  "relative_to_sourcepath/file2.md": {
     title: 'An Even Better Title',
     draft: false,
-    contents: 'One more unfinished article...'
+    contents: 'One more unfinished article...',
+    mode: '0664',
+    stats: {
+      /* keys with information on the file */
+    }    
   }
 }
 ```
@@ -253,10 +265,11 @@ So, within the Markdown chain above after applying **`.use(markdown())`** the in
 
 ```JavaScript
 {
-  'sourcepath/to/my-file.html': {
+  'relative_to_sourcepath/my-file.html': {
     title: 'A Catchy Title',
     draft: false,
-    contents: '<p>An unfinished article...</p>'
+    contents: '<p>An unfinished article...</p>',
+    ...
   }
 }
 
@@ -266,11 +279,12 @@ end after applying **`.use(permalinks())`** it becomes:
 
 ```JavaScript
 {
-  'sourcepath/to/my-file/index.html': {
+  'relative_to_sourcepath/my-file/index.html': {
     title: 'A Catchy Title',
     draft: false,
-    contents: '<p>An unfinished article...</p>'
-    path: 'to/myfile'
+    contents: '<p>An unfinished article...</p>',
+    path: 'myfile',
+    ...
   }
 }
 
@@ -300,20 +314,21 @@ Assuming somewhere amongst the source files we have defined a very simple standa
 
 ```JavaScript
 {
-  'sourcepath/to/my-file/index.html': {
+  'relative_to_sourcepath/my-file/index.html': {
     title: 'A Catchy Title',
     draft: false,
     contents: '<!doctype html><html><head>
                <title>A Catchy Title</title></head><body>
                <p>An unfinished article...</p>
                </body></html>',
-    path: 'to/myfile'               
+    path: 'myfile',
+    ...      
   }
 }
 
 ```
 
-Finally when the **`.build(function(err))`** is performed our JavaScript object is written to `destpath/to/myfile/index.html`. So you see, how the chain works. It's rather straight forward, isn't it?
+Finally when the **`.build(function(err))`** is performed our JavaScript object is written to `relative_to_destpath/myfile/index.html`. So you see, how the chain works. It's rather straight forward, isn't it?
 
 ---
 
