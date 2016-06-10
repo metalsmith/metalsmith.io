@@ -494,6 +494,7 @@ If you write your own plugin, submit a pull request to the [metalsmith.io](https
 
 # API
 
+Checkout the [project scaffolder](https://github.com/metalsmith/metalsmith/tree/master/examples/project-scaffolder) or [build tool](https://github.com/metalsmith/metalsmith/tree/master/examples/build-tool) examples to see a real example of the Javascript API in use.
 
 ### new Metalsmith(dir)
 
