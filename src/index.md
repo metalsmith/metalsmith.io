@@ -239,7 +239,7 @@ Of course plugins can get a lot more complicated too. That's what makes Metalsmi
 
 <i><b>Note:</b> The order the plugins are invoked is the order they are in the build script or the metalsmith.json file for cli implementations.  This is important for using a plugin that requires a plugins output to work.</i>
 
-If you are still struggling with the concept we like to recommend you the [**`writemetadata()`**](https://github.com/Waxolunist/metalsmith-writemetadata) plugin. It is a metalsmith plugin that writes the **`{property: property value}`** pairs excerpted from the JavaScript objects representing the files to the filesystem as json files. You can then view the json files to find out how files are represented internally in Metalsmith.
+If you are still struggling with the concept we like to recommend you the [**`writemetadata()`**](https://github.com/Waxolunist/metalsmith-writemetadata) plugin. It is a metalsmith plugin that writes the **`{property: property value}`** pairs excerpted from the JavaScript objects representing the files to the filesystem as .json files. You can then view the .json files to find out how files are represented internally in Metalsmith.
 
 ```JavaScript
 Metalsmith(__dirname)            
@@ -332,11 +332,15 @@ Finally when the **`.build(function(err))`** is performed our JavaScript object 
 
 ---
 
-# Metadata
+# Metadata & debugging
 
 For Metalsmith we have stated that everything is a plugin. That is true, but in addition the Metalsmith core also provides for a **`metadata()`** function. You can specify arbitrary **`{property: property value}`** pairs and these information will be globally accessible from each plugin.
 
 ```JavaScript
+var debug = require('metalsmith-debug');
+
+...
+
 Metalsmith(__dirname)            
   .source('sourcepath')      
   .destination('destpath')   
@@ -349,12 +353,19 @@ Metalsmith(__dirname)
   .use(layouts({
     engine: 'handlebars'
   }))
-  .use(writemetadata())         
+  .use(debug())             // displays debug info on the console
   .build(function(err) {         
     if (err) throw err;
   });
 ```
 
+As you have seen in the code above, we have also introduced a plugin named [**`metalsmith-debug`**](https://github.com/mahnunchik/metalsmith-debug). For this plugin to actually show debug information you need to define an environment variable `DEBUG` and set it to:
+
+```bash
+$ DEBUG=metalsmith:*
+```
+
+The source and destination path, the metadata and all files are then logged to the console.
 
 
 
@@ -435,7 +446,7 @@ function plugin(opts){
 
 ---
 
-# Check for pattern matching
+# Matching
 
 Even though we touched on the topic already, we did not tackle it explicitly. We mentioned that plugins usually run through all files presented to `metalsmith`. This happens in a loop like this:
 
@@ -450,7 +461,7 @@ Object.keys(files).forEach(function(file){
 The question now is, how does for instance a markdown-engine know, which files to transpile? The answer is easy. Per default, `metalsmith-markdown` is checking if `file` has a `.md` or `.markdown` extension. Remember, `file` is a JavaScript object that has its full filename (including its path) as a value.
 If the check is not true it jumps over it, otherwise it is passing the file to the engine. After processing it, `metalsmith-markdown` replaces the `.md` extension with an `.html` and the next plugin can now check against the new filename and so on.
 
-A process such as this is called check for pattern matching. Many `metalsmith`-plugins employ such checking. Either they check against internally set patterns or requirements or they offer an explicit option to check against user defined patterns, like we have already seen in the `writemetadata`-plugin:
+A process such as this is called check for pattern matching. Many `metalsmith`-plugins employ such matching. Either they check against internally set requirements or patterns or they offer an explicit option to check against user defined matches, like we have already seen in the `writemetadata`-plugin:
 
 ```JavaScript
 .use(writemetadata({            // write the JS object

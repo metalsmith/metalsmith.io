@@ -220,7 +220,7 @@ An unfinished article...</code></pre>
 
 <p>Of course plugins can get a lot more complicated too. That’s what makes Metalsmith powerful; the plugins can do anything you want and the community has written a large amount of plugins already.</p>
 <p><i><b>Note:</b> The order the plugins are invoked is the order they are in the build script or the metalsmith.json file for cli implementations.  This is important for using a plugin that requires a plugins output to work.</i></p>
-<p>If you are still struggling with the concept we like to recommend you the <a href="https://github.com/Waxolunist/metalsmith-writemetadata"><strong><code>writemetadata()</code></strong></a> plugin. It is a metalsmith plugin that writes the <strong><code>{property: property value}</code></strong> pairs excerpted from the JavaScript objects representing the files to the filesystem as json files. You can then view the json files to find out how files are represented internally in Metalsmith.</p>
+<p>If you are still struggling with the concept we like to recommend you the <a href="https://github.com/Waxolunist/metalsmith-writemetadata"><strong><code>writemetadata()</code></strong></a> plugin. It is a metalsmith plugin that writes the <strong><code>{property: property value}</code></strong> pairs excerpted from the JavaScript objects representing the files to the filesystem as .json files. You can then view the .json files to find out how files are represented internally in Metalsmith.</p>
 <pre><code class="hljs JavaScript">Metalsmith(__dirname)            
   .source(<span class="hljs-string">'sourcepath'</span>)      
   .destination(<span class="hljs-string">'destpath'</span>)   
@@ -289,9 +289,13 @@ An unfinished article...</code></pre>
 
 <p>Finally when the <strong><code>.build(function(err))</code></strong> is performed our JavaScript object is written to <code>relative_to_destpath/myfile/index.html</code>. So you see, how the chain works. It’s rather straight forward, isn’t it?</p>
 <hr>
-<h1 id="metadata">Metadata</h1>
+<h1 id="metadata-debugging">Metadata &amp; debugging</h1>
 <p>For Metalsmith we have stated that everything is a plugin. That is true, but in addition the Metalsmith core also provides for a <strong><code>metadata()</code></strong> function. You can specify arbitrary <strong><code>{property: property value}</code></strong> pairs and these information will be globally accessible from each plugin.</p>
-<pre><code class="hljs JavaScript">Metalsmith(__dirname)            
+<pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> debug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-debug'</span>);
+
+...
+
+Metalsmith(__dirname)            
   .source(<span class="hljs-string">'sourcepath'</span>)      
   .destination(<span class="hljs-string">'destpath'</span>)   
   .clean(<span class="hljs-literal">false</span>)
@@ -303,15 +307,15 @@ An unfinished article...</code></pre>
   .use(layouts({
     engine: <span class="hljs-string">'handlebars'</span>
   }))
-  .use(writemetadata())         
+  .use(debug())             <span class="hljs-comment">// displays debug info on the console</span>
   .build(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{         
     <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;
   });</code></pre>
 
+<p>As you have seen in the code above, we have also introduced a plugin named <a href="https://github.com/mahnunchik/metalsmith-debug"><strong><code>metalsmith-debug</code></strong></a>. For this plugin to actually show debug information you need to define an environment variable <code>DEBUG</code> and set it to:</p>
+<pre><code class="hljs bash">$ DEBUG=metalsmith:*</code></pre>
 
-
-
-
+<p>The source and destination path, the metadata and all files are then logged to the console.</p>
 <hr>
 <h1 id="further-information">Further information</h1>
 <p>Yes, we know. The documentation can be improved. If you want to help, give us a shout. But in the meantime have a look at the <a href="https://github.com/metalsmith/awesome-metalsmith">Awesome Metalsmith list</a>. There you will find references to a number of excellent tutorials, examples and use cases.</p>
@@ -436,7 +440,7 @@ An unfinished article...</code></pre>
 }</code></pre>
 
 <hr>
-<h1 id="check-for-pattern-matching">Check for pattern matching</h1>
+<h1 id="matching">Matching</h1>
 <p>Even though we touched on the topic already, we did not tackle it explicitly. We mentioned that plugins usually run through all files presented to <code>metalsmith</code>. This happens in a loop like this:</p>
 <pre><code class="hljs JavaScript"><span class="hljs-built_in">Object</span>.keys(files).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file</span>)</span>{
   <span class="hljs-comment">//</span>
@@ -446,7 +450,7 @@ An unfinished article...</code></pre>
 
 <p>The question now is, how does for instance a markdown-engine know, which files to transpile? The answer is easy. Per default, <code>metalsmith-markdown</code> is checking if <code>file</code> has a <code>.md</code> or <code>.markdown</code> extension. Remember, <code>file</code> is a JavaScript object that has its full filename (including its path) as a value.
 If the check is not true it jumps over it, otherwise it is passing the file to the engine. After processing it, <code>metalsmith-markdown</code> replaces the <code>.md</code> extension with an <code>.html</code> and the next plugin can now check against the new filename and so on.</p>
-<p>A process such as this is called check for pattern matching. Many <code>metalsmith</code>-plugins employ such checking. Either they check against internally set patterns or requirements or they offer an explicit option to check against user defined patterns, like we have already seen in the <code>writemetadata</code>-plugin:</p>
+<p>A process such as this is called check for pattern matching. Many <code>metalsmith</code>-plugins employ such matching. Either they check against internally set requirements or patterns or they offer an explicit option to check against user defined matches, like we have already seen in the <code>writemetadata</code>-plugin:</p>
 <pre><code class="hljs JavaScript">.use(writemetadata({            <span class="hljs-comment">// write the JS object</span>
   pattern: [<span class="hljs-string">'**/*'</span>],            <span class="hljs-comment">// for each file into .json</span>
   ignorekeys: [<span class="hljs-string">'next'</span>, <span class="hljs-string">'previous'</span>],
@@ -1939,7 +1943,7 @@ rm -rf .</code></pre>
 </ol>
 <h1 id="license">License</h1>
 <p>The MIT License (MIT)</p>
-<p>Copyright &copy; 2014, Segment.io \<a href="&#x6d;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#x66;&#x72;&#x69;&#101;&#x6e;&#100;&#115;&#64;&#115;&#x65;&#x67;&#x6d;&#101;&#x6e;&#116;&#46;&#x69;&#111;&#x5c;">&#x66;&#x72;&#x69;&#101;&#x6e;&#100;&#115;&#64;&#115;&#x65;&#x67;&#x6d;&#101;&#x6e;&#116;&#46;&#x69;&#111;&#x5c;</a></p>
+<p>Copyright &copy; 2014, Segment.io \<a href="&#x6d;&#x61;&#105;&#108;&#x74;&#x6f;&#x3a;&#x66;&#114;&#105;&#x65;&#110;&#x64;&#x73;&#x40;&#115;&#101;&#x67;&#109;&#101;&#110;&#116;&#x2e;&#105;&#x6f;&#92;">&#x66;&#114;&#105;&#x65;&#110;&#x64;&#x73;&#x40;&#115;&#101;&#x67;&#109;&#101;&#110;&#116;&#x2e;&#105;&#x6f;&#92;</a></p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
