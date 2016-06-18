@@ -613,6 +613,12 @@
     "description": "Load metadata from JSON or YAML files."
   },
   {
+    "name": "Metadata Directory",
+    "icon": "tag",
+    "repository": "https://github.com/fephil/metalsmith-metadata-directory",
+    "description": "Add a directory of JSON files for use in templates and pages."
+  },
+  {
     "name": "Metafiles",
     "icon": "files",
     "repository": "https://github.com/Ajedi32/metalsmith-metafiles",
