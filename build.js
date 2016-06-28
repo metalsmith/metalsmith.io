@@ -30,7 +30,7 @@ function build(fn){
    * Component.
    */
 
-  var c = new Component(__dirname)
+  var c = new Component(__dirname);
   c.copyAssetsTo('build');
   c.development();
   c.addSourceURLs();
