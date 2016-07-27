@@ -487,10 +487,10 @@
     "description": "Automatically generate icon font files using Fontello."
   },
   {
-    "name": "Jade",
+    "name": "Pug/Jade",
     "icon": "compose",
-    "repository": "https://github.com/ahmadnassri/metalsmith-jade",
-    "description": "Convert Jade files to HTML."
+    "repository": "https://github.com/ahmadnassri/metalsmith-pug",
+    "description": "Convert Pug/Jade files to HTML."
   },
   {
     "name": "Jekyll Dates",
