@@ -487,12 +487,6 @@
     "description": "Automatically generate icon font files using Fontello."
   },
   {
-    "name": "Pug/Jade",
-    "icon": "compose",
-    "repository": "https://github.com/ahmadnassri/metalsmith-pug",
-    "description": "Convert Pug/Jade files to HTML."
-  },
-  {
     "name": "Jekyll Dates",
     "icon": "clock",
     "repository": "https://github.com/fortes/metalsmith-jekyll-dates",
@@ -816,6 +810,12 @@
     "icon": "files",
     "repository": "https://github.com/mikestopcontinues/metalsmith-publish",
     "description": "Declare files as draft, private, or future-dated and use callback to automate rebuilds."
+  },
+  {
+    "name": "Pug (Jade)",
+    "icon": "compose",
+    "repository": "https://github.com/ahmadnassri/metalsmith-pug",
+    "description": "Convert Pug (previously Jade) files to HTML."
   },
   {
     "name": "React Templates",
