@@ -944,6 +944,12 @@
     "description": "Convert Stylus files to CSS."
   },
   {
+    "name": "Subresource Integrity",
+    "icon": "files",
+    "repository": "https://github.com/moshen/metalsmith-subresource-integrity",
+    "description": "Generate integrity hashes for site resources."
+  },
+  {
     "name": "SUITCSS",
     "icon": "files",
     "repository": "https://github.com/jeffjewiss/metalsmith-suitcss",
