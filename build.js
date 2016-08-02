@@ -5,6 +5,7 @@ var extname = require('path').extname;
 var inPlace = require('metalsmith-in-place');
 var layouts = require('metalsmith-layouts');
 var markdown = require('metalsmith-markdown');
+var highlights = require('metalsmith-metallic');
 var metadata = require('metalsmith-metadata');
 var Metalsmith = require('metalsmith');
 var mkdir = require('mkdirp');
@@ -29,7 +30,7 @@ function build(fn){
    * Component.
    */
 
-  var c = new Component(__dirname)
+  var c = new Component(__dirname);
   c.copyAssetsTo('build');
   c.development();
   c.addSourceURLs();
@@ -48,6 +49,7 @@ function build(fn){
     engine: 'swig',
     pattern: '**/*.md'
   }));
+  m.use(highlights());
   m.use(markdown({
     smartypants: true,
     smartLists: true

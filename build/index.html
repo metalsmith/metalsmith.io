@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">  
   <title>Metalsmith</title>
   <meta name="description" content="An extremely simple, pluggable static site generator." />
   <meta name="twitter:card" content="summary_large_image" />
@@ -16,6 +18,7 @@
   <meta property="og:image" content="http://www.metalsmith.io/metalsmith.io/images/facebook-image.png" />
   <meta name="google-site-verification" content="2RKFuZol3mkMgto2Y0TUZUmzMpWZ-Ck-7HjocBHpJtE" />
   <link rel="icon" href="/metalsmith.io/images/favicon.png">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/tomorrow.min.css">
   <link rel="stylesheet" href="/build.css">
   <link rel="stylesheet" href="//cloud.typography.com/6692672/678184/css/fonts.css">
   <link rel="stylesheet" href="//cdn.symbolset.com/94440cd0456394a198fb9c3302ad80fe007e5eff/symbolset.css">
@@ -37,73 +40,287 @@
 
   <section class="Body">
     <hr>
-<h1 id="everything-is-a-plugin">Everything is a Plugin</h1>
-<p>All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here’s what the simplest blog looks like…</p>
-<pre><code><b>Metalsmith</b>(__dirname)
-  .use(<b>markdown()</b>)
-  .use(<b>layouts</b>(<i>'handlebars'</i>))
-  .build(function(err) {
-    if (err) throw err;
-  });
-</code></pre>
+<h1 id="welcome">Welcome</h1>
+<p>You want to build a website or blog with a static site generator. Well, here is our elevator pitch. It’s as easy as that:</p>
+<pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> Metalsmith  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith'</span>);
+<span class="hljs-keyword">var</span> collections = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-collections'</span>);
+<span class="hljs-keyword">var</span> layouts     = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-layouts'</span>);
+<span class="hljs-keyword">var</span> markdown    = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-markdown'</span>);
+<span class="hljs-keyword">var</span> permalinks  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-permalinks'</span>);
 
-<p>…but what if you want to get fancier by hiding your unfinished drafts and using custom permalinks? Just add plugins…</p>
-<pre><code><b>Metalsmith</b>(__dirname)
-  .use(<b>drafts()</b>)
-  .use(markdown())
-  .use(<b>permalinks</b>(<i>'posts/:title'</i>))
-  .use(layouts(<i>'handlebars'</i>))
-  .build(function(err) {
-    if (err) throw err;
-  });
-</code></pre>
 
-<p>…it’s as easy as that!</p>
-<hr>
-<h1 id="how-does-it-work-">How does it work?</h1>
-<p>Metalsmith works in three simple steps:</p>
-<ol>
-<li>Read all the files in a source directory.</li>
-<li>Invoke a series of plugins that manipulate the files.</li>
-<li>Write the results to a destination directory!</li>
-</ol>
-<p>Each plugin is invoked with the contents of the source directory, with every file parsed for optional YAML front-matter, like so…</p>
-<pre><code>---
-<b>title</b>: A Catchy Title
-<b>draft</b>: true
----
+Metalsmith(__dirname)         <span class="hljs-comment">// __dirname defined by node.js:</span>
+                              <span class="hljs-comment">// name of current working directory</span>
+  .metadata({                 <span class="hljs-comment">// add any variable you want</span>
+                              <span class="hljs-comment">// use them in layout-files</span>
+    sitename: <span class="hljs-string">"My Static Site &amp; Blog"</span>,
+    siteurl: <span class="hljs-string">"http://example.com/"</span>,
+    description: <span class="hljs-string">"It's about saying »Hello« to the world."</span>,
+    generatorname: <span class="hljs-string">"Metalsmith"</span>,
+    generatorurl: <span class="hljs-string">"http://metalsmith.io/"</span>
+  })
+  .source(<span class="hljs-string">'./src'</span>)            <span class="hljs-comment">// source directory</span>
+  .destination(<span class="hljs-string">'./build'</span>)     <span class="hljs-comment">// destination directory</span>
+  .clean(<span class="hljs-literal">true</span>)                <span class="hljs-comment">// clean destination before</span>
+  .use(collections({          <span class="hljs-comment">// group all blog posts by internally</span>
+    posts: <span class="hljs-string">'posts/*.md'</span>       <span class="hljs-comment">// adding key 'collections':'posts'</span>
+  }))                         <span class="hljs-comment">// use `collections.posts` in layouts</span>
+  .use(markdown())            <span class="hljs-comment">// transpile all md into html</span>
+  .use(permalinks({           <span class="hljs-comment">// change URLs to permalink URLs</span>
+    relative: <span class="hljs-literal">false</span>           <span class="hljs-comment">// put css only in /css</span>
+  }))
+  .use(layouts({              <span class="hljs-comment">// wrap layouts around html</span>
+    engine: <span class="hljs-string">'handlebars'</span>,     <span class="hljs-comment">// use the layout engine you like</span>
+  }))
+  .build(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{      <span class="hljs-comment">// build process</span>
+    <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;       <span class="hljs-comment">// error handling is required</span>
+  });</code></pre>
 
-An unfinished article...
-</code></pre>
+<p>You want to try yourself, if it is really this easy. Have a go:</p>
+<pre><code class="hljs bash">$ git <span class="hljs-built_in">clone</span> https://github.com/metalsmith/metalsmith.git
+$ <span class="hljs-built_in">cd</span> metalsmith/examples/static-site
+$ make</code></pre>
 
-<pre><code>{
-  <i>'path/to/my-file.md'</i>: {
-    title: <i>'A Catchy Title'</i>,
-    draft: <b>true</b>,
-    contents: <b>new</b> Buffer(<i>'An unfinished article...'</i>)
-  }
-}
-</code></pre>
 
-<p>The plugins can manipulate the files however they want, and writing one is super simple. Here’s the code for the drafts plugin from above:</p>
-<pre><code><b>function</b>(){
-  <b>return function</b> <i>drafts</i>(files, metalsmith, done){
-    <b>for</b> (<b>var</b> file <b>in</b> files) {
-      <b>if</b> (files[file].draft) <b>delete</b> files[file];
-    }
-    done();
-  };
-}
-</code></pre>
-
-<p>Of course they can get a lot more complicated too. That’s what makes Metalsmith powerful; the plugins can do anything you want.</p>
-<p><i><b>Note:</b> The order the plugins are invoked is the order they are in the build script or the metalsmith.json file for cli implementations.  This is important for using a plugin that requires a plugins output to work.</i></p>
 <hr>
 <h1 id="install-it">Install it</h1>
 <p>Metalsmith and its plugins can be installed with npm:</p>
-<pre><code>$ <b>npm</b> install <i>metalsmith</i></code></pre>
+<pre><code class="hljs bash">$ npm install metalsmith</code></pre>
 
-<p>The package exposes both a <a href="https://github.com/segmentio/metalsmith#api">Javascript API</a>, and <a href="https://github.com/segmentio/metalsmith#cli">CLI</a> in case you’re used to that type of workflow from other static site generators. To see how they’re used check out the <a href="https://github.com/segmentio/metalsmith/tree/master/examples">examples</a>.</p>
+<p>The package exposes both a <a href="https://github.com/segmentio/metalsmith#api">JavaScript API</a>, and <a href="https://github.com/segmentio/metalsmith#cli">CLI</a> in case you’re used to that type of workflow from other static site generators. To see how they’re used check out the <a href="https://github.com/segmentio/metalsmith/tree/master/examples">examples</a>.</p>
+<hr>
+<h1 id="introduction">Introduction</h1>
+<p>Metalsmith is an extremely simple, pluggable static site generator. So let us explain why:</p>
+<h2 id="why-is-metalsmith-a-pluggable-static-site-generator-">Why is Metalsmith a <em>pluggable static site generator</em>?</h2>
+<p>The task of a static site generator is to produce static build files that can be deployed to a web server. These files are built from source files. Basically for a static site generator this means:</p>
+<ol>
+<li>from a source directory read the source files and extract their information</li>
+<li>manipulate the information</li>
+<li>write the manipulated information to files into a destination directory</li>
+</ol>
+<p>Metalsmith is build on this reasoning. It takes the information from the source files from a source directory and it writes the manipulated information to files into a destination directory. All manipulations, however, it exclusively leaves to plugins.</p>
+<p>Manipulations can be anything: translating templates, transpiling code, replacing variables, wrapping layouts around content, grouping files, moving files and so on. This is why we say <em>»Everything is a Plugin«</em>. And of course, several manipulations can be applied one after another. Obviously, in this case the sequence matters.</p>
+<h2 id="why-is-metalsmith-extremely-simple-">Why is Metalsmith <em>extremely simple</em>?</h2>
+<ol>
+<li><p>When all manipulations are performed by plugins, the only thing Metalsmith has to do in its core is to provide for an underlying logic of actually how manipulations are dealt with and for a defined interface for the plugins. To achieve this, we only needed around 400 lines of code — have a <a href="https://github.com/metalsmith/metalsmith/blob/master/lib/index.js">look at the source yourself</a>. We believe this is rather simple.</p>
+</li>
+<li><p>For manipulations Metalsmith uses a very clever, but extremely simple idea. All source files are initially converted into JavaScript objects with the usual <strong><code>{property: property value}</code></strong> pairs. These <strong><code>{property: property value}</code></strong> pairs contain information on the original file itself (such as its <strong><code>birthtime</code></strong> or <strong><code>path</code></strong>) and on its <strong><code>content</code></strong>. The JavaScript object for each file is then supplemented with all variables either specified in the front-matter of the file or elsewhere. The manipulations performed by the plugins are now nothing else then modifications applied to the JavaScript objects either by changing the properties or the property values.</p>
+</li>
+<li><p>Breaking down Metalsmith into a core and many plugins has several advantages. It reduces complexity. It gives the user the freedom to use exactly only those plugins he or she needs. Furthermore, it distributes the honor and the burdon of maintaining the Metalsmith core and its plugins onto the Metalsmith community. With this approach we hope to keep the Metalsmith environment pretty up-to-date.</p>
+</li>
+<li><p>Writing plugins itself is also rather simple. The plugin-interface is easy to understand and most plugins are also rather short.</p>
+</li>
+<li><p>Every site needs JavaScript anyway. Just like the popular task runners <a href="http://gulpjs.com/">gulp</a> or <a href="http://gruntjs.com/">grunt</a> Metalsmith is programmed in JavaScript. So, you do not have to rely on a further language such as Ruby, Python or Go. This also helps to keep your workflow simple.</p>
+</li>
+</ol>
+<hr>
+<h1 id="everything-is-a-plugin-a-first-example">Everything is a Plugin — A first example</h1>
+<p>All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here’s what the simplest blog looks like. It uses only two plugins, <strong><code>markdown()</code></strong> and <strong><code>layouts()</code></strong>…</p>
+<pre><code class="hljs JavaScript">Metalsmith(__dirname)          <span class="hljs-comment">// instantiate Metalsmith in the cwd</span>
+  .source(<span class="hljs-string">'sourcepath'</span>)        <span class="hljs-comment">// specify source directory</span>
+  .destination(<span class="hljs-string">'destpath'</span>)     <span class="hljs-comment">// specify destination directory</span>
+  .use(markdown())             <span class="hljs-comment">// transpile markdown into html</span>
+  .use(layouts({               <span class="hljs-comment">// wrap a handlebars-layout</span>
+    engine: <span class="hljs-string">'handlebars'</span>       <span class="hljs-comment">// around transpiled html-files</span>
+  }))    
+  .build(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{       <span class="hljs-comment">// this is the actual build process</span>
+    <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;    <span class="hljs-comment">// throwing errors is required</span>
+  });</code></pre>
+
+
+<p>… and by the way, if you do not want your destination directory to be cleaned before a new build, just add <b><code>.clean(false)</code></b>. But what if you want to get fancier by hiding your unfinished drafts and using permalinks? Just add plugins…</p>
+<pre><code class="hljs JavaScript">Metalsmith(__dirname)
+  .source(<span class="hljs-string">'sourcepath'</span>)      
+  .destination(<span class="hljs-string">'destpath'</span>)
+  .clean(<span class="hljs-literal">false</span>)                  <span class="hljs-comment">// do not clean destination</span>
+                                 <span class="hljs-comment">// directory before new build   </span>
+  .use(drafts())                 <span class="hljs-comment">// only files that are NOT drafts</span>
+  .use(markdown())
+  .use(permalinks())             <span class="hljs-comment">// make a permalink output path</span>
+  .use(layouts({
+    engine: <span class="hljs-string">'handlebars'</span>
+  }))
+  .build(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{    
+    <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;
+  });</code></pre>
+
+<p>…it’s as easy as that!</p>
+<p>A small comment. Instead of <a href="http://handlebarsjs.com/">Handlebars</a> you can also use other templating languages such as <a href="http://jade-lang.com/">Jade/Pug</a>.</p>
+<hr>
+<h1 id="how-does-it-work-in-more-detail-">How does it work in more detail?</h1>
+<p>Metalsmith works in three simple steps:</p>
+<ol>
+<li>Read all the files in a source directory and transform them into a JavaScript object of JavaScript objects.</li>
+<li>Invoke a series of plugins that manipulate these objects.</li>
+<li>According to the information contained in the resulting objects write them as files into a destination directory</li>
+</ol>
+<p>Every file in the source directory is transformed into a JavaScript Object. For instance,</p>
+<p><code>my-file.md:</code></p>
+<pre><code class="hljs Markdown"><span class="hljs-horizontal_rule">---</span>
+title: A Catchy Title
+<span class="hljs-header">draft: false
+---</span>
+
+An unfinished article...</code></pre>
+
+<p>becomes</p>
+<pre><code class="hljs JavaScript">{
+  <span class="hljs-string">'relative_to_sourcepath/my-file.md'</span>: {
+    title: <span class="hljs-string">'A Catchy Title'</span>,
+    draft: <span class="hljs-literal">false</span>,
+    contents: <span class="hljs-string">'An unfinished article...'</span>,
+    mode: <span class="hljs-string">'0664'</span>,
+    stats: {
+      <span class="hljs-comment">/* keys with information on the file */</span>
+    }    
+  }
+}</code></pre>
+
+<p>where the content of the file is always put into the property value of <strong><code>contents</code></strong>. For illustration purposes only we display the value of <strong><code>contents</code></strong> as a string. Technically, however, the property value of <strong><code>contents</code></strong> is realised as a <code>new Buffer(&#39;...&#39;)</code> object, in order to also handle straight binary data well. <strong><code>mode</code></strong> contains the permission the file has and <strong><code>stats</code></strong> has more technical information on the file such as <code>size</code> or <code>birthtime</code>. Furthermore, the file is also parsed for YAML-front-matter information, which will then also be put into the JS Object. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called <strong><code>files</code></strong> since it contains all the JavaScript objects that represent the files.</p>
+<pre><code class="hljs JavaScript">{
+  <span class="hljs-string">"relative_to_sourcepath/file1.md"</span>: {
+    title: <span class="hljs-string">'A Catchy Title'</span>,
+    draft: <span class="hljs-literal">false</span>,
+    contents: <span class="hljs-string">'An unfinished article...'</span>,
+    mode: <span class="hljs-string">'0664'</span>,
+    stats: {
+      <span class="hljs-comment">/* keys with information on the file */</span>
+    }    
+  },
+  <span class="hljs-string">"relative_to_sourcepath/file2.md"</span>: {
+    title: <span class="hljs-string">'An Even Better Title'</span>,
+    draft: <span class="hljs-literal">false</span>,
+    contents: <span class="hljs-string">'One more unfinished article...'</span>,
+    mode: <span class="hljs-string">'0664'</span>,
+    stats: {
+      <span class="hljs-comment">/* keys with information on the file */</span>
+    }    
+  }
+}</code></pre>
+
+<p>The plugins can manipulate the JavaScript objects representing the original files however they want, and writing one is super simple. Here’s the code for the <strong><code>drafts()</code></strong> plugin from above. You can also find the code in the <a href="https://github.com/segmentio/metalsmith-drafts">github repository for <code>metalsmith-drafts</code></a>. The code just runs through the JS object <strong><code>files</code></strong> and deletes all contained JavaScript objects that have a property value of <strong><code>true</code></strong> for the property <strong><code>draft</code></strong>:</p>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">/**
+ * Expose `plugin`.
+ */</span>
+<span class="hljs-built_in">module</span>.exports = plugin;
+
+<span class="hljs-comment">/**
+ * Metalsmith plugin to hide drafts from the output.
+ *
+ * @return {Function}
+ */</span>
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">plugin</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">files, metalsmith, done</span>)</span>{
+    setImmediate(done);
+    <span class="hljs-built_in">Object</span>.keys(files).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file</span>)</span>{
+      <span class="hljs-keyword">var</span> data = files[file];
+      <span class="hljs-keyword">if</span> (data.draft) <span class="hljs-keyword">delete</span> files[file];
+    });
+  };
+}</code></pre>
+
+<p>Of course plugins can get a lot more complicated too. That’s what makes Metalsmith powerful; the plugins can do anything you want and the community has written a large amount of plugins already.</p>
+<p><i><b>Note:</b> The order the plugins are invoked is the order they are in the build script or the metalsmith.json file for cli implementations.  This is important for using a plugin that requires a plugins output to work.</i></p>
+<p>If you are still struggling with the concept we like to recommend you the <a href="https://github.com/Waxolunist/metalsmith-writemetadata"><strong><code>writemetadata()</code></strong></a> plugin. It is a metalsmith plugin that writes the <strong><code>{property: property value}</code></strong> pairs excerpted from the JavaScript objects representing the files to the filesystem as .json files. You can then view the .json files to find out how files are represented internally in Metalsmith.</p>
+<pre><code class="hljs JavaScript">Metalsmith(__dirname)            
+  .source(<span class="hljs-string">'sourcepath'</span>)      
+  .destination(<span class="hljs-string">'destpath'</span>)   
+  .use(markdown())          
+  .use(layouts({
+    engine: <span class="hljs-string">'handlebars'</span>
+  }))
+  .use(writemetadata({            <span class="hljs-comment">// write the JS object</span>
+    pattern: [<span class="hljs-string">'**/*'</span>],            <span class="hljs-comment">// for each file into .json</span>
+    ignorekeys: [<span class="hljs-string">'next'</span>, <span class="hljs-string">'previous'</span>],
+    bufferencoding: <span class="hljs-string">'utf8'</span>        <span class="hljs-comment">// also put 'content' into .json</span>
+  }))
+  .build(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{         
+    <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;          
+  });</code></pre>
+
+<p>We believe, that understanding the internal representation of files as JavaScript objects is really key to fully grasp the concept of Metalsmith. To see this, we look at what happens in the second example chain above:</p>
+<p>So, within the Markdown chain above after applying <strong><code>.use(markdown())</code></strong> the initial representation of the <code>my-file.md</code> becomes <code>my-file.html</code>…</p>
+<pre><code class="hljs JavaScript">{
+  <span class="hljs-string">'relative_to_sourcepath/my-file.html'</span>: {
+    title: <span class="hljs-string">'A Catchy Title'</span>,
+    draft: <span class="hljs-literal">false</span>,
+    contents: <span class="hljs-string">'&lt;p&gt;An unfinished article...&lt;/p&gt;'</span>,
+    ...
+  }
+}</code></pre>
+
+<p>end after applying <strong><code>.use(permalinks())</code></strong> it becomes:</p>
+<pre><code class="hljs JavaScript">{
+  <span class="hljs-string">'relative_to_sourcepath/my-file/index.html'</span>: {
+    title: <span class="hljs-string">'A Catchy Title'</span>,
+    draft: <span class="hljs-literal">false</span>,
+    contents: <span class="hljs-string">'&lt;p&gt;An unfinished article...&lt;/p&gt;'</span>,
+    path: <span class="hljs-string">'myfile'</span>,
+    ...
+  }
+}</code></pre>
+
+<p>Note, that <code>permalinks()</code> is also adding a <code>path</code>–property by default.</p>
+<p>Assuming somewhere amongst the source files we have defined a very simple standard handlebars layout file…</p>
+<p><code>layout.html</code></p>
+<pre><code class="hljs Handlebars"><span class="xml"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span></span><span class="hljs-expression">{{<span class="hljs-variable">title</span>}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+  </span><span class="hljs-expression">{{{<span class="hljs-variable">contents</span>}}</span><span class="xml">}
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span></span></code></pre>
+
+
+<p>… after applying <strong><code>.use(layouts())</code></strong> in our Metalsmith chain our JavaScript object becomes:</p>
+<pre><code class="hljs JavaScript">{
+  'relative_to_sourcepath/my-file/index.html': {
+    title: 'A Catchy Title',
+    draft: false,
+    contents: '&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;
+               &lt;title&gt;A Catchy Title&lt;/title&gt;&lt;/head&gt;&lt;body&gt;
+               &lt;p&gt;An unfinished article...&lt;/p&gt;
+               &lt;/body&gt;&lt;/html&gt;',
+    path: 'myfile',
+    ...      
+  }
+}</code></pre>
+
+<p>Finally when the <strong><code>.build(function(err))</code></strong> is performed our JavaScript object is written to <code>relative_to_destpath/myfile/index.html</code>. So you see, how the chain works. It’s rather straight forward, isn’t it?</p>
+<hr>
+<h1 id="metadata-debugging">Metadata &amp; debugging</h1>
+<p>For Metalsmith we have stated that everything is a plugin. That is true, but in addition the Metalsmith core also provides for a <strong><code>metadata()</code></strong> function. You can specify arbitrary <strong><code>{property: property value}</code></strong> pairs and these information will be globally accessible from each plugin.</p>
+<pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> debug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'metalsmith-debug'</span>);
+
+...
+
+Metalsmith(__dirname)            
+  .source(<span class="hljs-string">'sourcepath'</span>)      
+  .destination(<span class="hljs-string">'destpath'</span>)   
+  .clean(<span class="hljs-literal">false</span>)
+  .metadata({
+      author: <span class="hljs-string">'John Doe'</span>,
+      site: <span class="hljs-string">'http://example.com'</span>
+  })
+  .use(markdown())
+  .use(layouts({
+    engine: <span class="hljs-string">'handlebars'</span>
+  }))
+  .use(debug())             <span class="hljs-comment">// displays debug info on the console</span>
+  .build(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{         
+    <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">throw</span> err;
+  });</code></pre>
+
+<p>As you have seen in the code above, we have also introduced a plugin named <a href="https://github.com/mahnunchik/metalsmith-debug"><strong><code>metalsmith-debug</code></strong></a>. For this plugin to actually show debug information you need to define an environment variable <code>DEBUG</code> and set it to:</p>
+<pre><code class="hljs bash">$ DEBUG=metalsmith:*</code></pre>
+
+<p>The source and destination path, the metadata and all files are then logged to the console.</p>
+<hr>
+<h1 id="further-information">Further information</h1>
+<p>Yes, we know. The documentation can be improved. If you want to help, give us a shout. But in the meantime have a look at the <a href="https://github.com/metalsmith/awesome-metalsmith">Awesome Metalsmith list</a>. There you will find references to a number of excellent tutorials, examples and use cases.</p>
 <hr>
 <h1 id="a-little-secret">A Little Secret</h1>
 <p>We keep referring to Metalsmith as a “static site generator”, but it’s a lot more than that. Since everything is a plugin, the core library is actually just an abstraction for manipulating a directory of files.</p>
@@ -191,15 +408,97 @@ An unfinished article...
 <p>The plugins are all reusable. That PDF generator plugin for eBooks? Use it to generate PDFs for each of your blog posts too!</p>
 <p>Check out <a href="https://github.com/segmentio/metalsmith/tree/master/examples">the code examples</a> to get an idea for what’s possible.</p>
 <hr>
-<h1 id="the-plugins">The Plugins</h1>
-<p>The core Metalsmith library doesn’t bundle any plugins by default. You just require new ones as needed, or make your own!</p>
-<p>Here’s a list of the current plugins:</p>
+<h1 id="writing-a-plugin">Writing A Plugin</h1>
+<p>Writing a plugin is not difficult as you have seen above with the <code>metalsmith-drafts</code> plugin. In order to achieve more complicated tasks you will most likely find and can use <code>npm</code>-packages. Look at how others have done it. Here is an example using <code>debug</code> (which we appreciate if you use it) and <code>multimatch</code>:</p>
+<p><code>metalsmith-myplugin</code>:</p>
+<pre><code class="hljs JavaScript"><span class="hljs-comment">// we would like you to use debug</span>
+<span class="hljs-keyword">var</span> debug = <span class="hljs-built_in">require</span>(<span class="hljs-string">'debug'</span>)(<span class="hljs-string">'metalsmith-myplugin'</span>);
+<span class="hljs-keyword">var</span> multimatch = <span class="hljs-built_in">require</span>(<span class="hljs-string">'multimatch'</span>);
+
+
+<span class="hljs-comment">// Expose `plugin`.</span>
+<span class="hljs-built_in">module</span>.exports = plugin;
+
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">plugin</span>(<span class="hljs-params">opts</span>)</span>{
+  opts.pattern = opts.pattern || [];
+
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">files, metalsmith, done</span>)</span>{
+
+    setImmediate(done);
+    <span class="hljs-built_in">Object</span>.keys(files).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file</span>)</span>{
+      <span class="hljs-keyword">if</span>(multimatch(file, opts.pattern).length) {
+        debug(<span class="hljs-string">'myplugin working on: %s'</span>, file);
+
+        <span class="hljs-comment">//</span>
+        <span class="hljs-comment">// here would be your code</span>
+        <span class="hljs-comment">//</span>
+
+      }
+
+    });
+
+  };
+}</code></pre>
+
+<hr>
+<h1 id="matching">Matching</h1>
+<p>Even though we touched on the topic already, we did not tackle it explicitly. We mentioned that plugins usually run through all files presented to <code>metalsmith</code>. This happens in a loop like this:</p>
+<pre><code class="hljs JavaScript"><span class="hljs-built_in">Object</span>.keys(files).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">file</span>)</span>{
+  <span class="hljs-comment">//</span>
+  <span class="hljs-comment">// here would be your code</span>
+  <span class="hljs-comment">//</span>
+});</code></pre>
+
+<p>The question now is, how does for instance a markdown-engine know, which files to transpile? The answer is easy. Per default, <code>metalsmith-markdown</code> is checking if <code>file</code> has a <code>.md</code> or <code>.markdown</code> extension. Remember, <code>file</code> is a JavaScript object that has its full filename (including its path) as a value.
+If the check is not true it jumps over it, otherwise it is passing the file to the engine. After processing it, <code>metalsmith-markdown</code> replaces the <code>.md</code> extension with an <code>.html</code> and the next plugin can now check against the new filename and so on.</p>
+<p>A process such as this is called check for pattern matching. Many <code>metalsmith</code>-plugins employ such matching. Either they check against internally set requirements or patterns or they offer an explicit option to check against user defined matches, like we have already seen in the <code>writemetadata</code>-plugin:</p>
+<pre><code class="hljs JavaScript">.use(writemetadata({            <span class="hljs-comment">// write the JS object</span>
+  pattern: [<span class="hljs-string">'**/*'</span>],            <span class="hljs-comment">// for each file into .json</span>
+  ignorekeys: [<span class="hljs-string">'next'</span>, <span class="hljs-string">'previous'</span>],
+  bufferencoding: <span class="hljs-string">'utf8'</span>        <span class="hljs-comment">// also put 'content' into .json</span>
+}))</code></pre>
+
+<p>Pattern matching is normally based on <a href="https://github.com/isaacs/node-glob">glob</a> pattern. Many plugins employ either own functions or rely on <a href="https://www.npmjs.com/package/minimatch"><code>minimatch</code></a> or <a href="https://www.npmjs.com/package/multimatch"><code>multimatch</code></a>.</p>
+<pre><code class="hljs JavaScript"><span class="hljs-keyword">var</span> multimatch = <span class="hljs-built_in">require</span>(<span class="hljs-string">'multimatch'</span>);
+
+[...]
+
+  <span class="hljs-comment">// Checks whether files should be processed</span>
+  <span class="hljs-comment">// length is zero if no matching pattern was found</span>
+  <span class="hljs-keyword">if</span> (multimatch(file, opts.pattern).length) {
+
+    <span class="hljs-comment">// process file</span>
+
+  }</code></pre>
+
+
+<hr>
+<h1 id="the-community-plugins">The Community Plugins</h1>
+<p>The core Metalsmith library doesn’t bundle any plugins by default.</p>
+<p>Here’s a list of plugins that are provided by the awesome Metalsmith community. But mind you, this list is by no means complete, because not every author PRs his or her plugin. So you might want to search for further plugins:</p>
 <label class="Plugin-filter">
   <i class="Plugin-filter-icon ss-search"></i>
   <input class="Plugin-filter-input" placeholder="Filter plugins…" />
 </label>
 
 <ul class="Plugin-list">
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/fortes/metalsmith-alias">
+      <h1 class="Plugin-title">Alias<i class="Plugin-icon ss-link"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Create URL aliases for any page.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/almirfilho/metalsmith-author">
+      <h1 class="Plugin-title">Author<i class="Plugin-icon ss-users"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Include authors information in collection files.</p>
+    </a>
+  </li>
 
   <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/esundahl/metalsmith-autoprefixer">
@@ -258,6 +557,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/kopa-app/metalsmith-browserify">
+      <h1 class="Plugin-title">Browserify<i class="Plugin-icon ss-file"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Complie Javascript with browserify.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-build-date">
       <h1 class="Plugin-title">Build Date<i class="Plugin-icon ss-clock"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -298,10 +605,18 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
-    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-collections">
-      <h1 class="Plugin-title">Collections<i class="Plugin-icon ss-layergroup"></i></h1>
+    <a class="Plugin-link" href="https://github.com/superwolff/metalsmith-cloudinary">
+      <h1 class="Plugin-title">Cloudinary<i class="Plugin-icon ss-layergroup"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
-      <p class="Plugin-description">Group files together, like blog posts. That way you can loop over them to generate an index, or add &#39;next&#39; and &#39;previous&#39; links between them.</p>
+      <p class="Plugin-description">Retrieve data from the Cloudinary API, for cache-busting and on-the-fly transformations of your images.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/fortes/metalsmith-code-highlight">
+      <h1 class="Plugin-title">Code Highlight<i class="Plugin-icon ss-rainbow"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Syntax highlighting for code within Markdown and HTML files.</p>
     </a>
   </li>
 
@@ -310,6 +625,22 @@ An unfinished article...
       <h1 class="Plugin-title">Coffee<i class="Plugin-icon ss-files"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Compile CoffeeScript files to Javascript.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/rbardini/metalsmith-collection-metadata">
+      <h1 class="Plugin-title">Collection Metadata<i class="Plugin-icon ss-tag"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Add metadata to every file in a collection</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-collections">
+      <h1 class="Plugin-title">Collections<i class="Plugin-icon ss-layergroup"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Group files together, like blog posts. That way you can loop over them to generate an index, or add &#39;next&#39; and &#39;previous&#39; links between them.</p>
     </a>
   </li>
 
@@ -382,6 +713,14 @@ An unfinished article...
       <h1 class="Plugin-title">Date Formatter<i class="Plugin-icon ss-files"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Format dates defined in the YAML Front Matter</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/woodyrew/metalsmith-default-values">
+      <h1 class="Plugin-title">Default Values<i class="Plugin-icon ss-tag"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Sets default values to frontmatter metadata if they don&#39;t exist.</p>
     </a>
   </li>
 
@@ -482,6 +821,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/helq/metalsmith-excerptor">
+      <h1 class="Plugin-title">Exceptor<i class="Plugin-icon ss-compose"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Metalsmith plugin to create an excerpt of a html file.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/segmentio/metalsmith-excerpts">
       <h1 class="Plugin-title">Excerpts<i class="Plugin-icon ss-unquote"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -502,6 +849,14 @@ An unfinished article...
       <h1 class="Plugin-title">Feed<i class="Plugin-icon ss-sugarpackets"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Generate an RSS feed for a collection.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/almirfilho/metalsmith-feed-atom">
+      <h1 class="Plugin-title">Feed Atom<i class="Plugin-icon ss-sugarpackets"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Generate Atom feed for a collection.</p>
     </a>
   </li>
 
@@ -578,10 +933,26 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/kalamuna/metalsmith-google-sheets">
+      <h1 class="Plugin-title">Google Sheets<i class="Plugin-icon ss-table"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Pull in data from a google spreadsheet using the API.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/stevenschobert/metalsmith-gravatar">
       <h1 class="Plugin-title">Gravatar<i class="Plugin-icon ss-users"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Pull in images from Gravatar.com.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/jelz/gulp-metalsmith">
+      <h1 class="Plugin-title">gulp-metalsmith<i class="Plugin-icon ss-layergroup"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">A lightweight plugin that incorporates Metalsmith builds into gulp pipelines.</p>
     </a>
   </li>
 
@@ -682,6 +1053,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/kenhoff/metalsmith-image-resizer">
+      <h1 class="Plugin-title">Image Resizer<i class="Plugin-icon ss-picture"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">An image resizing plugin for Metalsmith. Not dependent on imagemagick/graphicsmagick!</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/superwolff/metalsmith-in-place">
       <h1 class="Plugin-title">In-place<i class="Plugin-icon ss-files"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -694,6 +1073,30 @@ An unfinished article...
       <h1 class="Plugin-title">Include<i class="Plugin-icon ss-downloadfolder"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Make other source files available as properties.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/mintbridge/metalsmith-include-content">
+      <h1 class="Plugin-title">Include Content<i class="Plugin-icon ss-files"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Allows content to be included (nested) within other content by including the file path</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/alexnewmannn/metalsmith-inline-source">
+      <h1 class="Plugin-title">Inline Source<i class="Plugin-icon ss-addfile"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Inlines static assets like SVG, Javascript and CSS</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/meatysolutions/metalsmith-inline-svg">
+      <h1 class="Plugin-title">Inline SVG<i class="Plugin-icon ss-picture"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Inlines SVG images into your HTML files</p>
     </a>
   </li>
 
@@ -718,6 +1121,14 @@ An unfinished article...
       <h1 class="Plugin-title">Jade<i class="Plugin-icon ss-compose"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Convert Jade files to HTML.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/fortes/metalsmith-jekyll-dates">
+      <h1 class="Plugin-title">Jekyll Dates<i class="Plugin-icon ss-clock"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Automatically extract dates from Jekyll-style filenames.</p>
     </a>
   </li>
 
@@ -794,6 +1205,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/der-On/metalsmith-localize-collection">
+      <h1 class="Plugin-title">Localize Collection<i class="Plugin-icon ss-globe"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Creates localized branches of a collection.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/CMClay/metalsmith-lunr">
       <h1 class="Plugin-title">Lunr Search<i class="Plugin-icon ss-search"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -826,6 +1245,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/brunoscopelliti/metalsmith-markdown-precompiler">
+      <h1 class="Plugin-title">Markdown-Precompiler<i class="Plugin-icon ss-compose"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Precompiles markdown files replacing templates with their real content.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/attentif/metalsmith-markdown-remarkable">
       <h1 class="Plugin-title">Markdown-Remarkable<i class="Plugin-icon ss-compose"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -838,6 +1265,14 @@ An unfinished article...
       <h1 class="Plugin-title">Mingo<i class="Plugin-icon ss-layergroup"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Wrapper for the Mingo library which allows to make MongoDB style queries.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/kopa-app/metalsmith-mithril">
+      <h1 class="Plugin-title">Mithril<i class="Plugin-icon ss-compose"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Convert mithril.js Javascript files to html.</p>
     </a>
   </li>
 
@@ -890,6 +1325,22 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/jaichandra/metalsmith-models">
+      <h1 class="Plugin-title">Models<i class="Plugin-icon ss-files"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Include JSON models into files and expose the data as metadata on the file object</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/dpobel/metalsmith-moment">
+      <h1 class="Plugin-title">Moment<i class="Plugin-icon ss-clock"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Converts file metadata to moment.js object</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/kfranqueiro/metalsmith-more">
       <h1 class="Plugin-title">More<i class="Plugin-icon ss-crop"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -922,10 +1373,26 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/altano/metalsmith-npm">
+      <h1 class="Plugin-title">npm<i class="Plugin-icon ss-addfile"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Include npm modules in your globals</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/Treri/metalsmith-only">
       <h1 class="Plugin-title">Only<i class="Plugin-icon ss-files"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Filter out attributes from each file&#39;s metadata.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/crshd/metalsmith-org">
+      <h1 class="Plugin-title">org<i class="Plugin-icon ss-compose"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Convert org-mode files to HTML.</p>
     </a>
   </li>
 
@@ -950,6 +1417,14 @@ An unfinished article...
       <h1 class="Plugin-title">Partial<i class="Plugin-icon ss-file"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Provide &#39;partial&#39; helper to include other files.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/brunoscopelliti/metalsmith-pager">
+      <h1 class="Plugin-title">Pager<i class="Plugin-icon ss-files"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Paginate collections of file; it&#39;s meant to be used with metalsmith-collections.</p>
     </a>
   </li>
 
@@ -998,6 +1473,14 @@ An unfinished article...
       <h1 class="Plugin-title">Permalinks<i class="Plugin-icon ss-link"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Apply custom permalinks and rename files to be nested properly for static sites, basically converting <code>about.html</code> into <code>about/index.html</code>.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/fdoxyz/metalsmith-polyglot">
+      <h1 class="Plugin-title">Polyglot<i class="Plugin-icon ss-globe"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Simple mirror translations for blog-like entries.</p>
     </a>
   </li>
 
@@ -1066,6 +1549,14 @@ An unfinished article...
   </li>
 
   <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/richardstevens/metalsmith-react-tpl">
+      <h1 class="Plugin-title">React tpl<i class="Plugin-icon ss-gridlines"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Use React in metalsmith as a templating language</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
     <a class="Plugin-link" href="https://github.com/aymericbeaumet/metalsmith-redirect">
       <h1 class="Plugin-title">Redirect<i class="Plugin-icon ss-link"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
@@ -1102,6 +1593,22 @@ An unfinished article...
       <h1 class="Plugin-title">Request<i class="Plugin-icon ss-globe"></i></h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">Grab content from the web and expose the results to metadata.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/superwolff/metalsmith-robots">
+      <h1 class="Plugin-title">Robots<i class="Plugin-icon ss-addfile"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Generates a robots.txt file.</p>
+    </a>
+  </li>
+
+  <li class="Plugin">
+    <a class="Plugin-link" href="https://github.com/attila/metalsmith-rollup">
+      <h1 class="Plugin-title">Rollup<i class="Plugin-icon ss-files"></i></h1>
+      <i class="Plugin-arrow ss-right"></i>
+      <p class="Plugin-description">Bundle JavaScript with Rollup.</p>
     </a>
   </li>
 
@@ -1356,6 +1863,92 @@ An unfinished article...
 </ul>
 
 <p>If you write your own plugin, submit a pull request to the <a href="https://github.com/segmentio/metalsmith.io/tree/master/src/plugins.json">metalsmith.io</a> repository and it will show up here!</p>
+<hr>
+<h1 id="api">API</h1>
+<p>Checkout the <a href="https://github.com/metalsmith/metalsmith/tree/master/examples/project-scaffolder">project scaffolder</a> or <a href="https://github.com/metalsmith/metalsmith/tree/master/examples/build-tool">build tool</a> examples to see a real example of the Javascript API in use.</p>
+<h3 id="new-metalsmith-dir-">new Metalsmith(dir)</h3>
+<p>Create a new <code>Metalsmith</code> instance for a working <code>dir</code>.</p>
+<h3 id="-use-plugin-">.use(plugin)</h3>
+<p>Add the given <code>plugin</code> function to the middleware stack. Metalsmith uses
+<a href="https://github.com/segmentio/ware">ware</a> to support middleware, so plugins
+should follow the same pattern of taking arguments of <code>(files, metalsmith, callback)</code>,
+modifying the <code>files</code> or <code>metalsmith.metadata()</code> argument by reference, and then
+calling <code>callback</code> to trigger the next step.</p>
+<h3 id="-build-fn-">.build(fn)</h3>
+<p>Build with the given settings and a callback having signature <code>fn(err, files)</code>.</p>
+<h3 id="-source-path-">.source(path)</h3>
+<p>Set the relative <code>path</code> to the source directory, or get the full one if no <code>path</code> is provided. The source directory defaults to <code>./src</code>.</p>
+<h3 id="-destination-path-">.destination(path)</h3>
+<p>Set the relative <code>path</code> to the destination directory, or get the full one if no <code>path</code> is provided. The destination directory defaults to <code>./build</code>.</p>
+<h3 id="-concurrency-max-">.concurrency(max)</h3>
+<p>Set the maximum number of files to open at once when reading or writing.  Defaults to <code>Infinity</code>.  To avoid having too many files open at once (<code>EMFILE</code> errors), set the concurrency to something lower than <code>ulimit -n</code>.</p>
+<h3 id="-clean-boolean-">.clean(boolean)</h3>
+<p>Set whether to remove the destination directory before writing to it, or get the current setting. Defaults to <code>true</code>.</p>
+<h3 id="-frontmatter-boolean-">.frontmatter(boolean)</h3>
+<p>Set whether to parse YAML frontmatter. Defaults to <code>true</code>.</p>
+<h3 id="-ignore-path-">.ignore(path)</h3>
+<p>Ignore files/paths from being loaded into Metalsmith.</p>
+<p><code>path</code> can be a string, a function, or an array of strings and/or functions.
+Strings use the glob syntax from
+<a href="https://github.com/isaacs/minimatch">minimatch</a> to match files and directories
+to ignore. Functions are called with the full path to the file as their first
+argument, and the <code>lstat</code> object returned by Node’s <code>fs.lstat</code> function as their
+second argument, and must return either <code>true</code> to ignore the file, or <code>false</code> to
+keep it.</p>
+<h3 id="-metadata-json-">.metadata(json)</h3>
+<p>Get the global metadata. This is useful for plugins that want to set global-level metadata that can be applied to all files.</p>
+<h3 id="-path-paths-">.path(paths…)</h3>
+<p>Resolve any amount of <code>paths...</code> relative to the working directory. This is useful for plugins who want to read extra assets from another directory, for example <code>./layouts</code>.</p>
+<h3 id="-run-files-fn-">.run(files, fn)</h3>
+<p>Run all of the middleware functions on a dictionary of <code>files</code> and callback with <code>fn(err, files)</code>, where <code>files</code> is the altered dictionary.</p>
+<h1 id="metadata-api">Metadata API</h1>
+<p>Add metadata to your files to access these build features. By default, Metalsmith uses a few different metadata fields:</p>
+<ul>
+<li><code>contents</code> - The body content of the file, not including any <a href="https://middlemanapp.com/basics/frontmatter/">YAML frontmatter</a>.</li>
+<li><code>mode</code> - The numeric version of the <a href="http://en.wikipedia.org/wiki/Modes_%28Unix%29">file’s mode</a>.</li>
+</ul>
+<p>You can add your own metadata in two ways:</p>
+<ul>
+<li>Using <a href="https://middlemanapp.com/basics/frontmatter/">YAML frontmatter</a> at the top of any file.</li>
+<li>Enabling <a href="https://github.com/segmentio/metalsmith/blob/master/Readme.md#plugins">a plugin</a> that adds metadata programmatically.</li>
+</ul>
+<h3 id="mode">mode</h3>
+<p>Set the mode of the file. For example,</p>
+<pre><code class="hljs bash">$ cat cleanup.sh
+
+--
+mode: <span class="hljs-number">0764</span>
+--
+
+rm -rf .</code></pre>
+
+<p>would be built with mode <code>-rwxrw-r--</code>, i.e. user-executable.</p>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<h2 id="node-version-requirements">Node Version Requirements</h2>
+<p>Metalsmith v2.0 and above uses <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator">generators</a> which has some considerations for <code>node.js 0.12.x</code> and below.</p>
+<h3 id="using-node-js-0-10-x">Using node.js 0.10.x</h3>
+<p>You have two options:</p>
+<ol>
+<li>Upgrade to latest stable version of <code>node.js</code> (&gt;= <code>0.12.x</code> — see “<em>Using <code>node.js 0.12.x</code></em>“ section below)</li>
+<li>Use Metalsmith v1.7. Put <code>&quot;metalsmith&quot;: &quot;^1.7.0&quot;</code> in your <code>package.json</code> and <code>npm install</code> that version.</li>
+</ol>
+<h3 id="using-node-js-0-12-x">Using node.js 0.12.x</h3>
+<p>You have three options:</p>
+<ol>
+<li>Run <code>node.js</code> with <code>--harmony_generators</code> flag set.<ol>
+<li><code>node --harmony_generators my_script.js</code></li>
+<li>Using <code>package.json</code>: <code>&quot;scripts&quot;: {&quot;start&quot;: &quot;node --harmony_generators my_script.js&quot;}</code>. Run with <code>npm run</code></li>
+</ol>
+</li>
+<li><code>npm install</code> <a href="https://www.npmjs.com/package/harmonize">harmonize</a> and require before Metalsmith is used. e.g. <code>require(&quot;harmonize&quot;)([&quot;harmony-generators&quot;]);</code></li>
+<li>Use Metalsmith v1.7. Put <code>&quot;metalsmith&quot;: &quot;^1.7.0&quot;</code> in your <code>package.json</code> and <code>npm install</code> that version.</li>
+</ol>
+<h1 id="license">License</h1>
+<p>The MIT License (MIT)</p>
+<p>Copyright &copy; 2014, Segment.io \<a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#58;&#x66;&#x72;&#x69;&#x65;&#110;&#x64;&#115;&#x40;&#115;&#x65;&#103;&#x6d;&#x65;&#110;&#116;&#x2e;&#x69;&#x6f;&#92;">&#x66;&#x72;&#x69;&#x65;&#110;&#x64;&#115;&#x40;&#115;&#x65;&#103;&#x6d;&#x65;&#110;&#116;&#x2e;&#x69;&#x6f;&#92;</a></p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <hr>
 
   </section>
