@@ -79,7 +79,7 @@ The plugins can manipulate the files however they want, and writing one is super
 
 Of course they can get a lot more complicated too. That's what makes Metalsmith powerful; the plugins can do anything you want.
 
-<i><b>Note:</b> The order the plugins are invoked is the order they are in the build script or the metalsmith.json file for cli implementations.  This is important for using a plugin that requires a plugins output to work.</i>
+<i><b>Note:</b> The order the plugins are invoked is the order they are in the build script or the metalsmith.json file for cli implementations.  This is important for using a plugin that requires a plugin's output to work.</i>
 
 ---
 
