@@ -1004,6 +1004,12 @@
     "description": "Deprecated in favor of metalsmith-layouts and metalsmith-in-place."
   },
   {
+    "name": "To JSON",
+    "icon": "files",
+    "repository": "https://github.com/hellotoby/metalsmith-to-json",
+    "description": "Generates JSON files from markdown, preserving filenames and frontmatter."
+  },
+  {
     "name": "Twig",
     "icon": "gridlines",
     "repository": "https://github.com/PKuebler/metalsmith-twig",
