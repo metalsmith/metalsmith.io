@@ -854,6 +854,12 @@
     "description": "Replace attribute values in each file's metadata."
   },
   {
+    "name": "Rework",
+    "icon": "files",
+    "repository": "https://github.com/dennisschaaf/metallsmith-rework",
+    "description": "Use rework CSS processor to rework your files."
+  },
+  {
     "name": "Rho",
     "icon": "compose",
     "repository": "https://github.com/inca/metalsmith-rho",
