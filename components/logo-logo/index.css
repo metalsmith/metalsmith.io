@@ -1,0 +1,28 @@
+
+/**
+ * Logo.
+ *
+ * *.logo[data-logo][data-color]
+ *   *
+ */
+
+.logo {
+  margin: 0; /* reset */
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; /* not baseline, so we align up _and_ down */
+  height: 1em; /* keep height constant regardless of innards */
+}
+
+.logo > * {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-indent: -9999px; /* image replacement */
+  direction: ltr; /* make text-indent play nice */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}

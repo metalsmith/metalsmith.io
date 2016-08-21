@@ -1,0 +1,23 @@
+{
+  "logo": "Metalsmith",
+  "name": "metalsmith-logo",
+  "repo": "segmentio/metalsmith-logo",
+  "description": "The logo for Metalsmith.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "keywords": [
+    "logo",
+    "metalsmith"
+  ],
+  "styles": [
+    "index.css"
+  ],
+  "dependencies": {
+    "logo/logo": "*"
+  },
+  "images": [
+    "images/logo-black.svg",
+    "images/logo-white.svg",
+    "images/logo.svg"
+  ]
+}

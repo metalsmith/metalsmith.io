@@ -10,10 +10,7 @@ components: component.json
 node_modules: package.json
 	@npm install
 
-build: node_modules components
-	@node run_build.js
-
 server: node_modules components
 	@foreman start
 
-.PHONY: clean server build
+.PHONY: clean server
