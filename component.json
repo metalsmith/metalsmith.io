@@ -17,7 +17,6 @@
   ],
   "dependencies": {
     "ianstormtaylor/reset": "*",
-    "segmentio/logo": "*",
     "segmentio/metalsmith-logo": "*"
   }
 }
