@@ -96,6 +96,12 @@
     "description": "Generate a script to cleanup the build directory, if you are adding more than just Metalsmith files."
   },
   {
+    "name": "Cloudfront",
+    "icon": "layergroup",
+    "repository": "https://github.com/carlnordenfelt/metalsmith-cloudfront",
+    "description": "Invalidate Amazon CloudFront cache. Best used in conjunction with the metalsmith-s3 plugin."
+  },
+  {
     "name": "Cloudinary",
     "icon": "layergroup",
     "repository": "https://github.com/superwolff/metalsmith-cloudinary",
