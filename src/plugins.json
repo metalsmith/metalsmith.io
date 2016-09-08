@@ -36,6 +36,12 @@
     "description": "Nicely format your html, css or js files."
   },
   {
+    "name": "Bibtex",
+    "icon": "files",
+    "repository": "https://github.com/JulesFrancoise/metalsmith-bibtex",
+    "description": "Load and render bibtex bibliographies."
+  },
+  {
     "name": "Branch",
     "icon": "fork",
     "repository": "https://github.com/ericgj/metalsmith-branch",
