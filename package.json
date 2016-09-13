@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "grunt build",
+    "heroku-postbuild": "npm run build",
     "prepublish": "npm run build",
     "start": "grunt connect"
   }
