@@ -1,4 +1,6 @@
-module.exports = function(grunt) {
+'use strict';
+
+module.exports = function (grunt) {
   grunt.initConfig({
     shell: {
       componentinstall: {
@@ -20,7 +22,8 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('componentbuild', 'Build components', function(){
+  grunt.registerTask('componentbuild', 'Build components', function () {
+    /* eslint no-invalid-this: 0 */
     grunt.task.requires('shell:componentinstall');
     grunt.task.requires('metalsmith');
 
@@ -31,15 +34,16 @@ module.exports = function(grunt) {
 
     var done = this.async();
 
-    var c = new Component(__dirname)
+    var c = new Component(__dirname);
     c.copyAssetsTo('build');
     c.development();
     c.addSourceURLs();
     c.copyFiles();
 
-    c.build(function(err, res) {
+    c.build(function (err, res) {
       if (err) {
-        console.log("Error: " + err);
+        /* eslint no-console: 0 */
+        console.log('Error: ' + err);
         return done(false);
       }
 
@@ -47,11 +51,11 @@ module.exports = function(grunt) {
       write('build/build.js', res.require + res.js);
       write('build/build.css', myth(res.css));
 
-      done();
+      return done();
     });
   });
 
-  grunt.registerTask('metalsmith', 'Build site', function(){
+  grunt.registerTask('metalsmith', 'Build site', function () {
     var inPlace = require('metalsmith-in-place');
     var layouts = require('metalsmith-layouts');
     var markdown = require('metalsmith-markdown');
@@ -77,12 +81,13 @@ module.exports = function(grunt) {
       engine: 'swig',
       directory: './'
     }));
-    m.build(function(err, res) {
+    m.build(function (err) {
       if (err) {
-        console.log("Error: " + err);
+        /* eslint no-console: 0 */
+        console.log('Error: ' + err);
         return done(false);
       }
-      done();
+      return done();
     });
   });
 
