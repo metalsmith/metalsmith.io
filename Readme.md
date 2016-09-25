@@ -5,9 +5,20 @@
 
 ## Developing
 
-You'll need [`foreman`](https://github.com/ddollar/foreman) and [`node`](https://nodejs.org/en/).
+You'll need [`node`](https://nodejs.org/en/).
 
-Run `make` or `make server` and go to the URL with your browser.
+To automatically install all other dependencies, run:
+
+    npm install
+
+Then, to build the site run:
+
+    npm run build
+
+And to serve the site on PORT 8000 (configurable with the `PORT` environment
+variable), run:
+
+    npm start
 
 ## License
 
