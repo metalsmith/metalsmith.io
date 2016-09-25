@@ -265,6 +265,12 @@
     "description": "Register all environment variables as metadata."
   },
   {
+    "name": "Etsy",
+    "icon": "addfile",
+    "repository": "https://github.com/selfVSmind/metalsmith-etsy",
+    "description": "Incorporate your active Etsy shop data into a static website."
+  },
+  {
     "name": "Excel-Markdown",
     "icon": "files",
     "repository": "https://github.com/patm2013/metalsmith-excel-markdown",
