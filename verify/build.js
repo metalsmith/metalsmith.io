@@ -12,7 +12,7 @@ test('build should have key files', function (assert) {
     path.join(site_path, 'index.html'),
     path.join(site_path, 'build.css'),
     path.join(site_path, 'build.js'),
-    path.join(site_path, 'build.js'),
+    path.join(site_path, 'build.js')
   ];
 
   // divider images
