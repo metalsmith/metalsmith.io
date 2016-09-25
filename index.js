@@ -1,11 +1,34 @@
+'use strict';
+/* eslint-env browser */
 
 var input = document.querySelector('.Plugin-filter-input');
 var plugins = [];
 
 /**
+* Filter plugins.
+*/
+var filter = function filter () {
+  var value = input.value.toLowerCase();
+
+  plugins.forEach(function (plugin) {
+    var el = plugin.el;
+    var title = plugin.title;
+    var desc = plugin.description;
+    plugin.el.style.display = '';
+
+    if (!value) {
+      return;
+    }
+    if (!~title.indexOf(value) && !~desc.indexOf(value)) {
+      el.style.display = 'none';
+    }
+  });
+};
+
+
+/**
  * Build index.
  */
-
 [].forEach.call(document.querySelectorAll('.Plugin-list .Plugin'), function (el) {
   plugins.push({
     el: el,
@@ -14,31 +37,11 @@ var plugins = [];
   });
 });
 
+
 /**
  * Filter to start, in case there is some text in the search input, which may
  * happen when clicking "back" in the browser. And then set a listener for
  * future filtering.
  */
-
 filter();
 input.addEventListener('keyup', filter);
-
-/**
- * Filter plugins.
- */
-
-function filter() {
-  var value = input.value.toLowerCase();
-
-  plugins.forEach(function(plugin){
-    var el = plugin.el;
-    var title = plugin.title;
-    var desc = plugin.description;
-    plugin.el.style.display = '';
-
-    if (!value) return;
-    if (!~title.indexOf(value) && !~desc.indexOf(value)) {
-      el.style.display = 'none';
-    }
-  });
-}

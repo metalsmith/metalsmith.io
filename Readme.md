@@ -7,18 +7,22 @@
 
 You'll need [`node`](https://nodejs.org/en/).
 
-To automatically install all other dependencies, run:
+To install npm dependencies:
 
     npm install
 
-Then, to build the site run:
+To build the site:
 
     npm run build
 
 And to serve the site on PORT 8000 (configurable with the `PORT` environment
-variable), run:
+variable):
 
     npm start
+
+For Testing and build verification:
+
+    npm test
 
 ## License
 
