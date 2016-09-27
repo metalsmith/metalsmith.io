@@ -3,6 +3,7 @@ sudo: false
 
 node_js:
   - "node"
+  - "6.6.0"
   - "6"
   - "5"
   - "4"
@@ -14,4 +15,4 @@ deploy:
   api_key:
     secure: NYg/59wPJrES3wcKGeKMPZ5cN9NRBGV47fmJa5YEZWA/tstXHBdn9aryWZD5gG3xjFsbtnuf0n3wo+EkJwG6lg0DCKnKnrWCk8/Y7yfsvErD+O1/pIsjlqhpTW9iPw6G0Qa2NgtfZSTv9qJRGgNJ6xbg7aArsMrYiGEiptfO3dg=
   on:
-    node: "0.12"
+    node: "6.6.0"
