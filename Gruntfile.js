@@ -61,10 +61,14 @@ module.exports = function (grunt) {
     var markdown = require('metalsmith-markdown');
     var metadata = require('metalsmith-metadata');
     var Metalsmith = require('metalsmith');
+    var nodeVersion = process.version;
 
     var done = this.async();
 
     var m = Metalsmith(__dirname);
+    m.metadata({
+      nodeVersion: nodeVersion
+    });
     m.use(metadata({
       plugins: 'plugins.json',
       examples: 'examples.json'
