@@ -2,7 +2,7 @@
   "name": "metalsmith.io",
   "private": true,
   "engines": {
-    "node": "6.6.x"
+    "node": "^6.6.0"
   },
   "dependencies": {
     "component": "^0.19.9",
