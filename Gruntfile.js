@@ -1,10 +1,19 @@
 'use strict';
 
+var commandPath;
+
+if (process.platform === "win32") {
+    commandPath = ".\\node_modules\\.bin\\component install";
+} else {
+    commandPath = "./node_modules/.bin/component install";
+}
+
+
 module.exports = function (grunt) {
   grunt.initConfig({
     shell: {
       componentinstall: {
-        command: './node_modules/.bin/component install'
+        command: commandPath,
       }
     },
     clean: {
@@ -56,6 +65,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('metalsmith', 'Build site', function () {
+    var highlights = require('metalsmith-metallic');
     var inPlace = require('metalsmith-in-place');
     var layouts = require('metalsmith-layouts');
     var markdown = require('metalsmith-markdown');
@@ -77,6 +87,7 @@ module.exports = function (grunt) {
       engine: 'swig',
       pattern: '**/*.md'
     }));
+    m.use(highlights());
     m.use(markdown({
       smartypants: true,
       smartLists: true
