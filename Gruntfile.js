@@ -1,6 +1,6 @@
 'use strict';
 
-export default function (grunt) {
+module.exports = (grunt) => {
   grunt.initConfig({
     shell: {
       componentinstall: {
@@ -22,7 +22,7 @@ export default function (grunt) {
     }
   });
 
-  grunt.registerTask('componentbuild', 'Build components', () => {
+  grunt.registerTask('componentbuild', 'Build components', function () {
     /* eslint no-invalid-this: 0 */
     grunt.task.requires('shell:componentinstall');
     grunt.task.requires('metalsmith');
@@ -32,7 +32,7 @@ export default function (grunt) {
     const write = require('fs').writeFileSync;
     const myth = require('myth');
 
-    const done = this.async();
+    let done = this.async();
 
     const c = new Component(__dirname);
     c.copyAssetsTo('build');
@@ -55,7 +55,7 @@ export default function (grunt) {
     });
   });
 
-  grunt.registerTask('metalsmith', 'Build site', () => {
+  grunt.registerTask('metalsmith', 'Build site', function () {
     const inPlace = require('metalsmith-in-place');
     const layouts = require('metalsmith-layouts');
     const markdown = require('metalsmith-markdown');
@@ -63,7 +63,7 @@ export default function (grunt) {
     const Metalsmith = require('metalsmith');
     const nodeVersion = process.version;
 
-    const done = this.async();
+    let done = this.async();
 
     const m = Metalsmith(__dirname);
     m.metadata({ nodeVersion });
