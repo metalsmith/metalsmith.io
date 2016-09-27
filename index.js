@@ -1,25 +1,24 @@
 'use strict';
 /* eslint-env browser */
 
-var input = document.querySelector('.Plugin-filter-input');
-var plugins = [];
+const input = document.querySelector('.Plugin-filter-input');
+const plugins = [];
 
 /**
 * Filter plugins.
 */
-var filter = function filter () {
-  var value = input.value.toLowerCase();
+const filter = () => {
+  let value = input.value.toLowerCase();
 
-  plugins.forEach(function (plugin) {
-    var el = plugin.el;
-    var title = plugin.title;
-    var desc = plugin.description;
-    plugin.el.style.display = '';
+  plugins.forEach((plugin) => {
+    let { el, title, description } = plugin;
+
+    el.style.display = '';
 
     if (!value) {
       return;
     }
-    if (!~title.indexOf(value) && !~desc.indexOf(value)) {
+    if (!~title.indexOf(value) && !~description.indexOf(value)) {
       el.style.display = 'none';
     }
   });
@@ -29,9 +28,9 @@ var filter = function filter () {
 /**
  * Build index.
  */
-[].forEach.call(document.querySelectorAll('.Plugin-list .Plugin'), function (el) {
+Array.from(document.querySelectorAll('.Plugin-list .Plugin')).forEach((el) => {
   plugins.push({
-    el: el,
+    el,
     title: el.querySelector('.Plugin-title').textContent.toLowerCase(),
     description: el.querySelector('.Plugin-description').textContent.toLowerCase()
   });
