@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (grunt) {
+export default function (grunt) {
   grunt.initConfig({
     shell: {
       componentinstall: {
@@ -22,25 +22,25 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('componentbuild', 'Build components', function () {
+  grunt.registerTask('componentbuild', 'Build components', () => {
     /* eslint no-invalid-this: 0 */
     grunt.task.requires('shell:componentinstall');
     grunt.task.requires('metalsmith');
 
-    var Component = require('component-builder');
-    var mkdir = require('mkdirp');
-    var write = require('fs').writeFileSync;
-    var myth = require('myth');
+    const Component = require('component-builder');
+    const mkdir = require('mkdirp');
+    const write = require('fs').writeFileSync;
+    const myth = require('myth');
 
-    var done = this.async();
+    const done = this.async();
 
-    var c = new Component(__dirname);
+    const c = new Component(__dirname);
     c.copyAssetsTo('build');
     c.development();
     c.addSourceURLs();
     c.copyFiles();
 
-    c.build(function (err, res) {
+    c.build((err, res) => {
       if (err) {
         /* eslint no-console: 0 */
         console.log('Error: ' + err);
@@ -55,20 +55,18 @@ module.exports = function (grunt) {
     });
   });
 
-  grunt.registerTask('metalsmith', 'Build site', function () {
-    var inPlace = require('metalsmith-in-place');
-    var layouts = require('metalsmith-layouts');
-    var markdown = require('metalsmith-markdown');
-    var metadata = require('metalsmith-metadata');
-    var Metalsmith = require('metalsmith');
-    var nodeVersion = process.version;
+  grunt.registerTask('metalsmith', 'Build site', () => {
+    const inPlace = require('metalsmith-in-place');
+    const layouts = require('metalsmith-layouts');
+    const markdown = require('metalsmith-markdown');
+    const metadata = require('metalsmith-metadata');
+    const Metalsmith = require('metalsmith');
+    const nodeVersion = process.version;
 
-    var done = this.async();
+    const done = this.async();
 
-    var m = Metalsmith(__dirname);
-    m.metadata({
-      nodeVersion: nodeVersion
-    });
+    const m = Metalsmith(__dirname);
+    m.metadata({ nodeVersion });
     m.use(metadata({
       plugins: 'plugins.json',
       examples: 'examples.json'
@@ -85,7 +83,7 @@ module.exports = function (grunt) {
       engine: 'swig',
       directory: './'
     }));
-    m.build(function (err) {
+    m.build((err) => {
       if (err) {
         /* eslint no-console: 0 */
         console.log('Error: ' + err);

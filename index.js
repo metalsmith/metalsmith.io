@@ -11,7 +11,7 @@ const filter = () => {
   let value = input.value.toLowerCase();
 
   plugins.forEach((plugin) => {
-    let { el, title, description } = plugin;
+    const { el, title, description } = plugin;
 
     el.style.display = '';
 
