@@ -1,6 +1,6 @@
 'use strict';
 
-require('./build')(function (err) {
+require('./build')((err) => {
   /* eslint no-console: 0 */
   if (err) {
     throw err;
