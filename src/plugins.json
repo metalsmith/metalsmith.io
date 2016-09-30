@@ -1098,5 +1098,11 @@
     "icon": "files",
     "repository": "https://github.com/blainsmith/metalsmith-xo",
     "description": "XO lint your JavaScript files."
+  },
+  {
+    "name": "YouTube",
+    "icon": "fork",
+    "repository": "https://github.com/juanpicado/metalsmith-youtube",
+    "description": "A Metalsmith plugin that lets you embed YouTube Videos."
   }
 ]
