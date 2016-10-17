@@ -932,6 +932,12 @@
     "description": "Simple http server for development. Best used with metalsmith-watch."
   },
   {
+    "name": "Sharp",
+    "icon": "picture",
+    "repository": "https://github.com/axe312ger/metalsmith-sharp",
+    "description": "Use the powerful sharp library to resize and manipulate your images."
+  },
+  {
     "name": "Shortcodes",
     "icon": "gridlines",
     "repository": "https://github.com/ericgj/metalsmith-shortcodes",
