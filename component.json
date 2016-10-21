@@ -16,7 +16,7 @@
     "images/twitter-image.png"
   ],
   "dependencies": {
-    "ianstormtaylor/reset": "*",
+    "ianstormtaylor/reset": "~0.2.0",
     "segmentio/metalsmith-logo": "*"
   }
 }
