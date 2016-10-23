@@ -1,10 +1,12 @@
 'use strict';
 
+const path = require('path');
+
 module.exports = (grunt) => {
   grunt.initConfig({
     shell: {
       componentinstall: {
-        command: './node_modules/.bin/component install'
+        command: path.join('node_modules', '.bin', 'component install')
       }
     },
     clean: {
@@ -56,6 +58,7 @@ module.exports = (grunt) => {
   });
 
   grunt.registerTask('metalsmith', 'Build site', function () {
+    const highlights = require('metalsmith-metallic');
     const inPlace = require('metalsmith-in-place');
     const layouts = require('metalsmith-layouts');
     const markdown = require('metalsmith-markdown');
@@ -66,7 +69,9 @@ module.exports = (grunt) => {
     let done = this.async();
 
     const m = Metalsmith(__dirname);
-    m.metadata({ nodeVersion });
+    m.metadata({
+      nodeVersion
+    });
     m.use(metadata({
       plugins: 'plugins.json',
       examples: 'examples.json'
@@ -75,6 +80,7 @@ module.exports = (grunt) => {
       engine: 'swig',
       pattern: '**/*.md'
     }));
+    m.use(highlights());
     m.use(markdown({
       smartypants: true,
       smartLists: true
