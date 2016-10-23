@@ -6,7 +6,7 @@ module.exports = (grunt) => {
   grunt.initConfig({
     shell: {
       componentinstall: {
-        command: path.join('node_modules', '.bin', 'component install')
+        command: path.resolve(`${process.cwd()}/node_modules/.bin/component install`)
       }
     },
     clean: {
@@ -87,7 +87,7 @@ module.exports = (grunt) => {
     }));
     m.use(layouts({
       engine: 'swig',
-      directory: './'
+      directory: process.cwd()
     }));
     m.build((err) => {
       if (err) {
