@@ -685,6 +685,12 @@
     "description": "Stores the content before the \"more\" comment tag in HTML files."
   },
   {
+    "name": "Move/Remove",
+    "icon": "file",
+    "repository": "https://github.com/carlnordenfelt/metalsmith-move-remove",
+    "description": "Moves and/or removes files in the file structure."
+  },
+  {
     "name": "Myth",
     "icon": "files",
     "repository": "https://github.com/kasperisager/metalsmith-myth",
