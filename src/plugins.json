@@ -721,6 +721,12 @@
     "description": "Filter out attributes from each file's metadata."
   },
   {
+    "name": "Open Graph",
+    "icon": "tag",
+    "repository": "https://github.com/astralfrontier/metalsmith-open-graph",
+    "description": "Add Facebook Open Graph meta tags to HTML."
+  },
+  {
     "name": "org",
     "icon": "compose",
     "repository": "https://github.com/crshd/metalsmith-org",
