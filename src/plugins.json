@@ -709,6 +709,12 @@
     "description": "Generate navigation based on file trees"
   },
   {
+    "name": "ng-annotate",
+    "icon": "files",
+    "repository": "https://github.com/fmmfonseca/metalsmith-ng-annotate",
+    "description": "Add, remove and rebuild AngularJS dependency injection annotations."
+  },
+  {
     "name": "npm",
     "icon": "addfile",
     "repository": "https://github.com/altano/metalsmith-npm",
