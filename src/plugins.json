@@ -301,6 +301,12 @@
     "description": "Serve static files with express, built-in support for liveReload."
   },
   {
+    "name": "Favicons",
+    "icon": "thumbnails",
+    "repository": "https://github.com/arccoza/metalsmith-favicons",
+    "description": "A Metalsmith favicons generator."
+  },
+  {
      "name": "Feed",
      "icon": "sugarpackets",
      "repository": "https://github.com/hurrymaplelad/metalsmith-feed",
@@ -551,6 +557,12 @@
     "icon": "file",
     "repository": "https://github.com/RobLoach/metalsmith-jstransformer-partials",
     "description": "Provide `partial` helpers with any JSTransformer."
+  },
+  {
+    "name": "Just A Moment",
+    "icon": "clock",
+    "repository": "https://github.com/arccoza/metalsmith-just-a-moment",
+    "description": "A Metalsmith plugin to auto convert dates to moment objects."
   },
   {
     "name": "KSS",
@@ -810,6 +822,12 @@
     "icon": "write",
     "repository": "https://github.com/dpobel/metalsmith-pooleapp",
     "description": "A Metalsmith plugin to retrieve data stored in PooleApp.com."
+  },
+  {
+    "name": "PostCSS",
+    "icon": "files",
+    "repository": "https://github.com/arccoza/metalsmith-with-postcss",
+    "description": "A Metalsmith plugin for PostCSS."
   },
   {
      "name": "Placeholder",
