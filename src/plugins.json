@@ -6,6 +6,24 @@
     "description": "Create URL aliases for any page."
   },
   {
+    "name": "Archive",
+    "icon": "files",
+    "repository": "https://github.com/hellatan/metalsmith-archive",
+    "description": "Create an archives page organized by date fields."
+  },
+  {
+    "name": "Assert",
+    "icon": "addfile",
+    "repository": "https://github.com/MorganConrad/metalsmith-assert",
+    "description": "Test file objects with assert."
+  },
+  {
+    "name": "Assets",
+    "icon": "addfile",
+    "repository": "https://github.com/treygriffith/metalsmith-assets",
+    "description": "Include static assets in your build."
+  },
+  {
     "name": "Author",
     "icon": "users",
     "repository": "https://github.com/almirfilho/metalsmith-author",
@@ -16,18 +34,6 @@
     "icon": "files",
     "repository": "https://github.com/esundahl/metalsmith-autoprefixer",
     "description": "Automatically add vendor prefixes to CSS."
-  },
-  {
-    "name": "Archive",
-    "icon": "files",
-    "repository": "https://github.com/hellatan/metalsmith-archive",
-    "description": "Create an archives page organized by date fields."
-  },
-  {
-    "name": "Assets",
-    "icon": "addfile",
-    "repository": "https://github.com/treygriffith/metalsmith-assets",
-    "description": "Include static assets in your build."
   },
   {
     "name": "Beautifier",
@@ -505,6 +511,12 @@
     "description": "Inlines SVG images into your HTML files"
   },
   {
+    "name": "Inspect",
+    "icon": "addfile",
+    "repository": "https://github.com/MorganConrad/metalsmith-inspect",
+    "description": "Print/inspect the file objects, mainly for debugging."
+  },
+  {
     "name": "Hover",
     "icon": "files",
     "repository": "https://github.com/lambtron/metalsmith-hover",
@@ -563,6 +575,12 @@
     "icon": "clock",
     "repository": "https://github.com/arccoza/metalsmith-just-a-moment",
     "description": "A Metalsmith plugin to auto convert dates to moment objects."
+  },
+  {
+    "name": "Keymaster",
+    "icon": "addfile",
+    "repository": "https://github.com/MorganConrad/metalsmith-keymaster",
+    "description": "Flexible, powerful manipulation of key-value pairs in file metadata."
   },
   {
     "name": "KSS",
