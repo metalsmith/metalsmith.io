@@ -373,6 +373,12 @@
     "description": "Lets you get gists from Github Gist"
   },
   {
+    "name": "GitHub Markdown",
+    "icon": "compose",
+    "repository": "https://github.com/cusxio/metalsmith-github-markdown",
+    "description": "Convert markdown with Github Markdown API."
+  },
+  {
     "name": "Google Analytics",
     "icon": "write",
     "repository": "https://github.com/doodzik/metalsmith-google-analytics",
