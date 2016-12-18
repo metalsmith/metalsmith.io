@@ -24,6 +24,12 @@
     "description": "Include static assets in your build."
   },
   {
+    "name": "Atomizer",
+    "icon": "addfile",
+    "repository": "https://github.com/tests-always-included/metalsmith-atomizer",
+    "description": "Automatically generate Atomic CSS from HTML using Atomizer."
+  },
+  {
     "name": "Author",
     "icon": "users",
     "repository": "https://github.com/almirfilho/metalsmith-author",
