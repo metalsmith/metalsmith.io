@@ -733,6 +733,12 @@
     "description": "Moves and/or removes files in the file structure."
   },
   {
+    "name": "Mustache Metadata",
+    "icon": "tag",
+    "repository": "https://github.com/tests-always-included/metalsmith-mustache-metadata",
+    "description": "Modifies metadata to make it more useful in Mustache templates.  Adds easy conditions and links to parent objects."
+  },
+  {
     "name": "Myth",
     "icon": "files",
     "repository": "https://github.com/kasperisager/metalsmith-myth",
