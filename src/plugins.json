@@ -186,6 +186,12 @@
     "description": "Add creation and updated timestamps"
   },
   {
+     "name": "Data Loader",
+     "icon": "tag",
+     "repository": "https://github.com/tests-always-included/metalsmith-data-loader",
+     "description": "Load JSON/YAML files into the metadata of files from within your source tree or a models folder."
+  },
+  {
      "name": "Data Markdown",
      "icon": "gridlines",
      "repository": "https://github.com/majodev/metalsmith-data-markdown",
