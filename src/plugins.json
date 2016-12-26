@@ -938,6 +938,12 @@
      "description": "A simple plugin to create client-side HTTP redirections."
   },
   {
+     "name": "Relative Links",
+     "icon": "link",
+     "repository": "https://github.com/tests-always-included/metalsmith-relative-links",
+     "description": "Adds a link function into your metadata so templates can link resources easier."
+  },
+  {
      "name": "Renamer",
      "icon": "loading",
      "repository": "https://github.com/alex-ketch/metalsmith-renamer",
