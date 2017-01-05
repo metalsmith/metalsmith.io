@@ -6,6 +6,12 @@
     "description": "Create URL aliases for any page."
   },
   {
+    "name": "Ancestry",
+    "icon": "link",
+    "repository": "https://github.com/tests-always-included/metalsmith-ancestry",
+    "description": "Builds a file tree in metadata so you can determine parents, list children, jump to previous and next siblings."
+  },
+  {
     "name": "Archive",
     "icon": "files",
     "repository": "https://github.com/hellatan/metalsmith-archive",
