@@ -235,6 +235,12 @@
     "description": "Discovers your template partials and registers them with Handlebars."
   },
   {
+    "name": "Disqus",
+    "icon": "chat",
+    "repository": "https://github.com/vitaliy-bobrov/metalsmith-disqus",
+    "description": "Adds Disqus comments widget and counter."
+  },
+  {
     "name": "Dither",
     "icon": "picture",
     "repository": "https://github.com/lucawyss/metalsmith-dither",
