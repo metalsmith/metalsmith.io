@@ -1142,6 +1142,12 @@
     "description": "Renders all files with the Twig template engine."
   },
   {
+    "name": "Twitter Card",
+    "icon": "tag",
+    "repository": "https://github.com/vitaliy-bobrov/metalsmith-twitter-card",
+    "description": "Adds Twitter Card meta tags to enable Twitter share rich snippets."
+  },
+  {
     "name": "Typography",
     "icon": "compose",
     "repository": "https://github.com/algenon/metalsmith-typography",
