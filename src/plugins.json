@@ -559,6 +559,12 @@
     "description": "Automatically generate icon font files using Fontello."
   },
   {
+    "name": "Incremental",
+    "icon": "ban",
+    "repository": "https://github.com/axa-ch/metalsmith-incremental",
+    "description": "Faster incremental builds for MetalSmith."
+  },
+  {
     "name": "Jekyll Dates",
     "icon": "clock",
     "repository": "https://github.com/fortes/metalsmith-jekyll-dates",
@@ -1212,11 +1218,5 @@
     "icon": "fork",
     "repository": "https://github.com/juanpicado/metalsmith-youtube",
     "description": "A Metalsmith plugin that lets you embed YouTube Videos."
-  },
-  {
-    "name": "Incremental",
-    "icon": "ban",
-    "repository": "https://github.com/axa-ch/metalsmith-incremental",
-    "description": "Faster incremental builds for MetalSmith."
   }
 ]
