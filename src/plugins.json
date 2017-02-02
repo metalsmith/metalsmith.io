@@ -562,7 +562,7 @@
     "name": "Incremental",
     "icon": "ban",
     "repository": "https://github.com/axa-ch/metalsmith-incremental",
-    "description": "Faster incremental builds for MetalSmith."
+    "description": "Faster incremental builds for Metalsmith."
   },
   {
     "name": "Jekyll Dates",
