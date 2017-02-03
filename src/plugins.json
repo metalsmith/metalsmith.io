@@ -12,6 +12,12 @@
     "description": "Builds a file tree in metadata so you can determine parents, list children, jump to previous and next siblings."
   },
   {
+    "name": "Angular $templateCache",
+    "icon": "addfile",
+    "repository": "https://github.com/tests-always-included/metalsmith-angular-templatecache",
+    "description": "Convert AngularJS templates from HTML into JavaScript and preload $templateCache."
+  },
+  {
     "name": "Archive",
     "icon": "files",
     "repository": "https://github.com/hellatan/metalsmith-archive",
