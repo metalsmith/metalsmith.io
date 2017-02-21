@@ -808,7 +808,7 @@
     "name": "OptiPng",
     "icon": "picture",
     "repository": "https://github.com/AnthonyAstige/metalsmith-optipng",
-    "description": "Metalsmith wrapper for optipng - to optomize and make your png images smaller"
+    "description": "Metalsmith wrapper for optipng - to optimize and make your png images smaller"
   },
   {
     "name": "org",
