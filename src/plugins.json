@@ -643,6 +643,12 @@
     "description": "Convert LESS files to CSS."
   },
   {
+    "name": "Link Globs",
+    "icon": "tag",
+    "repository": "https://github.com/connected-world-services/metalsmith-link-globs",
+    "description": "Instead of manually adding links to files, repeat your script, link, img and a tags by using globs."
+  },
+  {
     "name": "Localize Collection",
     "icon": "globe",
     "repository": "https://github.com/der-On/metalsmith-localize-collection",
