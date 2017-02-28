@@ -1076,6 +1076,12 @@
     "description": "Render wordpress-esque shortcodes via templates."
   },
   {
+    "name": "Sitemap",
+    "icon": "file",
+    "repository": "https://github.com/ExtraHop/metalsmith-sitemap",
+    "description": "A metalsmith plugin for generating a sitemap.xml file."
+  },
+  {
     "name": "Skeleton Gallery",
     "icon": "image",
     "repository": "https://github.com/petermorlion/metalsmith-skeleton-gallery",
