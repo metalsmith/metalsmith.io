@@ -102,6 +102,12 @@
     "description": "Add a build date, for things like feeds or sitemaps."
   },
   {
+    "name": "Build Info",
+    "icon": "link",
+    "repository": "https://github.com/chkal/metalsmith-build-info",
+    "description": "Adds metadata about the build environment (build date, user, Node.js version, platform and more)"
+  },
+  {
     "name": "Changed",
     "icon": "shredder",
     "repository": "https://github.com/arve0/metalsmith-changed",
