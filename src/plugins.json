@@ -1130,6 +1130,12 @@
     "description": "Useful bits for those of us using swig"
   },
   {
+    "name": "Symlink",
+    "icon": "files",
+    "repository": "https://github.com/2xaa/metalsmith-symlink/",
+    "description": "Create Symlinks for large files or directories."
+  },
+  {
     "name": "Table of Contents",
     "icon": "file",
     "repository": "https://github.com/anatoo/metalsmith-autotoc",
