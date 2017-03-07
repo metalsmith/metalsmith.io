@@ -992,6 +992,12 @@
      "description": "A simple plugin to create client-side HTTP redirections."
   },
   {
+    "name": "Regex Replace",
+    "icon": "compose",
+    "repository": "https://github.com/mrajo/metalsmith-regex-replace",
+    "description": "Performs search and replace in text source files"
+  },
+  {
      "name": "Relative Links",
      "icon": "link",
      "repository": "https://github.com/tests-always-included/metalsmith-relative-links",
