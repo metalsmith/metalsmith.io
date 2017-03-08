@@ -451,6 +451,12 @@
     "description": "Compress files with gzip."
   },
   {
+    "name": "Handlebars in Markdown",
+    "icon": "files",
+    "repository": "https://github.com/ahdiaz/metalsmith-hbt-md",
+    "description": "Process Handlebars in Markdown files."
+  },
+  {
     "name": "Headings",
     "icon": "rows",
     "repository": "https://github.com/segmentio/metalsmith-headings",
