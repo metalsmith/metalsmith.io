@@ -1142,6 +1142,12 @@
     "description": "Generate integrity hashes for site resources."
   },
   {
+    "name": "Sugar",
+    "icon": "sugar",
+    "repository": "https://github.com/connected-world-services/metalsmith-sugar",
+    "description": "Use a shorthand when including plugins and avoid calling require() on each individual module."
+  },
+  {
     "name": "SUITCSS",
     "icon": "files",
     "repository": "https://github.com/jeffjewiss/metalsmith-suitcss",
