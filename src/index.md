@@ -1,6 +1,6 @@
 ---
 title: "Metalsmith"
-description: "An extremely simple, pluggable static site generator."
+description: "An extremely simple, <em>pluggable</em> static site generator."
 layout: index.html
 ---
 
@@ -46,7 +46,7 @@ Metalsmith(__dirname)         // __dirname defined by node.js:
   });
 ```
 
-You want to try yourself, if it is really this easy. Have a go:
+[You can follow along with a detailed walkthrough](./step-by-step) or have a go with an example:
 
 ```bash
 $ git clone https://github.com/metalsmith/metalsmith.git
@@ -65,7 +65,7 @@ Metalsmith and its plugins can be installed with npm:
 $ npm install metalsmith
 ```
 
-The package exposes both a [JavaScript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators. To see how they're used check out the [examples](https://github.com/segmentio/metalsmith/tree/master/examples).
+The package exposes both a [JavaScript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators. To see how they're used check out the [examples](https://github.com/segmentio/metalsmith/tree/master/examples) or [the walkthrough](./step-by-step).
 
 
 ---
