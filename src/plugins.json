@@ -48,6 +48,12 @@
     "description": "Include authors information in collection files."
   },
   {
+    "name": "Auto Collections",
+    "icon": "layergroup",
+    "repository": "https://github.com/lowmess/metalsmith-auto-collections",
+    "description": "Automatically use metalsmith-collections based on the filesystem."
+  },
+  {
     "name": "Autoprefixer",
     "icon": "files",
     "repository": "https://github.com/esundahl/metalsmith-autoprefixer",
