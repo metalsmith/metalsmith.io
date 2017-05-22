@@ -986,6 +986,12 @@
     "description": "Convert Pug (previously Jade) files to HTML."
   },
   {
+    "name": "PurifyCSS",
+    "icon": "scaledown",
+    "repository": "https://github.com/alex-ketch/metalsmith-purifycss",
+    "description": "Remove unused CSS."
+  },
+  {
     "name": "React Templates",
     "icon": "gridlines",
     "repository": "https://github.com/yeojz/metalsmith-react-templates",
