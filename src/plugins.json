@@ -427,6 +427,12 @@
     "description": "Adds the Google Analytics script to your html files"
   },
   {
+    "name": "Google Drive",
+    "icon": "addfile",
+    "repository": "https://github.com/leviwheatcroft/metalsmith-google-drive",
+    "description": "Scrape files from Google Drive."
+  },
+  {
     "name": "Google Sheets",
     "icon": "table",
     "repository": "https://github.com/kalamuna/metalsmith-google-sheets",
