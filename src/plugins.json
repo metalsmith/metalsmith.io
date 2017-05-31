@@ -811,6 +811,12 @@
     "description": "Generate navigation based on file trees"
   },
   {
+    "name": "nested",
+    "icon": "files",
+    "repository": "https://github.com/firesideguru/metalsmith-nested",
+    "description": "A metalsmith plugin for nesting your layouts when using the handlebars engine."
+  },
+  {
     "name": "ng-annotate",
     "icon": "files",
     "repository": "https://github.com/fmmfonseca/metalsmith-ng-annotate",
