@@ -235,6 +235,12 @@
     "description": "Format dates defined in the YAML Front Matter"
   },
   {
+    "name": "Debug UI",
+    "icon": "addfile",
+    "repository": "https://github.com/leviwheatcroft/metalsmith-debug-ui",
+    "description": "Render a nice browser based ui to inspect build files & meta."
+  },
+  {
      "name": "Default Values",
      "icon": "tag",
      "repository": "https://github.com/woodyrew/metalsmith-default-values",
