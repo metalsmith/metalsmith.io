@@ -1100,6 +1100,12 @@
     "description": "Convert Sass files to CSS."
   },
   {
+    "name": "Sass lint",
+    "icon": "files",
+    "repository": "https://github.com/csmets/metalsmith-sass-lint",
+    "description": "Stylelint your Sass files."
+  },
+  {
     "name": "Series",
     "icon": "signpost",
     "repository": "https://github.com/jocelynlecomte/metalsmith-series",
@@ -1122,6 +1128,12 @@
     "icon": "gridlines",
     "repository": "https://github.com/ericgj/metalsmith-shortcodes",
     "description": "Render wordpress-esque shortcodes via templates."
+  },
+  {
+    "name": "Shortcode Parser",
+    "icon": "gridlines",
+    "repository": "https://github.com/csmets/metalsmith-shortcode-parser",
+    "description": "A metalsmith wrapper for shortcode-parser."
   },
   {
     "name": "Sitemap",
