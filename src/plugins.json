@@ -1,5 +1,11 @@
 [
   {
+    "name": "Algolia",
+    "icon": "link",
+    "repository": "https://github.com/stafyniaksacha/metalsmith-algolia",
+    "description": "A metalsmith plugin for indexing contents on Algolia."
+  },
+  {
     "name": "Alias",
     "icon": "link",
     "repository": "https://github.com/fortes/metalsmith-alias",
