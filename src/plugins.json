@@ -608,7 +608,7 @@
   },
   {
     "name": "Javascript packer",
-    "icon": "link",
+    "icon": "files",
     "repository": "https://github.com/stafyniaksacha/metalsmith-js-packer",
     "description": "Javascript packer/minifier/uglifier for metalsmith"
   },
