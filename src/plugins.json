@@ -607,10 +607,10 @@
     "description": "Faster incremental builds for Metalsmith."
   },
   {
-    "name": "Javascript packer",
+    "name": "JavaScript packer",
     "icon": "files",
     "repository": "https://github.com/stafyniaksacha/metalsmith-js-packer",
-    "description": "Javascript packer/minifier/uglifier for metalsmith"
+    "description": "JavaScript packer/minifier/uglifier for Metalsmith"
   },
   {
     "name": "Jekyll Dates",
