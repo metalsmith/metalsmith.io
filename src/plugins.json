@@ -1178,6 +1178,12 @@
     "description": "Copy public assets into the build directory."
   },
   {
+    "name": "Stylesheet Packer",
+    "icon": "files",
+    "repository": "https://github.com/stafyniaksacha/metalsmith-css-packer",
+    "description": "CSS packer/minifier/optimizer for metalsmith."
+  },
+  {
     "name": "Stylus",
     "icon": "files",
     "repository": "https://github.com/esundahl/metalsmith-stylus",
