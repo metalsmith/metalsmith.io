@@ -1181,7 +1181,7 @@
     "name": "Stylesheet Packer",
     "icon": "files",
     "repository": "https://github.com/stafyniaksacha/metalsmith-css-packer",
-    "description": "CSS packer/minifier/optimizer for metalsmith."
+    "description": "CSS packer/minifier/optimizer for Metalsmith."
   },
   {
     "name": "Stylus",
