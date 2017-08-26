@@ -493,6 +493,11 @@
     "description": "Add an id and anchor to all headings on a page. Ideal for permalinks."
   },
   {
+    "name": "Hooks",
+    "repository": "https://github.com/benwilhelm/metalsmith-hooks",
+    "description": "Add page-specific hooks (like mini-plugins) to your build"
+  },
+  {
     "name": "HTML5 Format Checker",
     "icon": "files",
     "repository": "https://github.com/gchallen/code.metalsmith-formatcheck",
