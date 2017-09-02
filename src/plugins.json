@@ -494,6 +494,7 @@
   },
   {
     "name": "Hooks",
+    "icon": "hook",
     "repository": "https://github.com/benwilhelm/metalsmith-hooks",
     "description": "Add page-specific hooks (like mini-plugins) to your build"
   },
