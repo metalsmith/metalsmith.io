@@ -1,14 +1,12 @@
 language: node_js
 sudo: false
-
 node_js:
-  - "node"
-  - "6.6"
-
+  - node
+  - '6.6'
 deploy:
   provider: heroku
   app: metalsmith
   api_key:
-    secure: NYg/59wPJrES3wcKGeKMPZ5cN9NRBGV47fmJa5YEZWA/tstXHBdn9aryWZD5gG3xjFsbtnuf0n3wo+EkJwG6lg0DCKnKnrWCk8/Y7yfsvErD+O1/pIsjlqhpTW9iPw6G0Qa2NgtfZSTv9qJRGgNJ6xbg7aArsMrYiGEiptfO3dg=
+    secure: mkWxgrs6aOX8VnhI4/4Kbkddo9WpH/Wck+0BBnnTHTMqcDVfjQYBzk/ctubRC0drcu/0/znEMhKdopY9ssyc3w9h2O1kqv/RCJ9jscRAVtLeNTWSgo+pvkPTuZzuO1qMTusPGLW0e3DkN7QummoFXcEeqWz9lsTyT28wRXKA678=
   on:
-    node: "6.6"
+    node: '6.6'
