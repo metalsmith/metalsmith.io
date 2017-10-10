@@ -78,6 +78,12 @@
     "description": "Load and render bibtex bibliographies."
   },
   {
+    "name": "Bitly",
+    "icon": "link",
+    "repository": "https://github.com/xiwcx/metalsmith-bitly",
+    "description": "Add bitly links to the metadata of each file."
+  },
+  {
     "name": "Branch",
     "icon": "fork",
     "repository": "https://github.com/ericgj/metalsmith-branch",
