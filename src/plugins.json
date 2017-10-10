@@ -1346,6 +1346,12 @@
     "description": "Bundle CommonJS, AMD and ES6 modules."
   },
   {
+    "name": "Webpack 2",
+    "icon": "files",
+    "repository": "https://github.com/leviwheatcroft/metalsmith-webpack-2",
+    "description": "Webpack 2, with cache."
+  },
+  {
     "name": "Word Count",
     "icon": "lightbulb",
     "repository": "https://github.com/majodev/metalsmith-word-count",
