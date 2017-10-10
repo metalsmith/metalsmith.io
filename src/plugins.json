@@ -937,6 +937,12 @@
      "description": "Convert HTML files to PDF using wkhtmltopdf"
   },
   {
+     "name": "PDFize",
+     "icon": "pdf",
+     "repository": "https://github.com/dpobel/metalsmith-pdfize",
+     "description": "Export HTML files to PDF using Headless Chrome"
+  },
+  {
     "name": "Page Title",
     "icon": "compose",
     "repository": "https://github.com/hellatan/metalsmith-page-titles",
