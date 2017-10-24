@@ -739,6 +739,12 @@
     "description": "Convert Markdown files to HTML using markdown-it."
   },
   {
+    "name": "Markdown-Partials",
+    "icon": "compose",
+    "repository": "https://github.com/wernerglinka/metalsmith-markdown-partials",
+    "description": "Enables the use of Markdown partials, e.g. Markdown fragments can be inserted into the contents section of a page markdown file via an include marker."
+  },
+  {
     "name": "Markdown-Precompiler",
     "icon": "compose",
     "repository": "https://github.com/brunoscopelliti/metalsmith-markdown-precompiler",
