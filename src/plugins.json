@@ -1010,6 +1010,12 @@
     "description": "Modifies internal urls with some prefix."
   },
   {
+     "name": "Preview",
+     "icon": "unquote",
+     "repository": "https://github.com/davidtimmons/metalsmith-preview",
+     "description": "Generate custom text previews saved to file metadata."
+  },
+  {
     "name": "Prism Syntax Highlighting",
     "icon": "rainbow",
     "repository": "https://github.com/Availity/metalsmith-prism",
