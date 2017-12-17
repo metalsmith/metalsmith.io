@@ -583,6 +583,12 @@
     "description": "Allows content to be included (nested) within other content by including the file path"
   },
   {
+    "name": "Inject Metadata",
+    "icon": "pen",
+    "repository": "https://github.com/davidtimmons/metalsmith-inject-metadata",
+    "description": "Inject metadata constants into source file data."
+  },
+  {
     "name": "Inline CSS",
     "icon": "files",
     "repository": "https://github.com/borisovg/metalsmith-inline-css",
