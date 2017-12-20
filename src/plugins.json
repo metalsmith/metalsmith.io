@@ -30,6 +30,12 @@
     "description": "Create an archives page organized by date fields."
   },
   {
+    "name": "Asciidoctor",
+    "icon": "files",
+    "repository": "https://github.com/chkal/metalsmith-asciidoctor",
+    "description": "Plugin to transform AsciiDoc files to HTML using asciidoctor.js"
+  },
+  {
     "name": "Assert",
     "icon": "addfile",
     "repository": "https://github.com/MorganConrad/metalsmith-assert",
