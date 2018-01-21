@@ -534,11 +534,11 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
           alt="GitHub stars"
         />
       </a>
-      <a href="{{ plugin.repository }}">
+      <a href="{{ plugin.bithoundUrl }}">
         <img
           class="b-lazy"
           src="{{placeholderBadgeUrl}}"
-          data-src="{{ plugin.githubIssues }}"
+          data-src="{{ plugin.bithoundScore }}"
           alt="GitHub issues"
         />
       </a>
@@ -546,7 +546,7 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
         <img
           class="b-lazy"
           src="{{placeholderBadgeUrl}}"
-          data-src="{{ plugin.bithoundStatus }}"
+          data-src="{{ plugin.bithoundDependencies }}"
           alt="GitHub issues"
         />
       </a>

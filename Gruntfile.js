@@ -83,9 +83,9 @@ module.exports = (grunt) => {
             npmDownloads: `https://img.shields.io/npm/dy/${repo}.svg?maxAge=${oneWeek}`,
             npmVersion: `https://img.shields.io/npm/v/${repo}.svg?maxAge=${oneWeek}`,
             githubStars: `https://img.shields.io/github/stars/${user}/${repo}.svg?maxAge=${oneWeek}`,
-            githubIssues: `https://img.shields.io/github/issues/${user}/${repo}.svg?maxAge=${oneWeek}`,
             bithoundUrl: `https://www.bithound.io/github/${user}/${repo}`,
-            bithoundStatus: `https://www.bithound.io/github/${user}/${repo}/badges/code.svg`
+            bithoundScore: `https://www.bithound.io/github/${user}/${repo}/badges/score.svg`,
+            bithoundDependencies: `https://www.bithound.io/github/${user}/${repo}/badges/dependencies.svg`
           });
         }
         return plugin;
