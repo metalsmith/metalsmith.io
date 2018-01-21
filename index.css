@@ -254,6 +254,11 @@ hr:nth-of-type(14) {
 /**
  * Plugin.
  */
+.Plugin-list {
+  max-height: 70vh;
+  overflow: scroll;
+}
+
 .Plugin {
   position: relative;
   padding: 1.5em;
