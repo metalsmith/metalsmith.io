@@ -69,11 +69,33 @@ module.exports = (grunt) => {
     let done = this.async();
 
     const m = Metalsmith(__dirname);
+    const plugins = require('./src/plugins.json')
+      .map((plugin) => {
+        const githubRegex = /github\.com\/([^\/]+)\/([^/]+)\/?$/;
+        const result = githubRegex.exec(plugin.repository);
+        if (result) {
+          const user = result[1];
+          const repo = result[2];
+          const oneWeek = 7 * 24 * 60 * 60;
+          Object.assign(plugin, {
+            respositoryIssues: `${plugin.repository}/issues`,
+            npmUrl: `https://www.npmjs.com/package/${repo}`,
+            npmDownloads: `https://img.shields.io/npm/dy/${repo}.svg?maxAge=${oneWeek}`,
+            npmVersion: `https://img.shields.io/npm/v/${repo}.svg?maxAge=${oneWeek}`,
+            githubStars: `https://img.shields.io/github/stars/${user}/${repo}.svg?maxAge=${oneWeek}`,
+            githubIssues: `https://img.shields.io/github/issues/${user}/${repo}.svg?maxAge=${oneWeek}`,
+            bithoundUrl: `https://www.bithound.io/github/${user}/${repo}`,
+            bithoundStatus: `https://www.bithound.io/github/${user}/${repo}/badges/code.svg`
+          });
+        }
+        return plugin;
+      });
     m.metadata({
+      placeholderBadgeUrl: 'https://img.shields.io/badge/badge-loading-lightgrey.svg?style=flat',
+      plugins,
       nodeVersion
     });
     m.use(metadata({
-      plugins: 'plugins.json',
       examples: 'examples.json'
     }));
     m.use(inPlace({

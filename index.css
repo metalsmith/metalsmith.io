@@ -305,6 +305,13 @@ hr:nth-of-type(14) {
   display: block;
 }
 
+.Plugin-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
 /**
  * Header.
  */

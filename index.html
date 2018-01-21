@@ -45,5 +45,13 @@
 
   <script type="text/javascript" src="/build.js"></script>
   <script type="text/javascript">require('metalsmith.io');</script>
+  <script src="https://cdn.jsdelivr.net/npm/blazy@1.8.2/blazy.min.js"></script>
+  <script>
+    (function() {
+      var bLazy = new Blazy({
+        validateDelay: 300
+      });
+    })();
+  </script>
 </body>
 </html>
