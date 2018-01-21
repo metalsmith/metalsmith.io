@@ -156,12 +156,6 @@
     "description": "Invalidate Amazon CloudFront cache. Best used in conjunction with the metalsmith-s3 plugin."
   },
   {
-    "name": "Cloudinary",
-    "icon": "layergroup",
-    "repository": "https://github.com/superwolff/metalsmith-cloudinary",
-    "description": "Retrieve data from the Cloudinary API, for cache-busting and on-the-fly transformations of your images."
-  },
-  {
     "name": "Code Highlight",
     "icon": "rainbow",
     "repository": "https://github.com/fortes/metalsmith-code-highlight",
@@ -403,12 +397,6 @@
     "description": "Insert a hash of the content into the file name."
   },
   {
-    "name": "Fingerprint Ignore",
-    "icon": "files",
-    "repository": "https://github.com/superwolff/metalsmith-fingerprint-ignore",
-    "description": "Insert a hash of the content into the file name and discard the original file."
-  },
-  {
     "name": "Flatten",
     "icon": "files",
     "repository": "https://github.com/chadly/metalsmith-flatten",
@@ -567,7 +555,7 @@
   {
     "name": "In-place",
     "icon": "files",
-    "repository": "https://github.com/superwolff/metalsmith-in-place",
+    "repository": "https://github.com/ismay/metalsmith-in-place",
     "description": "In-place templating, render templates in your source files."
   },
   {
@@ -699,7 +687,7 @@
   {
     "name": "Layouts",
     "icon": "files",
-    "repository": "https://github.com/superwolff/metalsmith-layouts",
+    "repository": "https://github.com/ismay/metalsmith-layouts",
     "description": "Apply layouts to your source files."
   },
   {
@@ -725,12 +713,6 @@
     "icon": "search",
     "repository": "https://github.com/CMClay/metalsmith-lunr",
     "description": "Implement Lunr.js client-side search engine."
-  },
-  {
-    "name": "Mapsite",
-    "icon": "addfile",
-    "repository": "https://github.com/superwolff/metalsmith-mapsite",
-    "description": "Generate a sitemap.xml file with sitemap.js."
   },
   {
     "name": "Markdown",
@@ -1122,12 +1104,6 @@
     "icon": "globe",
     "repository": "https://github.com/ahmadnassri/metalsmith-request",
     "description": "Grab content from the web and expose the results to metadata."
-  },
-  {
-    "name": "Robots",
-    "icon": "addfile",
-    "repository": "https://github.com/superwolff/metalsmith-robots",
-    "description": "Generates a robots.txt file."
   },
   {
     "name": "Rollup",
