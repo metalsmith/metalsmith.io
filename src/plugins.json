@@ -983,12 +983,6 @@
     "description": "Simple mirror translations for blog-like entries."
   },
   {
-    "name": "PooleApp",
-    "icon": "write",
-    "repository": "https://github.com/dpobel/metalsmith-pooleapp",
-    "description": "A Metalsmith plugin to retrieve data stored in PooleApp.com."
-  },
-  {
     "name": "PostCSS",
     "icon": "files",
     "repository": "https://github.com/arccoza/metalsmith-with-postcss",
