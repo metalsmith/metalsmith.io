@@ -509,6 +509,48 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">{{ plugin.description }}</p>
     </a>
+    <div class="Plugin-badges">
+      <a href="{{ plugin.npmUrl }}">
+        <img
+          class="b-lazy"
+          src="{{placeholderBadgeUrl}}"
+          data-src="{{ plugin.npmVersion }}"
+          alt="npm version"
+        />
+      </a>
+      <a href="{{ plugin.npmUrl }}">
+        <img
+          class="b-lazy"
+          src="{{placeholderBadgeUrl}}"
+          data-src="{{ plugin.npmDownloads }}"
+          alt="npm downloads per year"
+        />
+      </a>
+      <a href="{{ plugin.repository }}">
+        <img
+          class="b-lazy"
+          src="{{placeholderBadgeUrl}}"
+          data-src="{{ plugin.githubStars }}"
+          alt="GitHub stars"
+        />
+      </a>
+      <a href="{{ plugin.repository }}">
+        <img
+          class="b-lazy"
+          src="{{placeholderBadgeUrl}}"
+          data-src="{{ plugin.githubIssues }}"
+          alt="GitHub issues"
+        />
+      </a>
+      <a href="{{ plugin.bithoundUrl }}">
+        <img
+          class="b-lazy"
+          src="{{placeholderBadgeUrl}}"
+          data-src="{{ plugin.bithoundStatus }}"
+          alt="GitHub issues"
+        />
+      </a>
+    </div>
   </li>
 {% endfor %}
 </ul>
