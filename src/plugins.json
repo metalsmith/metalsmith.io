@@ -1273,12 +1273,6 @@
     "description": "Add timestamp comment to html files"
   },
   {
-    "name": "Title",
-    "icon": "lightbulb",
-    "repository": "https://github.com/OzzyCzech/metalsmith-title",
-    "description": "Automatically generate a page title from first heading in each file."
-  },
-  {
     "name": "Templates",
     "icon": "gridlines",
     "repository": "https://github.com/segmentio/metalsmith-templates",
