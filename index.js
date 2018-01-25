@@ -1,6 +1,12 @@
 'use strict';
 /* eslint-env browser */
 
+const Blazy = require('metalsmith.io/node_modules/blazy/blazy.min.js');
+
+const bLazy = new Blazy({
+  validateDelay: 300
+});
+
 const input = document.querySelector('.Plugin-filter-input');
 const plugins = [];
 
@@ -22,6 +28,8 @@ const filter = () => {
       el.style.display = 'none';
     }
   });
+
+  bLazy.revalidate();
 };
 
 

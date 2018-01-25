@@ -1,7 +1,10 @@
 {
   "name": "metalsmith.io",
   "private": true,
-  "scripts": ["index.js"],
+  "scripts": [
+    "node_modules/blazy/blazy.min.js",
+    "index.js"
+  ],
   "styles": ["index.css"],
   "images": [
     "images/favicon.png",

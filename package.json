@@ -5,6 +5,7 @@
     "node": "^6.6.0"
   },
   "dependencies": {
+    "blazy": "^1.8.2",
     "component": "^0.19.9",
     "component-builder": "~0.11.2",
     "grunt": "^1.0.1",
