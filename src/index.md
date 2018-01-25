@@ -539,7 +539,7 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
           class="b-lazy"
           src="{{placeholderBadgeUrl}}"
           data-src="{{ plugin.bithoundScore }}"
-          alt="GitHub issues"
+          alt="bitHound score"
         />
       </a>
       <a href="{{ plugin.bithoundUrl }}">
@@ -547,7 +547,7 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
           class="b-lazy"
           src="{{placeholderBadgeUrl}}"
           data-src="{{ plugin.bithoundDependencies }}"
-          alt="GitHub issues"
+          alt="bitHound dependencies"
         />
       </a>
     </div>
