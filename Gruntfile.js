@@ -68,16 +68,14 @@ module.exports = (grunt) => {
 
     let done = this.async();
 
-    const githubRegex = /github\.com\/([^\/]+)\/([^/]+)\/?$/;
+    const githubRegex = /github\.com\/([^/]+)\/([^/]+)\/?$/;
     const oneWeek = 7 * 24 * 60 * 60;
 
-    const m = Metalsmith(__dirname);
     const plugins = require('./src/plugins.json')
       .map((plugin) => {
         const result = githubRegex.exec(plugin.repository);
         if (result) {
-          const user = result[1];
-          const repo = result[2];
+          const [, user, repo] = result;
           const npm = plugin.npm || repo;
           Object.assign(plugin, {
             respositoryIssues: `${plugin.repository}/issues`,
@@ -92,6 +90,8 @@ module.exports = (grunt) => {
         }
         return plugin;
       });
+
+    const m = Metalsmith(__dirname);
     m.metadata({
       placeholderBadgeUrl: 'https://img.shields.io/badge/badge-loading-lightgrey.svg?style=flat',
       plugins,
