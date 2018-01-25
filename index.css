@@ -256,12 +256,12 @@ hr:nth-of-type(14) {
  */
 .Plugin-list {
   max-height: 70vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .Plugin {
   position: relative;
-  padding: 1.5em;
+  padding: 1.25em;
   background-color: white;
 }
 
@@ -457,14 +457,6 @@ hr:nth-of-type(14) {
 
   .Example:nth-child(2n) {
     margin-top: 1px;
-  }
-
-  /**
-   * Plugin.
-   */
-
-  .Plugin {
-    padding: 1.5em 2em;
   }
 
   /**
