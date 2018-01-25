@@ -141,6 +141,7 @@
     "name": "Check All Links",
     "icon": "link",
     "repository": "https://github.com/gchallen/code.metalsmith-linkcheck",
+    "npm": "metalsmith-linkcheck",
     "description": "Check all links, both internal and external, in anchors, images, and external page resources."
   },
   {
@@ -219,6 +220,7 @@
     "name": "Creation and Update Timestamps",
     "icon": "clock",
     "repository": "https://github.com/gchallen/code.metalsmith-updated",
+    "npm": "metalsmith-updated",
     "description": "Add creation and updated timestamps"
   },
   {
@@ -502,6 +504,7 @@
     "name": "HTML5 Format Checker",
     "icon": "files",
     "repository": "https://github.com/gchallen/code.metalsmith-formatcheck",
+    "npm": "metalsmith-formatcheck",
     "description": "Use html-validator to validate your HTML."
   },
   {
@@ -1097,6 +1100,7 @@
     "name": "Rework",
     "icon": "files",
     "repository": "https://github.com/dennisschaaf/metallsmith-rework",
+    "npm": "metalsmith-rework",
     "description": "Use rework CSS processor to rework your files."
   },
   {
@@ -1199,6 +1203,7 @@
     "name": "Spell Checking",
     "icon": "compose",
     "repository": "https://github.com/gchallen/code.metalsmith-spellcheck",
+    "npm": "metalsmith-spellcheck",
     "description": "Spell check your site."
   },
   {

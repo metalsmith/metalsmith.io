@@ -68,20 +68,22 @@ module.exports = (grunt) => {
 
     let done = this.async();
 
+    const githubRegex = /github\.com\/([^\/]+)\/([^/]+)\/?$/;
+    const oneWeek = 7 * 24 * 60 * 60;
+
     const m = Metalsmith(__dirname);
     const plugins = require('./src/plugins.json')
       .map((plugin) => {
-        const githubRegex = /github\.com\/([^\/]+)\/([^/]+)\/?$/;
         const result = githubRegex.exec(plugin.repository);
         if (result) {
           const user = result[1];
           const repo = result[2];
-          const oneWeek = 7 * 24 * 60 * 60;
+          const npm = plugin.npm || repo;
           Object.assign(plugin, {
             respositoryIssues: `${plugin.repository}/issues`,
-            npmUrl: `https://www.npmjs.com/package/${repo}`,
-            npmDownloads: `https://img.shields.io/npm/dy/${repo}.svg?maxAge=${oneWeek}`,
-            npmVersion: `https://img.shields.io/npm/v/${repo}.svg?maxAge=${oneWeek}`,
+            npmUrl: `https://www.npmjs.com/package/${npm}`,
+            npmDownloads: `https://img.shields.io/npm/dy/${npm}.svg?maxAge=${oneWeek}`,
+            npmVersion: `https://img.shields.io/npm/v/${npm}.svg?maxAge=${oneWeek}`,
             githubStars: `https://img.shields.io/github/stars/${user}/${repo}.svg?maxAge=${oneWeek}`,
             bithoundUrl: `https://www.bithound.io/github/${user}/${repo}`,
             bithoundScore: `https://www.bithound.io/github/${user}/${repo}/badges/score.svg`,
