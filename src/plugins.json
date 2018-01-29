@@ -423,6 +423,12 @@
     "description": "Scan for images in folders and add them to metadata."
   },
   {
+    "name": "Gather Content",
+    "icon": "compose",
+    "repository": "https://github.com/kalamuna/metalsmith-gathercontent",
+    "description": "Generate sites from Gather Content projects"
+  },
+  {
     "name": "Gist",
     "icon": "fork",
     "repository": "https://github.com/expalmer/metalsmith-gist",
