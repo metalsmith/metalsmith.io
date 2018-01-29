@@ -38,9 +38,7 @@ Metalsmith(__dirname)         // __dirname defined by node.js:
   .use(permalinks({           // change URLs to permalink URLs
     relative: false           // put css only in /css
   }))
-  .use(layouts({              // wrap layouts around html
-    engine: 'handlebars',     // use the layout engine you like
-  }))
+  .use(layouts())             // wrap layouts around html
   .build(function(err) {      // build process
     if (err) throw err;       // error handling is required
   });
@@ -111,9 +109,7 @@ Metalsmith(__dirname)          // instantiate Metalsmith in the cwd
   .source('sourcepath')        // specify source directory
   .destination('destpath')     // specify destination directory
   .use(markdown())             // transpile markdown into html
-  .use(layouts({               // wrap a handlebars-layout
-    engine: 'handlebars'       // around transpiled html-files
-  }))    
+  .use(layouts())              // wrap a handlebars-layout around html
   .build(function(err) {       // this is the actual build process
     if (err) throw err;    // throwing errors is required
   });
@@ -131,9 +127,7 @@ Metalsmith(__dirname)
   .use(drafts())                 // only files that are NOT drafts
   .use(markdown())
   .use(permalinks())             // make a permalink output path
-  .use(layouts({
-    engine: 'handlebars'
-  }))
+  .use(layouts())
   .build(function(err) {    
     if (err) throw err;
   });
@@ -246,9 +240,7 @@ Metalsmith(__dirname)
   .source('sourcepath')      
   .destination('destpath')   
   .use(markdown())          
-  .use(layouts({
-    engine: 'handlebars'
-  }))
+  .use(layouts())
   .use(writemetadata({            // write the JS object
     pattern: ['**/*'],            // for each file into .json
     ignorekeys: ['next', 'previous'],
@@ -294,7 +286,7 @@ Note, that `permalinks()` is also adding a `path`--property by default.
 
 Assuming somewhere amongst the source files we have defined a very simple standard handlebars layout file...
 
-`layout.html`
+`layout.hbs`
 
 {% raw %}
 ```Handlebars
@@ -350,9 +342,7 @@ Metalsmith(__dirname)
       site: 'http://example.com'
   })
   .use(markdown())
-  .use(layouts({
-    engine: 'handlebars'
-  }))
+  .use(layouts())
   .use(debug())             // displays debug info on the console
   .build(function(err) {         
     if (err) throw err;
