@@ -284,9 +284,9 @@ end after applying **`.use(permalinks())`** it becomes:
 
 Note, that `permalinks()` is also adding a `path`--property by default.
 
-Assuming somewhere amongst the source files we have defined a very simple standard nunjucks layout file...
+Assuming we have defined a very simple nunjucks layout file in a separate layouts folder...
 
-`layout.njk`
+`./layouts/layout.njk`
 
 {% raw %}
 ```nunjucks
