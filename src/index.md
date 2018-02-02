@@ -109,7 +109,7 @@ Metalsmith(__dirname)          // instantiate Metalsmith in the cwd
   .source('sourcepath')        // specify source directory
   .destination('destpath')     // specify destination directory
   .use(markdown())             // transpile markdown into html
-  .use(layouts())              // wrap a handlebars-layout around html
+  .use(layouts())              // wrap a nunjucks layout around the html
   .build(function(err) {       // this is the actual build process
     if (err) throw err;    // throwing errors is required
   });
@@ -135,7 +135,7 @@ Metalsmith(__dirname)
 
 ...it's as easy as that!
 
-A small comment. Instead of [Handlebars](http://handlebarsjs.com/) you can also use other templating languages such as [Jade/Pug](http://jade-lang.com/).
+A small comment. The `layouts()` plugin needs the `jstransformer-nunjucks` package to render layouts. Make sure to install it with `npm install jstransformer-nunjucks`. Other templating languages can be used as well (see the [metalsmith-layouts readme](https://github.com/ismay/metalsmith-layouts) for more information).
 
 
 
@@ -284,19 +284,19 @@ end after applying **`.use(permalinks())`** it becomes:
 
 Note, that `permalinks()` is also adding a `path`--property by default.
 
-Assuming somewhere amongst the source files we have defined a very simple standard handlebars layout file...
+Assuming somewhere amongst the source files we have defined a very simple standard nunjucks layout file...
 
-`layout.hbs`
+`layout.njk`
 
 {% raw %}
-```Handlebars
+```nunjucks
 <!doctype html>
 <html>
 <head>
-  <title>{{title}}</title>
+  <title>{{ title }}</title>
 </head>
 <body>
-  {{{contents}}}
+  {{ contents | safe }}
 </body>
 </html>
 ```
