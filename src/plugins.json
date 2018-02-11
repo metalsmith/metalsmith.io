@@ -634,6 +634,12 @@
     "description": "Faster incremental builds for Metalsmith."
   },
   {
+    "name": "Index",
+    "icon": "addfile",
+    "repository": "https://github.com/dsoulayrol/metalsmith-index",
+    "description": "A plugin to create directory indexes."
+  },
+  {
     "name": "JavaScript packer",
     "icon": "files",
     "repository": "https://github.com/stafyniaksacha/metalsmith-js-packer",
