@@ -969,7 +969,12 @@
     "repository": "https://github.com/hellatan/metalsmith-page-titles",
     "description": "Add a global site title to every `<title>` tag."
   },
-
+  {
+    "name": "Perma",
+    "icon": "link",
+    "repository": "https://github.com/scurker/metalsmith-perma",
+    "description": "An alternative to metalsmith-permalinks allowing for custom permalinks and overrides."
+  },
   {
     "name": "Permalinks",
     "icon": "link",
