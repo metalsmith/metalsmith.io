@@ -922,6 +922,12 @@
     "description": "adds file path values (dirname, extname, basename, path) to metadata"
   },
   {
+    "name": "Parcel",
+    "icon": "files",
+    "repository": "https://github.com/dahnielson/metalsmith-parcel",
+    "description": "A plugin that use Parcel for bundling of assets"
+  },
+  {
     "name": "Partial",
     "icon": "file",
     "repository": "https://github.com/anatoo/metalsmith-partial",
