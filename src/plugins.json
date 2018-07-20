@@ -570,7 +570,7 @@
   {
     "name": "In-place",
     "icon": "files",
-    "repository": "https://github.com/ismay/metalsmith-in-place",
+    "repository": "https://github.com/metalsmith/metalsmith-in-place",
     "description": "In-place templating, render templates in your source files."
   },
   {
@@ -708,7 +708,7 @@
   {
     "name": "Layouts",
     "icon": "files",
-    "repository": "https://github.com/ismay/metalsmith-layouts",
+    "repository": "https://github.com/metalsmith/metalsmith-layouts",
     "description": "Apply layouts to your source files."
   },
   {
