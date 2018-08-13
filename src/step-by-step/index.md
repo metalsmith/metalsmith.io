@@ -10,13 +10,13 @@ layout: index.html
 
 _(Note that this includes a lot of explanation and exposition. You can skip down to [the TL;DR version](#tl-dr) if you'd rather just see the results.)_
 
-In this example, we're going to run through a very common use case and convert Markdown into HTML. The process to make a basic static site builder is pretty straightforward: We read markdown files from a source directory, convert them from markdown onto HTML fragments, put those fragments into a page template, and then save the compiled HTML page(s) into a destination directory.
+In this example, we're going to run through a very common use case and convert Markdown into HTML. The process to make a basic static site builder is pretty straightforward: We read markdown files from a source directory, convert them from markdown into HTML fragments, put those fragments into a page template, and then save the compiled HTML page(s) into a destination directory.
 
-Keep in mind that the exact same process we're going to create here could be altered to run nearly any file-by-file transformation we'd like. We could be converting LESS into CSS or taking SVG source files and running a few transformations to create slightly different SVG files. The Markdown to HTML example is just that: A single example.
+Keep in mind that the exact same process we're going to create here could be altered to run nearly any file transformation we'd like. We could be converting LESS into CSS or taking SVG source files and running a few transformations to create slightly different SVG files. The Markdown to HTML example is just that: A single example.
 
 Also note that there are _two ways to run Metalsmith_: with the API by creating a node script or through the CLI by creating a metalsmith.json configuration file. The end results are _the same either way_ and it's really a matter of preference. What we're going to do here is run through the API approach first. Then, at the end, we'll convert it into a CLI example that accomplishes the exact same thing. Normally, you just do whichever happens to work best with your comfort level and workflow.
 
-The only requirement to follow along and run your own copy is that you have [a reasonably current version of Node installed](https://nodejs.org/). Aside from Node itself, our project is going to be be completely self-contained and there's nothing to uninstall or clean up afterward except the single directory with all our working files, dependencies, and the compiled results.
+The only requirement to follow along and run your own copy is that you have [a recent version of Node installed](https://nodejs.org/). Aside from Node itself, our project is going to be be completely self-contained and there's nothing to uninstall or clean up afterward except the single directory with all our working files, dependencies, and the compiled results.
 
 ---
 
@@ -102,7 +102,7 @@ layout: default.hbs
 
 ## Lorem ipsum
 
-Dolor sit amet, consectetur __strong__ adipiscing elit. Morbi faucibus, _em_ purus at gravida dictum, libero arcu convallis lacus, in commodo libero metus eu nisi. Nullam commodo, neque nec porta placerat, nisi est fermentum augue, [link](https://metalsmith.io) vitae gravida tellus sapien sit amet tellus. Aenean non diam orci. Proin quis elit turpis. Suspendisse non diam ipsum.
+Dolor sit amet, consectetur __strong__ adipiscing elit. Morbi faucibus, *em* purus at gravida dictum, libero arcu convallis lacus, in commodo libero metus eu nisi. Nullam commodo, neque nec porta placerat, nisi est fermentum augue, [link](https://metalsmith.io) vitae gravida tellus sapien sit amet tellus. Aenean non diam orci. Proin quis elit turpis. Suspendisse non diam ipsum.
 
 ### Suspendisse nec ullamcorper odio.
 
@@ -213,19 +213,19 @@ If using the CLI approach, you no longer need our _index.js_ file in your projec
 
 ```json
 {
-	"plugins": {
-		"metalsmith-markdown": {},
-		"metalsmith-layouts": {}
-	}
+	"plugins": [
+		{ "metalsmith-markdown": {} },
+		{ "metalsmith-layouts": {} }
+	]
 }
 ```
 
 Note that we don't have to set up our requirements or use `.build()`. For our simple example, we just tell Metalsmith to use metalsmith-markdown and then run metalsmith-layouts with our configuration options. With this one-time setup, we can run Metalsmith at any time from the command line using the `metalsmith` command.
 
-If you'd like to use the local copy we've already installed, we just have to specify exactly where to find the library's `bin` folder and the executable command. With a little digging, you'll find that you can use a command like this, with no additional installation steps required:
+If you'd like to use the local copy we've already installed, you can use `npx` to run the command (`npx` will execute the corresponding command from *node_modules/.bin/*).
 
 ```bash
-$ ./node_modules/metalsmith/bin/metalsmith
+$ npx metalsmith
 ```
 
 Once that runs, you will get the exact same results in the build directory. In fact, it helps to completely delete the entire build directory, just so you can see and confirm that it ran.
@@ -234,13 +234,13 @@ If you'd rather use the simpler, configuration-based CLI approach, you can safel
 
 ### Optionally installing Metalsmith globally
 
-The command above is a bit unwieldy. Most often people regularly using the CLI approach will install Metalsmith _globally_. That means you can use the `metalsmith` command wherever you'd like and it'll look for a _metalsmith.json_ file in the current directory and use that. If you would like to install it globally, you can do so with npm.  Note that this _will_ remain installed even if you delete the project folder.
+Most often people regularly using the CLI approach will install Metalsmith _globally_. That means you can use the `metalsmith` command wherever you'd like and it'll look for a _metalsmith.json_ file in the current directory and use that. If you would like to install it globally, you can do so with npm. Note that this _will_ remain installed even if you delete the project folder.
 
 ```bash
 $ npm install -g metalsmith
 ```
 
-If installed globally, then running metalsmith in your current directory—or any current directory with its own _metalsmith.json_ file—is quite a bit simpler:
+If installed globally, then running metalsmith in your current directory—or any current directory with its own _metalsmith.json_ file—is a bit simpler:
 
 ```bash
 $ metalsmith
@@ -296,7 +296,7 @@ layout: default.hbs
 
 ## Lorem ipsum
 
-Dolor sit amet, consectetur __strong__ adipiscing elit. Morbi faucibus, _em_ purus at gravida dictum, libero arcu convallis lacus, in commodo libero metus eu nisi. Nullam commodo, neque nec porta placerat, nisi est fermentum augue, [link](https://metalsmith.io) vitae gravida tellus sapien sit amet tellus. Aenean non diam orci. Proin quis elit turpis. Suspendisse non diam ipsum.
+Dolor sit amet, consectetur __strong__ adipiscing elit. Morbi faucibus, *em* purus at gravida dictum, libero arcu convallis lacus, in commodo libero metus eu nisi. Nullam commodo, neque nec porta placerat, nisi est fermentum augue, [link](https://metalsmith.io) vitae gravida tellus sapien sit amet tellus. Aenean non diam orci. Proin quis elit turpis. Suspendisse non diam ipsum.
 
 ### Suspendisse nec ullamcorper odio.
 
@@ -375,17 +375,17 @@ Then, to demonstrate a version using the CLI approach, we created a _metalsmith.
 
 ```json
 {
-	"plugins": {
-		"metalsmith-markdown": {},
-		"metalsmith-layouts": {}
-	}
+	"plugins": [
+		{ "metalsmith-markdown": {} },
+		{ "metalsmith-layouts": {} }
+	]
 }
 ```
 
-And to run the CLI version using _metalsmith.json_ as the configuration, we ran the Metalsmith command already installed by npm.
+And to run the CLI version using _metalsmith.json_ as the configuration, we ran the Metalsmith command already installed by npm, using `npx` to execute the copy in *node_modules/.bin*.
 
 ```bash
-$ ./node_modules/metalsmith/bin/metalsmith
+$ npx metalsmith
 ```
 
 … Which generates the exact same file in the build directory when you run it. If you prefer the CLI approach, read about [installing Metalsmith globally](#optionally-installing-metalsmith-globally), above, to make your life easier.
