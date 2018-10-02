@@ -2,8 +2,12 @@
   "name": "metalsmith.io",
   "private": true,
   "scripts": {
+    "build": "cross-env NODE_ENV=production node metalsmith.js",
+    "lint:css": "stylelint '**/*.css'",
     "lint:js": "eslint '**/*.js'",
-    "build": "cross-env NODE_ENV=production node metalsmith.js"
+    "lint:prettier": "prettier --list-different '**/*.{js,css}'",
+    "precommit": "lint-staged",
+    "test": "npm run lint:css && npm run lint:js && npm run lint:prettier"
   },
   "devDependencies": {
     "autoprefixer": "^9.1.5",
@@ -15,8 +19,10 @@
     "eslint-plugin-compat": "^2.5.1",
     "eslint-plugin-import": "^2.14.0",
     "highlight.js": "^9.12.0",
+    "husky": "^1.1.0",
     "jstransformer-marked": "^1.0.3",
     "jstransformer-nunjucks": "^0.5.0",
+    "lint-staged": "^7.3.0",
     "metalsmith": "^2.3.0",
     "metalsmith-browserify": "^1.0.0",
     "metalsmith-favicons": "^1.0.0",
@@ -31,6 +37,10 @@
     "postcss-easy-import": "^3.0.0",
     "postcss-normalize": "^7.0.1",
     "postcss-preset-env": "^6.0.8",
-    "prettier": "^1.14.3"
+    "prettier": "^1.14.3",
+    "stylelint": "^9.6.0",
+    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-no-unsupported-browser-features": "^3.0.2"
   }
 }
