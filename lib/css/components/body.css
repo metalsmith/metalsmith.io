@@ -1,0 +1,10 @@
+/**
+ * Body
+ */
+
+.Body {
+  max-width: 34em;
+  margin: 0 auto;
+  padding-right: 1em;
+  padding-left: 1em;
+}

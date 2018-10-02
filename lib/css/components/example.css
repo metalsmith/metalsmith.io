@@ -1,0 +1,41 @@
+/**
+ * Example
+ */
+
+.Example {
+  max-width: 17em;
+  margin-top: 1px;
+  padding: 1.5em;
+  background-color: white;
+}
+
+.Example-title {
+  font-size: 1.5em;
+  margin-bottom: .4em;
+  text-align: center;
+}
+
+.Example-step-list {
+  list-style: none;
+  line-height: 2;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .Example-list {
+    overflow: hidden;
+    margin: 0 -4em;
+    column-count: 2;
+    column-gap: 1px;
+    column-break-inside: avoid;
+  }
+
+  .Example {
+    padding: 1.5em 2em;
+    margin-top: 0;
+  }
+
+  .Example:nth-child(2n) {
+    margin-top: 1px;
+  }
+}
