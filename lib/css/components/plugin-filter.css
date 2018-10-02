@@ -4,7 +4,7 @@
 
 .Plugin-filter {
   padding: 1em 2em;
-  background-color: white;
+  background-color: var(--white);
   margin-bottom: 1px;
   display: block;
 }
