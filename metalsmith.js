@@ -11,12 +11,13 @@ const htmlMinifier = require('metalsmith-html-minifier');
 const imagemin = require('metalsmith-imagemin');
 const metalsmith = require('metalsmith');
 const examples = require('./lib/data/examples.json');
+const plugins = require('./lib/data/plugins.json');
 
 const nodeVersion = process.version;
 const githubRegex = /github\.com\/([^/]+)\/([^/]+)\/?$/;
 const oneWeek = 7 * 24 * 60 * 60;
 
-const plugins = require('./lib/data/plugins.json')
+const mappedPlugins = plugins
   .map((plugin) => {
     const result = githubRegex.exec(plugin.repository);
     if (result) {
@@ -41,7 +42,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 metalsmith(__dirname)
   .metadata({
     placeholderBadgeUrl: 'https://img.shields.io/badge/badge-loading-lightgrey.svg?style=flat',
-    plugins,
+    plugins: mappedPlugins,
     examples,
     nodeVersion
   })
