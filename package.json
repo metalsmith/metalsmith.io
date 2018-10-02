@@ -6,7 +6,6 @@
     "lint:css": "stylelint '**/*.css'",
     "lint:js": "eslint '**/*.js'",
     "lint:prettier": "prettier --list-different '**/*.{js,css}'",
-    "precommit": "lint-staged",
     "test": "npm run lint:css && npm run lint:js && npm run lint:prettier"
   },
   "devDependencies": {
