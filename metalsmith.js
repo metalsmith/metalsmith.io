@@ -6,6 +6,9 @@ const when = require('metalsmith-if');
 const favicons = require('metalsmith-favicons');
 const postcss = require('metalsmith-postcss');
 const browserify = require('metalsmith-browserify');
+const uglify = require('metalsmith-uglify');
+const htmlMinifier = require('metalsmith-html-minifier');
+const imagemin = require('metalsmith-imagemin');
 const metalsmith = require('metalsmith');
 const examples = require('./lib/data/examples.json');
 
@@ -92,6 +95,16 @@ metalsmith(__dirname)
         inline: false
       }
     })
+  )
+  .use(when(isProduction, htmlMinifier()))
+  .use(when(isProduction, imagemin()))
+  .use(
+    when(
+      isProduction,
+      uglify({
+        sameName: true
+      })
+    )
   )
   .build(err => {
     if (err) {
