@@ -29,19 +29,19 @@
   position: absolute;
   top: 1.5em;
   right: -6em;
-  padding: .4em 1em;
+  padding: 0.4em 1em;
   width: 15em;
   text-align: center;
   background-color: var(--black);
   text-transform: uppercase;
   font-family: var(--tungsten);
-  font-size: .9em;
+  font-size: 0.9em;
   color: var(--white);
   text-decoration: none;
   white-space: nowrap;
   transform: rotate(45deg);
   transform-origin: 50% 50%;
-  transition: background-color .2s;
+  transition: background-color 0.2s;
 }
 
 .Header-github:hover {
@@ -53,19 +53,19 @@
   position: absolute;
   top: 5em;
   right: -10em;
-  padding: .4em 1em;
+  padding: 0.4em 1em;
   width: 30em;
   text-align: center;
   background-color: #6ec9dc;
   text-transform: uppercase;
   font-family: var(--tungsten);
-  font-size: .9em;
+  font-size: 0.9em;
   color: var(--white);
   text-decoration: none;
   white-space: nowrap;
   transform: rotate(45deg);
   transform-origin: 50% 50%;
-  transition: background-color .2s;
+  transition: background-color 0.2s;
 }
 
 .Header-slack:hover {
