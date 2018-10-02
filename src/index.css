@@ -387,6 +387,19 @@ hr:nth-of-type(14) {
 }
 
 /**
+ * Logo
+ */
+
+.logo[data-logo="Metalsmith"] {
+  width: 3.685249955183008em;
+}
+
+.logo[data-logo="Metalsmith"] > * {
+  background-image: url('img/logo.svg');
+  margin: .1em 0;
+}
+
+/**
  * Body.
  */
 
