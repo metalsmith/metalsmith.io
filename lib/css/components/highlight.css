@@ -1,0 +1,13 @@
+/**
+ * Highlight
+ */
+
+.Highlight-boolean,
+.Highlight-class,
+.Highlight-keyword {
+  font-weight: bold;
+}
+
+.Highlight-string {
+  color: var(--gold);
+}
