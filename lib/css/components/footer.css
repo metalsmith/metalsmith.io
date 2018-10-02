@@ -1,0 +1,21 @@
+
+/**
+ * Footer
+ */
+
+.Footer {
+  text-align: center;
+  padding-bottom: 7em;
+}
+
+.Footer-conjunction {
+  display: block;
+  text-transform: uppercase;
+  font-family: var(--tungsten);
+  color: var(--gray);
+  font-size: var(--smaller);
+}
+
+.Footer-logo {
+  font-size: 1.6em;
+}

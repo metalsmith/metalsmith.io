@@ -1,0 +1,176 @@
+/**
+ * Base
+ */
+
+html {
+  font: 500 16px/1.6 var(--sentinel);
+  color: var(--dark-gray);
+  background: url('/img/ground.jpg') var(--light-gray);
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: .5em;
+  font-family: var(--tungsten);
+  text-transform: uppercase;
+  color: var(--black);
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin-bottom: .5em;
+  font-family: var(--tungsten);
+  color: var(--black);
+}
+
+h3 {
+  font-size: 1.25em;
+  margin-bottom: .5em;
+  font-family: var(--tungsten);
+  color: var(--black);
+}
+
+ul li {
+  list-style-type: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+p, ul {
+  margin: 1em 0;
+}
+
+.Plugin a {
+  text-decoration: none;
+}
+
+p a, ul a {
+  text-decoration: underline;
+  color: var(--black);
+}
+
+p a:hover {
+  color: #000;
+}
+
+figure {
+  margin: 1.5em 0;
+}
+
+ol {
+  margin: 1em 0 1em 2.5em;
+  list-style: decimal outside;
+  font-size: var(--smaller);
+}
+
+pre {
+  font: 300 var(--much-smaller)/1.3 var(--source-code);
+  position: relative;
+  background-color: var(--white);
+  padding: 1.5em;
+}
+
+pre + pre {
+  margin-top: 1px;
+}
+
+code b {
+  color: var(--black);
+}
+
+code i {
+  font-style: normal;
+  color: var(--gold);
+}
+
+hr {
+  border: none;
+  height: 100px;
+  width: 150px;
+  margin: 8em auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+hr:nth-of-type(1) {
+  background-image: url('/img/divider-1.png');
+}
+
+hr:nth-of-type(2) {
+  background-image: url('/img/divider-2.png');
+}
+
+hr:nth-of-type(3) {
+  background-image: url('/img/divider-3.png');
+}
+
+hr:nth-of-type(4) {
+  background-image: url('/img/divider-4.png');
+}
+
+hr:nth-of-type(5) {
+  background-image: url('/img/divider-5.png');
+}
+
+hr:nth-of-type(6) {
+  background-image: url('/img/divider-6.png');
+}
+
+hr:nth-of-type(7) {
+  background-image: url('/img/divider-1.png');
+}
+
+hr:nth-of-type(8) {
+  background-image: url('/img/divider-2.png');
+}
+
+hr:nth-of-type(9) {
+  background-image: url('/img/divider-3.png');
+}
+
+hr:nth-of-type(10) {
+  background-image: url('/img/divider-4.png');
+}
+
+hr:nth-of-type(11) {
+  background-image: url('/img/divider-5.png');
+}
+
+hr:nth-of-type(12) {
+  background-image: url('/img/divider-6.png');
+}
+
+hr:nth-of-type(13) {
+  background-image: url('/img/divider-1.png');
+}
+
+hr:nth-of-type(14) {
+  background-image: url('/img/divider-2.png');
+}
+
+/**
+ * Large screens.
+ */
+
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  pre {
+    font-size: var(--smaller);
+    padding: 1.5em 2em;
+  }
+}
