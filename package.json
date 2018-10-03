@@ -17,7 +17,6 @@
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-compat": "^2.5.1",
     "eslint-plugin-import": "^2.14.0",
-    "highlight.js": "^9.12.0",
     "husky": "^1.1.0",
     "jstransformer-marked": "^1.0.3",
     "jstransformer-nunjucks": "^0.5.0",
@@ -43,6 +42,7 @@
     "stylelint-no-unsupported-browser-features": "^3.0.2"
   },
   "dependencies": {
-    "blazy": "^1.8.2"
+    "blazy": "^1.8.2",
+    "prismjs": "^1.15.0"
   }
 }
