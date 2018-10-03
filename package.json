@@ -41,5 +41,8 @@
     "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-no-unsupported-browser-features": "^3.0.2"
+  },
+  "dependencies": {
+    "blazy": "^1.8.2"
   }
 }
