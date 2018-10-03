@@ -71,7 +71,6 @@ metalsmith(__dirname)
   .use(
     layouts({
       directory: 'lib/views',
-      default: 'base.njk',
       pattern: '**/*.html'
     })
   )
