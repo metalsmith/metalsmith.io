@@ -1,10 +1,10 @@
 /** @define Example */
 
 .Example {
-  max-width: 17em;
+  max-width: calc(0.5 * var(--body-width));
   margin-top: 1px;
   padding: 1.5em;
-  background-color: var(--white);
+  background-color: var(--color-white);
 }
 
 .Example-title {
@@ -19,7 +19,7 @@
   margin: 0;
 }
 
-@media (min-width: 768px) {
+@media (--lg-viewport) {
   .Example {
     padding: 1.5em 2em;
     margin-top: 0;

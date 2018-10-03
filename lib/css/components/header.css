@@ -30,11 +30,11 @@
   padding: 0.4em 1em;
   width: 15em;
   text-align: center;
-  background-color: var(--black);
+  background-color: var(--color-black);
   text-transform: uppercase;
   font-family: var(--font-headings);
   font-size: 0.9em;
-  color: var(--white);
+  color: var(--color-white);
   text-decoration: none;
   white-space: nowrap;
   transform: rotate(45deg);
@@ -43,7 +43,7 @@
 }
 
 .Header-github:hover {
-  background-color: var(--gold);
+  background-color: var(--color-gold);
 }
 
 .Header-slack {
@@ -54,11 +54,11 @@
   padding: 0.4em 1em;
   width: 30em;
   text-align: center;
-  background-color: #6ec9dc;
+  background-color: var(--color-blue);
   text-transform: uppercase;
   font-family: var(--font-headings);
   font-size: 0.9em;
-  color: var(--white);
+  color: var(--color-white);
   text-decoration: none;
   white-space: nowrap;
   transform: rotate(45deg);
@@ -67,7 +67,7 @@
 }
 
 .Header-slack:hover {
-  background-color: #3eb991;
+  background-color: var(--color-green);
 }
 
 @media (min-width: 768px) {
