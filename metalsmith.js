@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 const inPlace = require('metalsmith-in-place');
 const layouts = require('metalsmith-layouts');
 const when = require('metalsmith-if');
