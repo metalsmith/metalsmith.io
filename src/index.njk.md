@@ -494,7 +494,9 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
 {% for plugin in plugins %}
   <li class="Plugin">
     <a class="Plugin-link" href="{{ plugin.repository }}">
-      <h1 class="Plugin-title">{{ plugin.name }}<i class="Plugin-icon ss-{{ plugin.icon }}"></i></h1>
+      <h1 class="Plugin-title">
+        {{ plugin.name }}<i class="Plugin-icon ss-{{ plugin.icon }}"></i>
+      </h1>
       <i class="Plugin-arrow ss-right"></i>
       <p class="Plugin-description">{{ plugin.description }}</p>
     </a>
@@ -521,22 +523,6 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
           src="{{placeholderBadgeUrl}}"
           data-src="{{ plugin.githubStars }}"
           alt="GitHub stars"
-        />
-      </a>
-      <a href="{{ plugin.bithoundUrl }}">
-        <img
-          class="b-lazy"
-          src="{{placeholderBadgeUrl}}"
-          data-src="{{ plugin.bithoundScore }}"
-          alt="bitHound score"
-        />
-      </a>
-      <a href="{{ plugin.bithoundUrl }}">
-        <img
-          class="b-lazy"
-          src="{{placeholderBadgeUrl}}"
-          data-src="{{ plugin.bithoundDependencies }}"
-          alt="bitHound dependencies"
         />
       </a>
     </div>
