@@ -357,17 +357,17 @@ We keep referring to Metalsmith as a "static site generator", but it's a lot mor
 
 Which means you could just as easily use it to make...
 
-<ul class="Example-list">
-{% for example in examples %}
-  <li class="Example">
-    <h1 class="Example-title">{{ example.name }}</h1>
-    <ol class="Example-step-list">
-    {% for step in example.steps %}
-      <li class="Example-step ss-{{ step.icon }}">{{ step.text }}</li>
-    {% endfor %}
-    </ol>
-  </li>
-{% endfor %}
+<ul class="ExampleList">
+  {% for example in examples %}
+    <li class="Example">
+      <h1 class="Example-title">{{ example.name }}</h1>
+      <ol class="Example-steps">
+      {% for step in example.steps %}
+        <li class="ss-{{ step.icon }}">{{ step.text }}</li>
+      {% endfor %}
+      </ol>
+    </li>
+  {% endfor %}
 </ul>
 
 The plugins are all reusable. That PDF generator plugin for eBooks? Use it to generate PDFs for each of your blog posts too!
@@ -460,49 +460,49 @@ The core Metalsmith library doesn't bundle any plugins by default.
 
 Here's a list of plugins that are provided by the awesome Metalsmith community. But mind you, this list is by no means complete, because not every author PRs his or her plugin. So you might want to search for further plugins:
 
-<label class="Plugin-filter">
-  <i class="Plugin-filter-icon ss-search"></i>
-  <input class="Plugin-filter-input" placeholder="Filter plugins…" />
+<label class="PluginFilter">
+  <i class="PluginFilter-icon ss-search"></i>
+  <input class="PluginFilter-input" placeholder="Filter plugins…" />
 </label>
 
-<ul class="Plugin-list">
-{% for plugin in plugins %}
-  <li class="Plugin">
-    <a class="Plugin-link" href="{{ plugin.repository }}">
-      <h1 class="Plugin-title">
-        {{ plugin.name }}<i class="Plugin-icon ss-{{ plugin.icon }}"></i>
-      </h1>
-      <i class="Plugin-arrow ss-right"></i>
-      <p class="Plugin-description">{{ plugin.description }}</p>
-    </a>
-    <div class="Plugin-badges">
-      <a href="{{ plugin.npmUrl }}">
-        <img
-          class="b-lazy"
-          src="{{placeholderBadgeUrl}}"
-          data-src="{{ plugin.npmVersion }}"
-          alt="npm version"
-        />
+<ul class="PluginList">
+  {% for plugin in plugins %}
+    <li class="Plugin">
+      <a class="Plugin-link" href="{{ plugin.repository }}">
+        <h1 class="Plugin-title">
+          {{ plugin.name }}<i class="Plugin-icon ss-{{ plugin.icon }}"></i>
+        </h1>
+        <i class="Plugin-arrow ss-right"></i>
+        <p class="Plugin-description">{{ plugin.description }}</p>
       </a>
-      <a href="{{ plugin.npmUrl }}">
-        <img
-          class="b-lazy"
-          src="{{placeholderBadgeUrl}}"
-          data-src="{{ plugin.npmDownloads }}"
-          alt="npm downloads per year"
-        />
-      </a>
-      <a href="{{ plugin.repository }}">
-        <img
-          class="b-lazy"
-          src="{{placeholderBadgeUrl}}"
-          data-src="{{ plugin.githubStars }}"
-          alt="GitHub stars"
-        />
-      </a>
-    </div>
-  </li>
-{% endfor %}
+      <div class="Plugin-badgeContainer">
+        <a class="Plugin-badge" href="{{ plugin.npmUrl }}">
+          <img
+            class="b-lazy"
+            src="{{placeholderBadgeUrl}}"
+            data-src="{{ plugin.npmVersion }}"
+            alt="npm version"
+          />
+        </a>
+        <a class="Plugin-badge" href="{{ plugin.npmUrl }}">
+          <img
+            class="b-lazy"
+            src="{{placeholderBadgeUrl}}"
+            data-src="{{ plugin.npmDownloads }}"
+            alt="npm downloads per year"
+          />
+        </a>
+        <a class="Plugin-badge" href="{{ plugin.repository }}">
+          <img
+            class="b-lazy"
+            src="{{placeholderBadgeUrl}}"
+            data-src="{{ plugin.githubStars }}"
+            alt="GitHub stars"
+          />
+        </a>
+      </div>
+    </li>
+  {% endfor %}
 </ul>
 
 If you write your own plugin, submit a pull request to the [metalsmith.io](https://github.com/segmentio/metalsmith.io/tree/master/src/plugins.json) repository and it will show up here!

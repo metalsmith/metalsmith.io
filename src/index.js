@@ -22,7 +22,7 @@ var blazy = new Blazy({
  * "back" in the browser. And then sets a listener for future filtering.
  */
 
-var input = document.querySelector('.Plugin-filter-input');
+var input = document.querySelector('.PluginFilter-input');
 
 filter(input);
 
