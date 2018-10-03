@@ -2,7 +2,7 @@
 
 .PluginFilter {
   padding: 1em 2em;
-  background-color: var(--white);
+  background-color: var(--color-white);
   margin-bottom: 1px;
   display: block;
 }
@@ -12,7 +12,7 @@
 }
 
 .PluginFilter-icon::before {
-  color: var(--gray);
+  color: var(--color-gray);
   padding-right: 0;
 }
 
