@@ -1,5 +1,5 @@
 /* stylelint-disable at-rule-empty-line-before */
 
-@import '../node_modules/prismjs/themes/prism-coy.css';
+@import 'prism-themes/themes/prism-duotone-light.css';
 @import '../lib/css/base/*.css';
 @import '../lib/css/components/*.css';
