@@ -16,7 +16,7 @@
       "src",
       "lib"
     ],
-    "ext": "js css njk json html"
+    "ext": "js css njk json html md"
   },
   "devDependencies": {
     "autoprefixer": "^9.1.5",
