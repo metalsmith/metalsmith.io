@@ -16,6 +16,10 @@
   {% include "./partials/twitter.njk" %}
   {% include "./partials/analytics.njk" %}
   <meta name="google-site-verification" content="2RKFuZol3mkMgto2Y0TUZUmzMpWZ-Ck-7HjocBHpJtE" />
+  <link
+    rel="stylesheet"
+    href="//cdn.symbolset.com/94440cd0456394a198fb9c3302ad80fe007e5eff/symbolset.css"
+  >
 </head>
 <body>
   <header class="Header">
@@ -27,6 +31,7 @@
     <a class="Header-slack" href="https://metalsmith-slack.herokuapp.com">Join the Slack Channel</a>
   </header>
   <section class="Body">
+    <hr>
     {{ contents | safe }}
   </section>
   <script type="text/javascript" src="/index.js"></script>
