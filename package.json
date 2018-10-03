@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "blazy": "^1.8.2",
+    "prism-themes": "^1.0.1",
     "prismjs": "^1.15.0"
   }
 }
