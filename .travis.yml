@@ -2,3 +2,8 @@ language: node_js
 sudo: false
 notifications:
   email: false
+script:
+  - npm run test
+  - npm run lint:prettier
+  - npm run lint:js
+  - npm run lint:css
