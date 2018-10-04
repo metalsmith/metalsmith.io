@@ -276,7 +276,7 @@ Assuming we have defined a very simple nunjucks layout file in a separate layout
 `./layouts/layout.njk`
 
 {% raw %}
-```markup
+```html
 <!doctype html>
 <html>
 <head>
