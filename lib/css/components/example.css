@@ -9,6 +9,7 @@
 
 .Example-title {
   font-size: 1.5em;
+  margin-top: 0;
   margin-bottom: 0.4em;
   text-align: center;
 }
