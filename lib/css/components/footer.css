@@ -9,8 +9,8 @@
   display: block;
   text-transform: uppercase;
   font-family: var(--font-headings);
-  color: var(--color-gray);
-  font-size: var(--size-smaller);
+  color: var(--gray);
+  font-size: var(--smaller);
 }
 
 .Footer-logo {

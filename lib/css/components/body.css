@@ -1,7 +1,7 @@
 /** @define Body */
 
 .Body {
-  max-width: var(--body-width);
+  max-width: 34em;
   margin: 0 auto;
   padding-right: 1em;
   padding-left: 1em;

@@ -7,7 +7,7 @@
 .Plugin {
   position: relative;
   padding: 1.25em;
-  background-color: var(--color-white);
+  background-color: var(--white);
 }
 
 .Plugin + .Plugin {
@@ -22,7 +22,7 @@
 
 .Plugin-icon {
   font-size: 0.7em;
-  color: var(--color-gold);
+  color: var(--gold);
   margin-left: 0.4em;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .Plugin-arrow::before {
-  color: var(--color-gray);
+  color: var(--gray);
 }
 
 .Plugin:hover .Plugin-arrow {
