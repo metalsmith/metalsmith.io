@@ -12,7 +12,6 @@
     "jstransformer-marked": "^1.0.3",
     "jstransformer-nunjucks": "^0.5.0",
     "metalsmith": "^2.3.0",
-    "metalsmith-browserify": "^1.0.0",
     "metalsmith-favicons": "^1.0.0",
     "metalsmith-if": "^0.1.1",
     "metalsmith-in-place": "^4.2.0",
