@@ -1,3 +1,4 @@
+
 # Metalsmith.io
 
   The site for [Metalsmith](https://github.com/segmentio/metalsmith).
@@ -10,15 +11,16 @@ To install npm dependencies:
 
     npm install
 
-To build the production version of the site:
+To build the site:
 
     npm run build
 
-For local development, with rebuilding on changes and running a local dev server:
+And to serve the site on PORT 8000 (configurable with the `PORT` environment
+variable):
 
     npm start
 
-For linting:
+For Testing and build verification:
 
     npm test
 
