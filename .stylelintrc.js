@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
-  plugins: ['stylelint-no-unsupported-browser-features', 'stylelint-selector-bem-pattern'],
+  plugins: ['stylelint-no-unsupported-browser-features'],
   rules: {
     'at-rule-empty-line-before': [
       'always',
@@ -22,9 +22,6 @@ module.exports = {
       {
         severity: 'warning'
       }
-    ],
-    'plugin/selector-bem-pattern': {
-      preset: 'suit'
-    }
+    ]
   }
 };

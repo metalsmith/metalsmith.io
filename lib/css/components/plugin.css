@@ -1,6 +1,13 @@
-/** @define Plugin */
+/**
+ * Plugin
+ */
 
-.Plugin-link {
+.Plugin-list {
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+.Plugin a {
   text-decoration: none;
 }
 
@@ -55,15 +62,14 @@
   display: block;
 }
 
-.Plugin-badgeContainer {
+.Plugin-badges {
   margin-top: 1em;
 }
 
-.Plugin-badge {
-  text-decoration: none;
+.Plugin-badges > a {
   margin-right: 0.5em;
 }
 
-.Plugin-badge:last-of-type {
+.Plugin-badges > a:last-of-type {
   margin-right: 0;
 }
