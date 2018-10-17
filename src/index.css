@@ -3,22 +3,22 @@
  */
 
 :root {
-  --white: #fefefe;
-  --light-gray: #ededed;
-  --gray: #a3a3a4;
-  --dark-gray: #4a4848;
-  --black: #262727;
-  --gold: #daae20;
+  var-white: #fefefe;
+  var-light-gray: #ededed;
+  var-gray: #a3a3a4;
+  var-dark-gray: #4a4848;
+  var-black: #262727;
+  var-gold: #daae20;
 
-  --sentinel: "Sentinel SSm A", "Sentinel SSm B", "Sentinel", "Georgia", sans-serif;
-  --tungsten: "Tungsten A", "Tungsten B", "Tungsten", "Impact", sans-serif;
-  --source-code: "Source Code", monospace;
+  var-sentinel: "Sentinel SSm A", "Sentinel SSm B", "Sentinel", "Georgia", sans-serif;
+  var-tungsten: "Tungsten A", "Tungsten B", "Tungsten", "Impact", sans-serif;
+  var-source-code: "Source Code", monospace;
 
-  --m: 1.25;
-  --much-smaller: calc(1em / var(--m) / var(--m));
-  --smaller: calc(1em / var(--m));
-  --larger: calc(1em * var(--m));
-  --much-larger: calc(1em * var(--m) * var(--m));
+  var-m: 1.25;
+  var-much-smaller: calc(1em / var(m) / var(m));
+  var-smaller: calc(1em / var(m));
+  var-larger: calc(1em * var(m));
+  var-much-larger: calc(1em * var(m) * var(m));
 }
 
 /**
@@ -26,32 +26,32 @@
  */
 
 html {
-  font: 500 16px/1.6 var(--sentinel);
-  color: var(--dark-gray);
-  background: url('/img/ground.jpg') var(--light-gray);
+  font: 500 16px/1.6 var(sentinel);
+  color: var(dark-gray);
+  background: url('/img/ground.jpg') var(light-gray);
 }
 
 h1 {
   font-size: 2em;
   margin-bottom: .5em;
-  font-family: var(--tungsten);
+  font-family: var(tungsten);
   text-transform: uppercase;
-  color: var(--black);
+  color: var(black);
   text-align: center;
 }
 
 h2 {
   font-size: 1.5em;
   margin-bottom: .5em;
-  font-family: var(--tungsten);
-  color: var(--black);
+  font-family: var(tungsten);
+  color: var(black);
 }
 
 h3 {
   font-size: 1.25em;
   margin-bottom: .5em;
-  font-family: var(--tungsten);
-  color: var(--black);
+  font-family: var(tungsten);
+  color: var(black);
 }
 
 
@@ -65,7 +65,7 @@ p, ul {
 
 p a, ul a {
   text-decoration: underline;
-  color: var(--black);
+  color: var(black);
 }
 
 p a:hover {
@@ -79,13 +79,13 @@ figure {
 ol {
   margin: 1em 0 1em 2.5em;
   list-style: decimal outside;
-  font-size: var(--smaller);
+  font-size: var(smaller);
 }
 
 pre {
-  font: 300 var(--much-smaller)/1.3 var(--source-code);
+  font: 300 var(much-smaller)/1.3 var(source-code);
   position: relative;
-  background-color: var(--white);
+  background-color: var(white);
   padding: 1.5em;
 }
 
@@ -94,12 +94,12 @@ pre + pre {
 }
 
 code b {
-  color: var(--black);
+  color: var(black);
 }
 
 code i {
   font-style: normal;
-  color: var(--gold);
+  color: var(gold);
 }
 
 /**
@@ -177,7 +177,7 @@ hr:nth-of-type(14) {
  */
 
 [class*="ss-"]::before {
-  color: var(--gold);
+  color: var(gold);
   font-size: 1.2em;
   position: relative;
   top: .2em;
@@ -195,7 +195,7 @@ hr:nth-of-type(14) {
 }
 
 .Highlight-string {
-  color: var(--gold);
+  color: var(gold);
 }
 
 /**
@@ -237,7 +237,7 @@ hr:nth-of-type(14) {
 }
 
 .Plugin-filter-icon::before {
-  color: var(--gray);
+  color: var(gray);
   padding-right: 0;
 }
 
@@ -276,7 +276,7 @@ hr:nth-of-type(14) {
 
 .Plugin-icon {
   font-size: .7em;
-  color: var(--gold);
+  color: var(gold);
   margin-left: .4em;
 }
 
@@ -298,7 +298,7 @@ hr:nth-of-type(14) {
 }
 
 .Plugin-arrow::before {
-  color: var(--gray);
+  color: var(gray);
 }
 
 .Plugin:hover .Plugin-arrow {
@@ -346,11 +346,11 @@ hr:nth-of-type(14) {
   padding: .4em 1em;
   width: 15em;
   text-align: center;
-  background-color: var(--black);
+  background-color: var(black);
   text-transform: uppercase;
-  font-family: var(--tungsten);
+  font-family: var(tungsten);
   font-size: .9em;
-  color: var(--white);
+  color: var(white);
   text-decoration: none;
   white-space: nowrap;
   transform: rotate(45deg);
@@ -359,7 +359,7 @@ hr:nth-of-type(14) {
 }
 
 .Header-github:hover {
-  background-color: var(--gold);
+  background-color: var(gold);
 }
 
 .Header-slack {
@@ -372,9 +372,9 @@ hr:nth-of-type(14) {
   text-align: center;
   background-color: #6ec9dc;
   text-transform: uppercase;
-  font-family: var(--tungsten);
+  font-family: var(tungsten);
   font-size: .9em;
-  color: var(--white);
+  color: var(white);
   text-decoration: none;
   white-space: nowrap;
   transform: rotate(45deg);
@@ -409,9 +409,9 @@ hr:nth-of-type(14) {
 .Footer-conjunction {
   display: block;
   text-transform: uppercase;
-  font-family: var(--tungsten);
-  color: var(--gray);
-  font-size: var(--smaller);
+  font-family: var(tungsten);
+  color: var(gray);
+  font-size: var(smaller);
 }
 
 .Footer-logo {
@@ -433,7 +433,7 @@ hr:nth-of-type(14) {
   }
 
   pre {
-    font-size: var(--smaller);
+    font-size: var(smaller);
     padding: 1.5em 2em;
   }
 
