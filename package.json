@@ -9,6 +9,8 @@
     "jstransformer-nunjucks": "^0.5.0",
     "metalsmith": "^2.3.0",
     "metalsmith-in-place": "^4.2.0",
-    "metalsmith-layouts": "^2.2.0"
+    "metalsmith-layouts": "^2.2.0",
+    "metalsmith-metadata": "0.0.1",
+    "metalsmith-metallic": "^1.0.0"
   }
 }
