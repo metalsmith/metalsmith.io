@@ -4,6 +4,8 @@ description: "An extremely simple, pluggable static site generator."
 layout: "base.njk"
 ---
 
+---
+
 # Welcome
 
 You want to build a website or blog with a static site generator. Well, here is our elevator pitch. It's as easy as that:
@@ -14,6 +16,7 @@ var collections = require('metalsmith-collections');
 var layouts     = require('metalsmith-layouts');
 var markdown    = require('metalsmith-markdown');
 var permalinks  = require('metalsmith-permalinks');
+
 
 Metalsmith(__dirname)         // __dirname defined by node.js:
                               // name of current working directory
@@ -49,6 +52,7 @@ $ cd metalsmith/examples/static-site
 $ make
 ```
 
+
 ---
 
 # Install it
@@ -61,7 +65,9 @@ $ npm install metalsmith
 
 The package exposes both a [JavaScript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators. To see how they're used check out the [examples](https://github.com/segmentio/metalsmith/tree/master/examples).
 
+
 ---
+
 
 # Introduction
 
@@ -78,6 +84,7 @@ The task of a static site generator is to produce static build files that can be
 Metalsmith is built on this reasoning. It takes the information from the source files from a source directory and it writes the manipulated information to files into a destination directory. All manipulations, however, it exclusively leaves to plugins.
 
 Manipulations can be anything: translating templates, transpiling code, replacing variables, wrapping layouts around content, grouping files, moving files and so on. This is why we say *»Everything is a Plugin«*. And of course, several manipulations can be applied one after another. Obviously, in this case the sequence matters.
+
 
 ## Why is Metalsmith *extremely simple*?
 
@@ -108,6 +115,7 @@ Metalsmith(__dirname)          // instantiate Metalsmith in the cwd
   });
 ```
 
+
 ... and by the way, if you do not want your destination directory to be cleaned before a new build, just add <b>`.clean(false)`</b>. But what if you want to get fancier by hiding your unfinished drafts and using permalinks? Just add plugins...
 
 ```javascript
@@ -129,7 +137,10 @@ Metalsmith(__dirname)
 
 A small comment. The `layouts()` plugin needs the `jstransformer-nunjucks` package to render layouts. Make sure to install it with `npm install jstransformer-nunjucks`. Other templating languages can be used as well (see the [metalsmith-layouts readme](https://github.com/ismay/metalsmith-layouts) for more information).
 
+
+
 ---
+
 
 # How does it work in more detail?
 
@@ -253,9 +264,10 @@ So, within the Markdown chain above after applying **`.use(markdown())`** the in
     ...
   }
 }
+
 ```
 
-and after applying **`.use(permalinks())`** it becomes:
+end after applying **`.use(permalinks())`** it becomes:
 
 ```javascript
 {
@@ -267,6 +279,7 @@ and after applying **`.use(permalinks())`** it becomes:
     ...
   }
 }
+
 ```
 
 Note, that `permalinks()` is also adding a `path`--property by default.
@@ -304,6 +317,7 @@ Assuming we have defined a very simple nunjucks layout file in a separate layout
     ...      
   }
 }
+
 ```
 
 Finally when the **`.build(function(err))`** is performed our JavaScript object is written to `relative_to_destpath/myfile/index.html`. So you see, how the chain works. It's rather straight forward, isn't it?
@@ -343,13 +357,19 @@ $ DEBUG=metalsmith:*
 
 The source and destination path, the metadata and all files are then logged to the console.
 
+
+
+
 ---
 
 # Further information
 
 Yes, we know. The documentation can be improved. If you want to help, give us a shout. But in the meantime have a look at the [Awesome Metalsmith list](https://github.com/metalsmith/awesome-metalsmith). There you will find references to a number of excellent tutorials, examples and use cases.
 
+
+
 ---
+
 
 # A Little Secret
 
@@ -387,8 +407,10 @@ Writing a plugin is not difficult as you have seen above with the `metalsmith-dr
 var debug = require('debug')('metalsmith-myplugin');
 var multimatch = require('multimatch');
 
+
 // Expose `plugin`.
 module.exports = plugin;
+
 
 function plugin(opts){
   opts.pattern = opts.pattern || [];
@@ -405,7 +427,9 @@ function plugin(opts){
         //
 
       }
+
     });
+
   };
 }
 ```
@@ -439,6 +463,7 @@ A process such as this is called check for pattern matching. Many `metalsmith`-p
 
 Pattern matching is normally based on [glob](https://github.com/isaacs/node-glob) pattern. Many plugins employ either own functions or rely on [`minimatch`](https://www.npmjs.com/package/minimatch) or [`multimatch`](https://www.npmjs.com/package/multimatch).
 
+
 ```javascript
 var multimatch = require('multimatch');
 
@@ -452,6 +477,7 @@ var multimatch = require('multimatch');
 
   }
 ```
+
 
 ---
 
@@ -506,6 +532,7 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
 </ul>
 
 If you write your own plugin, submit a pull request to the [metalsmith.io](https://github.com/segmentio/metalsmith.io/tree/master/src/plugins.json) repository and it will show up here!
+
 
 ---
 
@@ -573,6 +600,7 @@ Resolve any amount of `paths...` relative to the working directory. This is usef
 
 Run all of the middleware functions on a dictionary of `files` and callback with `fn(err, files)`, where `files` is the altered dictionary.
 
+
 # Metadata API
 
 Add metadata to your files to access these build features. By default, Metalsmith uses a few different metadata fields:
@@ -601,6 +629,7 @@ rm -rf .
 
 would be built with mode `-rwxrw-r--`, i.e. user-executable.
 
+
 # Troubleshooting
 
 ## Node Version Requirements
@@ -621,6 +650,7 @@ You have three options:
 2. `npm install` [harmonize](https://www.npmjs.com/package/harmonize) and require before Metalsmith is used. e.g. `require("harmonize")(["harmony-generators"]);`
 3. Use Metalsmith v1.7. Put `"metalsmith": "^1.7.0"` in your `package.json` and `npm install` that version.
 
+
 # License
 
 The MIT License (MIT)
@@ -632,5 +662,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 
 ---
