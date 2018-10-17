@@ -1,6 +1,6 @@
 /** @define ExampleList */
 
-@media (--lg-viewport) {
+@media (min-width: 768px) {
   .ExampleList {
     overflow: hidden;
     margin: 0 -4em;

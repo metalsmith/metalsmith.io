@@ -3,7 +3,7 @@
  */
 
 [class*='ss-']::before {
-  color: var(--color-gold);
+  color: var(--gold);
   font-size: 1.2em;
   position: relative;
   top: 0.2em;
