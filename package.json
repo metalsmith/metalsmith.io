@@ -2,24 +2,13 @@
   "name": "metalsmith.io",
   "private": true,
   "scripts": {
-    "build": "cross-env NODE_ENV=production node metalsmith.js"
+    "build": "node metalsmith.js"
   },
   "devDependencies": {
-    "autoprefixer": "^9.1.5",
-    "cross-env": "^5.2.0",
-    "cssnano": "^4.1.4",
-    "highlight.js": "^9.12.0",
     "jstransformer-marked": "^1.0.3",
     "jstransformer-nunjucks": "^0.5.0",
     "metalsmith": "^2.3.0",
-    "metalsmith-favicons": "^1.0.0",
-    "metalsmith-if": "^0.1.1",
     "metalsmith-in-place": "^4.2.0",
-    "metalsmith-layouts": "^2.2.0",
-    "metalsmith-postcss": "^4.2.0",
-    "postcss-custom-media": "^7.0.4",
-    "postcss-easy-import": "^3.0.0",
-    "postcss-normalize": "^7.0.1",
-    "postcss-preset-env": "^6.0.8"
+    "metalsmith-layouts": "^2.2.0"
   }
 }
