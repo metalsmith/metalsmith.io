@@ -1,4 +1,41 @@
-const filter = require('../lib/js/filter');
+'use strict';
+
+/* eslint-env browser */
+
+const input = document.querySelector('.Plugin-filter-input');
+const plugins = [];
+
+/**
+* Filter plugins.
+*/
+
+const filter = () => {
+  let value = input.value.toLowerCase();
+
+  plugins.forEach((plugin) => {
+    const { el, title, description } = plugin;
+
+    el.style.display = '';
+
+    if (!value) {
+      return;
+    }
+    if (!~title.indexOf(value) && !~description.indexOf(value)) {
+      el.style.display = 'none';
+    }
+  });
+};
+
+/**
+ * Build index.
+ */
+Array.from(document.querySelectorAll('.Plugin-list .Plugin')).forEach((el) => {
+  plugins.push({
+    el,
+    title: el.querySelector('.Plugin-title').textContent.toLowerCase(),
+    description: el.querySelector('.Plugin-description').textContent.toLowerCase()
+  });
+});
 
 /**
  * Filter to start, in case there is some text in the search input, which may
@@ -6,7 +43,5 @@ const filter = require('../lib/js/filter');
  * future filtering.
  */
 
-const input = document.querySelector('.Plugin-filter-input');
-
-filter(input);
-input.addEventListener('keyup', () => filter(input));
+filter();
+input.addEventListener('keyup', filter);

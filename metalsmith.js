@@ -5,7 +5,6 @@ const layouts = require('metalsmith-layouts');
 const when = require('metalsmith-if');
 const favicons = require('metalsmith-favicons');
 const postcss = require('metalsmith-postcss');
-const browserify = require('metalsmith-browserify');
 const metalsmith = require('metalsmith');
 const examples = require('./lib/data/examples.json');
 
@@ -71,11 +70,6 @@ metalsmith(__dirname)
       highlight: code => require('highlight.js').highlightAuto(code).value
     }
   }))
-  .use(
-    browserify({
-      entries: ['index.js']
-    })
-  )
   .use(
     postcss({
       plugins: [
