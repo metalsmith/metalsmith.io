@@ -7,14 +7,10 @@
   overflow-y: scroll;
 }
 
-.Plugin a {
-  text-decoration: none;
-}
-
 .Plugin {
   position: relative;
   padding: 1.25em;
-  background-color: var(--white);
+  background-color: white;
 }
 
 .Plugin + .Plugin {
@@ -23,22 +19,22 @@
 
 .Plugin-title {
   font-size: 1.5em;
-  margin-bottom: 0.25em;
+  margin-bottom: .25em;
   text-align: left;
 }
 
 .Plugin-icon {
-  font-size: 0.7em;
+  font-size: .7em;
   color: var(--gold);
-  margin-left: 0.4em;
+  margin-left: .4em;
 }
 
 .Plugin-icon::before {
-  top: 0.075em;
+  top: .075em;
 }
 
 .Plugin-description {
-  font-size: 0.85em;
+  font-size: .85em;
   margin: 0;
 }
 
@@ -46,8 +42,8 @@
   position: absolute;
   top: 1.2em;
   right: 1.5em;
-  opacity: 0.3;
-  transition: opacity 0.2s;
+  opacity: .3;
+  transition: opacity .2s;
 }
 
 .Plugin-arrow::before {

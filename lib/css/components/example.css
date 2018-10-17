@@ -6,12 +6,12 @@
   max-width: 17em;
   margin-top: 1px;
   padding: 1.5em;
-  background-color: var(--white);
+  background-color: white;
 }
 
 .Example-title {
   font-size: 1.5em;
-  margin-bottom: 0.4em;
+  margin-bottom: .4em;
   text-align: center;
 }
 
@@ -27,7 +27,7 @@
     margin: 0 -4em;
     column-count: 2;
     column-gap: 1px;
-    break-inside: avoid;
+    column-break-inside: avoid;
   }
 
   .Example {
