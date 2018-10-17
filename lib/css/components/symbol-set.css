@@ -2,10 +2,10 @@
  * Symbolset
  */
 
-[class*='ss-']::before {
+[class*="ss-"]::before {
   color: var(--gold);
   font-size: 1.2em;
   position: relative;
-  top: 0.2em;
-  padding-right: 0.4em;
+  top: .2em;
+  padding-right: .4em;
 }
