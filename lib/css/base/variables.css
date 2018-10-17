@@ -10,9 +10,9 @@
   --black: #262727;
   --white: #fff;
   --gold: #daae20;
-  --font-body: 'Georgia', sans-serif;
-  --font-headings: 'Impact', sans-serif;
-  --font-code: 'Source Code', monospace;
+  --sentinel: 'Sentinel SSm A', 'Sentinel SSm B', 'Sentinel', 'Georgia', sans-serif;
+  --tungsten: 'Tungsten A', 'Tungsten B', 'Tungsten', 'Impact', sans-serif;
+  --source-code: 'Source Code', monospace;
   --m: 1.25;
   --much-smaller: calc(1em / var(--m) / var(--m));
   --smaller: calc(1em / var(--m));

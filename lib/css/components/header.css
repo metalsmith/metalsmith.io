@@ -34,7 +34,7 @@
   text-align: center;
   background-color: var(--black);
   text-transform: uppercase;
-  font-family: var(--font-headings);
+  font-family: var(--tungsten);
   font-size: 0.9em;
   color: var(--white);
   text-decoration: none;
@@ -58,7 +58,7 @@
   text-align: center;
   background-color: #6ec9dc;
   text-transform: uppercase;
-  font-family: var(--font-headings);
+  font-family: var(--tungsten);
   font-size: 0.9em;
   color: var(--white);
   text-decoration: none;
