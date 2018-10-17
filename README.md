@@ -18,7 +18,7 @@ For local development, with rebuilding on changes and running a local dev server
 
     npm start
 
-For build verification:
+For linting:
 
     npm test
 
