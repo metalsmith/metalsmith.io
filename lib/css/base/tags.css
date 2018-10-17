@@ -55,7 +55,7 @@ ul a {
 }
 
 p a:hover {
-  color: var(--color-dark-black);
+  color: var(--dark-black);
 }
 
 figure {
