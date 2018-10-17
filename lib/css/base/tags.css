@@ -13,7 +13,6 @@ body {
 }
 
 h1 {
-  line-height: 1;
   font-size: 2em;
   margin-bottom: 0.5em;
   font-family: var(--font-headings);
@@ -36,9 +35,8 @@ h3 {
   color: var(--color-black);
 }
 
-ul,
-ol {
-  padding: 0;
+ul {
+  padding-left: 0;
 }
 
 ul li {
