@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 const inPlace = require('metalsmith-in-place');
-const hljs = require('highlight.js');
 const layouts = require('metalsmith-layouts');
 const when = require('metalsmith-if');
 const favicons = require('metalsmith-favicons');
@@ -64,10 +63,7 @@ metalsmith(__dirname)
     inPlace({
       engineOptions: {
         smartypants: true,
-        smartLists: true,
-        engineOptions: {
-          highlight: code => hljs.highlightAuto(code).value
-        }
+        smartLists: true
       },
       pattern: '**/*.md'
     })
