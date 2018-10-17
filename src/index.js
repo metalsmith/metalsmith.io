@@ -2,12 +2,6 @@ var Blazy = require('blazy');
 var filter = require('../lib/js/filter');
 
 /**
- * Enable syntax highlighting
- */
-
-require('prismjs');
-
-/**
  * Initialize lazy image loading
  */
 

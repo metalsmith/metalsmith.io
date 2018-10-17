@@ -70,7 +70,10 @@ metalsmith(__dirname)
     layouts({
       directory: 'lib/views',
       default: 'base.njk',
-      pattern: '**/*.html'
+      pattern: '**/*.html',
+      engineOptions: {
+        highlight: code => require('highlight.js').highlightAuto(code).value
+      }
     })
   )
   .use(
