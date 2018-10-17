@@ -1,0 +1,25 @@
+{
+  "name": "metalsmith.io",
+  "private": true,
+  "scripts": [
+    "node_modules/blazy/blazy.min.js",
+    "index.js"
+  ],
+  "styles": ["index.css"],
+  "images": [
+    "images/favicon.png",
+    "images/ground.jpg",
+    "images/divider-1.png",
+    "images/divider-2.png",
+    "images/divider-3.png",
+    "images/divider-4.png",
+    "images/divider-5.png",
+    "images/divider-6.png",
+    "images/facebook-image.png",
+    "images/twitter-image.png"
+  ],
+  "dependencies": {
+    "ianstormtaylor/reset": "*",
+    "segmentio/metalsmith-logo": "*"
+  }
+}
