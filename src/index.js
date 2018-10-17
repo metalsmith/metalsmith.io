@@ -1,12 +1,11 @@
 var Blazy = require('blazy');
-var hljs = require('highlight.js');
 var filter = require('../lib/js/filter');
 
 /**
  * Enable syntax highlighting
  */
 
-hljs.initHighlightingOnLoad();
+require('prismjs');
 
 /**
  * Initialize lazy image loading
