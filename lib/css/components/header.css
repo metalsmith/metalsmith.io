@@ -1,4 +1,6 @@
-/** @define Header */
+/**
+ * Header
+ */
 
 .Header {
   position: relative;
@@ -13,7 +15,7 @@
   margin: 0;
 }
 
-.Header-link {
+.Header-title a {
   color: currentcolor;
   text-decoration: none;
 }

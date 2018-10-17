@@ -1,4 +1,6 @@
-/** @define Example */
+/**
+ * Example
+ */
 
 .Example {
   max-width: 17em;
@@ -13,13 +15,21 @@
   text-align: center;
 }
 
-.Example-steps {
+.Example-step-list {
   list-style: none;
   line-height: 2;
   margin: 0;
 }
 
 @media (min-width: 768px) {
+  .Example-list {
+    overflow: hidden;
+    margin: 0 -4em;
+    column-count: 2;
+    column-gap: 1px;
+    break-inside: avoid;
+  }
+
   .Example {
     padding: 1.5em 2em;
     margin-top: 0;

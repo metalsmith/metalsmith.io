@@ -1,29 +1,28 @@
-/** @define PluginFilter */
+/**
+ * Plugin filter
+ */
 
-.PluginFilter {
+.Plugin-filter {
   padding: 1em 2em;
   background-color: var(--white);
   margin-bottom: 1px;
   display: block;
 }
 
-.PluginFilter-icon {
+.Plugin-filter-icon {
   display: inline-block;
 }
 
-.PluginFilter-icon::before {
+.Plugin-filter-icon::before {
   color: var(--gray);
   padding-right: 0;
 }
 
-.PluginFilter-input {
+.Plugin-filter-input {
   border: none;
   background: transparent;
-  font-family: inherit;
-  font-size: 100%;
-  margin: 0;
 }
 
-.PluginFilter-input:focus {
+.Plugin-filter-input:focus {
   outline: none;
 }
