@@ -10,7 +10,7 @@
 .Footer-conjunction {
   display: block;
   text-transform: uppercase;
-  font-family: var(--font-headings);
+  font-family: var(--tungsten);
   color: var(--gray);
   font-size: var(--smaller);
 }
