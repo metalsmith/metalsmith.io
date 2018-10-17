@@ -9,7 +9,7 @@ description: "An extremely simple, pluggable static site generator."
 
 You want to build a website or blog with a static site generator. Well, here is our elevator pitch. It's as easy as that:
 
-```javascript
+```JavaScript
 var Metalsmith  = require('metalsmith');
 var collections = require('metalsmith-collections');
 var layouts     = require('metalsmith-layouts');
@@ -103,7 +103,7 @@ Manipulations can be anything: translating templates, transpiling code, replacin
 
 All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here's what the simplest blog looks like. It uses only two plugins, **`markdown()`** and **`layouts()`**...
 
-```javascript
+```JavaScript
 Metalsmith(__dirname)          // instantiate Metalsmith in the cwd
   .source('sourcepath')        // specify source directory
   .destination('destpath')     // specify destination directory
@@ -117,7 +117,7 @@ Metalsmith(__dirname)          // instantiate Metalsmith in the cwd
 
 ... and by the way, if you do not want your destination directory to be cleaned before a new build, just add <b>`.clean(false)`</b>. But what if you want to get fancier by hiding your unfinished drafts and using permalinks? Just add plugins...
 
-```javascript
+```JavaScript
 Metalsmith(__dirname)
   .source('sourcepath')      
   .destination('destpath')
@@ -153,7 +153,7 @@ Every file in the source directory is transformed into a JavaScript Object. For 
 
 `my-file.md:`
 
-```markdown
+```Markdown
 ---
 title: A Catchy Title
 draft: false
@@ -164,7 +164,7 @@ An unfinished article...
 
 becomes
 
-```javascript
+```JavaScript
 {
   'relative_to_sourcepath/my-file.md': {
     title: 'A Catchy Title',
@@ -180,7 +180,7 @@ becomes
 
 where the content of the file is always put into the property value of **`contents`**. For illustration purposes only we display the value of **`contents`** as a string. Technically, however, the property value of **`contents`** is realised as a `new Buffer('...')` object, in order to also handle straight binary data well. **`mode`** contains the permission the file has and **`stats`** has more technical information on the file such as `size` or `birthtime`. Furthermore, the file is also parsed for YAML-front-matter information, which will then also be put into the JS Object. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called **`files`** since it contains all the JavaScript objects that represent the files.
 
-```javascript
+```JavaScript
 {
   "relative_to_sourcepath/file1.md": {
     title: 'A Catchy Title',
@@ -205,7 +205,7 @@ where the content of the file is always put into the property value of **`conten
 
 The plugins can manipulate the JavaScript objects representing the original files however they want, and writing one is super simple. Here's the code for the **`drafts()`** plugin from above. You can also find the code in the [github repository for `metalsmith-drafts`](https://github.com/segmentio/metalsmith-drafts). The code just runs through the JS object **`files`** and deletes all contained JavaScript objects that have a property value of **`true`** for the property **`draft`**:
 
-```javascript
+```JavaScript
 /**
  * Expose `plugin`.
  */
@@ -234,7 +234,7 @@ Of course plugins can get a lot more complicated too. That's what makes Metalsmi
 
 If you are still struggling with the concept we like to recommend you the [**`writemetadata()`**](https://github.com/Waxolunist/metalsmith-writemetadata) plugin. It is a metalsmith plugin that writes the **`{property: property value}`** pairs excerpted from the JavaScript objects representing the files to the filesystem as .json files. You can then view the .json files to find out how files are represented internally in Metalsmith.
 
-```javascript
+```JavaScript
 Metalsmith(__dirname)            
   .source('sourcepath')      
   .destination('destpath')   
@@ -254,7 +254,7 @@ We believe, that understanding the internal representation of files as JavaScrip
 
 So, within the Markdown chain above after applying **`.use(markdown())`** the initial representation of the `my-file.md` becomes `my-file.html`...
 
-```javascript
+```JavaScript
 {
   'relative_to_sourcepath/my-file.html': {
     title: 'A Catchy Title',
@@ -268,7 +268,7 @@ So, within the Markdown chain above after applying **`.use(markdown())`** the in
 
 end after applying **`.use(permalinks())`** it becomes:
 
-```javascript
+```JavaScript
 {
   'relative_to_sourcepath/my-file/index.html': {
     title: 'A Catchy Title',
@@ -288,7 +288,7 @@ Assuming we have defined a very simple nunjucks layout file in a separate layout
 `./layouts/layout.njk`
 
 {% raw %}
-```markup
+```nunjucks
 <!doctype html>
 <html>
 <head>
@@ -303,7 +303,7 @@ Assuming we have defined a very simple nunjucks layout file in a separate layout
 
 ... after applying **`.use(layouts())`** in our Metalsmith chain our JavaScript object becomes:
 
-```javascript
+```JavaScript
 {
   'relative_to_sourcepath/my-file/index.html': {
     title: 'A Catchy Title',
@@ -327,7 +327,7 @@ Finally when the **`.build(function(err))`** is performed our JavaScript object 
 
 For Metalsmith we have stated that everything is a plugin. That is true, but in addition the Metalsmith core also provides for a **`metadata()`** function. You can specify arbitrary **`{property: property value}`** pairs and these information will be globally accessible from each plugin.
 
-```javascript
+```JavaScript
 var debug = require('metalsmith-debug');
 
 ...
@@ -401,7 +401,7 @@ Writing a plugin is not difficult as you have seen above with the `metalsmith-dr
 
 `metalsmith-myplugin`:
 
-```javascript
+```JavaScript
 // we would like you to use debug
 var debug = require('debug')('metalsmith-myplugin');
 var multimatch = require('multimatch');
@@ -439,7 +439,7 @@ function plugin(opts){
 
 Even though we touched on the topic already, we did not tackle it explicitly. We mentioned that plugins usually run through all files presented to `metalsmith`. This happens in a loop like this:
 
-```javascript
+```JavaScript
 Object.keys(files).forEach(function(file){
   //
   // here would be your code
@@ -452,7 +452,7 @@ If the check is not true it jumps over it, otherwise it is passing the file to t
 
 A process such as this is called check for pattern matching. Many `metalsmith`-plugins employ such matching. Either they check against internally set requirements or patterns or they offer an explicit option to check against user defined matches, like we have already seen in the `writemetadata`-plugin:
 
-```javascript
+```JavaScript
 .use(writemetadata({            // write the JS object
   pattern: ['**/*'],            // for each file into .json
   ignorekeys: ['next', 'previous'],
@@ -463,7 +463,7 @@ A process such as this is called check for pattern matching. Many `metalsmith`-p
 Pattern matching is normally based on [glob](https://github.com/isaacs/node-glob) pattern. Many plugins employ either own functions or rely on [`minimatch`](https://www.npmjs.com/package/minimatch) or [`multimatch`](https://www.npmjs.com/package/multimatch).
 
 
-```javascript
+```JavaScript
 var multimatch = require('multimatch');
 
 [...]
