@@ -1,6 +1,11 @@
 'use strict';
-
 /* eslint-env browser */
+
+const Blazy = require('metalsmith.io/node_modules/blazy/blazy.min.js');
+
+const bLazy = new Blazy({
+  validateDelay: 300
+});
 
 const input = document.querySelector('.Plugin-filter-input');
 const plugins = [];
@@ -8,7 +13,6 @@ const plugins = [];
 /**
 * Filter plugins.
 */
-
 const filter = () => {
   let value = input.value.toLowerCase();
 
@@ -24,7 +28,10 @@ const filter = () => {
       el.style.display = 'none';
     }
   });
+
+  bLazy.revalidate();
 };
+
 
 /**
  * Build index.
@@ -37,11 +44,11 @@ Array.from(document.querySelectorAll('.Plugin-list .Plugin')).forEach((el) => {
   });
 });
 
+
 /**
  * Filter to start, in case there is some text in the search input, which may
  * happen when clicking "back" in the browser. And then set a listener for
  * future filtering.
  */
-
 filter();
 input.addEventListener('keyup', filter);

@@ -2,9 +2,6 @@
 
 const inPlace = require('metalsmith-in-place');
 const layouts = require('metalsmith-layouts');
-const when = require('metalsmith-if');
-const favicons = require('metalsmith-favicons');
-const postcss = require('metalsmith-postcss');
 const metalsmith = require('metalsmith');
 const examples = require('./lib/data/examples.json');
 
@@ -32,8 +29,6 @@ const plugins = require('./lib/data/plugins.json')
     return plugin;
   });
 
-const isProduction = process.env.NODE_ENV === 'production';
-
 metalsmith(__dirname)
   .metadata({
     placeholderBadgeUrl: 'https://img.shields.io/badge/badge-loading-lightgrey.svg?style=flat',
@@ -41,20 +36,6 @@ metalsmith(__dirname)
     examples,
     nodeVersion
   })
-  .use(
-    when(
-      isProduction,
-      favicons({
-        src: 'favicons/favicon.png',
-        dest: 'favicons/',
-        icons: {
-          android: true,
-          appleIcon: true,
-          favicons: true
-        }
-      })
-    )
-  )
   .use(inPlace({
     engineOptions: {
       smartypants: true,
@@ -65,30 +46,11 @@ metalsmith(__dirname)
   .use(layouts({
     directory: 'lib/views',
     default: 'base.njk',
-    pattern: '**/*.html',
-    engineOptions: {
-      highlight: code => require('highlight.js').highlightAuto(code).value
-    }
+    pattern: '**/*.html'
   }))
-  .use(
-    postcss({
-      plugins: [
-        'postcss-easy-import',
-        'postcss-custom-media',
-        'postcss-preset-env',
-        {
-          'postcss-normalize': { forceImport: true }
-        },
-        'autoprefixer',
-        'cssnano'
-      ],
-      map: {
-        inline: false
-      }
-    })
-  )
   .build(err => {
     if (err) {
       throw err;
     }
   });
+
