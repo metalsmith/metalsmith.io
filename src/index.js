@@ -1,4 +1,4 @@
-var filter = require('../lib/js/filter');
+const filter = require('../lib/js/filter');
 
 /**
  * Filter to start, in case there is some text in the search input, which may
@@ -6,10 +6,7 @@ var filter = require('../lib/js/filter');
  * future filtering.
  */
 
-var input = document.querySelector('.Plugin-filter-input');
+const input = document.querySelector('.Plugin-filter-input');
 
 filter(input);
-
-input.addEventListener('keyup', function() {
-  filter(input);
-});
+input.addEventListener('keyup', () => filter(input));
