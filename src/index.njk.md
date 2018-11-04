@@ -67,7 +67,7 @@ The package exposes both a [JavaScript API](https://github.com/segmentio/metalsm
 
 Metalsmith is an extremely simple, pluggable static site generator. So let us explain why:
 
-## Why is Metalsmith a *pluggable static site generator*?
+## Why is Metalsmith a pluggable static site generator?
 
 The task of a static site generator is to produce static build files that can be deployed to a web server. These files are built from source files. Basically for a static site generator this means:
 
@@ -79,7 +79,7 @@ Metalsmith is built on this reasoning. It takes the information from the source 
 
 Manipulations can be anything: translating templates, transpiling code, replacing variables, wrapping layouts around content, grouping files, moving files and so on. This is why we say *»Everything is a Plugin«*. And of course, several manipulations can be applied one after another. Obviously, in this case the sequence matters.
 
-## Why is Metalsmith *extremely simple*?
+## Why is Metalsmith extremely simple?
 
 1. When all manipulations are performed by plugins, the only thing Metalsmith has to do in its core is to provide for an underlying logic of actually how manipulations are dealt with and for a defined interface for the plugins. To achieve this, we only needed around 400 lines of code --- have a [look at the source yourself](https://github.com/metalsmith/metalsmith/blob/master/lib/index.js). We believe this is rather simple.
 

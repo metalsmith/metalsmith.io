@@ -12,28 +12,33 @@ body {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-black);
+  font-weight: 400;
+  font-family: var(--font-headings);
+}
+
 h1 {
   line-height: 1;
   font-size: 2em;
   margin-bottom: 0.5em;
-  font-family: var(--font-headings);
   text-transform: uppercase;
-  color: var(--color-black);
   text-align: center;
 }
 
 h2 {
   font-size: 1.5em;
   margin-bottom: 0.5em;
-  font-family: var(--font-headings);
-  color: var(--color-black);
 }
 
 h3 {
   font-size: 1.25em;
   margin-bottom: 0.5em;
-  font-family: var(--font-headings);
-  color: var(--color-black);
 }
 
 ul,
