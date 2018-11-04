@@ -3,7 +3,7 @@
  */
 
 html {
-  font: 500 16px/1.6 var(--font-body);
+  font: 400 16px/1.6 var(--font-body);
   color: var(--color-dark-gray);
   background: url('/img/ground.jpg') var(--color-light-gray);
 }
@@ -76,7 +76,7 @@ ol {
 }
 
 pre {
-  font: 300 var(--size-much-smaller) / 1.3 var(--font-code);
+  font: 400 var(--size-much-smaller) / 1.3 var(--font-code);
   position: relative;
   background-color: var(--color-white);
   padding: 1.5em;
@@ -84,15 +84,6 @@ pre {
 
 pre + pre {
   margin-top: 1px;
-}
-
-code b {
-  color: var(--color-black);
-}
-
-code i {
-  font-style: normal;
-  color: var(--color-gold);
 }
 
 hr {

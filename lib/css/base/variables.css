@@ -17,7 +17,7 @@
 
   --font-body: 'Georgia', sans-serif;
   --font-headings: 'Anton', 'Impact', sans-serif;
-  --font-code: 'Source Code', monospace;
+  --font-code: 'Source Code Pro', monospace;
 
   --size-base: 1.25;
   --size-much-smaller: calc(1em / var(--size-base) / var(--size-base));
