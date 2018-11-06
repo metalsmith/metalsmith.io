@@ -11,7 +11,7 @@
   font-size: 1.5em;
   margin-top: 0;
   margin-bottom: 0.4em;
-  text-align: center;
+  text-align: left;
 }
 
 .Example-steps {
@@ -22,7 +22,7 @@
 
 @media (--lg-viewport) {
   .Example {
-    padding: 1.5em 2em;
+    padding: 1em 0.5em;
     margin-top: 0;
   }
 
