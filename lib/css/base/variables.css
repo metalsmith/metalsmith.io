@@ -15,9 +15,9 @@
   --color-blue: #6ec9dc;
   --color-green: #3eb991;
 
-  --font-body: 'Georgia', sans-serif;
-  --font-headings: 'Impact', sans-serif;
-  --font-code: 'Source Code', monospace;
+  --font-body: 'TimesNewRoman', 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
+  --font-headings: 'Anton', 'Impact', sans-serif;
+  --font-code: 'Courier', 'Courier New', monospace;
 
   --size-base: 1.25;
   --size-much-smaller: calc(1em / var(--size-base) / var(--size-base));
