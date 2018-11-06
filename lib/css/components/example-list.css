@@ -3,7 +3,6 @@
 @media (--lg-viewport) {
   .ExampleList {
     overflow: hidden;
-    margin: 0 -4em;
     column-count: 2;
     column-gap: 1px;
     break-inside: avoid;
