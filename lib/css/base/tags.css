@@ -3,9 +3,16 @@
  */
 
 html {
+  box-sizing: border-box;
   font: 400 16px/1.6 var(--font-body);
   color: var(--color-dark-gray);
   background: url('/img/ground.jpg') var(--color-light-gray);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
