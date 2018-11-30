@@ -1308,6 +1308,12 @@
     "description": "Generates JSON files from markdown, preserving filenames and frontmatter."
   },
   {
+    "name": "Tweet Embed",
+    "icon": "gridlines",
+    "repository": "https://github.com/scurker/metalsmith-tweet-embed",
+    "description": "Converts Twitter status URLS to embedded Twitter statuses"
+  },
+  {
     "name": "Twig",
     "icon": "gridlines",
     "repository": "https://github.com/PKuebler/metalsmith-twig",
