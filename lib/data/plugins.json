@@ -1048,6 +1048,13 @@
     "description": "Prompt the user for series of answers in the command line and add them to the global metadata."
   },
   {
+    "name": "Projects",
+    "icon": "layergroup",
+    "repository": "https://github.com/AshleyWright/metalsmith-projects",
+    "npm": "metalsmith-projects",
+    "description": "Adds metadata for projects (think portfolio content) from GitHub or filesystem (through collections) that can be looped over for creating a portfolio of work."
+  },
+  {
     "name": "Propdown",
     "icon": "compose",
     "repository": "https://github.com/almirfilho/metalsmith-propdown",
