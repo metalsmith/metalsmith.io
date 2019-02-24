@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description | striptags }}" />
+  <meta name="node" content="{{ nodeVersion }}" />
+  {% if favicons and favicons.html %}
+    {% for tag in favicons.html %}
+      {{ tag | safe }}
+    {% endfor %}
+  {% endif %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+  <link rel="stylesheet" href="/index.css">
+  {% include "./partials/facebook.njk" %}
+  {% include "./partials/twitter.njk" %}
+  {% include "./partials/analytics.njk" %}
+  <meta name="google-site-verification" content="2RKFuZol3mkMgto2Y0TUZUmzMpWZ-Ck-7HjocBHpJtE" />
+  <link
+    rel="stylesheet"
+    href="//cdn.symbolset.com/94440cd0456394a198fb9c3302ad80fe007e5eff/symbolset.css"
+  >
+</head>
+<body>
+  <header class="Header">
+    <h1 class="Header-title">
+      <a class="Header-link" href="/">{{ title }}</a>
+    </h1>
+    <p class="Header-subtitle">{{ description | safe }}</p>
+    <a class="Header-github" href="https://github.com/segmentio/metalsmith">Star on GitHub</a>
+    <a class="Header-slack" href="https://metalsmith-slack.herokuapp.com">Join the Slack Channel</a>
+  </header>
+  <section class="Body">
+    <hr>
+    {{ contents | safe }}
+  </section>
+  <script type="text/javascript" src="/index.js"></script>
+</body>
+</html>

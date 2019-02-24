@@ -1,0 +1,29 @@
+/* stylelint-disable custom-property-empty-line-before */
+
+/**
+ * Variables
+ */
+
+:root {
+  --color-dark-black: #000;
+  --color-black: #262727;
+  --color-dark-gray: #4a4848;
+  --color-gold: #daae20;
+  --color-gray: #a3a3a4;
+  --color-light-gray: #ededed;
+  --color-white: #fefefe;
+  --color-blue: #6ec9dc;
+  --color-green: #3eb991;
+
+  --font-body: 'TimesNewRoman', 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
+  --font-headings: 'Anton', 'Impact', sans-serif;
+  --font-code: 'Courier', 'Courier New', monospace;
+
+  --size-base: 1.25;
+  --size-much-smaller: calc(1em / var(--size-base) / var(--size-base));
+  --size-smaller: calc(1em / var(--size-base));
+  --size-larger: calc(1em * var(--size-base));
+  --size-much-larger: calc(1em * var(--size-base) * var(--size-base));
+
+  --body-width: 34em;
+}

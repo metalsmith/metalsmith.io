@@ -1,0 +1,32 @@
+/** @define Example */
+
+.Example {
+  max-width: calc(0.5 * var(--body-width));
+  margin-top: 1px;
+  padding: 1.5em;
+  background-color: var(--color-white);
+}
+
+.Example-title {
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 0.4em;
+  text-align: left;
+}
+
+.Example-steps {
+  list-style: none;
+  line-height: 2;
+  margin: 0;
+}
+
+@media (--lg-viewport) {
+  .Example {
+    padding: 1em 0.5em;
+    margin-top: 0;
+  }
+
+  .Example:nth-child(2n) {
+    margin-top: 1px;
+  }
+}

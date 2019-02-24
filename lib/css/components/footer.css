@@ -1,0 +1,18 @@
+/** @define Footer */
+
+.Footer {
+  text-align: center;
+  padding-bottom: 7em;
+}
+
+.Footer-conjunction {
+  display: block;
+  text-transform: uppercase;
+  font-family: var(--font-headings);
+  color: var(--color-gray);
+  font-size: var(--size-smaller);
+}
+
+.Footer-logo {
+  font-size: 1.6em;
+}

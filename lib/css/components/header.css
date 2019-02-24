@@ -1,0 +1,86 @@
+/** @define Header */
+
+.Header {
+  position: relative;
+  padding-top: 8em;
+  text-align: center;
+  overflow: hidden;
+}
+
+.Header-title {
+  line-height: 1;
+  font-size: 3em;
+  margin: 0;
+}
+
+.Header-link {
+  color: currentcolor;
+  text-decoration: none;
+}
+
+.Header-subtitle {
+  font-size: 1.2em;
+}
+
+.Header-github {
+  display: block;
+  position: absolute;
+  top: 1.5em;
+  right: -6em;
+  padding: 0.4em 1em;
+  width: 15em;
+  text-align: center;
+  background-color: var(--color-black);
+  text-transform: uppercase;
+  font-family: var(--font-headings);
+  font-size: 0.9em;
+  color: var(--color-white);
+  text-decoration: none;
+  white-space: nowrap;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+  transition: background-color 0.2s;
+}
+
+.Header-github:hover {
+  background-color: var(--color-gold);
+}
+
+.Header-slack {
+  display: block;
+  position: absolute;
+  top: 5em;
+  right: -10em;
+  padding: 0.4em 1em;
+  width: 30em;
+  text-align: center;
+  background-color: var(--color-blue);
+  text-transform: uppercase;
+  font-family: var(--font-headings);
+  font-size: 0.9em;
+  color: var(--color-white);
+  text-decoration: none;
+  white-space: nowrap;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+  transition: background-color 0.2s;
+}
+
+.Header-slack:hover {
+  background-color: var(--color-green);
+}
+
+@media (min-width: 768px) {
+  .Header {
+    padding-top: 15em;
+  }
+
+  .Header-title {
+    font-size: 4em;
+  }
+
+  .Header-github {
+    top: 2.5em;
+    right: -4.75em;
+  }
+}

@@ -1,0 +1,10 @@
+/** @define ExampleList */
+
+@media (--lg-viewport) {
+  .ExampleList {
+    overflow: hidden;
+    column-count: 2;
+    column-gap: 1px;
+    break-inside: avoid;
+  }
+}
