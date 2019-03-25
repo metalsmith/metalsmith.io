@@ -1042,6 +1042,13 @@
     "description": "Create static sites with data stored at Prismic.io"
   },
   {
+    "name": "Projects",
+    "icon": "layergroup",
+    "repository": "https://github.com/AshleyWright/metalsmith-projects",
+    "npm": "metalsmith-projects",
+    "description": "Adds metadata for projects (think portfolio content) from GitHub or filesystem (through collections) that can be looped over for creating a portfolio of work."
+  },
+  {
     "name": "Prompt",
     "icon": "chat",
     "repository": "https://github.com/segmentio/metalsmith-prompt",
