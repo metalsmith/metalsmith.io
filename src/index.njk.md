@@ -505,7 +505,7 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
   {% endfor %}
 </ul>
 
-If you write your own plugin, submit a pull request to the [metalsmith.io](https://github.com/segmentio/metalsmith.io/tree/master/src/plugins.json) repository and it will show up here!
+If you write your own plugin, submit a pull request to the [metalsmith.io](https://github.com/metalsmith/metalsmith.io/blob/master/lib/data/plugins.json) repository and it will show up here!
 
 ---
 
