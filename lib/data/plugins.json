@@ -1309,7 +1309,7 @@
     "description": "Deprecated in favor of metalsmith-layouts and metalsmith-in-place."
   },
   {
-    "name": "Templates",
+    "name": "Textile",
     "icon": "compose",
     "repository":"https://github.com/AtlasJan/metalsmith-textile",
     "description":"Convert Textile to HTML"
