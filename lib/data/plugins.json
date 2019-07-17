@@ -411,6 +411,18 @@
     "description": "Flatten a directory hierarchy."
   },
   {
+    "name": "Frontmatter File Loader",
+    "icon": "files",
+    "repository": "https://github.com/djfwilkinson/metalsmith-frontmatter-file-loader",
+    "description": "Iterate through the properties of a frontmatter object and for each property replace the value with the string contents of a utf-8 encoded file resolved using the original value as a file path."
+  },
+  {
+    "name": "Frontmatter Renderer",
+    "icon": "file",
+    "repository": "https://github.com/djfwilkinson/metalsmith-frontmatter-renderer",
+    "description": "Iterate through the properties of a frontmatter object and for each property render the value using a jstransformer and replace it."
+  },
+  {
     "name": "Project images",
     "icon": "image",
     "repository": "https://github.com/hoetmaaiers/metalsmith-project-images",
