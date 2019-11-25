@@ -90,6 +90,12 @@
     "description": "Add bitly links to the metadata of each file."
   },
   {
+    "name": "Bookify HTML",
+    "icon": "files",
+    "repository": "https://github.com/fidian/metalsmith-bookify-html",
+    "description": "Combine multiple HTML files into one. Updates links and images."
+  },
+  {
     "name": "Branch",
     "icon": "fork",
     "repository": "https://github.com/ericgj/metalsmith-branch",
