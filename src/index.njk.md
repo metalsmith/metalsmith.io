@@ -46,7 +46,8 @@ You want to try yourself, if it is really this easy. Have a go:
 ```bash
 $ git clone https://github.com/metalsmith/metalsmith.git
 $ cd metalsmith/examples/static-site
-$ make
+$ npm install
+$ npm start
 ```
 
 ---
