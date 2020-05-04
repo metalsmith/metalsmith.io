@@ -501,6 +501,18 @@
     "description": "Compress files with gzip."
   },
   {
+    "name": "Handlebars Contents",
+    "icon": "files",
+    "repository": "https://github.com/fidian/metalsmith-handlebars-contents",
+    "description": "Process Mustache syntax in file contents using Handlebars. Safe for live reloading."
+  },
+  {
+    "name": "Handlebars Layouts",
+    "icon": "files",
+    "repository": "https://github.com/fidian/metalsmith-handlebars-contents",
+    "description": "Wrap files in layouts, leveraging Mustache syntax via Handlebars. Safe for live reloading."
+  },
+  {
     "name": "Handlebars in Markdown",
     "icon": "files",
     "repository": "https://github.com/ahdiaz/metalsmith-hbt-md",
