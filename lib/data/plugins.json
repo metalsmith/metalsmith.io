@@ -90,6 +90,12 @@
     "description": "Add bitly links to the metadata of each file."
   },
   {
+    "name": "Bookify HTML",
+    "icon": "files",
+    "repository": "https://github.com/fidian/metalsmith-bookify-html",
+    "description": "Combine multiple HTML files into one. Updates links and images."
+  },
+  {
     "name": "Branch",
     "icon": "fork",
     "repository": "https://github.com/ericgj/metalsmith-branch",
@@ -409,6 +415,18 @@
     "icon": "files",
     "repository": "https://github.com/chadly/metalsmith-flatten",
     "description": "Flatten a directory hierarchy."
+  },
+  {
+    "name": "Frontmatter File Loader",
+    "icon": "files",
+    "repository": "https://github.com/djfwilkinson/metalsmith-frontmatter-file-loader",
+    "description": "Iterate through the properties of a frontmatter object and for each property replace the value with the string contents of a utf-8 encoded file resolved using the original value as a file path."
+  },
+  {
+    "name": "Frontmatter Renderer",
+    "icon": "file",
+    "repository": "https://github.com/djfwilkinson/metalsmith-frontmatter-renderer",
+    "description": "Iterate through the properties of a frontmatter object and for each property render the value using a jstransformer and replace it."
   },
   {
     "name": "Project images",
@@ -1042,6 +1060,13 @@
     "description": "Create static sites with data stored at Prismic.io"
   },
   {
+    "name": "Projects",
+    "icon": "layergroup",
+    "repository": "https://github.com/AshleyWright/metalsmith-projects",
+    "npm": "metalsmith-projects",
+    "description": "Adds metadata for projects (think portfolio content) from GitHub or filesystem (through collections) that can be looped over for creating a portfolio of work."
+  },
+  {
     "name": "Prompt",
     "icon": "chat",
     "repository": "https://github.com/segmentio/metalsmith-prompt",
@@ -1300,6 +1325,12 @@
     "icon": "gridlines",
     "repository": "https://github.com/segmentio/metalsmith-templates",
     "description": "Deprecated in favor of metalsmith-layouts and metalsmith-in-place."
+  },
+  {
+    "name": "Textile",
+    "icon": "compose",
+    "repository":"https://github.com/AtlasJan/metalsmith-textile",
+    "description":"Convert Textile to HTML"
   },
   {
     "name": "To JSON",
