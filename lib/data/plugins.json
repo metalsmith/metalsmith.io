@@ -688,6 +688,12 @@
     "description": "Creates files from the properties within .json files with filename patterns and permalinks."
   },
   {
+    "name": "JSON insteadof Markdown",
+    "icon": "compose",
+    "repository": "https://github.com/boeckMt/metalsmith-json-insteadof-md",
+    "description": "Use JSON files in addition to markdown files to write your content"
+  },
+  {
     "name": "JSTransformer",
     "icon": "files",
     "repository": "https://github.com/RobLoach/metalsmith-jstransformer",
