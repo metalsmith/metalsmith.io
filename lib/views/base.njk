@@ -25,9 +25,9 @@
 <body>
   <header class="Header">
     <h1 class="Header-title">
-      <a class="Header-link" href="/">Metalsmith</a>
+      <a class="Header-link" href="/">{{ title }}</a>
     </h1>
-    <p class="Header-subtitle">An extremely simple, <em>pluggable</em> static site generator.</p>
+    <p class="Header-subtitle">{{ description | safe }}</p>
     <a class="Header-github" href="https://github.com/segmentio/metalsmith">Star on GitHub</a>
     <a class="Header-slack" href="https://metalsmith-slack.herokuapp.com">Join the Slack Channel</a>
   </header>
