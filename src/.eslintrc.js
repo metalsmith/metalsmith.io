@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    browser: true
+    browser: true,
   },
   root: true,
   plugins: ['compat'],
@@ -8,6 +8,7 @@ module.exports = {
   rules: {
     'compat/compat': 'error',
     'vars-on-top': 0,
-    'func-names': 0
-  }
+    'func-names': 0,
+    strict: 0,
+  },
 };
