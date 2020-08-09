@@ -27,7 +27,7 @@ var input = document.querySelector('.PluginFilter-input');
 
 filter(input);
 
-input.addEventListener('keyup', function() {
+input.addEventListener('keyup', function () {
   filter(input);
 
   // Revalidate document for visible images
