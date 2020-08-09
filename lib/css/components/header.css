@@ -20,6 +20,7 @@
 
 .Header-subtitle {
   font-size: 1.2em;
+  padding: 1em;
 }
 
 .Header-github {
@@ -77,6 +78,10 @@
 
   .Header-title {
     font-size: 4em;
+  }
+
+  .Header-subtitle {
+    padding: 0;
   }
 
   .Header-github {

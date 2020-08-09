@@ -25,5 +25,5 @@
   --size-larger: calc(1em * var(--size-base));
   --size-much-larger: calc(1em * var(--size-base) * var(--size-base));
 
-  --body-width: 34em;
+  --body-width: 48em;
 }
