@@ -14,7 +14,7 @@ Keep in mind that the exact same process we're going to create here could be alt
 
 Also note that there are _two ways to run Metalsmith_: with the API by creating a node script or through the CLI by creating a metalsmith.json configuration file. The end results are _the same either way_ and it's really a matter of preference. What we're going to do here is run through the API approach first. Then, at the end, we'll convert it into a CLI example that accomplishes the exact same thing. Normally, you just do whichever happens to work best with your comfort level and workflow.
 
-The only requirement to follow along and run your own copy is that you have [a recent version of Node installed](https://nodejs.org/). Aside from Node itself, our project is going to be be completely self-contained and there's nothing to uninstall or clean up afterward except the single directory with all our working files, dependencies, and the compiled results.
+The only requirement to follow along and run your own copy is that you have [a recent version of Node installed](https://nodejs.org/). Aside from Node itself, our project is going to be completely self-contained and there's nothing to uninstall or clean up afterward except the single directory with all our working files, dependencies, and the compiled results.
 
 ---
 
@@ -159,7 +159,7 @@ Metalsmith API usage generally follows a common pattern:
 
 1. You `require()` Metalsmith and your plugins.
 2. Start up Metalsmith and tell it where to run (which is almost always just `__dirname`, meaning the current directory).
-3. You then `.use()` each the plugins you need for your project, in order. This is where the proverbial magic happens.
+3. You then `.use()` each of the plugins you need for your project, in order. This is where the proverbial magic happens.
 4. Use Metalsmith's `.build()` method to fire it all off and report any errors.
 
 There are additional configuration options we could use and opportunities to add site-wide, global metadata if desired. For our purposes, we're using default directory names and putting our metadata in our single source file, so our script is quite straightforward:
@@ -234,7 +234,7 @@ $ npx metalsmith
 
 Once that runs, you will get the exact same results in the build directory. In fact, it helps to completely delete the entire build directory, just so you can see and confirm that it ran.
 
-If you'd rather use the simpler, configuration-based CLI approach, you can safely discard _index.js_. It's no longer in use and the CLI approach always reads _metalsmith.json_ instead. Similarly, if you prefer the more expressive, code-based API approach, then you can discard _metalsmith.json_, as it has no purpose. Either method builds the exact same files in the `build` directory and you can run it whichever way you'd prefer.
+If you'd rather use the simpler, configuration-based CLI approach, you can safely discard _index.js_. It's no longer in use and the CLI approach always reads _metalsmith.json_ instead. Similarly, if you prefer the more expressive, code-based API approach, then you can discard _metalsmith.json_. Either method builds the exact same files in the `build` directory and you can run it whichever way you'd prefer.
 
 ### Optionally installing Metalsmith globally
 
