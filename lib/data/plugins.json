@@ -519,6 +519,12 @@
     "description": "Process Handlebars in Markdown files."
   },
   {
+    "name": "Handlebars X",
+    "icon": "gridlines",
+    "repository": "https://github.com/webketje/metalsmith-handlebars-x",
+    "description": "Full Handlebars integration. Global/local partials, in-place & layout compilation, and maximum flexibility."
+  },
+  {
     "name": "Headings",
     "icon": "rows",
     "repository": "https://github.com/segmentio/metalsmith-headings",
@@ -1319,6 +1325,12 @@
     "icon": "tag",
     "repository": "https://github.com/totocaster/metalsmith-tags",
     "description": "Generate tag listing pages based on tags provided in pages."
+  },
+  {
+    "name": "Taxonomy",
+    "icon": "tag",
+    "repository": "https://github.com/webketje/metalsmith-taxonomy",
+    "description": "Organize files into taxonomies in global metadata and auto-generate taxonomy pages (tags, post types, products)"
   },
   {
     "name": "Timer",
