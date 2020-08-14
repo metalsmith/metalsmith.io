@@ -508,6 +508,15 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
 
 If you write your own plugin, submit a pull request to the [metalsmith.io](https://github.com/metalsmith/metalsmith.io/blob/master/lib/data/plugins.json) repository and it will show up here!
 
+In the pull request you can add the following properties to your plugin:
+```js
+"name": "<package-name>", // title on https://metalsmith.io/ (also for filtering)
+"icon": "link" | "files" ... // icon next to the title,
+"repository": "<github-repository>", // the url the repository of the plugin
+"description": "<description>" // a good description for your plugin
+"npm": "<npm-package>" // optional - e.g. if you use a scoped package (@<scope>/<package-name>)
+```
+
 ---
 
 # API
