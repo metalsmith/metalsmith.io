@@ -47,7 +47,7 @@
   background-color: var(--color-gold);
 }
 
-.Header-slack {
+.Header-gitter {
   display: block;
   position: absolute;
   top: 5em;
@@ -67,7 +67,7 @@
   transition: background-color 0.2s;
 }
 
-.Header-slack:hover {
+.Header-gitter:hover {
   background-color: var(--color-green);
 }
 
