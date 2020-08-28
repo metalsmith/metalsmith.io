@@ -13,7 +13,9 @@ hljs.initHighlightingOnLoad();
  */
 
 var blazy = new Blazy({
-  validateDelay: 300
+  validateDelay: 50,
+  saveViewportOffsetDelay: 300,
+  container: '.PluginList'
 });
 
 /**

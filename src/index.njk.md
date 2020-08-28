@@ -479,7 +479,7 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
       <div class="Plugin-badgeContainer">
         <a class="Plugin-badge" href="{{ plugin.npmUrl }}">
           <img
-            class="b-lazy"
+            class="Plugin-badgeImage b-lazy"
             src="{{placeholderBadgeUrl}}"
             data-src="{{ plugin.npmVersion }}"
             alt="npm version"
@@ -487,7 +487,7 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
         </a>
         <a class="Plugin-badge" href="{{ plugin.npmUrl }}">
           <img
-            class="b-lazy"
+            class="Plugin-badgeImage b-lazy"
             src="{{placeholderBadgeUrl}}"
             data-src="{{ plugin.npmDownloads }}"
             alt="npm downloads per year"
@@ -495,7 +495,7 @@ Here's a list of plugins that are provided by the awesome Metalsmith community. 
         </a>
         <a class="Plugin-badge" href="{{ plugin.repository }}">
           <img
-            class="b-lazy"
+            class="Plugin-badgeImage b-lazy"
             src="{{placeholderBadgeUrl}}"
             data-src="{{ plugin.githubStars }}"
             alt="GitHub stars"
