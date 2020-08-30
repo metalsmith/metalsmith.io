@@ -2,15 +2,33 @@
 
 .Header {
   position: relative;
-  padding-top: 8em;
+  padding-top: 6.4em;
   text-align: center;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.Header-nav {
+  margin-top: -4.2em;
+  padding: 1em;
+  font-size: 1.2em;
+  order: 1;
+}
+
+.Header-navlink {
+  display: inline-block;
+}
+
+.Header-navlink + .Header-navlink {
+  margin-left: 2em;
 }
 
 .Header-title {
   line-height: 1;
   font-size: 3em;
   margin: 0;
+  order: 2;
 }
 
 .Header-link {
@@ -21,6 +39,7 @@
 .Header-subtitle {
   font-size: 1.2em;
   padding: 1em;
+  order: 3;
 }
 
 .Header-github {
@@ -73,7 +92,11 @@
 
 @media (min-width: 768px) {
   .Header {
-    padding-top: 15em;
+    padding-top: 12em;
+  }
+
+  .Header-nav {
+    margin-top: -6em;
   }
 
   .Header-title {
@@ -87,5 +110,16 @@
   .Header-github {
     top: 2.5em;
     right: -4.75em;
+  }
+}
+
+@media (max-width: 480px) {
+  .Header-gitter,
+  .Header-github {
+    display: inline-block;
+    width: auto;
+    transform: none;
+    position: static;
+    margin-bottom: 0.5em;
   }
 }
