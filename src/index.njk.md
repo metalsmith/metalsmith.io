@@ -1,5 +1,6 @@
 ---
 title: "Metalsmith"
+htmltitle: "Metalsmith - simple, pluggable static site generator"
 description: "An extremely simple, pluggable static site generator."
 layout: "base.njk"
 ---
