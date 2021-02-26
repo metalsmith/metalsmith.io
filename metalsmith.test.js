@@ -29,6 +29,6 @@ test('index.html should have key elements', () => {
   const indexContent = fs.readFileSync(path.join(sitePath, 'index.html')).toString();
   const $ = cheerio.load(indexContent);
 
-  expect($('title').text()).toEqual('Metalsmith');
+  expect($('title').text()).toEqual('Metalsmith - simple, pluggable static site generator');
   expect($('.PluginList li').length).toBeGreaterThan(0);
 });
