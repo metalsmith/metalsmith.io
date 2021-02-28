@@ -1061,12 +1061,6 @@
      "description": "Stub content-less files from JSON/Yaml metadata files"
   },
   {
-    "name": "Prefixoid",
-    "icon": "compose",
-    "repository": "https://github.com/evoja/metalsmith-prefixoid",
-    "description": "Modifies internal urls with some prefix."
-  },
-  {
      "name": "Preview",
      "icon": "unquote",
      "repository": "https://github.com/davidtimmons/metalsmith-preview",
