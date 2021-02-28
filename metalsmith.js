@@ -10,8 +10,11 @@ const uglify = require('metalsmith-uglify');
 const htmlMinifier = require('metalsmith-html-minifier');
 const imagemin = require('metalsmith-imagemin');
 const metalsmith = require('metalsmith');
+const hljs = require('highlight.js');
 const examples = require('./lib/data/examples.json');
 const plugins = require('./lib/data/plugins.json');
+
+hljs.configure({ classPrefix: 'hljs-' });
 
 const nodeVersion = process.version;
 const githubRegex = /github\.com\/([^/]+)\/([^/]+)\/?$/;
@@ -63,7 +66,11 @@ metalsmith(__dirname)
     inPlace({
       engineOptions: {
         smartypants: true,
-        smartLists: true
+        smartLists: true,
+        highlight: function highlight(code, lang) {
+          const result = hljs.highlight(lang, code);
+          return result.value;
+        }
       },
       pattern: '**/*.md'
     })
