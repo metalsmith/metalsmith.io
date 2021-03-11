@@ -592,6 +592,12 @@
     "description": "Ignore any files that match a pattern."
   },
   {
+    "name": "Image Aspect Ratio",
+    "icon": "picture",
+    "repository": "https://github.com/tonygustafsson/metalsmith-image-aspect-ratio",
+    "description": "A plugin for adding image aspect ratios, fixing Cumulative Layout Shifts."
+  },
+  {
     "name": "Imagemin",
     "icon": "picture",
     "repository": "https://github.com/ahmadnassri/metalsmith-imagemin",
@@ -903,6 +909,12 @@
      "icon": "files",
      "repository": "https://github.com/mcdonnelldean/metalsmith-move-up",
      "description": "Move whole directories and their contents up one or more levels."
+  },
+  {
+    "name": "Native Lazy Loading",
+    "icon": "picture",
+    "repository": "https://github.com/tonygustafsson/metalsmith-native-lazy-loading",
+    "description": "A plugin that add browser native lazy loading to images."
   },
   {
     "name": "Navigation",
