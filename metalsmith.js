@@ -68,7 +68,7 @@ metalsmith(__dirname)
         smartypants: true,
         smartLists: true,
         highlight: function highlight(code, lang) {
-          const result = hljs.highlight(lang, code);
+          const result = hljs.highlight(code, { language: lang });
           return result.value;
         }
       },
