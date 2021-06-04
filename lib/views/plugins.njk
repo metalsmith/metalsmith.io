@@ -12,20 +12,14 @@
       {{ tag | safe }}
     {% endfor %}
   {% endif %}
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
   <link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Anton" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="//cdn.symbolset.com/94440cd0456394a198fb9c3302ad80fe007e5eff/symbolset.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/tomorrow.min.css" media="print" onload="this.media='all'">
   {% include "./partials/facebook.njk" %}
   {% include "./partials/twitter.njk" %}
   {% include "./partials/analytics.njk" %}
   <meta name="google-site-verification" content="2RKFuZol3mkMgto2Y0TUZUmzMpWZ-Ck-7HjocBHpJtE" />
-  <link
-    rel="stylesheet"
-    href="//cdn.symbolset.com/94440cd0456394a198fb9c3302ad80fe007e5eff/symbolset.css"
-  >
-  <link
-    rel="stylesheet"
-    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/tomorrow.min.css"
-  >
 </head>
 <body>
   <header class="Header">
@@ -33,7 +27,7 @@
       <ul>
         <li class="Header-navlink"><a href="/#introduction">Docs</a></li>
         <li class="Header-navlink"><a href="/#api">API</a></li>
-        <li class="Header-navlink"><a href="/#the-community-plugins">Plugins</a></li>
+        <li class="Header-navlink"><a href="/plugins" class="active">Plugins</a></li>
       </ul>
     </nav>
     <h1 class="Header-title">
