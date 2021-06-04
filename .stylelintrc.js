@@ -20,7 +20,9 @@ module.exports = {
     'plugin/no-unsupported-browser-features': [
       true,
       {
-        severity: 'warning'
+        severity: 'warning',
+        ignorePartialSupport: true,
+        browsers: ['> 2%', 'Last 2 versions', 'not OperaMini all']
       }
     ],
     'plugin/selector-bem-pattern': {

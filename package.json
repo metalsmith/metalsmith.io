@@ -50,10 +50,10 @@
     "postcss-normalize": "^9.0.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5",
-    "stylelint": "^13.6.1",
+    "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-no-unsupported-browser-features": "^4.0.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-no-unsupported-browser-features": "^5.0.1",
     "stylelint-selector-bem-pattern": "^2.1.0"
   },
   "dependencies": {
