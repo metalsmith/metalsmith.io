@@ -3,6 +3,5 @@
 .Body {
   max-width: var(--body-width);
   margin: 0 auto;
-  padding-right: 1em;
-  padding-left: 1em;
+  padding: 0 1em 4rem;
 }

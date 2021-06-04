@@ -5,15 +5,11 @@
   padding-top: 6.4em;
   text-align: center;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
 }
 
 .Header-nav {
-  margin-top: -4.2em;
   padding: 1em;
   font-size: 1.2em;
-  order: 1;
 }
 
 .Header-navlink {
@@ -102,6 +98,10 @@
   }
 
   .Header-title {
+    font-size: 2.5em;
+  }
+
+  .Header--home {
     font-size: 4em;
   }
 

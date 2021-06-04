@@ -25,5 +25,11 @@
   --size-larger: calc(1em * var(--size-base));
   --size-much-larger: calc(1em * var(--size-base) * var(--size-base));
 
-  --body-width: 48em;
+  --body-width: 100%;
+}
+
+@media (--lg-viewport) {
+  :root {
+    --body-width: 60rem;
+  }
 }
