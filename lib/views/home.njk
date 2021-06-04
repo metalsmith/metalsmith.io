@@ -24,15 +24,11 @@
   >
   <link
     rel="stylesheet"
-    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/tomorrow.min.css"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/tomorrow.min.css"
   >
 </head>
-<body>
+<body class="home">
   <header class="Header">
-    <h1 class="Header-title">
-      <a class="Header-link" href="/">{{ title }}</a>
-    </h1>
-    <p class="Header-subtitle">{{ description | safe }}</p>
     <nav class="Header-nav">
       <ul>
         <li class="Header-navlink"><a href="/#introduction">Docs</a></li>
@@ -40,11 +36,16 @@
         <li class="Header-navlink"><a href="/#the-community-plugins">Plugins</a></li>
       </ul>
     </nav>
+    <h1 class="Header-title">
+      <a class="Header-link" href="/">{{ title }}</a>
+    </h1>
+    <p class="Header-subtitle">{{ description | safe }}</p>
     <a class="Header-github" href="https://github.com/segmentio/metalsmith">Star on GitHub</a>
     <a class="Header-gitter" href="https://gitter.im/metalsmith/community">Join the Gitter community</a>
   </header>
   <section class="Body">
     <hr>
+    <iframe frameborder="0" width="100%" height="500px" src="https://repl.it/@webketje/metalsmith-starter-resume?embed=true"></iframe>
     {% block main %}
       {{ contents | safe }}
     {% endblock %}

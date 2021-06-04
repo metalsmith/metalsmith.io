@@ -1,7 +1,7 @@
 ---
 title: "Metalsmith: Step by step"
 description: "A step-by-step walkthrough of how to Metalsmith"
-layout: "base.njk"
+layout: "home.njk"
 ---
 
 # What we're going to accomplish
