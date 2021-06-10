@@ -30,5 +30,13 @@ test('index.html should have key elements', () => {
   const $ = cheerio.load(indexContent);
 
   expect($('title').text()).toEqual('Metalsmith - simple, pluggable static site generator');
+});
+
+
+test('plugins/index.html should have key elements', () => {
+  const indexContent = fs.readFileSync(path.join(sitePath, '/plugins/index.html')).toString();
+  const $ = cheerio.load(indexContent);
+
+  expect($('title').text()).toEqual('Plugins');
   expect($('.PluginList li').length).toBeGreaterThan(0);
 });
