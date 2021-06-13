@@ -12,11 +12,11 @@
   font-size: 1.2em;
 }
 
-.Header-navlink {
+.Header-navItem {
   display: inline-block;
 }
 
-.Header-navlink a, .Header-navlink a:visited {
+.Header-navLink, .Header-navLink:visited {
   text-decoration: none;
   transition: 0.3s color linear linear;
   color: var(--color-dark-gray);
@@ -24,16 +24,16 @@
   border-bottom: 2px solid transparent;
 }
 
-.Header-navlink + .Header-navlink {
+.Header-navItem + .Header-navItem {
   margin-left: 2em;
 }
 
-.Header-navlink a.active, .Header-navlink a:active, .Header-navlink a:hover, .Header-navlink a:focus {
+.Header-navLink--active, .Header-navLink:active, .Header-navLink:hover, .Header-navLink:focus {
   border-bottom: 2px solid currentColor;
   color: var(--color-black);
 }
 
-.Header-navlink a.active, .Header-navlink a:active,, .Header-navlink a:active:hover {
+.Header-navLink--active, .Header-navLink:active, .Header-navLink:active:hover {
   border-bottom: 2px solid var(--color-gold);
 }
 

@@ -9,6 +9,7 @@ layout: "home.njk"
 
 You want to build a website or blog with a static site generator. Well, here is our elevator pitch. It's as easy as that:
 
+`metalsmith.js`
 ```javascript
 var Metalsmith  = require('metalsmith');
 var collections = require('metalsmith-collections');
@@ -17,7 +18,7 @@ var markdown    = require('metalsmith-markdown');
 var permalinks  = require('metalsmith-permalinks');
 
 Metalsmith(__dirname)         // __dirname defined by node.js:
-                              // name of current working directory
+                              // name of the directory of this file
   .metadata({                 // add any variable you want
                               // use them in layout-files
     sitename: "My Static Site & Blog",
