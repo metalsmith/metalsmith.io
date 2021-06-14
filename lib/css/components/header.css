@@ -16,7 +16,8 @@
   display: inline-block;
 }
 
-.Header-navLink, .Header-navLink:visited {
+.Header-navLink,
+.Header-navLink:visited {
   text-decoration: none;
   transition: 0.3s color linear linear;
   color: var(--color-dark-gray);
@@ -28,12 +29,17 @@
   margin-left: 2em;
 }
 
-.Header-navLink--active, .Header-navLink:active, .Header-navLink:hover, .Header-navLink:focus {
+.Header-navLink--active,
+.Header-navLink:active,
+.Header-navLink:hover,
+.Header-navLink:focus {
   border-bottom: 2px solid currentColor;
   color: var(--color-black);
 }
 
-.Header-navLink--active, .Header-navLink:active, .Header-navLink:active:hover {
+.Header-navLink--active,
+.Header-navLink:active,
+.Header-navLink:active:hover {
   border-bottom: 2px solid var(--color-gold);
 }
 
