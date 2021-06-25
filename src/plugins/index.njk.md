@@ -45,6 +45,7 @@ layout: plugins.njk
           />
         </a>
       </div>
+      <code class="Plugin-snippet desktop-only">npm i {{ plugin.npmName }}</code>
     </li>
   {% endfor %}
 </ul>

@@ -62,7 +62,6 @@
 }
 
 .Header-github {
-  display: block;
   position: absolute;
   top: 1.5em;
   right: -6em;
@@ -79,7 +78,6 @@
   transform: rotate(45deg);
   transform-origin: 50% 50%;
   transition: background-color 0.2s;
-  order: 4;
 }
 
 .Header-github:hover {
@@ -87,7 +85,6 @@
 }
 
 .Header-gitter {
-  display: block;
   position: absolute;
   top: 5em;
   right: -10em;
@@ -104,7 +101,6 @@
   transform: rotate(45deg);
   transform-origin: 50% 50%;
   transition: background-color 0.2s;
-  order: 5;
 }
 
 .Header-gitter:hover {
@@ -139,8 +135,8 @@
 }
 
 @media (max-width: 480px) {
-  .Header-gitter,
-  .Header-github {
+  .Body--home .Header-gitter,
+  .Body--home .Header-github {
     display: inline-block;
     width: auto;
     transform: none;

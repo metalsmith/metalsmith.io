@@ -168,6 +168,10 @@ hr:nth-of-type(14) {
 /**
  * Large screens.
  */
+ 
+ .desktop-only {
+   display: none;
+ }
 
 @media (--lg-viewport) {
   body {
@@ -180,5 +184,9 @@ hr:nth-of-type(14) {
 
   pre {
     padding: 1.5em 2em;
+  }
+
+  .desktop-only {
+    display: initial;
   }
 }
