@@ -263,8 +263,9 @@
   {
      "name": "Default Values",
      "icon": "tag",
-     "repository": "https://github.com/woodyrew/metalsmith-default-values",
-     "description": "Sets default values to frontmatter metadata if they don't exist."
+     "repository": "https://github.com/metalsmith/default-values",
+     "description": "Sets default values to frontmatter metadata if they don't exist.",
+     "npm": "@metalsmith/default-values"
   },
   {
      "name": "Define",
@@ -299,8 +300,9 @@
   {
     "name": "Drafts",
     "icon": "erase",
-    "repository": "https://github.com/segmentio/metalsmith-drafts",
-    "description": "Hide any files marked as drafts."
+    "repository": "https://github.com/metalsmith/drafts",
+    "description": "Hide any files marked as drafts.",
+    "npm": "@metalsmith/drafts"
   },
   {
     "name": "Duo",
@@ -787,8 +789,9 @@
   {
     "name": "Markdown",
     "icon": "compose",
-    "repository": "https://github.com/segmentio/metalsmith-markdown",
-    "description": "Convert Markdown files to HTML."
+    "repository": "https://github.com/metalsmith/markdown",
+    "description": "Convert Markdown files to HTML.",
+    "npm": "@metalsmith/markdown"
   },
   {
     "name": "Markdown-it",
@@ -914,7 +917,7 @@
     "name": "Native Lazy Loading",
     "icon": "picture",
     "repository": "https://github.com/tonygustafsson/metalsmith-native-lazy-loading",
-    "description": "A plugin that add browser native lazy loading to images."
+    "description": "A plugin that adds browser native lazy loading to images."
   },
   {
     "name": "Navigation",
@@ -980,7 +983,7 @@
     "name": "Parcel",
     "icon": "files",
     "repository": "https://github.com/dahnielson/metalsmith-parcel",
-    "description": "A plugin that use Parcel for bundling of assets"
+    "description": "Use Parcel for bundling of assets"
   },
   {
     "name": "Partial",
@@ -1039,8 +1042,9 @@
   {
     "name": "Permalinks",
     "icon": "link",
-    "repository": "https://github.com/segmentio/metalsmith-permalinks",
-    "description": "Apply custom permalinks and rename files to be nested properly for static sites, basically converting `about.html` into `about/index.html`."
+    "repository": "https://github.com/metalsmith/permalinks",
+    "description": "Apply custom permalinks and rename files to be nested properly for static sites, basically converting `about.html` into `about/index.html`.",
+    "npm": "@metalsmith/permalinks"
   },
   {
     "name": "Picset Generate",
