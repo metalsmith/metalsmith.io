@@ -12,4 +12,6 @@
 .PluginList {
   max-height: 70vh;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }

@@ -74,3 +74,15 @@
 .Plugin-badge:last-of-type {
   margin-right: 0;
 }
+
+.Plugin-snippet {
+  float: right;
+  margin-top: -1.75rem;
+  margin-right: 1.5em;
+  opacity: 0;
+  transition: 0.2s opacity linear;
+}
+
+.Plugin:hover .Plugin-snippet {
+  opacity: 1;
+}

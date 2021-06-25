@@ -54,6 +54,11 @@ layout: plugins.njk
 
 <h2 id="submit-your-plugin">Submit your plugin</h2>
 
+Plugins in the official registry get higher visibility than those only published on Github or NPM, and they must pass a brief quality review. Guidelines for plugins to be accepted in the registry are:
+* The package is published in the NPM registry
+* The package includes at least 1 test
+* The package provides functionality that is different from already registered plugins. Why? &mdash; because we want to encourage collaboration and reduce the amount of confusion for new metalsmith users.
+
 Edit the [plugins.json](https://github.com/metalsmith/metalsmith.io/edit/master/lib/data/plugins.json) file and create a pull request to get your plugin listed.
 Plugins need to be added at the correct alphabetical position by `name`: if your plugin's name is "b", it should come right after the plugin named "a".
 

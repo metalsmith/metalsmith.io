@@ -19,14 +19,12 @@ var blazy = new Blazy({
  */
 
 var input = document.querySelector('.PluginFilter-input');
+function updatePluginsView() {
+  filter(input);
+  blazy.revalidate();
+}
 
 if (input) {
-  filter(input);
-
-  input.addEventListener('keyup', function () {
-    filter(input);
-
-    // Revalidate document for visible images
-    blazy.revalidate();
-  });
+  updatePluginsView();
+  input.addEventListener('keyup', updatePluginsView);
 }

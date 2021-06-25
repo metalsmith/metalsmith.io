@@ -29,6 +29,7 @@ const mappedPlugins = plugins.map(plugin => {
 
     Object.assign(plugin, {
       respositoryIssues: `${plugin.repository}/issues`,
+      npmName: npm,
       npmUrl: `https://www.npmjs.com/package/${npm}`,
       npmDownloads: `https://img.shields.io/npm/dy/${npm}.svg?maxAge=${oneWeek}`,
       npmVersion: `https://img.shields.io/npm/v/${npm}.svg?maxAge=${oneWeek}`,

@@ -1,7 +1,7 @@
 /** @define PluginFilter */
 
 .PluginFilter {
-  padding: 1em 2em;
+  padding: 0 2em;
   background-color: var(--color-white);
   margin-bottom: 1px;
   display: block;
@@ -22,6 +22,9 @@
   font-family: inherit;
   font-size: 100%;
   margin: 0;
+  line-height: 4em;
+  width: calc(100% - 32px);
+  margin-left: 4px;
 }
 
 .PluginFilter-input:focus {
