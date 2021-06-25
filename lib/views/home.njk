@@ -21,7 +21,7 @@
   {% include "./partials/analytics.njk" %}
   <meta name="google-site-verification" content="2RKFuZol3mkMgto2Y0TUZUmzMpWZ-Ck-7HjocBHpJtE" />
 </head>
-<body class="Body--home">
+<body>
   <header class="Header">
     <nav class="Header-nav">
       <ul>
@@ -34,8 +34,8 @@
       <a class="Header-link" href="/">{{ title }}</a>
     </h1>
     <p class="Header-subtitle">{{ description | safe }}</p>
-    <a class="Header-github" href="https://github.com/segmentio/metalsmith">Star on GitHub</a>
-    <a class="Header-gitter" href="https://gitter.im/metalsmith/community">Join the Gitter community</a>
+    <a class="Header-github Header-github--home" href="https://github.com/segmentio/metalsmith">Star on GitHub</a>
+    <a class="Header-gitter Header-gitter--home" href="https://gitter.im/metalsmith/community">Join the Gitter community</a>
   </header>
   <section class="Body">
     <hr>

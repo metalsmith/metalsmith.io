@@ -135,8 +135,8 @@
 }
 
 @media (max-width: 480px) {
-  .Body--home .Header-gitter,
-  .Body--home .Header-github {
+  .Header-gitter--home,
+  .Header-github--home {
     display: inline-block;
     width: auto;
     transform: none;

@@ -168,10 +168,10 @@ hr:nth-of-type(14) {
 /**
  * Large screens.
  */
- 
- .desktop-only {
-   display: none;
- }
+
+.desktop-only {
+  display: none;
+}
 
 @media (--lg-viewport) {
   body {
