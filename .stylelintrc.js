@@ -28,6 +28,6 @@ module.exports = {
     'plugin/selector-bem-pattern': {
       preset: 'suit'
     },
-    'selector-class-pattern': ".+"
+    'selector-class-pattern': '.+'
   }
 };
