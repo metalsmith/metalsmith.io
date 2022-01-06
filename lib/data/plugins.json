@@ -3,7 +3,8 @@
     "name": "Algolia",
     "icon": "link",
     "repository": "https://github.com/stafyniaksacha/metalsmith-algolia",
-    "description": "A metalsmith plugin for indexing contents on Algolia."
+    "description": "A metalsmith plugin for indexing contents on Algolia.",
+    "status": "unmaintained"
   },
   {
     "name": "Alias",
@@ -21,13 +22,15 @@
     "name": "Angular $templateCache",
     "icon": "addfile",
     "repository": "https://github.com/tests-always-included/metalsmith-angular-templatecache",
-    "description": "Convert AngularJS templates from HTML into JavaScript and preload $templateCache."
+    "description": "Convert AngularJS templates from HTML into JavaScript and preload $templateCache.",
+    "status": "unmaintained"
   },
   {
     "name": "Archive",
     "icon": "files",
     "repository": "https://github.com/hellatan/metalsmith-archive",
-    "description": "Create an archives page organized by date fields."
+    "description": "Create an archives page organized by date fields.",
+    "status": "unmaintained"
   },
   {
     "name": "Asciidoctor",
@@ -45,19 +48,22 @@
     "name": "Assets",
     "icon": "addfile",
     "repository": "https://github.com/treygriffith/metalsmith-assets",
-    "description": "Include static assets in your build."
+    "description": "Include static assets in your build.",
+    "status": "archived"
   },
   {
     "name": "Atomizer",
     "icon": "addfile",
     "repository": "https://github.com/tests-always-included/metalsmith-atomizer",
-    "description": "Automatically generate Atomic CSS from HTML using Atomizer."
+    "description": "Automatically generate Atomic CSS from HTML using Atomizer.",
+    "status": "unmaintained"
   },
   {
     "name": "Author",
     "icon": "users",
     "repository": "https://github.com/almirfilho/metalsmith-author",
-    "description": "Include authors information in collection files."
+    "description": "Include authors information in collection files.",
+    "status": "unmaintained"
   },
   {
     "name": "Auto Collections",
@@ -69,7 +75,8 @@
     "name": "Autoprefixer",
     "icon": "files",
     "repository": "https://github.com/esundahl/metalsmith-autoprefixer",
-    "description": "Automatically add vendor prefixes to CSS."
+    "description": "Automatically add vendor prefixes to CSS.",
+    "status": "unmaintained"
   },
   {
     "name": "Beautifier",
@@ -81,7 +88,8 @@
     "name": "Bibtex",
     "icon": "files",
     "repository": "https://github.com/JulesFrancoise/metalsmith-bibtex",
-    "description": "Load and render bibtex bibliographies."
+    "description": "Load and render bibtex bibliographies.",
+    "status": "unmaintained"
   },
   {
     "name": "Bitly",
@@ -99,7 +107,8 @@
     "name": "Branch",
     "icon": "fork",
     "repository": "https://github.com/ericgj/metalsmith-branch",
-    "description": "Run separate metalsmith pipelines on selected files."
+    "description": "Run separate metalsmith pipelines on selected files.",
+    "status": "unmaintained"
   },
   {
     "name": "Broken Link Checker",
@@ -117,31 +126,34 @@
     "name": "Browser Sync",
     "icon": "steampot",
     "repository": "https://github.com/mdvorscak/metalsmith-browser-sync",
-    "description": "Leverage Browser Sync for an easier development workflow."
+    "description": "Leverage Browser Sync for an easier development workflow.",
+    "status": "unmaintained"
   },
   {
     "name": "Browserify",
     "icon": "file",
     "repository": "https://github.com/kopa-app/metalsmith-browserify",
-    "description": "Complie Javascript with browserify."
+    "description": "Compile Javascript with browserify."
   },
   {
     "name": "Build Date",
     "icon": "clock",
-    "repository": "https://github.com/segmentio/metalsmith-build-date",
+    "repository": "https://github.com/metalsmith/metalsmith-build-date",
     "description": "Add a build date, for things like feeds or sitemaps."
   },
   {
     "name": "Build Info",
     "icon": "link",
     "repository": "https://github.com/chkal/metalsmith-build-info",
-    "description": "Adds metadata about the build environment (build date, user, Node.js version, platform and more)"
+    "description": "Adds metadata about the build environment (build date, user, Node.js version, platform and more)",
+    "status": "unmaintained"
   },
   {
     "name": "Changed",
     "icon": "shredder",
     "repository": "https://github.com/arve0/metalsmith-changed",
-    "description": "Process only files that have changed."
+    "description": "Process only files that have changed.",
+    "status": "unmaintained"
   },
   {
     "name": "Check All Links",
@@ -160,7 +172,8 @@
     "name": "Clean Script",
     "icon": "shredder",
     "repository": "https://github.com/srcreigh/metalsmith-cleanscript",
-    "description": "Generate a script to cleanup the build directory, if you are adding more than just Metalsmith files."
+    "description": "Generate a script to cleanup the build directory, if you are adding more than just Metalsmith files.",
+    "status": "unmaintained"
   },
   {
     "name": "Cloudfront",
@@ -178,7 +191,8 @@
     "name": "Coffee",
     "icon": "files",
     "repository": "https://github.com/joaoafrmartins/metalsmith-coffee",
-    "description": "Compile CoffeeScript files to Javascript."
+    "description": "Compile CoffeeScript files to Javascript.",
+    "status": "unmaintained"
   },
   {
     "name": "Collection Metadata",
@@ -189,8 +203,9 @@
   {
     "name": "Collections",
     "icon": "layergroup",
-    "repository": "https://github.com/segmentio/metalsmith-collections",
-    "description": "Group files together, like blog posts. That way you can loop over them to generate an index, or add 'next' and 'previous' links between them."
+    "repository": "https://github.com/metalsmith/collections",
+    "description": "Group files together, like blog posts. That way you can loop over them to generate an index, or add 'next' and 'previous' links between them.",
+    "npm": "@metalsmith/collections"
   },
   {
      "name": "Concat",
@@ -208,7 +223,8 @@
     "name": "Contentful",
     "icon": "layergroup",
     "repository": "https://github.com/contentful/contentful-metalsmith",
-    "description": "Create static sites with data stored at Contentful.com"
+    "description": "Create static sites with data stored at Contentful.com",
+    "status": "archived"
   },
   {
     "name": "Convert",
@@ -220,7 +236,8 @@
     "name": "Copy",
     "icon": "addfile",
     "repository": "https://github.com/mattwidmann/metalsmith-copy",
-    "description": "Copy and rename files."
+    "description": "Copy and rename files.",
+    "status": "archived"
   },
   {
     "name": "Creation and Update Timestamps",
@@ -236,23 +253,25 @@
      "description": "Load JSON/YAML files into the metadata of files from within your source tree or a models folder."
   },
   {
-     "name": "Data Markdown",
-     "icon": "gridlines",
-     "repository": "https://github.com/majodev/metalsmith-data-markdown",
-     "description": "Use markdown content within html tags via data-markdown attribute."
+    "name": "Data Markdown",
+    "icon": "gridlines",
+    "repository": "https://github.com/majodev/metalsmith-data-markdown",
+    "description": "Use markdown content within html tags via data-markdown attribute.",
+    "status": "unmaintained"
   },
   {
-     "name": "Date in filename",
-     "icon": "files",
-     "repository": "https://github.com/sanx/metalsmith-date-in-filename",
-     "description": "Enrich file metadata with dates present in source filenames."
+    "name": "Date in filename",
+    "icon": "files",
+    "repository": "https://github.com/sanx/metalsmith-date-in-filename",
+    "description": "Enrich file metadata with dates present in source filenames.",
+    "status": "unmaintained"
   },
-
   {
     "name": "Date Formatter",
     "icon": "files",
     "repository": "https://github.com/hellatan/metalsmith-date-formatter",
-    "description": "Format dates defined in the YAML Front Matter"
+    "description": "Format dates defined in the YAML Front Matter",
+    "status": "unmaintained"
   },
   {
     "name": "Debug UI",
@@ -261,17 +280,17 @@
     "description": "Render a nice browser based ui to inspect build files & meta."
   },
   {
-     "name": "Default Values",
-     "icon": "tag",
-     "repository": "https://github.com/metalsmith/default-values",
-     "description": "Sets default values to frontmatter metadata if they don't exist.",
-     "npm": "@metalsmith/default-values"
+    "name": "Default Values",
+    "icon": "tag",
+    "repository": "https://github.com/metalsmith/default-values",
+    "description": "Sets default values to frontmatter metadata if they don't exist.",
+    "npm": "@metalsmith/default-values"
   },
   {
-     "name": "Define",
-     "icon": "tag",
-     "repository": "https://github.com/aymericbeaumet/metalsmith-define",
-     "description": "Manually define values in the metadata."
+    "name": "Define",
+    "icon": "tag",
+    "repository": "https://github.com/aymericbeaumet/metalsmith-define",
+    "description": "Manually define values in the metadata."
   },
   {
     "name": "Discover Helpers",
@@ -295,7 +314,8 @@
     "name": "Dither",
     "icon": "picture",
     "repository": "https://github.com/lucawyss/metalsmith-dither",
-    "description": "Make a dithered copy of images."
+    "description": "Make a dithered copy of images.",
+    "status": "unmaintained"
   },
   {
     "name": "Drafts",
@@ -308,13 +328,15 @@
     "name": "Duo",
     "icon": "files",
     "repository": "https://github.com/axyz/metalsmith-duo",
-    "description": "Compile assets with Duo."
+    "description": "Compile assets with Duo.",
+    "status": "unmaintained"
   },
   {
     "name": "Each",
     "icon": "comb",
     "repository": "https://github.com/wilsaj/metalsmith-each",
-    "description": "Easily apply a function to each file or filename."
+    "description": "Easily apply a function to each file or filename.",
+    "status": "unmaintained"
   },
   {
     "name": "Eslint",
@@ -326,13 +348,15 @@
     "name": "Elevate",
     "icon": "files",
     "repository": "https://github.com/tylersticka/metalsmith-elevate",
-    "description": "Bump files up one or more directories."
+    "description": "Bump files up one or more directories.",
+    "status": "unmaintained"
   },
   {
     "name": "Encode HTML",
     "icon": "files",
     "repository": "https://github.com/jscheel/metalsmith-encode-html",
-    "description": "Easily encode HTML entities in any HTML file by surrounding target code in triple backticks."
+    "description": "Easily encode HTML entities in any HTML file by surrounding target code in triple backticks.",
+    "status": "unmaintained"
   },
   {
     "name": "Env",
@@ -344,31 +368,29 @@
     "name": "Etsy",
     "icon": "addfile",
     "repository": "https://github.com/selfVSmind/metalsmith-etsy",
-    "description": "Incorporate your active Etsy shop data into a static website."
+    "description": "Incorporate your active Etsy shop data into a static website.",
+    "status": "unmaintained"
   },
   {
     "name": "Excel-Markdown",
     "icon": "files",
     "repository": "https://github.com/patm2013/metalsmith-excel-markdown",
-    "description": "Query Excel files with SQL and convert to Markdown tables."
+    "description": "Query Excel files with SQL and convert to Markdown tables.",
+    "status": "unmaintained"
   },
   {
     "name": "Except",
     "icon": "files",
     "repository": "https://github.com/Treri/metalsmith-except",
-    "description": "Omit attributes from each file's metadata."
-  },
-  {
-    "name": "Exceptor",
-    "icon": "compose",
-    "repository": "https://github.com/helq/metalsmith-excerptor",
-    "description": "Metalsmith plugin to create an excerpt of a html file."
+    "description": "Omit attributes from each file's metadata.",
+    "status": "unmaintained"
   },
   {
     "name": "Excerpts",
     "icon": "unquote",
-    "repository": "https://github.com/segmentio/metalsmith-excerpts",
-    "description": "Extract the first paragraph from the beginning of any HTML file."
+    "repository": "https://github.com/metalsmith/excerpts",
+    "description": "Extract the first paragraph from the beginning of any HTML file.",
+    "npm": "@metalsmith/excerpts"
   },
   {
     "name": "Express",
@@ -383,16 +405,17 @@
     "description": "A Metalsmith favicons generator."
   },
   {
-     "name": "Feed",
-     "icon": "sugarpackets",
-     "repository": "https://github.com/hurrymaplelad/metalsmith-feed",
-     "description": "Generate an RSS feed for a collection."
+    "name": "Feed",
+    "icon": "sugarpackets",
+    "repository": "https://github.com/hurrymaplelad/metalsmith-feed",
+    "description": "Generate an RSS feed for a collection."
   },
   {
-     "name": "Feed Atom",
-     "icon": "sugarpackets",
-     "repository": "https://github.com/almirfilho/metalsmith-feed-atom",
-     "description": "Generate Atom feed for a collection."
+    "name": "Feed Atom",
+    "icon": "sugarpackets",
+    "repository": "https://github.com/almirfilho/metalsmith-feed-atom",
+    "description": "Generate Atom feed for a collection.",
+    "status": "unmaintained"
   },
   {
     "name": "File Metadata",
@@ -404,19 +427,22 @@
     "name": "File Transform",
     "icon": "files",
     "repository": "https://github.com/yeojz/metalsmith-transform",
-    "description": "Allows quick manipulation of the file object."
+    "description": "Allows quick manipulation of the file object.",
+    "status": "unmaintained"
   },
   {
     "name": "Fingerprint",
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-fingerprint",
-    "description": "Insert a hash of the content into the file name."
+    "description": "Insert a hash of the content into the file name.",
+    "status": "archived"
   },
   {
     "name": "Flatten",
     "icon": "files",
     "repository": "https://github.com/chadly/metalsmith-flatten",
-    "description": "Flatten a directory hierarchy."
+    "description": "Flatten a directory hierarchy.",
+    "status": "unmaintained"
   },
   {
     "name": "Frontmatter File Loader",
@@ -434,7 +460,8 @@
     "name": "Project images",
     "icon": "image",
     "repository": "https://github.com/hoetmaaiers/metalsmith-project-images",
-    "description": "Scan images in specified subfolder and add it to metadata."
+    "description": "Scan images in specified subfolder and add it to metadata.",
+    "status": "unmaintained"
   },
   {
     "name": "Gallery",
@@ -452,43 +479,50 @@
     "name": "Gist",
     "icon": "fork",
     "repository": "https://github.com/expalmer/metalsmith-gist",
-    "description": "Lets you get gists from Github Gist"
+    "description": "Lets you get gists from Github Gist",
+    "status": "unmaintained"
   },
   {
     "name": "GitHub Markdown",
     "icon": "compose",
     "repository": "https://github.com/cusxio/metalsmith-github-markdown",
-    "description": "Convert markdown with Github Markdown API."
+    "description": "Convert markdown with Github Markdown API.",
+    "status": "unmaintained"
   },
   {
     "name": "Google Analytics",
     "icon": "write",
     "repository": "https://github.com/doodzik/metalsmith-google-analytics",
-    "description": "Adds the Google Analytics script to your html files"
+    "description": "Adds the Google Analytics script to your html files",
+    "status": "unmaintained"
   },
   {
     "name": "Google Drive",
     "icon": "addfile",
     "repository": "https://github.com/leviwheatcroft/metalsmith-google-drive",
-    "description": "Scrape files from Google Drive."
+    "description": "Scrape files from Google Drive.",
+    "status": "unmaintained"
   },
   {
     "name": "Google Sheets",
     "icon": "table",
     "repository": "https://github.com/kalamuna/metalsmith-google-sheets",
-    "description": "Pull in data from a google spreadsheet using the API."
+    "description": "Pull in data from a google spreadsheet using the API.",
+    "status": "unmaintained"
   },
   {
     "name": "Gravatar",
     "icon": "users",
     "repository": "https://github.com/stevenschobert/metalsmith-gravatar",
-    "description": "Pull in images from Gravatar.com."
+    "description": "Pull in images from Gravatar.com.",
+    "status": "unmaintained"
   },
   {
     "name": "gulp-metalsmith",
     "icon": "layergroup",
     "repository": "https://github.com/jelz/gulp-metalsmith",
-    "description": "A lightweight plugin that incorporates Metalsmith builds into gulp pipelines."
+    "description": "A lightweight plugin that incorporates Metalsmith builds into gulp pipelines.",
+    "status": "unmaintained"
   },
   {
     "name": "Gulpsmith",
@@ -511,7 +545,7 @@
   {
     "name": "Handlebars Layouts",
     "icon": "files",
-    "repository": "https://github.com/fidian/metalsmith-handlebars-contents",
+    "repository": "https://github.com/fidian/metalsmith-handlebars-layouts",
     "description": "Wrap files in layouts, leveraging Mustache syntax via Handlebars. Safe for live reloading."
   },
   {
@@ -529,8 +563,9 @@
   {
     "name": "Headings",
     "icon": "rows",
-    "repository": "https://github.com/segmentio/metalsmith-headings",
-    "description": "Extract headings from HTML files and attach them to the file's metadata. Useful for automatically building navigation for a document."
+    "repository": "https://github.com/metalsmith/headings",
+    "description": "Extract headings from HTML files and attach them to the file's metadata. Useful for automatically building navigation for a document.",
+    "npm": "metalsmith-headings"
   },
   {
     "name": "Headings Identifier",
@@ -561,7 +596,8 @@
     "name": "HTML Tidy",
     "icon": "dishwasher",
     "repository": "https://github.com/hoosteeno/metalsmith-html-tidy",
-    "description": "Tidy your HTML files to make your source beautiful."
+    "description": "Tidy your HTML files to make your source beautiful.",
+    "status": "unmaintained"
   },
   {
     "name": "Hyphenate",
@@ -573,13 +609,15 @@
     "name": "i18n",
     "icon": "globe",
     "repository": "https://github.com/doup/metalsmith-i18n",
-    "description": "Translate your strings."
+    "description": "Translate your strings.",
+    "status": "unmaintained"
   },
   {
     "name": "i18next",
     "icon": "globe",
     "repository": "https://github.com/macprog-guy/metalsmith-i18next",
-    "description": "Easily create multiple localised branches of your site using the excellent i18next library."
+    "description": "Easily create multiple localised branches of your site using the excellent i18next library.",
+    "status": "archived"
   },
   {
     "name": "If",
@@ -588,10 +626,11 @@
     "description": "Run plugins in the build sequence conditionally."
   },
   {
-    "name": "Ignore",
+    "name": "Remove",
     "icon": "ban",
-    "repository": "https://github.com/segmentio/metalsmith-ignore",
-    "description": "Ignore any files that match a pattern."
+    "repository": "https://github.com/metalsmith/remove",
+    "description": "A Metalsmith plugin to remove files from the build",
+    "npm": "@metalsmith/remove"
   },
   {
     "name": "Image Aspect Ratio",
@@ -609,7 +648,8 @@
     "name": "Image Resizer",
     "icon": "picture",
     "repository": "https://github.com/kenhoff/metalsmith-image-resizer",
-    "description": "An image resizing plugin for Metalsmith. Not dependent on imagemagick/graphicsmagick!"
+    "description": "An image resizing plugin for Metalsmith. Not dependent on imagemagick/graphicsmagick!",
+    "status": "unmaintained"
   },
   {
     "name": "In-place",
@@ -621,13 +661,15 @@
     "name": "Include",
     "icon": "downloadfolder",
     "repository": "https://github.com/treygriffith/metalsmith-include",
-    "description": "Make other source files available as properties."
+    "description": "Make other source files available as properties.",
+    "status": "unmaintained"
   },
   {
     "name": "Include Content",
     "icon": "files",
     "repository": "https://github.com/mintbridge/metalsmith-include-content",
-    "description": "Allows content to be included (nested) within other content by including the file path"
+    "description": "Allows content to be included (nested) within other content by including the file path",
+    "status": "unmaintained"
   },
   {
     "name": "Inject Metadata",
@@ -645,13 +687,15 @@
     "name": "Inline Source",
     "icon": "addfile",
     "repository": "https://github.com/alexnewmannn/metalsmith-inline-source",
-    "description": "Inlines static assets like SVG, Javascript and CSS"
+    "description": "Inlines static assets like SVG, Javascript and CSS",
+    "status": "unmaintained"
   },
   {
     "name": "Inline SVG",
     "icon": "picture",
     "repository": "https://github.com/meatysolutions/metalsmith-inline-svg",
-    "description": "Inlines SVG images into your HTML files"
+    "description": "Inlines SVG images into your HTML files",
+    "status": "unmaintained"
   },
   {
     "name": "Inspect",
@@ -663,7 +707,8 @@
     "name": "Hover",
     "icon": "files",
     "repository": "https://github.com/lambtron/metalsmith-hover",
-    "description": "Display image and gif links on mouse hover."
+    "description": "Display image and gif links on mouse hover.",
+    "status": "unmaintained"
   },
   {
     "name": "Icons",
@@ -675,7 +720,8 @@
     "name": "Incremental",
     "icon": "ban",
     "repository": "https://github.com/axa-ch/metalsmith-incremental",
-    "description": "Faster incremental builds for Metalsmith."
+    "description": "Faster incremental builds for Metalsmith.",
+    "status": "unmaintained"
   },
   {
     "name": "Index",
@@ -705,7 +751,8 @@
     "name": "JSON",
     "icon": "files",
     "repository": "https://github.com/antiBaconMachine/metalsmith-json",
-    "description": "Parse .json files and make their properties available to downstream plugins."
+    "description": "Parse .json files and make their properties available to downstream plugins.",
+    "status": "unmaintained"
   },
   {
     "name": "JSON to files",
@@ -730,19 +777,22 @@
     "name": "JSTransformer Layouts",
     "icon": "gridlines",
     "repository": "https://github.com/RobLoach/metalsmith-jstransformer-layouts",
-    "description": "Apply layouts to your source files through any JSTransformer."
+    "description": "Apply layouts to your source files through any JSTransformer.",
+    "status": "archived"
   },
   {
     "name": "JSTransformer Partials",
     "icon": "file",
     "repository": "https://github.com/RobLoach/metalsmith-jstransformer-partials",
-    "description": "Provide `partial` helpers with any JSTransformer."
+    "description": "Provide `partial` helpers with any JSTransformer.",
+    "status": "unmaintained"
   },
   {
     "name": "Just A Moment",
     "icon": "clock",
     "repository": "https://github.com/arccoza/metalsmith-just-a-moment",
-    "description": "A Metalsmith plugin to auto convert dates to moment objects."
+    "description": "A Metalsmith plugin to auto convert dates to moment objects.",
+    "status": "unmaintained"
   },
   {
     "name": "Keymaster",
@@ -751,40 +801,32 @@
     "description": "Flexible, powerful manipulation of key-value pairs in file metadata."
   },
   {
-    "name": "KSS",
-    "icon": "files",
-    "repository": "https://github.com/kwizzn/metalsmith-kss",
-    "description": "Add KSS styleguide information."
-  },
-  {
     "name": "Layouts",
     "icon": "files",
-    "repository": "https://github.com/metalsmith/metalsmith-layouts",
-    "description": "Apply layouts to your source files."
+    "repository": "https://github.com/metalsmith/layouts",
+    "description": "Apply layouts to your source files.",
+    "npm": "@metalsmith/layouts"
   },
   {
     "name": "LESS",
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-less",
-    "description": "Convert LESS files to CSS."
+    "description": "Convert LESS files to CSS.",
+    "status": "unmaintained"
   },
   {
     "name": "Link Globs",
     "icon": "tag",
     "repository": "https://github.com/connected-world-services/metalsmith-link-globs",
-    "description": "Instead of manually adding links to files, repeat your script, link, img and a tags by using globs."
-  },
-  {
-    "name": "Localize Collection",
-    "icon": "globe",
-    "repository": "https://github.com/der-On/metalsmith-localize-collection",
-    "description": "Creates localized branches of a collection."
+    "description": "Instead of manually adding links to files, repeat your script, link, img and a tags by using globs.",
+    "status": "unmaintained"
   },
   {
     "name": "Lunr Search",
     "icon": "search",
     "repository": "https://github.com/CMClay/metalsmith-lunr",
-    "description": "Implement Lunr.js client-side search engine."
+    "description": "Implement Lunr.js client-side search engine.",
+    "status": "unmaintained"
   },
   {
     "name": "Markdown",
@@ -806,12 +848,6 @@
     "description": "Enables the use of Markdown partials, e.g. Markdown fragments can be inserted into the contents section of a page markdown file via an include marker."
   },
   {
-    "name": "Markdown-Precompiler",
-    "icon": "compose",
-    "repository": "https://github.com/brunoscopelliti/metalsmith-markdown-precompiler",
-    "description": "Precompiles markdown files replacing templates with their real content."
-  },
-  {
     "name": "Markdown-Remarkable",
     "icon": "compose",
     "repository": "https://github.com/attentif/metalsmith-markdown-remarkable",
@@ -821,7 +857,8 @@
     "name": "Mingo",
     "icon": "layergroup",
     "repository": "https://github.com/doup/metalsmith-mingo",
-    "description": "Wrapper for the Mingo library which allows to make MongoDB style queries."
+    "description": "Wrapper for the Mingo library which allows to make MongoDB style queries.",
+    "status": "unmaintained"
   },
   {
     "name": "Mithril",
@@ -833,18 +870,20 @@
     "name": "Multi Language",
     "icon": "globe",
     "repository": "https://github.com/doup/metalsmith-multi-language",
-    "description": "Adds multi-language support to your projects."
+    "description": "Adds multi-language support to your projects.",
+    "status": "unmaintained"
   },
   {
     "name": "MultiMarkdown",
     "icon": "compose",
     "repository": "https://github.com/mgnt/metalsmith-multimarkdown",
-    "description": "Convert Markdown files to HTML using MultiMarkdown-4 syntax."
+    "description": "Convert Markdown files to HTML using MultiMarkdown-4 syntax.",
+    "status": "unmaintained"
   },
   {
     "name": "Metadata",
     "icon": "tag",
-    "repository": "https://github.com/segmentio/metalsmith-metadata",
+    "repository": "https://github.com/metalsmith/metalsmith-metadata",
     "description": "Load metadata from JSON or YAML files."
   },
   {
@@ -857,25 +896,24 @@
     "name": "Metafiles",
     "icon": "files",
     "repository": "https://github.com/Ajedi32/metalsmith-metafiles",
-    "description": "Read file metadata from separate files (as an alternative to frontmatter)."
+    "description": "Read file metadata from separate files (as an alternative to frontmatter).",
+    "status": "unmaintained",
+    "alts": ["metalsmith-metadata"]
   },
   {
     "name": "Metallic",
     "icon": "rainbow",
     "repository": "https://github.com/weswigham/metalsmith-metallic",
-    "description": "Highlight code in markdown files with highlight.js."
+    "description": "Highlight code in markdown files with highlight.js.",
+    "alts": ["@metalsmith/markdown", "metalsmith-code-highlight"]
   },
   {
     "name": "Metalsmith Matters",
     "icon": "file",
     "repository": "https://github.com/Ajedi32/metalsmith-matters",
-    "description": "Read file metadata from frontmatter."
-  },
-  {
-    "name": "Models",
-    "icon": "files",
-    "repository": "https://github.com/jaichandra/metalsmith-models",
-    "description": "Include JSON models into files and expose the data as metadata on the file object"
+    "description": "Read file metadata from frontmatter.",
+    "status": "unmaintained",
+    "alts": ["metalsmith"]
   },
   {
     "name": "Moment",
@@ -887,25 +925,30 @@
     "name": "More",
     "icon": "crop",
     "repository": "https://github.com/kfranqueiro/metalsmith-more",
-    "description": "Stores the content before the \"more\" comment tag in HTML files."
+    "description": "Stores the content before the \"more\" comment tag in HTML files.",
+    "status": "unmaintained",
+    "alts": ["metalsmith", "@metalsmith/excerpts"]
   },
   {
     "name": "Move/Remove",
     "icon": "file",
     "repository": "https://github.com/carlnordenfelt/metalsmith-move-remove",
-    "description": "Moves and/or removes files in the file structure."
+    "description": "Moves and/or removes files in the file structure.",
+    "status": "unmaintained"
   },
   {
     "name": "Mustache Metadata",
     "icon": "tag",
     "repository": "https://github.com/tests-always-included/metalsmith-mustache-metadata",
-    "description": "Modifies metadata to make it more useful in Mustache templates.  Adds easy conditions and links to parent objects."
+    "description": "Modifies metadata to make it more useful in Mustache templates.  Adds easy conditions and links to parent objects.",
+    "status": "unmaintained"
   },
   {
     "name": "Myth",
     "icon": "files",
     "repository": "https://github.com/kasperisager/metalsmith-myth",
-    "description": "Preprocess CSS files with Myth."
+    "description": "Preprocess CSS files with Myth.",
+    "status": "archived"
   },
   {
      "name": "Move Up",
@@ -923,55 +966,66 @@
     "name": "Navigation",
     "icon": "signpost",
     "repository": "https://github.com/unstoppablecarl/metalsmith-navigation",
-    "description": "Generate navigation based on file trees"
+    "description": "Generate navigation based on file trees",
+    "status": "unmaintained"
   },
   {
     "name": "nested",
     "icon": "files",
     "repository": "https://github.com/firesideguru/metalsmith-nested",
-    "description": "A metalsmith plugin for nesting your layouts when using the handlebars engine."
+    "description": "A metalsmith plugin for nesting your layouts when using the handlebars engine.",
+    "status": "unmaintained"
   },
   {
     "name": "ng-annotate",
     "icon": "files",
     "repository": "https://github.com/fmmfonseca/metalsmith-ng-annotate",
-    "description": "Add, remove and rebuild AngularJS dependency injection annotations."
+    "description": "Add, remove and rebuild AngularJS dependency injection annotations.",
+    "status": "unmaintained"
   },
   {
     "name": "npm",
     "icon": "addfile",
     "repository": "https://github.com/altano/metalsmith-npm",
-    "description": "Include npm modules in your globals"
+    "description": "Include npm modules in your globals",
+    "status": "archived"
   },
   {
     "name": "Only",
     "icon": "files",
     "repository": "https://github.com/Treri/metalsmith-only",
-    "description": "Filter out attributes from each file's metadata."
+    "description": "Filter out attributes from each file's metadata.",
+    "status": "unmaintained"
   },
   {
     "name": "Open Graph",
     "icon": "tag",
     "repository": "https://github.com/astralfrontier/metalsmith-open-graph",
-    "description": "Add Facebook Open Graph meta tags to HTML."
+    "description": "Add Facebook Open Graph meta tags to HTML.",
+    "status": "unmaintained"
   },
   {
     "name": "OptiPng",
     "icon": "picture",
     "repository": "https://github.com/AnthonyAstige/metalsmith-optipng",
-    "description": "Metalsmith wrapper for optipng - to optimize and make your png images smaller"
+    "description": "Metalsmith wrapper for optipng - to optimize and make your png images smaller",
+    "status":"unmaintained",
+    "alts": ["metalsmith-imagemin"]
   },
   {
     "name": "org",
     "icon": "compose",
     "repository": "https://github.com/crshd/metalsmith-org",
-    "description": "Convert org-mode files to HTML."
+    "description": "Convert org-mode files to HTML.",
+    "status": "unmaintained"
   },
   {
     "name": "PackageJSON",
     "icon": "gift",
     "repository": "https://www.npmjs.com/package/metalsmith-packagejson",
-    "description": "Parses the contents of package.json and makes them available in a global 'pkg'"
+    "description": "Parses the contents of package.json and makes them available in a global 'pkg'",
+    "status": "unmaintained",
+    "alts": ["NATIVE"]
   },
   {
     "name": "Paths",
@@ -980,34 +1034,26 @@
     "description": "adds file path values (dirname, extname, basename, path) to metadata"
   },
   {
-    "name": "Parcel",
-    "icon": "files",
-    "repository": "https://github.com/dahnielson/metalsmith-parcel",
-    "description": "Use Parcel for bundling of assets"
-  },
-  {
     "name": "Partial",
     "icon": "file",
     "repository": "https://github.com/anatoo/metalsmith-partial",
-    "description": "Provide 'partial' helper to include other files."
-  },
-  {
-    "name": "Pager",
-    "icon": "files",
-    "repository": "https://github.com/brunoscopelliti/metalsmith-pager",
-    "description": "Paginate collections of file; it's meant to be used with metalsmith-collections."
+    "description": "Provide 'partial' helper to include other files.",
+    "status": "archived"
   },
   {
     "name": "Paginate",
     "icon": "files",
     "repository": "https://github.com/RobinThrift/metalsmith-paginate",
-    "description": "A simple plugin that uses metalsmith-collections to create a paginated collection."
+    "description": "A simple plugin that uses metalsmith-collections to create a paginated collection.",
+    "status": "unmaintained",
+    "alts": ["metalsmith-pagination"]
   },
   {
     "name": "Pagination",
     "icon": "files",
     "repository": "https://github.com/blakeembrey/metalsmith-pagination",
-    "description": "Paginate arrays and collections into multiple files."
+    "description": "Paginate arrays and collections into multiple files.",
+    "alts": ["metalsmith-paginate"]
   },
   {
     "name": "Pandoc",
@@ -1019,50 +1065,59 @@
      "name": "PDF",
      "icon": "pdf",
      "repository": "https://github.com/jjclark1982/metalsmith-pdf",
-     "description": "Convert HTML files to PDF using wkhtmltopdf"
+     "description": "Convert HTML files to PDF using wkhtmltopdf",
+     "status": "unmaintained",
+     "alts": ["metalsmith-pdfize"]
   },
   {
      "name": "PDFize",
      "icon": "pdf",
      "repository": "https://github.com/dpobel/metalsmith-pdfize",
-     "description": "Export HTML files to PDF using Headless Chrome"
+     "description": "Export HTML files to PDF using Headless Chrome",
+     "alts": ["metalsmith-pdf"]
   },
   {
     "name": "Page Title",
     "icon": "compose",
     "repository": "https://github.com/hellatan/metalsmith-page-titles",
-    "description": "Add a global site title to every `<title>` tag."
+    "description": "Add a global site title to every `<title>` tag.",
+    "status": "unmaintained"
   },
   {
     "name": "Perma",
     "icon": "link",
     "repository": "https://github.com/scurker/metalsmith-perma",
-    "description": "An alternative to metalsmith-permalinks allowing for custom permalinks and overrides."
+    "description": "An alternative to metalsmith-permalinks allowing for custom permalinks and overrides.",
+    "alts": ["@metalsmith/permalinks"]
   },
   {
     "name": "Permalinks",
     "icon": "link",
     "repository": "https://github.com/metalsmith/permalinks",
     "description": "Apply custom permalinks and rename files to be nested properly for static sites, basically converting `about.html` into `about/index.html`.",
-    "npm": "@metalsmith/permalinks"
+    "npm": "@metalsmith/permalinks",
+    "alts": ["metalsmith-perma"]
   },
   {
     "name": "Picset Generate",
     "icon": "picture",
     "repository": "https://github.com/AnthonyAstige/metalsmith-picset-generate",
-    "description": "Gives responsive image resolution choices. Generates image sets for use with the Picset Handlebars Helper plugin"
+    "description": "Gives responsive image resolution choices. Generates image sets for use with the Picset Handlebars Helper plugin",
+    "status": "unmaintained"
   },
   {
     "name": "Picset Handlebars Helper",
     "icon": "picture",
     "repository": "https://github.com/AnthonyAstige/metalsmith-picset-handlebars-helper",
-    "description": "Uses generated responsive image resolutions. Those generated by the Picset Generate plugin display in browser via a `<picture>` element"
+    "description": "Uses generated responsive image resolutions. Those generated by the Picset Generate plugin display in browser via a `<picture>` element",
+    "status": "unmaintained"
   },
   {
     "name": "Polyglot",
     "icon": "globe",
     "repository": "https://github.com/fdoxyz/metalsmith-polyglot",
-    "description": "Simple mirror translations for blog-like entries."
+    "description": "Simple mirror translations for blog-like entries.",
+    "status": "unmaintained"
   },
   {
     "name": "PostCSS",
@@ -1074,25 +1129,29 @@
      "name": "Placeholder",
      "icon": "files",
      "repository": "https://github.com/mattly/metalsmith-placeholder",
-     "description": "Stub content-less files from JSON/Yaml metadata files"
+     "description": "Stub content-less files from JSON/Yaml metadata files",
+     "status": "unmaintained"
   },
   {
      "name": "Preview",
      "icon": "unquote",
      "repository": "https://github.com/davidtimmons/metalsmith-preview",
-     "description": "Generate custom text previews saved to file metadata."
+     "description": "Generate custom text previews saved to file metadata.",
+     "alts": ["@metalsmith/excerpts"]
   },
   {
     "name": "Prism Syntax Highlighting",
     "icon": "rainbow",
     "repository": "https://github.com/Availity/metalsmith-prism",
-    "description": "Syntax highlighting for HTML templates using Prism.js."
+    "description": "Syntax highlighting for HTML templates using Prism.js.",
+    "status": "archived"
   },
   {
     "name": "Prismic",
     "icon": "layergroup",
     "repository": "https://github.com/mbanting/metalsmith-prismic",
-    "description": "Create static sites with data stored at Prismic.io"
+    "description": "Create static sites with data stored at Prismic.io",
+    "status": "unmaintained"
   },
   {
     "name": "Projects",
@@ -1104,14 +1163,17 @@
   {
     "name": "Prompt",
     "icon": "chat",
-    "repository": "https://github.com/segmentio/metalsmith-prompt",
-    "description": "Prompt the user for series of answers in the command line and add them to the global metadata."
+    "repository": "https://github.com/segment-boneyard/metalsmith-prompt",
+    "description": "Prompt the user for series of answers in the command line and add them to the global metadata.",
+    "status": "unmaintained"
   },
   {
     "name": "Propdown",
     "icon": "compose",
     "repository": "https://github.com/almirfilho/metalsmith-propdown",
-    "description": "A metalsmith plugin to convert a property value from markdown to HTML."
+    "description": "A metalsmith plugin to convert a property value from markdown to HTML.",
+    "status": "unmaintained",
+    "alts": ["@metalsmith/markdown"]
   },
   {
     "name": "Publish",
@@ -1144,10 +1206,10 @@
     "description": "Use React in metalsmith as a templating language"
   },
   {
-     "name": "Redirect",
-     "icon": "link",
-     "repository": "https://github.com/aymericbeaumet/metalsmith-redirect",
-     "description": "A simple plugin to create client-side HTTP redirections."
+    "name": "Redirect",
+    "icon": "link",
+    "repository": "https://github.com/aymericbeaumet/metalsmith-redirect",
+    "description": "A simple plugin to create client-side HTTP redirections."
   },
   {
     "name": "Regex Replace",
@@ -1156,35 +1218,39 @@
     "description": "Performs search and replace in text source files"
   },
   {
-     "name": "Relative Links",
-     "icon": "link",
-     "repository": "https://github.com/tests-always-included/metalsmith-relative-links",
-     "description": "Adds a link function into your metadata so templates can link resources easier."
+    "name": "Relative Links",
+    "icon": "link",
+    "repository": "https://github.com/tests-always-included/metalsmith-relative-links",
+    "description": "Adds a link function into your metadata so templates can link resources easier.",
+    "status": "unmaintained"
   },
   {
-     "name": "Renamer",
-     "icon": "loading",
-     "repository": "https://github.com/alex-ketch/metalsmith-renamer",
-     "description": "Rename files matching a given pattern."
+    "name": "Renamer",
+    "icon": "loading",
+    "repository": "https://github.com/alex-ketch/metalsmith-renamer",
+    "description": "Rename files matching a given pattern."
   },
   {
     "name": "Replace",
     "icon": "files",
     "repository": "https://github.com/Treri/metalsmith-replace",
-    "description": "Replace attribute values in each file's metadata."
+    "description": "Replace attribute values in each file's metadata.",
+    "status": "unmaintained"
   },
   {
     "name": "Rework",
     "icon": "files",
     "repository": "https://github.com/dennisschaaf/metallsmith-rework",
     "npm": "metalsmith-rework",
-    "description": "Use rework CSS processor to rework your files."
+    "description": "Use rework CSS processor to rework your files.",
+    "status": "unmaintained"
   },
   {
     "name": "Rho",
     "icon": "compose",
     "repository": "https://github.com/inca/metalsmith-rho",
-    "description": "Convert Rho files to HTML."
+    "description": "Convert Rho files to HTML.",
+    "status": "unmaintained"
   },
   {
     "name": "Request",
@@ -1202,7 +1268,8 @@
     "name": "Root Path",
     "icon": "link",
     "repository": "https://github.com/radiovisual/metalsmith-rootpath",
-    "description": "Auto-calculate the relative path to your root directory in template urls."
+    "description": "Auto-calculate the relative path to your root directory in template urls.",
+    "status": "unmaintained"
   },
   {
     "name": "S3",
@@ -1220,19 +1287,22 @@
     "name": "Sass lint",
     "icon": "files",
     "repository": "https://github.com/csmets/metalsmith-sass-lint",
-    "description": "Stylelint your Sass files."
+    "description": "Stylelint your Sass files.",
+    "status": "unmaintained"
   },
   {
     "name": "Series",
     "icon": "signpost",
     "repository": "https://github.com/jocelynlecomte/metalsmith-series",
-    "description": "Groups files into series for easier navigation"
+    "description": "Groups files into series for easier navigation",
+    "status": "unmaintained"
   },
   {
     "name": "Serve",
     "icon": "steampot",
     "repository": "https://github.com/mayo/metalsmith-serve",
-    "description": "Simple http server for development. Best used with metalsmith-watch."
+    "description": "Simple http server for development. Best used with metalsmith-watch.",
+    "status": "unmaintained"
   },
   {
     "name": "Sharp",
@@ -1244,7 +1314,8 @@
     "name": "Shortcodes",
     "icon": "gridlines",
     "repository": "https://github.com/ericgj/metalsmith-shortcodes",
-    "description": "Render wordpress-esque shortcodes via templates."
+    "description": "Render wordpress-esque shortcodes via templates.",
+    "status": "unmaintained"
   },
   {
     "name": "Shortcode Parser",
@@ -1262,19 +1333,22 @@
     "name": "Skeleton Gallery",
     "icon": "image",
     "repository": "https://github.com/petermorlion/metalsmith-skeleton-gallery",
-    "description": "Generate an image gallery, using the Skeleton CSS framework."
+    "description": "Generate an image gallery, using the Skeleton CSS framework.",
+    "status": "unmaintained"
   },
   {
     "name": "Slug",
     "icon": "hyphen",
     "repository": "https://github.com/nsonnad/metalsmith-slug",
-    "description": "Add a slug property to file metadata, based on a another property."
+    "description": "Add a slug property to file metadata, based on a another property.",
+    "status": "unmaintained"
   },
   {
     "name": "Snippet",
     "icon": "unquote",
     "repository": "https://github.com/blakeembrey/metalsmith-snippet",
-    "description": "Extract snippets from files, limited by a maximum number of characters."
+    "description": "Extract snippets from files, limited by a maximum number of characters.",
+    "status": "unmaintained"
   },
   {
     "name": "Spell Checking",
@@ -1287,7 +1361,8 @@
     "name": "Static",
     "icon": "layergroup",
     "repository": "https://github.com/TheHydroImpulse/metalsmith-static",
-    "description": "Copy public assets into the build directory."
+    "description": "Copy public assets into the build directory.",
+    "status": "unmaintained"
   },
   {
     "name": "Stylesheet Packer",
@@ -1299,37 +1374,43 @@
     "name": "Stylus",
     "icon": "files",
     "repository": "https://github.com/esundahl/metalsmith-stylus",
-    "description": "Convert Stylus files to CSS."
+    "description": "Convert Stylus files to CSS.",
+    "status": "unmaintained"
   },
   {
     "name": "Subresource Integrity",
     "icon": "files",
     "repository": "https://github.com/moshen/metalsmith-subresource-integrity",
-    "description": "Generate integrity hashes for site resources."
+    "description": "Generate integrity hashes for site resources.",
+    "status": "unmaintained"
   },
   {
     "name": "Sugar",
     "icon": "sugar",
     "repository": "https://github.com/connected-world-services/metalsmith-sugar",
-    "description": "Use a shorthand when including plugins and avoid calling require() on each individual module."
+    "description": "Use a shorthand when including plugins and avoid calling require() on each individual module.",
+    "status": "unmaintained"
   },
   {
     "name": "SUITCSS",
     "icon": "files",
     "repository": "https://github.com/jeffjewiss/metalsmith-suitcss",
-    "description": "Preprocess CSS files with SUITCSS."
+    "description": "Preprocess CSS files with SUITCSS.",
+    "status": "unmaintained"
   },
   {
     "name": "Swig Helpers",
     "icon": "gridlines",
     "repository": "https://github.com/madeofpeople/metalsmith-swig-helpers/",
-    "description": "Useful bits for those of us using swig"
+    "description": "Useful bits for those of us using swig",
+    "status": "unmaintained"
   },
   {
     "name": "Symlink",
     "icon": "files",
     "repository": "https://github.com/2xaa/metalsmith-symlink/",
-    "description": "Create Symlinks for large files or directories."
+    "description": "Create Symlinks for large files or directories.",
+    "status": "unmaintained"
   },
   {
     "name": "Table of Contents",
@@ -1353,19 +1434,15 @@
     "name": "Timer",
     "icon": "clock",
     "repository": "https://github.com/deltamualpha/metalsmith-timer",
-    "description": "Clock how long it takes for plugins in your build sequence to run."
+    "description": "Clock how long it takes for plugins in your build sequence to run.",
+    "status": "unmaintained"
   },
   {
     "name": "Timestamp",
     "icon": "clock",
     "repository": "https://github.com/danielhusar/metalsmith-timestamp",
-    "description": "Add timestamp comment to html files"
-  },
-  {
-    "name": "Templates",
-    "icon": "gridlines",
-    "repository": "https://github.com/segmentio/metalsmith-templates",
-    "description": "Deprecated in favor of metalsmith-layouts and metalsmith-in-place."
+    "description": "Add timestamp comment to html files",
+    "status": "unmaintained"
   },
   {
     "name": "Textile",
@@ -1401,7 +1478,8 @@
     "name": "Typography",
     "icon": "compose",
     "repository": "https://github.com/algenon/metalsmith-typography",
-    "description": "Enhance typography in HTML files."
+    "description": "Enhance typography in HTML files.",
+    "status": "unmaintained"
   },
   {
     "name": "Uglify",
@@ -1413,13 +1491,15 @@
     "name": "UnCSS",
     "icon": "scaledown",
     "repository": "https://github.com/colophonemes/metalsmith-uncss",
-    "description": "Remove unused CSS rules with UnCSS"
+    "description": "Remove unused CSS rules with UnCSS",
+    "status": "unmaintained"
   },
   {
     "name": "Unlisted",
     "icon": "files",
     "repository": "https://github.com/alisdair/metalsmith-unlisted",
-    "description": "Remove pages from collections, but still allow them to build"
+    "description": "Remove pages from collections, but still allow them to build",
+    "status": "unmaintained"
   },
   {
     "name": "Validate",
@@ -1431,13 +1511,15 @@
     "name": "Watch",
     "icon": "view",
     "repository": "https://github.com/FWeinb/metalsmith-watch",
-    "description": "Watching for file changes and trigger rebuilds."
+    "description": "Watching for file changes and trigger rebuilds.",
+    "status": "unmaintained"
   },
   {
     "name": "Webpack",
     "icon": "files",
     "repository": "https://github.com/christophercliff/metalsmith-webpack",
-    "description": "Bundle CommonJS, AMD and ES6 modules."
+    "description": "Bundle CommonJS, AMD and ES6 modules.",
+    "status": "unmaintained"
   },
   {
     "name": "Webpack 2",
@@ -1461,12 +1543,14 @@
     "name": "XO",
     "icon": "files",
     "repository": "https://github.com/blainsmith/metalsmith-xo",
-    "description": "XO lint your JavaScript files."
+    "description": "XO lint your JavaScript files.",
+    "status": "archived"
   },
   {
     "name": "YouTube",
     "icon": "fork",
     "repository": "https://github.com/juanpicado/metalsmith-youtube",
-    "description": "A Metalsmith plugin that lets you embed YouTube Videos."
+    "description": "A Metalsmith plugin that lets you embed YouTube Videos.",
+    "status": "archived"
   }
 ]
