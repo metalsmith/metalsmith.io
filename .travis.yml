@@ -1,9 +1,12 @@
 language: node_js
-sudo: false
-notifications:
-  email: false
+dist: xenial
+node_js: 14
+
 script:
   - npm run test
   - npm run lint:prettier
   - npm run lint:js
   - npm run lint:css
+
+notifications:
+  email: false
