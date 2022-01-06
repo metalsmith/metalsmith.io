@@ -1,6 +1,6 @@
 # Metalsmith.io
 
-  The site for [Metalsmith](https://github.com/segmentio/metalsmith).
+  The site for [Metalsmith](https://github.com/metalsmith/metalsmith).
 
 ## Developing
 

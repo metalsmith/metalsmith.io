@@ -11,11 +11,11 @@ You want to build a website or blog with a static site generator. Well, here is 
 
 `metalsmith.js`
 ```javascript
-var Metalsmith  = require('metalsmith');
-var collections = require('metalsmith-collections');
-var layouts     = require('metalsmith-layouts');
-var markdown    = require('metalsmith-markdown');
-var permalinks  = require('metalsmith-permalinks');
+const Metalsmith  = require('metalsmith');
+const collections = require('@metalsmith/collections');
+const layouts     = require('@metalsmith/layouts');
+const markdown    = require('@metalsmith/markdown');
+const permalinks  = require('@metalsmith/permalinks');
 
 Metalsmith(__dirname)         // __dirname defined by node.js:
                               // name of the directory of this file
@@ -46,23 +46,29 @@ Metalsmith(__dirname)         // __dirname defined by node.js:
 [You can follow along with a detailed walkthrough](./step-by-step) or have a go with an example:
 
 ```bash
-$ git clone https://github.com/metalsmith/metalsmith.git
-$ cd metalsmith/examples/static-site
-$ npm install
-$ npm start
+git clone https://github.com/metalsmith/metalsmith.git
+cd metalsmith/examples/static-site
+npm install
+npm start
 ```
 
 ---
 
 # Install it
 
-Metalsmith and its plugins can be installed with npm:
+Metalsmith and its plugins can be installed with npm or Yarn:
 
+NPM:
 ```bash
-$ npm install metalsmith
+npm install metalsmith
 ```
 
-The package exposes both a [JavaScript API](https://github.com/segmentio/metalsmith#api), and [CLI](https://github.com/segmentio/metalsmith#cli) in case you're used to that type of workflow from other static site generators. To see how they're used check out the [examples](https://github.com/segmentio/metalsmith/tree/master/examples) or [the walkthrough](./step-by-step).
+Yarn:
+```bash
+yarn add metalsmith
+```
+
+The package exposes both a [JavaScript API](https://github.com/metalsmith/metalsmith#api), and [CLI](https://github.com/metalsmith/metalsmith#cli) in case you're used to that type of workflow from other static site generators. To see how they're used check out the [examples](https://github.com/metalsmith/metalsmith/tree/master/examples) or [the walkthrough](./step-by-step).
 
 ---
 
@@ -130,7 +136,7 @@ Metalsmith(__dirname)
 
 ...it's as easy as that!
 
-A small comment. The `layouts()` plugin needs the `jstransformer-nunjucks` package to render layouts. Make sure to install it with `npm install jstransformer-nunjucks`. Other templating languages can be used as well (see the [metalsmith-layouts readme](https://github.com/ismay/metalsmith-layouts) for more information).
+A small comment. The `layouts()` plugin needs the `jstransformer-nunjucks` package to render layouts. Make sure to install it with `npm install jstransformer-nunjucks`. Other templating languages can be used as well (see the [@metalsmith/layouts readme](https://github.com/metalsmith/layouts) for more information).
 
 ---
 
@@ -171,7 +177,7 @@ becomes
 }
 ```
 
-where the content of the file is always put into the property value of `contents`. For illustration purposes only we display the value of `contents` as a string. Technically, however, the property value of `contents` is realised as a `new Buffer('...')` object, in order to also handle straight binary data well. `mode` contains the permission the file has and `stats` has more technical information on the file such as `size` or `birthtime`. Furthermore, the file is also parsed for YAML-front-matter information, which will then also be put into the JS Object. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called `files` since it contains all the JavaScript objects that represent the files.
+where the content of the file is always put into the property value of `contents`. For illustration purposes only we display the value of `contents` as a string. Technically, however, the property value of `contents` is realised as a `Buffer.from('...')` object, in order to also handle straight binary data well. `mode` contains the permission the file has and `stats` has more technical information on the file such as `size` or `birthtime`. Furthermore, the file is also parsed for YAML-front-matter information, which will then also be put into the JS Object. Thus, we finally have an JavaScript object of JavaScript objects. This encompassing JavaScript object is usally called `files` since it contains all the JavaScript objects that represent the files.
 
 ```javascript
 {
@@ -196,7 +202,7 @@ where the content of the file is always put into the property value of `contents
 }
 ```
 
-The plugins can manipulate the JavaScript objects representing the original files however they want, and writing one is super simple. Here's the code for the `drafts()` plugin from above. You can also find the code in the [github repository for `metalsmith-drafts`](https://github.com/segmentio/metalsmith-drafts). The code just runs through the JS object `files` and deletes all contained JavaScript objects that have a property value of `true` for the property `draft`:
+The plugins can manipulate the JavaScript objects representing the original files however they want, and writing one is super simple. Here's the code for the `drafts()` plugin from above. You can also find the code in the [github repository for `@metalsmith/drafts`](https://github.com/metalsmith/drafts). The code just runs through the JS object `files` and deletes all contained JavaScript objects that have a property value of `true` for the property `draft`:
 
 ```javascript
 /**
@@ -214,7 +220,7 @@ function plugin() {
   return function(files, metalsmith, done){
     setImmediate(done);
     Object.keys(files).forEach(function(file){
-      var data = files[file];
+      const data = files[file];
       if (data.draft) delete files[file];
     });
   };
@@ -318,7 +324,7 @@ Finally when the `.build(function(err))` is performed our JavaScript object is w
 For Metalsmith we have stated that everything is a plugin. That is true, but in addition the Metalsmith core also provides for a `metadata()` function. You can specify arbitrary `{property: property value}` pairs and these information will be globally accessible from each plugin.
 
 ```javascript
-var debug = require('metalsmith-debug');
+const debug = require('metalsmith-debug');
 
 ...
 
@@ -338,10 +344,16 @@ Metalsmith(__dirname)
   });
 ```
 
-As you have seen in the code above, we have also introduced a plugin named [`metalsmith-debug`](https://github.com/mahnunchik/metalsmith-debug). For this plugin to actually show debug information you need to define an environment variable `DEBUG` and set it to:
+As you have seen in the code above, we have also introduced a plugin named [`metalsmith-debug`](https://github.com/mahnunchik/metalsmith-debug). For this plugin to actually show debug information you need to define an environment variable `DEBUG` and set it to `metalsmith:*`
 
+On Linux/Mac:
 ```bash
-$ DEBUG=metalsmith:*
+export DEBUG=metalsmith:*
+```
+
+On Windows:
+```bat
+set "DEBUG=metalsmith:*"
 ```
 
 The source and destination path, the metadata and all files are then logged to the console.
@@ -375,7 +387,7 @@ Which means you could just as easily use it to make...
 
 The plugins are all reusable. That PDF generator plugin for eBooks? Use it to generate PDFs for each of your blog posts too!
 
-Check out [the code examples](https://github.com/segmentio/metalsmith/tree/master/examples) to get an idea for what's possible.
+Check out [the code examples](https://github.com/metalsmith/metalsmith/tree/master/examples) to get an idea for what's possible.
 
 ---
 
@@ -387,8 +399,8 @@ Writing a plugin is not difficult as you have seen above with the `metalsmith-dr
 
 ```javascript
 // we would like you to use debug
-var debug = require('debug')('metalsmith-myplugin');
-var multimatch = require('multimatch');
+const debug = require('debug')('metalsmith-myplugin');
+const multimatch = require('multimatch');
 
 // Expose `plugin`.
 module.exports = plugin;
@@ -440,16 +452,17 @@ A process such as this is called check for pattern matching. Many `metalsmith`-p
 }))
 ```
 
-Pattern matching is normally based on [glob](https://github.com/isaacs/node-glob) pattern. Many plugins employ either own functions or rely on [`minimatch`](https://www.npmjs.com/package/minimatch) or [`multimatch`](https://www.npmjs.com/package/multimatch).
+Pattern matching is normally based on [glob](https://github.com/isaacs/node-glob) pattern. Many plugins employ either own functions or rely on [`micromatch`](https://www.npmjs.com/package/micromatch), [`minimatch`](https://www.npmjs.com/package/minimatch) or [`multimatch`](https://www.npmjs.com/package/multimatch).
 
 ```javascript
-var multimatch = require('multimatch');
+const micromatch = require('micromatch');
+const { normalize } = require('path');
 
 [...]
 
   // Checks whether files should be processed
   // length is zero if no matching pattern was found
-  if (multimatch(file, opts.pattern).length) {
+  if (micromatch(file, opts.pattern, { dot: true, format: normalize }).length) {
 
     // process file
 
@@ -531,7 +544,7 @@ Add metadata to your files to access these build features. By default, Metalsmit
 You can add your own metadata in two ways:
 
 - Using [YAML frontmatter](https://middlemanapp.com/basics/frontmatter/) at the top of any file.
-- Enabling [a plugin](https://github.com/segmentio/metalsmith/blob/master/Readme.md#plugins) that adds metadata programmatically.
+- Enabling [a plugin](https://github.com/metalsmith/metalsmith/blob/master/README.md#plugins) that adds metadata programmatically.
 
 ### mode
 
@@ -553,7 +566,8 @@ would be built with mode `-rwxrw-r--`, i.e. user-executable.
 
 The MIT License (MIT)
 
-Copyright &copy; 2014, Segment.io \<friends@segment.io\>
+Copyright &copy; 2021, Webketje \<metalsmith.org@gmail.com\>
+Copyright &copy; 2014-2021, Segment.io \<friends@segment.io\>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

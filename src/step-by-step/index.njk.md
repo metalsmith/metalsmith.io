@@ -27,7 +27,7 @@ First, we'll need a project folder, which we'll just call __project__. This will
 2. a __layouts__ folder with a single Handlebars template; and
 3. our __node script__ to configure and run Metalsmith itself.
 
-We'll be using npm (Node's built-in package manager) to install [Metalsmith](https://github.com/segmentio/metalsmith) and two plugins to accomplish our two tasks: [metalsmith-markdown](https://github.com/segmentio/metalsmith-markdown) will convert our markdown files into HTML fragments while [metalsmith-layouts](https://github.com/superwolff/metalsmith-layouts) will put our HTML fragments into a Handlebars template. Handlebars is a _choice_ for this particular example, rather than a requirement. You can use whatever templating engine you prefer.
+We'll be using npm (Node's built-in package manager) to install [Metalsmith](https://github.com/metalsmith/metalsmith) and two plugins to accomplish our two tasks: [@metalsmith/markdown](https://github.com/metalsmith/markdown) will convert our markdown files into HTML fragments while [@metalsmith/layouts](https://github.com/metalsmith/layouts) will put our HTML fragments into a Handlebars template. Handlebars is a _choice_ for this particular example, rather than a requirement. You can use whatever templating engine you prefer.
 
 The installation and build processes will create a few more items in our project folder, automatically adding them for us. In addition to those we've created above, we'll eventually also have:
 
@@ -42,15 +42,15 @@ We'll never actually touch or change any of those generated files directly. npm 
 Let's open a command prompt and dive in. We'll make a directory, `cd` into that directory, and tell npm to create a _package.json_ file for us so we can install Metalsmith and its plugins.
 
 ```bash
-$ mkdir project
-$ cd project
-$ npm init -y
+mkdir project
+cd project
+npm init -y
 ```
 
-`npm init` will normally ask you a few questions about what to call your project, versioning, licensing, etc. In this case, we're using the `-y` flag, which just accepts all the defaults. You'll end up with a _package.json_ file that defines a project called "project" whose main file is _index.js_, which is the relevant info for this example. Now that we've initialized npm, we can use it to install Metalsmith and the plugins which we need for our project. Additionally, metalsmith-layouts lets you define and install your choice of templating engine, so we'll also install Handlebars as well.
+`npm init` will normally ask you a few questions about what to call your project, versioning, licensing, etc. In this case, we're using the `-y` flag, which just accepts all the defaults. You'll end up with a _package.json_ file that defines a project called "project" whose main file is _index.js_, which is the relevant info for this example. Now that we've initialized npm, we can use it to install Metalsmith and the plugins which we need for our project. Additionally, @metalsmith/layouts lets you define and install your choice of templating engine, so we'll also install Handlebars as well.
 
 ```bash
-$ npm install --save-dev metalsmith metalsmith-markdown metalsmith-layouts jstransformer-handlebars
+npm install --save-dev metalsmith @metalsmith/markdown @metalsmith/layouts jstransformer-handlebars
 ```
 
 That line tells npm to go fetch the current stable versions of our requirements, place them in the *node_modules/* directory, and `--save-dev` saves references to these modules as development dependencies in the _package.json_ file.
@@ -58,11 +58,11 @@ That line tells npm to go fetch the current stable versions of our requirements,
 When initializing our project folder, `npm init` creates an entry point and the default is __index.js__. That'll be our node script, so let's create a blank file for now. We'll also do the same for our template (which we'll call _layouts/default.hbs_) and we'll need to set up our source directory with at least one markdown file in it (let's use the default _src/_ folder and add our single page as _src/index.md_).
 
 ```bash
-$ touch index.js
-$ mkdir layouts
-$ touch layouts/default.hbs
-$ mkdir src
-$ touch src/index.md
+touch index.js
+mkdir layouts
+touch layouts/default.hbs
+mkdir src
+touch src/index.md
 ```
 
 Ok, that's our setup and we have now:
@@ -77,13 +77,13 @@ Keep in mind that this could all be prepared for you in advance with a little bi
 ---
 
 # The content
-## Creating HTML fragments using metalsmith-markdown
+## Creating HTML fragments using @metalsmith/markdown
 
 Open up _src/index.md_ in your editor of choice and let's add some content. There are two parts to each source file: its __YAML Frontmatter__ and its __Markdown content__. Frontmatter is used by Metalsmith by default. While you could override or replace it with plugins, if desired, we're going to make use of it to set three properties of each page:
 
 1. Setting the title of the page as `title`
 2. Setting the description of the page, called `description`.
-3. Telling metalsmith-layouts to use our _default.hbs_ template file, which metalsmith-layouts calls `layout`.
+3. Telling @metalsmith/layouts to use our _default.hbs_ template file, which @metalsmith/layouts calls `layout`.
 
 Keep in mind that using markdown for your source files, while a popular use case and the point of our example, is just one of many options. The exact same series of steps could work for preprocessing different file types with a few different plugins. Additionally, note that, while the plugin we're using for templating requires a property called `layout` to know which template to use, the `title` and `description` properties are _completely arbitrary_. We're choosing to use those in our template, but they're in no way required or defined by Metalsmith itself.
 
@@ -116,7 +116,7 @@ diam ipsum.
 
 ```
 
-That gives us the metadata properties and the content we'll use in our template and some markdown to convert into an HTML fragment, leaving us ready to apply the layout. We've also got the `layout` property, which tells metalsmith-layouts which template to apply from our _layouts/_ directory.
+That gives us the metadata properties and the content we'll use in our template and some markdown to convert into an HTML fragment, leaving us ready to apply the layout. We've also got the `layout` property, which tells @metalsmith/layouts which template to apply from our _layouts/_ directory.
 
 ---
 
@@ -168,9 +168,9 @@ There are additional configuration options we could use and opportunities to add
 
 ```javascript
 // Get our requirements, installed by npm
-var Metalsmith  = require('metalsmith'),
-	markdown    = require('metalsmith-markdown'),
-	layouts     = require('metalsmith-layouts');
+const Metalsmith  = require('metalsmith'),
+	markdown    = require('@metalsmith/markdown'),
+	layouts     = require('@metalsmith/layouts');
 
 // Run Metalsmith in the current directory.
 // When the .build() method runs, this reads
@@ -178,7 +178,7 @@ var Metalsmith  = require('metalsmith'),
 // source files and passes it on to the plugins.
 Metalsmith(__dirname)
 
-	// Use metalsmith-markdown to convert
+	// Use @metalsmith/markdown to convert
 	// our source files' content from markdown
 	// to HTML fragments.
 	.use(markdown())
@@ -199,7 +199,7 @@ There is a wide range of plugins that you could choose to `.use()` for any given
 Save it and you can now tell Node to run your new script.
 
 ```bash
-$ node index
+node index
 ```
 
 With that, each markdown file in `src` is used to generate a corresponding html file in `build` using our content, metadata, and template. Do you hear that noise? That's the sweet, sweet sound of success.
@@ -218,18 +218,18 @@ If using the CLI approach, you no longer need our _index.js_ file in your projec
 ```json
 {
 	"plugins": [
-		{ "metalsmith-markdown": {} },
-		{ "metalsmith-layouts": {} }
+		{ "@metalsmith/markdown": {} },
+		{ "@metalsmith/layouts": {} }
 	]
 }
 ```
 
-Note that we don't have to set up our requirements or use `.build()`. For our simple example, we just tell Metalsmith to use metalsmith-markdown and then run metalsmith-layouts with our configuration options. With this one-time setup, we can run Metalsmith at any time from the command line using the `metalsmith` command.
+Note that we don't have to set up our requirements or use `.build()`. For our simple example, we just tell Metalsmith to use @metalsmith/markdown and then run @metalsmith/layouts with our configuration options. With this one-time setup, we can run Metalsmith at any time from the command line using the `metalsmith` command.
 
 If you'd like to use the local copy we've already installed, you can use `npx` to run the command (`npx` will execute the corresponding command from *node_modules/.bin/*).
 
 ```bash
-$ npx metalsmith
+npx metalsmith
 ```
 
 Once that runs, you will get the exact same results in the build directory. In fact, it helps to completely delete the entire build directory, just so you can see and confirm that it ran.
@@ -241,13 +241,13 @@ If you'd rather use the simpler, configuration-based CLI approach, you can safel
 Most often people regularly using the CLI approach will install Metalsmith _globally_. That means you can use the `metalsmith` command wherever you'd like and it'll look for a _metalsmith.json_ file in the current directory and use that. If you would like to install it globally, you can do so with npm. Note that this _will_ remain installed even if you delete the project folder.
 
 ```bash
-$ npm install -g metalsmith
+npm install -g metalsmith
 ```
 
 If installed globally, then running metalsmith in your current directory—or any current directory with its own _metalsmith.json_ file—is a bit simpler:
 
 ```bash
-$ metalsmith
+metalsmith
 ```
 
 ---
@@ -276,15 +276,15 @@ You'll find that you can continue to add content, if so desired, to the _src/_ f
 In the steps described above, we have set up the project and its dependencies in a folder called 'project' using the command line:
 
 ```bash
-$ mkdir project
-$ cd project
-$ npm init -y
-$ npm install --save-dev metalsmith metalsmith-markdown metalsmith-layouts jstransformer-handlebars
-$ touch index.js
-$ mkdir layouts
-$ touch layouts/default.hbs
-$ mkdir src
-$ touch src/index.md
+mkdir project
+cd project
+npm init -y
+npm install --save-dev metalsmith @metalsmith/markdown @metalsmith/layouts jstransformer-handlebars
+touch index.js
+mkdir layouts
+touch layouts/default.hbs
+mkdir src
+touch src/index.md
 ```
 
 We created a single source file, with YAML frontmatter defining some metadata and which template to use, followed by the file's markdown-formatted content:
@@ -333,15 +333,15 @@ We made our basic handlebars template to change our HTML fragment into a complet
 {% endraw %}
 
 
-We created the script to configure Metalsmith to assemble our source files using our metalsmith-markdown and metalsmith-layouts plugins:
+We created the script to configure Metalsmith to assemble our source files using our @metalsmith/markdown and @metalsmith/layouts plugins:
 
 ## index.js
 
 ```javascript
 // Get our requirements, installed by npm
-var Metalsmith  = require('metalsmith'),
-	markdown    = require('metalsmith-markdown'),
-	layouts     = require('metalsmith-layouts');
+const Metalsmith  = require('metalsmith'),
+	markdown    = require('@metalsmith/markdown'),
+	layouts     = require('@metalsmith/layouts');
 
 // Run Metalsmith in the current directory.
 // When the .build() method runs, this reads
@@ -349,7 +349,7 @@ var Metalsmith  = require('metalsmith'),
 // source files and passes it on to the plugins.
 Metalsmith(__dirname)
 
-	// Use metalsmith-markdown to convert
+	// Use @metalsmith/markdown to convert
 	// our source files' content from markdown
 	// to HTML fragments.
 	.use(markdown())
@@ -368,7 +368,7 @@ Metalsmith(__dirname)
 With the script in place, we used __Node to run it__ with a single command:
 
 ```bash
-$ node index
+node index
 ```
 
 After doing so, our source file's content and metadata from _src/index.md_ generated the corresponding html file, found at _build/index.html_. That's a working API implementation.
@@ -380,8 +380,8 @@ Then, to demonstrate a version using the CLI approach, we created a _metalsmith.
 ```json
 {
 	"plugins": [
-		{ "metalsmith-markdown": {} },
-		{ "metalsmith-layouts": {} }
+		{ "@metalsmith/markdown": {} },
+		{ "@metalsmith/layouts": {} }
 	]
 }
 ```
@@ -389,7 +389,7 @@ Then, to demonstrate a version using the CLI approach, we created a _metalsmith.
 And to run the CLI version using _metalsmith.json_ as the configuration, we ran the Metalsmith command already installed by npm, using `npx` to execute the copy in *node_modules/.bin*.
 
 ```bash
-$ npx metalsmith
+npx metalsmith
 ```
 
 … Which generates the exact same file in the build directory when you run it. If you prefer the CLI approach, read about [installing Metalsmith globally](#optionally-installing-metalsmith-globally), above, to make your life easier.
