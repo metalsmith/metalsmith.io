@@ -20,8 +20,7 @@ const nodeVersion = process.version;
 const githubRegex = /github\.com\/([^/]+)\/([^/]+)\/?$/;
 const oneWeek = 7 * 24 * 60 * 60;
 
-const mappedPlugins = plugins
-.map(plugin => {
+const mappedPlugins = plugins.map(plugin => {
   if (!plugin.status) {
     plugin.status = 'active';
   }
