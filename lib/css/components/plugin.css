@@ -71,7 +71,7 @@
   background-color: #999;
 }
 
-.Plugin-badge:last-of-type {
+.Plugin-badge:last-child {
   margin-right: 0;
 }
 

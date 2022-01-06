@@ -14,7 +14,7 @@ layout: plugins.njk
     <li class="Plugin">
       <a class="Plugin-link" href="{{ plugin.repository }}">
         <h1 class="Plugin-title">
-          {{ plugin.name }}<i class="Plugin-icon ss-{{ plugin.icon }}"></i>
+          <i class="Plugin-icon ss-{{ plugin.icon }}"></i>{{ plugin.name }}
         </h1>
         <i class="Plugin-arrow ss-right"></i>
         <p class="Plugin-description">{{ plugin.description }}</p>
@@ -44,6 +44,11 @@ layout: plugins.njk
             alt="GitHub stars"
           />
         </a>
+        {% if plugin.isCorePlugin %}
+        <span class="Plugin-badge">
+          <img src="https://img.shields.io/badge/metalsmith-core_plugin-green.svg" alt="core plugin">
+        </span>
+        {% endif %} 
       </div>
       <code class="Plugin-snippet desktop-only">npm i {{ plugin.npmName }}</code>
     </li>

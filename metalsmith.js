@@ -20,7 +20,11 @@ const nodeVersion = process.version;
 const githubRegex = /github\.com\/([^/]+)\/([^/]+)\/?$/;
 const oneWeek = 7 * 24 * 60 * 60;
 
-const mappedPlugins = plugins.map(plugin => {
+const mappedPlugins = plugins
+.map(plugin => {
+  if (!plugin.status) {
+    plugin.status = 'active';
+  }
   const result = githubRegex.exec(plugin.repository);
 
   if (result) {
@@ -33,7 +37,9 @@ const mappedPlugins = plugins.map(plugin => {
       npmUrl: `https://www.npmjs.com/package/${npm}`,
       npmDownloads: `https://img.shields.io/npm/dy/${npm}.svg?maxAge=${oneWeek}`,
       npmVersion: `https://img.shields.io/npm/v/${npm}.svg?maxAge=${oneWeek}`,
-      githubStars: `https://img.shields.io/github/stars/${user}/${repo}.svg?maxAge=${oneWeek}`
+      githubStars: `https://img.shields.io/github/stars/${user}/${repo}.svg?maxAge=${oneWeek}`,
+      isCorePlugin: user === 'metalsmith',
+      isUnmaintained: plugin.status !== 'active'
     });
   }
 
