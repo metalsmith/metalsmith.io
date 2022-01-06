@@ -51,13 +51,16 @@
     "postcss-normalize": "^9.0.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.5.1",
-    "stylelint": "^13.13.1",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^22.0.0",
+    "stylelint": "^14.2.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^24.0.0",
     "stylelint-no-unsupported-browser-features": "^5.0.2",
     "stylelint-selector-bem-pattern": "^2.1.1"
   },
   "dependencies": {
     "blazy": "^1.8.2"
+  },
+  "engines": {
+    "node": ">=14.17.0"
   }
 }
