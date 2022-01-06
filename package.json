@@ -19,21 +19,22 @@
     "ext": "js css njk json html md"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "browser-sync": "^2.26.14",
-    "cheerio": "^1.0.0-rc.9",
+    "autoprefixer": "^9.8.8",
+    "browser-sync": "^2.27.7",
+    "cheerio": "^1.0.0-rc.10",
     "cross-env": "^7.0.3",
     "cssnano": "^4.1.11",
-    "eslint": "^7.27.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-compat": "^3.9.0",
-    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-compat": "^3.13.0",
+    "eslint-plugin-import": "^2.25.4",
+    "highlight.js": "^11.3.1",
     "husky": "^6.0.0",
-    "jest": "^27.0.4",
+    "jest": "^27.4.7",
     "jstransformer-marked": "^1.0.3",
     "jstransformer-nunjucks": "^1.0.0",
-    "lint-staged": "^11.0.0",
+    "lint-staged": "^11.2.6",
     "metalsmith": "^2.3.0",
     "metalsmith-browserify": "^1.1.0",
     "metalsmith-favicons": "^1.0.0",
@@ -44,20 +45,19 @@
     "metalsmith-layouts": "^2.3.1",
     "metalsmith-postcss": "^4.2.0",
     "metalsmith-uglify": "^2.4.0",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.15",
     "postcss-custom-media": "^7.0.8",
     "postcss-easy-import": "^3.0.0",
     "postcss-normalize": "^9.0.0",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.3.0",
+    "prettier": "^2.5.1",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^22.0.0",
-    "stylelint-no-unsupported-browser-features": "^5.0.1",
-    "stylelint-selector-bem-pattern": "^2.1.0"
+    "stylelint-no-unsupported-browser-features": "^5.0.2",
+    "stylelint-selector-bem-pattern": "^2.1.1"
   },
   "dependencies": {
-    "blazy": "^1.8.2",
-    "highlight.js": "^10.7.3"
+    "blazy": "^1.8.2"
   }
 }
