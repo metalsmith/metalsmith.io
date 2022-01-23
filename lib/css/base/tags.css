@@ -104,8 +104,8 @@ pre + pre {
 
 hr {
   border: none;
-  height: 100;
-  width: 150;
+  height: 100px;
+  width: 150px;
   margin: 8em auto;
   background-position: center center;
   background-repeat: no-repeat;
