@@ -3,7 +3,6 @@ title: API reference
 description: Metalsmith.js API reference
 slug: api
 layout: default.njk
-draft: true
 ---
 
 Checkout the [project scaffolder](https://github.com/metalsmith/metalsmith/tree/master/examples/project-scaffolder) or [build tool](https://github.com/metalsmith/metalsmith/tree/master/examples/build-tool) examples to see a real example of the Javascript API in use.
