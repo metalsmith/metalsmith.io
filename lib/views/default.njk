@@ -41,6 +41,11 @@
   </main>
   {% endblock %}
 
+  <div class="CookieBanner">
+    <a href="" class="CookieBanner-close">&times;</a>
+    <small>{{ cookieMessage }}</small>
+  </div>
+
   <footer class="Page-footer">
     {#{% from "./partials/svg/metalsmith.svg.njk" import "metalsmithLogo" %}
      {{ metalsmithLogo("Page-footerLogo") | safe }} #}

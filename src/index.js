@@ -1,5 +1,6 @@
 var Blazy = require('blazy');
 var filter = require('../lib/js/filter');
+var cookieBanner = require('../lib/js/cookiebanner');
 
 /**
  * Initialize lazy image loading
@@ -28,3 +29,5 @@ if (input) {
   updatePluginsView();
   input.addEventListener('keyup', updatePluginsView);
 }
+
+cookieBanner();

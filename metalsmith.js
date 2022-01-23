@@ -53,7 +53,12 @@ metalsmith(__dirname)
     placeholderBadgeUrl: 'https://img.shields.io/badge/badge-loading-lightgrey.svg?style=flat',
     plugins: mappedPlugins,
     examples,
-    nodeVersion
+    nodeVersion,
+    cookieMessage: [
+      'This website may use local storage for purely functional purposes (for example to remember preferences),',
+      'and anonymous cookies to gather information about how visitors use the site.',
+      'By continuing to browse this site, you agree to its use of cookies and local storage.'
+    ].join(' ')
   })
   .use(when(isProduction, drafts()))
   .use(

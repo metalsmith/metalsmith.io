@@ -1,6 +1,5 @@
 ---
 title: "Metalsmith"
-htmltitle: "Metalsmith - simple, pluggable static site generator"
 description: "An extremely simple, pluggable static site generator."
 slug: "home"
 layout: "home.njk"
@@ -34,7 +33,7 @@ highlights:
   {% endfor %}
 </section>
 
-# Welcome
+## Welcome
 
 You want to build a website or blog with a static site generator. Well, here is our elevator pitch. It's as easy as that:
 
@@ -83,7 +82,7 @@ npm start
 
 ---
 
-# Install it
+## Install it
 
 Metalsmith and its plugins can be installed with npm or Yarn:
 
@@ -101,11 +100,11 @@ The package exposes both a [JavaScript API](/api), and [CLI](https://github.com/
 
 ---
 
-# Introduction
+## Introduction
 
 Metalsmith is an extremely simple, pluggable static site generator. So let us explain why:
 
-## Why is Metalsmith a pluggable static site generator?
+### Why is Metalsmith a pluggable static site generator?
 
 The task of a static site generator is to produce static build files that can be deployed to a web server. These files are built from source files. Basically for a static site generator this means:
 
@@ -117,7 +116,7 @@ Metalsmith is built on this reasoning. It takes the information from the source 
 
 Manipulations can be anything: translating templates, transpiling code, replacing variables, wrapping layouts around content, grouping files, moving files and so on. This is why we say *»Everything is a Plugin«*. And of course, several manipulations can be applied one after another. Obviously, in this case the sequence matters.
 
-## Why is Metalsmith extremely simple?
+### Why is Metalsmith extremely simple?
 
 1. When all manipulations are performed by plugins, the only thing Metalsmith has to do in its core is to provide for an underlying logic of actually how manipulations are dealt with and for a defined interface for the plugins. To achieve this, we only needed around 400 lines of code --- have a [look at the source yourself](https://github.com/metalsmith/metalsmith/blob/master/lib/index.js). We believe this is rather simple.
 
@@ -131,7 +130,7 @@ Manipulations can be anything: translating templates, transpiling code, replacin
 
 ---
 
-# Everything is a Plugin --- A first example
+## Everything is a Plugin --- A first example
 
 All of the logic in Metalsmith is handled by plugins. You simply chain them together. Here's what the simplest blog looks like. It uses only two plugins, `markdown()` and `layouts()`...
 
@@ -169,7 +168,7 @@ A small comment. The `layouts()` plugin needs the `jstransformer-nunjucks` packa
 
 ---
 
-# How does it work in more detail?
+## How does it work in more detail?
 
 Metalsmith works in three simple steps:
 
@@ -348,7 +347,7 @@ Finally when the `.build(function(err))` is performed our JavaScript object is w
 
 ---
 
-# Metadata & debugging
+## Metadata & debugging
 
 For Metalsmith we have stated that everything is a plugin. That is true, but in addition the Metalsmith core also provides for a `metadata()` function. You can specify arbitrary `{property: property value}` pairs and these information will be globally accessible from each plugin.
 
@@ -389,13 +388,13 @@ The source and destination path, the metadata and all files are then logged to t
 
 ---
 
-# Further information
+## Further information
 
 Yes, we know. The documentation can be improved. If you want to help, give us a shout. But in the meantime have a look at the [Awesome Metalsmith list](https://github.com/metalsmith/awesome-metalsmith). There you will find references to a number of excellent tutorials, examples and use cases.
 
 ---
 
-# A Little Secret
+## A Little Secret
 
 We keep referring to Metalsmith as a "static site generator", but it's a lot more than that. Since everything is a plugin, the core library is actually just an abstraction for manipulating a directory of files.
 
@@ -420,7 +419,7 @@ Check out [the code examples](https://github.com/metalsmith/metalsmith/tree/mast
 
 ---
 
-# Writing A Plugin
+## Writing A Plugin
 
 Writing a plugin is not difficult as you have seen above with the `metalsmith-drafts` plugin. In order to achieve more complicated tasks you will most likely find and can use `npm`-packages. Look at how others have done it. Here is an example using `debug` (which we appreciate if you use it) and `multimatch`:
 
@@ -456,7 +455,7 @@ function plugin(opts){
 
 ---
 
-# Matching
+## Matching
 
 Even though we touched on the topic already, we did not tackle it explicitly. We mentioned that plugins usually run through all files presented to `metalsmith`. This happens in a loop like this:
 
@@ -500,7 +499,7 @@ const { normalize } = require('path');
 
 ---
 
-# License
+## License
 
 The MIT License (MIT)
 

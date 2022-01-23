@@ -31,6 +31,7 @@ h6 {
   color: var(--color-black);
   font-weight: 400;
   font-family: var(--font-headings);
+  text-transform: uppercase;
 }
 
 h1 {
@@ -106,7 +107,7 @@ hr {
   border: none;
   height: 100px;
   width: 150px;
-  margin: 8em auto;
+  margin: 4em auto;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
