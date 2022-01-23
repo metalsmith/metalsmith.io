@@ -1,0 +1,52 @@
+/** @define Page **/
+
+.Page {
+  height: 100%;
+  position: relative;
+}
+
+.Page-header {
+  position: relative;
+  background-color: var(--color-black);
+  width: 100%;
+  z-index: 999;
+  top: 0;
+  border-bottom: 1px solid var(--color-dark-gray);
+  height: 3.1rem;
+}
+
+.Page-body {
+  width: 100%;
+  min-height: calc(100% - 8.1rem);
+  max-width: var(--body-width);
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.Page-title {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.Page-footer {
+  position: relative;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding: 2rem 0 1rem;
+  height: 5rem;
+}
+
+.Page-footerLogo {
+  height: 16px;
+}
+
+@media (--lg-viewport) {
+  .Page-body {
+    min-height: calc(100% - 10.2rem);
+  }
+
+  .Page-header {
+    height: 5.2rem;
+  }
+}

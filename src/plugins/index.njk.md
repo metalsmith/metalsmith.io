@@ -1,8 +1,14 @@
 ---
-title: Plugins
-description: registered plugins
-layout: plugins.njk
+title: Plugin registry
+description: Metalsmith.js plugin registry
+slug: plugins
+layout: default.njk
 ---
+
+<p class="PluginList-subtitle">
+  <span class="PluginHeader">{{ description | safe }}</span>
+  <a href="#submit-your-plugin" class="PluginsSubmit">Submit yours</a>
+</p>
 
 <label class="PluginFilter">
   <i class="PluginFilter-icon ss-search"></i>

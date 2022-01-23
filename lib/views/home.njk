@@ -1,48 +1,22 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if htmltitle %}{{ htmltitle }}{% else %}{{ title }}{% endif %}</title>
-  <meta name="description" content="{{ description }}" />
-  <meta name="node" content="{{ nodeVersion }}" />
-  {% if favicons and favicons.html %}
-    {% for tag in favicons.html %}
-      {{ tag | safe }}
-    {% endfor %}
-  {% endif %}
-  <link rel="stylesheet" href="/index.css">
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Anton" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="//cdn.symbolset.com/94440cd0456394a198fb9c3302ad80fe007e5eff/symbolset.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/tomorrow.min.css" media="print" onload="this.media='all'">
-  {% include "./partials/facebook.njk" %}
-  {% include "./partials/twitter.njk" %}
-  {% include "./partials/analytics.njk" %}
-  <meta name="google-site-verification" content="2RKFuZol3mkMgto2Y0TUZUmzMpWZ-Ck-7HjocBHpJtE" />
-</head>
-<body>
-  <header class="Header">
-    <nav class="Header-nav">
-      <ul>
-        <li class="Header-navItem"><a class="Header-navLink" href="/#introduction">Docs</a></li>
-        <li class="Header-navItem"><a class="Header-navLink" href="/#api">API</a></li>
-        <li class="Header-navItem"><a class="Header-navLink" href="/plugins">Plugins</a></li>
-      </ul>
-    </nav>
-    <h1 class="Header-title Header--home">
-      <a class="Header-link" href="/">{{ title }}</a>
-    </h1>
-    <p class="Header-subtitle">{{ description | safe }}</p>
-    <a class="Header-github Header-github--home" href="https://github.com/metalsmith/metalsmith">Star on GitHub</a>
-    <a class="Header-gitter Header-gitter--home" href="https://gitter.im/metalsmith/community">Join the Gitter community</a>
-  </header>
-  <section class="Body">
-    <hr>
-    {% block main %}
-      {{ contents | safe }}
-    {% endblock %}
-  </section>
-  <script type="text/javascript" src="/index.js"></script>
-</body>
-</html>
+{% extends "./default.njk" %}
+{% from "./partials/nav.njk" import "nav" %}
+{% from "./partials/svg/metalsmith.svg.njk" import "metalsmithLogo" %}
+
+{% block top %}
+  {{ nav(slug, logo=false, socials=true) }}
+{% endblock %}
+
+{% block main %}
+  <div class="Banner">
+    <div class="Banner-content">
+      <h1 class="Banner-title">
+        <a class="Banner-permalink" href="/">{{ metalsmithLogo("Banner-logo") | safe }}</a>
+      </h1>
+      <p class="Banner-tagline">{{ description }}</p>
+      <a class="Banner-action" href="/#welcome">Get Started</a>
+    </div>
+  </div>
+  <main class="Page-body">
+    {{ contents | safe }}
+  </main>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% from "./svg/metalsmith.svg.njk" import "metalsmithLogo" %}
+{% macro nav(active, variant = '', logo = true, socials = true) %}
+  <nav class="Site-nav Nav" id="menu-closed" {% if logo === false %}style="justify-content: flex-end;"{% endif %}>
+    {% if logo %}
+    <a class="Nav-link Nav-logo" href="/">
+        {{ metalsmithLogo("Nav-logoIcon Nav-logoIcon--full") | safe }}
+    </a>
+    {% endif %}
+    <div class="Nav-items" id="menu-opened">
+      <ul class="Nav-site">
+          <li class="Nav-item Nav-item--home">
+            <a class="Nav-link {% if active === 'home' %}is-active{% endif %}" href="/">
+              {% include "./svg/m.svg.njk" %}
+              {{ metalsmithLogo("Nav-logoIcon Nav-logoIcon--full") | safe }}
+            </a>
+        </li>
+        <li class="Nav-item">
+          <a class="Nav-link {% if active === 'docs' %}is-active{% endif %}" href="/#welcome">Docs</a>
+        </li>
+        <li class="Nav-item">
+          <a class="Nav-link {% if active === 'api' %}is-active{% endif %}" href="/api">API</a>
+        </li>
+        <li class="Nav-item">
+          <a class="Nav-link {% if active === 'plugins' %}is-active{% endif %}" href="/plugins">Plugins</a>
+        </li>
+        <li class="Nav-item">
+          <a class="Nav-link {% if active === 'news' %}is-active{% endif %}" href="/news">News</a>
+        </li>
+        <li class="Nav-item">
+          <a class="Nav-link {% if active === 'about' %}is-active{% endif %}" href="/about">About</a>
+        </li>
+      </ul>
+      <ul class="Nav-socials">
+        {% if socials %}
+          <li class="Nav-item">
+            <a href="https://gitter.im/metalsmith/community" class="Nav-link Nav-link--gitter" title="Gitter">
+              {% include "./svg/gitter.svg.njk" %}
+              <!-- <small class="gitter-join">Join us on Gitter<i class="ss-left"></i></small> -->
+            </a>
+          </li>
+          <li class="Nav-item">
+            <a href="https://github.com/metalsmith/metalsmith" class="Nav-link Nav-link--github" title="Github">
+              {% include "./svg/github.svg.njk" %}
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+      <a href="#menu-closed" class="Nav-close">×</a>
+    </div>
+    <a href="#menu-opened" class="Nav-toggle">
+      {% include "./svg/menu.svg.njk" %}
+    </a>
+  </nav>
+{% endmacro %}

@@ -1,0 +1,54 @@
+/** @define Highlight **/
+.Highlight-wrapper {
+  margin: 0 0 2rem;
+}
+
+.Highlight {
+  position: relative;
+  padding: 0.375em;
+}
+
+.Highlight-content {
+  position: relative;
+  padding: 1em;
+  padding-left: 3em;
+  background: var(--color-white);
+  height: 100%;
+}
+
+.Highlight-icon {
+  font-size: 2em;
+  line-height: 1em;
+  position: absolute;
+  left: 0.25em;
+  top: 0.5em;
+}
+
+.Highlight-icon::before {
+  line-height: 1em;
+  font-size: 1em;
+  top: 0;
+  padding-right: 0;
+}
+
+.Highlight-title {
+  margin: 0 0 0.5em;
+  line-height: 1em;
+}
+
+.Highlight-desc {
+  margin: 0;
+}
+
+@media (--lg-viewport) {
+  .Highlight-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    margin: 0 -0.5rem 2rem;
+  }
+
+  .Highlight {
+    width: 50%;
+  }
+}

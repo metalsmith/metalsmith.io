@@ -1,0 +1,52 @@
+
+{% from "./partials/nav.njk" import "nav" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metalsmith | {{ slug | capitalize }}</title>
+  <meta name="description" content="{{ description }}" />
+  <meta name="node" content="{{ nodeVersion }}" />
+  <meta name="generator" content="metalsmith" />
+  {% if favicons and favicons.html %}
+    {% for tag in favicons.html %}
+      {{ tag | safe }}
+    {% endfor %}
+  {% endif %}
+  <link rel="stylesheet" href="/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Antonio:wght@600&display=swap">
+  <link rel="stylesheet" href="//cdn.symbolset.com/94440cd0456394a198fb9c3302ad80fe007e5eff/symbolset.css" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/tomorrow.min.css" media="print" onload="this.media='all'">
+  {% include "./partials/facebook.njk" %}
+  {% include "./partials/twitter.njk" %}
+  {% include "./partials/analytics.njk" %}
+  <meta name="google-site-verification" content="2RKFuZol3mkMgto2Y0TUZUmzMpWZ-Ck-7HjocBHpJtE" />
+</head>
+<body {% if slug %}class="Page Page--{{ slug }}"{% endif %}>
+
+  <header class="Page-header">
+    {% block top %}
+        {{ nav(slug, variant='dark', socials=true) }}
+    {% endblock %}
+  </header>
+
+  {% block main %}
+  <main class="Page-body">
+    <h1 class="Page-title">{{ title }}</h1>
+    {{ contents | safe }}
+  </main>
+  {% endblock %}
+
+  <footer class="Page-footer">
+    {#{% from "./partials/svg/metalsmith.svg.njk" import "metalsmithLogo" %}
+     {{ metalsmithLogo("Page-footerLogo") | safe }} #}
+    <small>&copy; <span itemprop="copyRightYear">2021</span>, <span itemprop="copyRightHolder">webbketje</span>. Content licensed under <a href="http://creativecommons.org/licenses/by/4.0/" itemprop="license">Creative Commons</a>, their respective authors</small>
+  </footer>
+  {% block scripts %}{% endblock %}
+  <script type="text/javascript" src="/index.js"></script>
+</body>
+</html>

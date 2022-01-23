@@ -66,8 +66,8 @@
 }
 
 .Plugin-badgeImage {
-  min-width: 60px;
-  height: 20px;
+  min-width: 60;
+  height: 20;
   background-color: #999;
 }
 

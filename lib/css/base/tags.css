@@ -8,6 +8,8 @@ html {
   color: var(--color-dark-gray);
   background: url('/img/ground.jpg') var(--color-light-gray);
   scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
 }
 
 *,
@@ -35,8 +37,7 @@ h1 {
   line-height: 1;
   font-size: 2em;
   margin-bottom: 0.5em;
-  text-transform: uppercase;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
@@ -93,6 +94,8 @@ pre {
   position: relative;
   background-color: var(--color-white);
   padding: 1.5em;
+  border-left: 2px solid var(--color-gold);
+  overflow-x: auto;
 }
 
 pre + pre {
@@ -101,8 +104,8 @@ pre + pre {
 
 hr {
   border: none;
-  height: 100px;
-  width: 150px;
+  height: 100;
+  width: 150;
   margin: 8em auto;
   background-position: center center;
   background-repeat: no-repeat;

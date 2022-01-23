@@ -1,11 +1,10 @@
 /** @define PluginList */
 
 .PluginList-subtitle {
-  width: var(--body-width);
-  margin: 1em auto;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 1em 1em 0;
+  padding: 1em 0;
   font-size: 1.25rem;
 }
 

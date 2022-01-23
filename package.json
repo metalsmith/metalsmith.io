@@ -2,13 +2,14 @@
   "name": "metalsmith.io",
   "private": true,
   "scripts": {
-    "start": "npm run watch & npm run serve",
+    "start": "cross-env NODE_ENV=development npm run watch & npm run serve",
     "build": "cross-env NODE_ENV=production node metalsmith.js",
     "watch": "nodemon metalsmith.js",
     "serve": "browser-sync start --server 'build' --files 'build/**'",
     "lint:css": "stylelint '**/*.css'",
     "lint:js": "eslint '**/*.js'",
     "lint:prettier": "prettier --list-different '**/*.{js,css}'",
+    "format": "prettier --write '**/*.{js,css}'",
     "test": "npm run build && jest"
   },
   "nodemonConfig": {
@@ -19,6 +20,8 @@
     "ext": "js css njk json html md"
   },
   "devDependencies": {
+    "@metalsmith/drafts": "^1.1.1",
+    "@metalsmith/layouts": "^2.4.0",
     "autoprefixer": "^9.8.8",
     "browser-sync": "^2.27.7",
     "cheerio": "^1.0.0-rc.10",
@@ -42,7 +45,6 @@
     "metalsmith-if": "^0.1.1",
     "metalsmith-imagemin": "^4.1.4",
     "metalsmith-in-place": "^4.4.2",
-    "metalsmith-layouts": "^2.3.1",
     "metalsmith-postcss": "^4.2.0",
     "metalsmith-uglify": "^2.4.0",
     "nodemon": "^2.0.15",

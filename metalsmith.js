@@ -1,7 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 const inPlace = require('metalsmith-in-place');
-const layouts = require('metalsmith-layouts');
+const layouts = require('@metalsmith/layouts');
+const drafts = require('@metalsmith/drafts');
 const when = require('metalsmith-if');
 const favicons = require('metalsmith-favicons');
 const postcss = require('metalsmith-postcss');
@@ -54,6 +55,7 @@ metalsmith(__dirname)
     examples,
     nodeVersion
   })
+  .use(when(isProduction, drafts()))
   .use(
     when(
       isProduction,
