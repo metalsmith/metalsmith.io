@@ -12,6 +12,7 @@
   line-height: 1em;
   font-size: 1.2em;
   font-style: italic;
+  z-index: 999;
 }
 
 .CookieBanner-close {

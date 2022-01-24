@@ -38,7 +38,7 @@
 }
 
 .Nav-link.Nav-logo {
-  border-bottom: none;
+  border: 1px solid transparent;
 }
 
 .Nav-link--gitter {

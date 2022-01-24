@@ -3,6 +3,8 @@
 const inPlace = require('metalsmith-in-place');
 const layouts = require('@metalsmith/layouts');
 const drafts = require('@metalsmith/drafts');
+const collections = require('@metalsmith/collections');
+const debugUI = require('metalsmith-debug-ui');
 const when = require('metalsmith-if');
 const favicons = require('metalsmith-favicons');
 const postcss = require('metalsmith-postcss');
@@ -10,7 +12,7 @@ const browserify = require('metalsmith-browserify');
 const uglify = require('metalsmith-uglify');
 const htmlMinifier = require('metalsmith-html-minifier');
 const imagemin = require('metalsmith-imagemin');
-const metalsmith = require('metalsmith');
+const Metalsmith = require('metalsmith');
 const hljs = require('highlight.js');
 const examples = require('./lib/data/examples.json');
 const plugins = require('./lib/data/plugins.json');
@@ -20,6 +22,16 @@ hljs.configure({ classPrefix: 'hljs-' });
 const nodeVersion = process.version;
 const githubRegex = /github\.com\/([^/]+)\/([^/]+)\/?$/;
 const oneWeek = 7 * 24 * 60 * 60;
+
+// nunjucks filter
+function formatDate(value, format) {
+  const dt = new Date(value);
+  if (format === 'iso') {
+    return dt.toISOString();
+  }
+  const utc = dt.toUTCString().match(/(\d{1,2}) (.*) (\d{4})/);
+  return `${utc[2]} ${utc[1]}, ${utc[3]}`;
+}
 
 const mappedPlugins = plugins.map(plugin => {
   if (!plugin.status) {
@@ -47,13 +59,14 @@ const mappedPlugins = plugins.map(plugin => {
 });
 
 const isProduction = process.env.NODE_ENV === 'production';
-
-metalsmith(__dirname)
+const metalsmith = isProduction ? Metalsmith(__dirname) : debugUI.patch(Metalsmith(__dirname));
+metalsmith
   .metadata({
     placeholderBadgeUrl: 'https://img.shields.io/badge/badge-loading-lightgrey.svg?style=flat',
     plugins: mappedPlugins,
     examples,
     nodeVersion,
+    isProduction,
     cookieMessage: [
       'This website may use local storage for purely functional purposes (for example to remember preferences),',
       'and anonymous cookies to gather information about how visitors use the site.',
@@ -76,6 +89,13 @@ metalsmith(__dirname)
     )
   )
   .use(
+    collections({
+      news: {
+        pattern: 'news/*/*/*.md'
+      }
+    })
+  )
+  .use(
     inPlace({
       engineOptions: {
         smartypants: true,
@@ -83,15 +103,32 @@ metalsmith(__dirname)
         highlight: function highlight(code, lang) {
           const result = hljs.highlight(code, { language: lang });
           return result.value;
+        },
+        filters: {
+          formatDate
         }
       },
       pattern: '**/*.md'
     })
   )
+  // this plugin is a temporary fix for in-place not supporting dots in dirnames
+  .use(files => {
+    Object.keys(files).forEach(key => {
+      if (key.includes('+')) {
+        files[key.replace(/\+/g, '.')] = files[key];
+        delete files[key];
+      }
+    });
+  })
   .use(
     layouts({
       directory: 'lib/views',
-      pattern: '**/*.html'
+      pattern: '**/*.html',
+      engineOptions: {
+        filters: {
+          formatDate
+        }
+      }
     })
   )
   .use(

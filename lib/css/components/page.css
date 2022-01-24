@@ -23,9 +23,16 @@
   padding: 2rem 1rem 3rem;
 }
 
+.Page-pubdate {
+  float: right;
+  font-family: var(--font-headings);
+}
+
 .Page-title {
   margin-top: 0;
   margin-bottom: 2rem;
+  border-bottom: 1px solid var(--color-gray);
+  padding-bottom: 1rem;
 }
 
 .Page-footer {
@@ -39,6 +46,20 @@
 
 .Page-footerLogo {
   height: 16px;
+}
+
+.Page-related {
+  border-top: 1px solid var(--color-gray);
+  margin-top: 2rem;
+  padding-top: 0.5rem;
+  overflow: auto;
+}
+
+.Page-backlink {
+  float: right;
+  margin-top: -1.65rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-black);
 }
 
 @media (--lg-viewport) {

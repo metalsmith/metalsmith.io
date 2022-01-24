@@ -20,6 +20,7 @@
     "ext": "js css njk json html md"
   },
   "devDependencies": {
+    "@metalsmith/collections": "^1.1.0",
     "@metalsmith/drafts": "^1.1.1",
     "@metalsmith/layouts": "^2.4.0",
     "autoprefixer": "^9.8.8",
@@ -40,6 +41,7 @@
     "lint-staged": "^11.2.6",
     "metalsmith": "^2.3.0",
     "metalsmith-browserify": "^1.1.0",
+    "metalsmith-debug-ui": "^0.3.2",
     "metalsmith-favicons": "^1.0.0",
     "metalsmith-html-minifier": "^4.0.1",
     "metalsmith-if": "^0.1.1",

@@ -1,3 +1,4 @@
+{% if isProduction %}
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PH9MZFQLJE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -5,3 +6,4 @@
   gtag('js', new Date());
   gtag('config', 'G-PH9MZFQLJE', { anonymize_ip: true });
 </script>
+{% endif %}
