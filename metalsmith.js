@@ -4,12 +4,11 @@ const inPlace = require('metalsmith-in-place');
 const layouts = require('@metalsmith/layouts');
 const drafts = require('@metalsmith/drafts');
 const collections = require('@metalsmith/collections');
+const parcelPlugin = require('metalsmith-parcel-local');
 const debugUI = require('metalsmith-debug-ui');
 const when = require('metalsmith-if');
 const favicons = require('metalsmith-favicons');
 const postcss = require('metalsmith-postcss');
-const browserify = require('metalsmith-browserify');
-const uglify = require('metalsmith-uglify');
 const htmlMinifier = require('metalsmith-html-minifier');
 const imagemin = require('metalsmith-imagemin');
 const Metalsmith = require('metalsmith');
@@ -67,6 +66,7 @@ metalsmith
     examples,
     nodeVersion,
     isProduction,
+    siteUrl: isProduction ? 'https://metalsmith.io' : 'https://localhost:3000',
     cookieMessage: [
       'This website may use local storage for purely functional purposes (for example to remember preferences),',
       'and anonymous cookies to gather information about how visitors use the site.',
@@ -80,6 +80,8 @@ metalsmith
       favicons({
         src: 'favicons/favicon.png',
         dest: 'favicons/',
+        appName: 'Metalsmith.io',
+        appDescription: 'An extremely simple, pluggable static site generator',
         icons: {
           android: true,
           appleIcon: true,
@@ -100,10 +102,6 @@ metalsmith
       engineOptions: {
         smartypants: true,
         smartLists: true,
-        highlight: function highlight(code, lang) {
-          const result = hljs.highlight(code, { language: lang });
-          return result.value;
-        },
         filters: {
           formatDate
         }
@@ -132,11 +130,6 @@ metalsmith
     })
   )
   .use(
-    browserify({
-      entries: ['index.js']
-    })
-  )
-  .use(
     postcss({
       plugins: [
         'postcss-easy-import',
@@ -148,21 +141,16 @@ metalsmith
         'autoprefixer',
         'cssnano'
       ],
-      map: {
-        inline: false
-      }
+      map: isProduction
+        ? false
+        : {
+            inline: false
+          }
     })
   )
+  .use(parcelPlugin({ entries: 'lib/js/index.js' }))
   .use(when(isProduction, htmlMinifier()))
   .use(when(isProduction, imagemin()))
-  .use(
-    when(
-      isProduction,
-      uglify({
-        sameName: true
-      })
-    )
-  )
   .build(err => {
     if (err) {
       throw err;

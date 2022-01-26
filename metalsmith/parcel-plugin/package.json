@@ -1,0 +1,25 @@
+{
+  "name": "metalsmith-parcel-local",
+  "description": "",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "scripts": {},
+  "dependencies": {
+    "@parcel/bundler-default": "^2.2.1",
+    "@parcel/compressor-raw": "^2.2.1",
+    "@parcel/namer-default": "^2.2.1",
+    "@parcel/optimizer-terser": "^2.2.1",
+    "@parcel/packager-js": "^2.2.1",
+    "@parcel/resolver-default": "^2.2.1",
+    "@parcel/runtime-js": "^2.2.1",
+    "@parcel/transformer-babel": "^2.2.1",
+    "@parcel/transformer-js": "^2.2.1",
+    "@parcel/transformer-json": "^2.2.1",
+    "debug": "^4.3.3"
+  },
+  "peerDependencies": {
+    "@parcel/core": "^2.2.1"
+  }
+}
