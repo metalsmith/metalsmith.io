@@ -1,0 +1,31 @@
+name: Pre-deploy checks
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: NPM dependencies
+        run: npm install
+
+      - name: lint:css
+        run: npm run lint:css
+
+      - name: lint:js
+        run: npm run lint:js
+      
+      - name: lint:prettier
+        run: npm run lint:prettier
+      
+      - name: test
+        run: npm test
+
+      - name: build
+        run: npm run build
