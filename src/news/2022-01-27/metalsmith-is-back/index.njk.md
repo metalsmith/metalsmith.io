@@ -5,7 +5,6 @@ description: >
   Core plugins moved to the Github & NPM metalsmith orgs, and a lot more changes.
 pubdate: 2022-01-27
 layout: default.njk
-draft: true
 ---
 
 After a 5-year maintenance-mode break, Metalsmith.js is *back*. In a nutshell: the Metalsmith maintainers agreed to a transfer by Intellectual Property Assignment with [Segment][], &mdash; the previous owners & developers of Metalsmith. The software is now owned, maintained, and developed by [Kevin VL][webketje_gh] (me) doing business as [webketje][kbo], with periodic feedback from earlier maintainers [ismay][] and [Ajedi32][]. You can find more details about how Metalsmith got here on the [About page][].
@@ -20,15 +19,31 @@ I firmly believe in the value of open-source and free software, as it has enable
 
 * **Metalsmith org on Github & NPM** &mdash; We've decided to consolidate the previously fragmented *core plugins* in the GitHub [metalsmith org][metalsmith_gh] and [NPM @metalsmith org][metalsmith_npm] to increase the appeal and ease of introduction to the tool.
 * **New core plugins** &mdash; [`@metalsmith/sass`](https://github.com/metalsmith/sass) - a dart-sass implementation, and [`@metalsmith/table-of-contents`](https://github.com/metalsmith/table-of-contents), adopted from the former community plugin [`metalsmith-autotoc`](https://github.com/anatoo/metalsmith-autotoc).
+* **TS-style JSdocs** &mdash; All core plugings now have more informative TS-style JSdocs, which will be understood as typehints in editors like VS Code. [@types/metalsmith](https://npmjs.com/package/@types/metalsmith) got a final update for v2.3.0 and an issue has been set up to track demand for TS support. [Add a thumbs up](https://github.com/metalsmith/metalsmith/issues/356) if you would like to see more support for TS in the future.
 * **Metalsmith website redesign** &mdash; A responsive, multi-page website with a news, API, docs, and about section, all completely in metalsmith.
 * **Added [contribution guidelines](https://github.com/metalsmith/metalsmith/CONTRIBUTING.md)**
 
 ## Going forward
 
+First, as a lot of issues noted, the documentation is lacking and will be significantly improved with links to interactive examples on [replit.com](https://replit.com).
+A lot has happened in the Node & JS ecosystems and in a first time the goal is to get Metalsmith on par with current alternatives.
+This includes:
+
+- Providing a dual CommonJS & ES module build for Node
+- Adding utility methods to Metalsmith to make pugin development easier and more aligned
+- Replacing the generator approach with a promise-based approach
+- Exploring how NodeJS worker threads could potentially improve build times
+- Exploring new vital core plugins (eg cache, js-bundlers, multilanguage)
+
+A careful approach will be taken for Node support: the first 2 upcoming versions will drop support for Node <= 8, then Node <= 12, then following Node LTS releases <abbr title="End of Life">EOL</abbr>. 
+
+I have a full-time job and other duties, but care a lot about Metalsmith and at the very least it and its core plugins will get frequent patch updates.
+If you want to help out, be it with a starter template, idea, plugin, dev chore, please join [our Gitter channel](https://gitter.im/metalsmith/community) (also supports Matrix accounts), all help is welcome!
+
+Looking forward to it.
 
 
-
-
+[@webketje](https://github.com/webketje)
 
 [Segment]: https://segment.com
 [About page]: /about
@@ -44,3 +59,4 @@ I firmly believe in the value of open-source and free software, as it has enable
 [metalsmith_npm]: https://npmjs.com/org/metalsmith
 [ismay]: https://github.com/ismay
 [Ajedi32]: https://github.com/Ajedi32
+[kbo]: https://kbopub.economie.fgov.be/kbopub/toonondernemingps.html?lang=en&ondernemingsnummer=759463478
