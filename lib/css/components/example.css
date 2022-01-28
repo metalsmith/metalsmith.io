@@ -5,6 +5,7 @@
   margin-top: 1px;
   padding: 1.5em;
   background-color: var(--color-white);
+  list-style: none;
 }
 
 .Example-title {

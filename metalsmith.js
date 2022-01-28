@@ -4,7 +4,6 @@ const inPlace = require('metalsmith-in-place');
 const layouts = require('@metalsmith/layouts');
 const drafts = require('@metalsmith/drafts');
 const collections = require('@metalsmith/collections');
-const parcelPlugin = require('metalsmith-parcel-local');
 const debugUI = require('metalsmith-debug-ui');
 const when = require('metalsmith-if');
 const favicons = require('metalsmith-favicons');
@@ -12,11 +11,9 @@ const postcss = require('metalsmith-postcss');
 const htmlMinifier = require('metalsmith-html-minifier');
 const imagemin = require('metalsmith-imagemin');
 const Metalsmith = require('metalsmith');
-const hljs = require('highlight.js');
+const esbuildPlugin = require('metalsmith-esbuild-local');
 const examples = require('./lib/data/examples.json');
 const plugins = require('./lib/data/plugins.json');
-
-hljs.configure({ classPrefix: 'hljs-' });
 
 const nodeVersion = process.version;
 const githubRegex = /github\.com\/([^/]+)\/([^/]+)\/?$/;
@@ -148,7 +145,13 @@ metalsmith
           }
     })
   )
-  .use(parcelPlugin({ entries: 'lib/js/index.js' }))
+  .use(
+    esbuildPlugin({
+      entries: {
+        index: './lib/js/index'
+      }
+    })
+  )
   .use(when(isProduction, htmlMinifier()))
   .use(when(isProduction, imagemin()))
   .build(err => {

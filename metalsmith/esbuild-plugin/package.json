@@ -1,0 +1,13 @@
+{
+  "name": "metalsmith-esbuild-local",
+  "description": "",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "scripts": {},
+  "dependencies": {
+    "debug": "^4.3.3",
+    "esbuild": "^0.14.14"
+  }
+}
