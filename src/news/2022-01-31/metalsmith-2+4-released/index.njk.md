@@ -1,12 +1,71 @@
 ---
-title: Metalsmith 2.4.0 released
-description: Metalsmith 2.4.0 released
-pubdate: 2022-02-02
+title: Metalsmith 2.4 released
+description: A new metalsmith.match pattern-matching method, awaitable builds, advanced front-matter option and lots of bugfixes
+pubdate: 2022-01-31
 layout: default.njk
-draft: true
 ---
 
-Metalsmith 2.4.0 is out! 
+Metalsmith 2.4 is out!
+
+[Github release](https://github.com/metalsmith/metalsmith/releases/tag/v2.4.1) |
+[Github Roadmap 2.4 issue](https://github.com/metalsmith/metalsmith/issues/352) |
+[NPM package](https://www.npmjs.com/package/metalsmith/v/2.4.1) | Node >= 8
+
+## Highlights
+
+* Plugins can now rely on a **new `Metalsmith#match` method** to match files by pattern. This implementation uses [micromatch](https://www.npmjs.com/package/micromatch) which came out as most performant in [a benchmark](https://github.com/metalsmith/metalsmith/issues/338#issuecomment-790111326)
+  ```js
+  // example plugin
+  function MyPlugin(files, metalsmith) {
+    // when no input is specified, matches against Object.keys(files)
+    const img = metalsmith.match('**/*.{jpg,png}')
+    // do not match dot files
+    const  = metalsmith.match('**/*', { dot: false })
+    // run on custom input
+    const custom = metalsmith.match('**/*.{jpg,png}', { dot: false }, ['.htaccess', 'img.jpg'])
+  }
+  ```
+  See the new [API docs](/api/#Metalsmith+match) for detailed method signature information. 
+
+* `Metalsmith#frontmatter` now accepts a **[gray-matter options](https://github.com/jonschlinkert/gray-matter#options) object** in addition to `true` or `false`:
+  ```js
+  Metalsmith(__dirname)
+    .frontmatter({
+      engines: {
+        toml: toml.parse.bind(require('toml'))
+      },
+      language: 'toml',
+      excerpt_separator: '~~~',
+      delimiters: '~~~',
+      excerpt: true
+    })
+  ```
+  This means metalsmith now has native support for defining excerpts without a plugin, as an extra section below front-matter and for other front-matter languages like TOML. The config above would parse this as valid front-matter:
+
+  ```md
+  ~~~
+  title = "Hello"
+  ~~~
+  This is my first post
+  ~~~
+  ```
+  See also the [API docs](/api/#Metalsmith+frontmatter) for detailed method signature information. 
+* **`Metalsmith#build`** can now be `await`'ed:
+    ```js
+    try {
+      const files = await metalsmith.build()
+    } catch (err) {
+      console.error(err)
+    }
+    ```
+    Furthermore build() silently fails if an error is thrown. Given the ability to `.then` the build and the impossibility to know whether a `.then` is actually attached, throwing an error or logging a warning in a default callback would cause more frustration to the promise-based build users than add value to the few users who forget to specify a callback.
+    
+    The signature `build(callback)` does not return a promise. Metalsmith users have to opt for one of the 2 build flows (callback or promise-based)
+
+* [Important bugfix](https://github.com/metalsmith/metalsmith/issues/206#issuecomment-1005254540) for `Metalsmith#ignore` that ensures ignored paths will not accidentally be matched as absolute paths
+
+
+## Full Release notes
 
 ### Added
 

@@ -79,7 +79,7 @@ Initialize a new `Metalsmith` builder with a working `directory`.
     * [.frontmatter([frontmatter])](#Metalsmith+frontmatter) ⇒ <code>boolean</code> \| [<code>Metalsmith</code>](#Metalsmith)
     * [.ignore([files])](#Metalsmith+ignore) ⇒ [<code>Metalsmith</code>](#Metalsmith) \| <code>Array.&lt;string&gt;</code>
     * [.path(...paths)](#Metalsmith+path) ⇒ <code>string</code>
-  <!--  * [.match(patterns, options, [input])](#Metalsmith+match) ⇒ <code>Array.&lt;string&gt;</code> -->
+    * [.match(patterns, options, [input])](#Metalsmith+match) ⇒ <code>Array.&lt;string&gt;</code>
     * [.build([callback])](#Metalsmith+build) ⇒ [<code>Promise.&lt;Files&gt;</code>](#Files)
     * [.process([callback])](#Metalsmith+process) ⇒ [<code>Files</code>](#Files)
     * [.run(files, plugins)](#Metalsmith+run) ⇒ <code>Object</code>
@@ -249,19 +249,19 @@ metalsmith.clean()      // returns true
 ```
 <a name="Metalsmith+frontmatter"></a>
 
-### metalsmith.frontmatter([frontmatter]) ⇒ <code>boolean</code> \| [<code>Metalsmith</code>](#Metalsmith)
+### metalsmith.frontmatter([frontmatter]) ⇒ <code>boolean</code> \| <code>Object</code> \| [<code>Metalsmith</code>](#Metalsmith)
 Optionally turn off frontmatter parsing.
 
 **Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th>
+      <th>Param</th><th>Type</th><th>Description</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>[frontmatter]</td><td><code>boolean</code></td>
+    <td>[frontmatter]</td><td><code>boolean|Object</code></td><td>Turn frontmatter on or off, or provide a custom [gray-matter options](https://github.com/jonschlinkert/gray-matter#options) object/td>
     </tr>  </tbody>
 </table>
 
@@ -317,7 +317,7 @@ Resolve `paths` relative to the metalsmith `directory`.
 ```js
 metalsmith.path('./path','to/file.ext')
 ```
-<!--
+
 <a name="Metalsmith+match"></a>
 
 ### metalsmith.match(patterns, options, [input]) ⇒ <code>Array.&lt;string&gt;</code>
@@ -343,7 +343,7 @@ If `input` is not specified, patterns are matched against `Object.keys(files)`
     <td>[input]</td><td><code>Array.&lt;string&gt;</code></td><td><p>array of strings to match against</p>
 </td>
     </tr>  </tbody>
-</table>-->
+</table>
 
 <a name="Metalsmith+build"></a>
 
