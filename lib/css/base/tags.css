@@ -51,6 +51,14 @@ h3 {
   margin-bottom: 0.5em;
 }
 
+dt {
+  font-weight: bold;
+}
+
+code {
+  font-family: var(--font-code);
+}
+
 ul,
 ol {
   padding-left: 1rem;
@@ -65,12 +73,6 @@ p a,
 ul a {
   text-decoration: underline;
   color: var(--color-black);
-}
-
-p code,
-ul code,
-ol code {
-  font-size: var(--size-smaller);
 }
 
 p a:hover {
@@ -91,10 +93,10 @@ ul li {
 }
 
 pre {
-  font: 400 var(--size-smaller) / 1.3 var(--font-code);
+  font: 400 var(--size-base) / 1.3 var(--font-code);
   position: relative;
   background-color: var(--color-white);
-  padding: 1.5em;
+  padding: 0.5rem;
   border-left: 2px solid var(--color-gold);
   overflow-x: auto;
 }
@@ -186,11 +188,70 @@ hr:nth-of-type(14) {
     font-size: 2.5em;
   }
 
-  pre {
-    padding: 1.5em 2em;
-  }
-
   .desktop-only {
     display: initial;
   }
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: separate;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+th, td {
+  padding: 0.5em;
+}
+th p, td p {
+  margin: 0;
+}
+
+tr {
+  background-color: var(--color-white);
+}
+
+main a,
+main a:visited {
+  color: var(--color-dark-gray);
+}
+
+main a:hover,
+main a:visited {
+  color: var(--color-black);
+}
+
+.Page--api .Page-body h4,
+.Page--api .Page-body h3,
+.Page--api .Page-body h2 {
+  border-top: 1px solid var(--color-gray);
+  padding-top: 2em;
+  margin-top: 2em;
+  font-weight: bold;
+  font-family: var(--font-code);
+  text-transform: none;
+}
+.Page--api h4 + p {
+  font-style: italic;
+}
+.Page--api td:first-child,
+.Page--api th:first-child {
+  width: 140px;
+}
+.Page--api .Page--body h2:first-of-type {
+  border-top: none;
+}
+
+.Page--api td:first-child {
+  font-family: var(--font-code);
+}
+
+.Page--api ul a {
+  font-family: var(--font-code);
+}
+.Page--api ul a code {
+  font-size:1em;
 }

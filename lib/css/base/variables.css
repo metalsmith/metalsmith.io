@@ -17,7 +17,7 @@
 
   --font-body: 'TimesNewRoman', 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
   --font-headings: 'Antonio', 'Impact', sans-serif;
-  --font-code: 'Courier', 'Courier New', monospace;
+  --font-code: 'Inconsolata','Courier', 'Courier New', monospace;
 
   --size-base: 1.25;
   --size-much-smaller: calc(1em / var(--size-base) / var(--size-base));
