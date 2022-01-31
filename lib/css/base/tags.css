@@ -52,7 +52,7 @@ h3 {
 }
 
 dt {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 code {
@@ -73,6 +73,10 @@ p a,
 ul a {
   text-decoration: underline;
   color: var(--color-black);
+}
+
+main a {
+  color: var(--color-dark-gray);
 }
 
 p a:hover {
@@ -203,10 +207,13 @@ th {
   text-align: left;
 }
 
-th, td {
+th,
+td {
   padding: 0.5em;
 }
-th p, td p {
+
+th p,
+td p {
   margin: 0;
 }
 
@@ -214,7 +221,6 @@ tr {
   background-color: var(--color-white);
 }
 
-main a,
 main a:visited {
   color: var(--color-dark-gray);
 }
@@ -230,17 +236,20 @@ main a:visited {
   border-top: 1px solid var(--color-gray);
   padding-top: 2em;
   margin-top: 2em;
-  font-weight: bold;
+  font-weight: 600;
   font-family: var(--font-code);
   text-transform: none;
 }
+
 .Page--api h4 + p {
   font-style: italic;
 }
+
 .Page--api td:first-child,
 .Page--api th:first-child {
   width: 140px;
 }
+
 .Page--api .Page--body h2:first-of-type {
   border-top: none;
 }
@@ -248,16 +257,19 @@ main a:visited {
 .Page--api td:first-child {
   font-family: var(--font-code);
 }
+
 .Page--api ul li {
   list-style-type: none;
 }
+
 .Page--api .Page--body ul a {
   font-family: var(--font-code);
 }
+
 .Page--api ul a code {
-  font-size:1em;
+  font-size: 1em;
 }
 
 .anchorjs-link {
-  opacity: 0.5 !important;
+  opacity: 0.5 !important; /* stylelint-disable-line */
 }
