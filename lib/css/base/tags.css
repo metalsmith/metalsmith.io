@@ -248,10 +248,16 @@ main a:visited {
 .Page--api td:first-child {
   font-family: var(--font-code);
 }
-
-.Page--api ul a {
+.Page--api ul li {
+  list-style-type: none;
+}
+.Page--api .Page--body ul a {
   font-family: var(--font-code);
 }
 .Page--api ul a code {
   font-size:1em;
+}
+
+.anchorjs-link {
+  opacity: 0.5 !important;
 }

@@ -30,7 +30,7 @@
     {% include "./partials/analytics.njk" %}
     <meta name="google-site-verification" content="2RKFuZol3mkMgto2Y0TUZUmzMpWZ-Ck-7HjocBHpJtE"/>
   </head>
-  <body class="Page{% if slug %} Page--{{ slug }}{% endif %}">
+  <body class="Page{% if slug %} Page--{{ slug }}{% endif %}{% if config and config.anchors %} Page--anchors{% endif %}">
 
     <header class="Page-header">
       {% block top %}

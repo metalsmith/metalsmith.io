@@ -3,6 +3,9 @@ title: "Metalsmith"
 description: "An extremely simple, pluggable static site generator."
 slug: "home"
 layout: "home.njk"
+config:
+  anchors: true
+  
 highlights:
   - trait: Convenient
     icon: pointright

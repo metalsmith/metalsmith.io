@@ -14,20 +14,11 @@ const Metalsmith = require('metalsmith');
 const esbuildPlugin = require('metalsmith-esbuild-local');
 const examples = require('./lib/data/examples.json');
 const plugins = require('./lib/data/plugins.json');
+const formatDate = require('./metalsmith/nunjucks-formatDate-filter');
 
 const nodeVersion = process.version;
 const githubRegex = /github\.com\/([^/]+)\/([^/]+)\/?$/;
 const oneWeek = 7 * 24 * 60 * 60;
-
-// nunjucks filter
-function formatDate(value, format) {
-  const dt = new Date(value);
-  if (format === 'iso') {
-    return dt.toISOString();
-  }
-  const utc = dt.toUTCString().match(/(\d{1,2}) (.*) (\d{4})/);
-  return `${utc[2]} ${utc[1]}, ${utc[3]}`;
-}
 
 const mappedPlugins = plugins.map(plugin => {
   if (!plugin.status) {
@@ -90,7 +81,9 @@ metalsmith
   .use(
     collections({
       news: {
-        pattern: 'news/*/*/*.md'
+        pattern: 'news/*/*/*.md',
+        sortBy: 'pubdate',
+        reverse: true
       }
     })
   )

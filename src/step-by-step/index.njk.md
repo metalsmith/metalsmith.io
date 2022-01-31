@@ -2,6 +2,8 @@
 title: "Metalsmith: Step by step"
 description: A step-by-step walkthrough of how to Metalsmith
 layout: "home.njk"
+config:
+  anchors: true
 ---
 
 # What we're going to accomplish
