@@ -52,14 +52,16 @@
 
 .Nav-toggle,
 .Nav-link--gitter,
-.Nav-link--github {
+.Nav-link--github,
+.Nav-link--twitter {
   height: 3rem;
   width: 3rem;
   padding: 0.5rem;
 }
 
 .Nav-link--github,
-.Nav-link--gitter {
+.Nav-link--gitter,
+.Nav-link--twitter {
   line-height: 2.5rem;
   text-align: center;
 }

@@ -10,7 +10,7 @@ What sets metalsmith apart from other static-site generators is that Metalsmith.
 it gives you a toolset that you can use however you wish. It does not require you to work within the confines of a predefined frame.
 
 You can follow metalsmith.js development on [Github](https://github.com/metalsmith/metalsmith).  
-Formal announcements are published in the [News section](/news) of this website.  
+Formal announcements are published in the [News section](/news) of this website and on [Twitter](https://twitter.com/metalsmithio).  
 Informal announcements are made periodically in the [Gitter community chat](https://gitter.im/metalsmith/community).
 
 ## A brief history of the Metalsmith JS project
