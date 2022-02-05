@@ -1,3 +1,5 @@
+@use './variables' as *;
+
 /**
  * Base
  */
@@ -183,7 +185,7 @@ hr:nth-of-type(14) {
   display: none;
 }
 
-@media (--lg-viewport) {
+@media (min-width: $viewport-lg) {
   body {
     font-size: 18px;
   }

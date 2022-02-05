@@ -1,6 +1,8 @@
+@use '../base/variables' as *;
+
 /** @define ExampleList */
 
-@media (--lg-viewport) {
+@media (min-width: $viewport-lg) {
   .ExampleList {
     overflow: hidden;
     column-count: 2;

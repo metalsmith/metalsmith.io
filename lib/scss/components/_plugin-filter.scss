@@ -1,0 +1,32 @@
+/** @define PluginFilter */
+
+.PluginFilter {
+  padding: 0 2em;
+  background-color: var(--color-white);
+  margin-bottom: 1px;
+  display: block;
+
+  &-icon {
+    display: inline-block;
+
+    &::before {
+      color: var(--color-gray);
+      padding-right: 0;
+    }
+  }
+
+  &-input {
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+    line-height: 4em;
+    width: calc(100% - 32px);
+    margin-left: 4px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

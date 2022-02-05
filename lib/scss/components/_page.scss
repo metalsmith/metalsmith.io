@@ -1,0 +1,73 @@
+@use '../base/variables' as *;
+
+/** @define Page **/
+
+.Page {
+  height: 100%;
+  position: relative;
+
+  &-header {
+    position: relative;
+    background-color: var(--color-black);
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    border-bottom: 1px solid var(--color-dark-gray);
+    height: 3.1rem;
+
+    @media (min-width: $viewport-lg) {
+      height: 5.2rem;
+    }
+  }
+
+  &-body {
+    width: 100%;
+    min-height: calc(100% - 8.1rem);
+    max-width: var(--body-width);
+    margin: 0 auto;
+    padding: 2rem 1rem 3rem;
+
+    @media (min-width: $viewport-lg) {
+      min-height: calc(100% - 10.2rem);
+    }
+  }
+
+  &-pubdate {
+    float: right;
+    font-family: var(--font-headings);
+  }
+
+  &-title {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-gray);
+    padding-bottom: 1rem;
+  }
+
+  &-footer {
+    position: relative;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    padding: 2rem 0 1rem;
+    height: 5rem;
+  }
+
+  &-backlink {
+    float: right;
+    margin-top: -1.65rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-black);
+  }
+
+  &-related {
+    border-top: 1px solid var(--color-gray);
+    margin-top: 2rem;
+    padding-top: 0.5rem;
+    overflow: auto;
+  }
+
+  &-footerLogo {
+    height: 16px;
+  }
+}

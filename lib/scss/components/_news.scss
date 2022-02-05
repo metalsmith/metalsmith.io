@@ -1,0 +1,27 @@
+@use '../base/variables' as *;
+
+/** @define News **/
+
+.News {
+  &-title,
+  &-excerpt {
+    margin-top: 0;
+  }
+
+  &-permalink {
+    &:visited {
+      color: var(--color-dark-gray);
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--color-black);
+    }
+  }
+
+  &-pubdate {
+    @media (min-width: $viewport-lg) {
+      float: right;
+    }
+  }
+}

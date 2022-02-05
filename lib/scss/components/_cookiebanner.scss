@@ -13,13 +13,13 @@
   font-size: 1.2em;
   font-style: italic;
   z-index: 999;
-}
 
-.CookieBanner-close {
-  position: absolute;
-  right: 1rem;
-  color: var(--color-white);
-  text-decoration: none;
-  font-size: 2rem;
-  line-height: 2rem;
+  &-close {
+    position: absolute;
+    right: 1rem;
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 2rem;
+    line-height: 2rem;
+  }
 }

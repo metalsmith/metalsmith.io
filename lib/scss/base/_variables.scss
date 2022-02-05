@@ -1,4 +1,4 @@
-/* stylelint-disable custom-property-empty-line-before */
+$viewport-lg: 768px;
 
 /**
  * Variables
@@ -14,21 +14,18 @@
   --color-white: #fefefe;
   --color-blue: #6ec9dc;
   --color-green: #3eb991;
-
   --font-body: 'TimesNewRoman', 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
   --font-headings: 'Antonio', 'Impact', sans-serif;
   --font-code: 'Inconsolata', 'Courier', 'Courier New', monospace;
-
   --size-base: 1.25;
   --size-much-smaller: calc(1em / var(--size-base) / var(--size-base));
   --size-smaller: calc(1em / var(--size-base));
   --size-larger: calc(1em * var(--size-base));
   --size-much-larger: calc(1em * var(--size-base) * var(--size-base));
-
   --body-width: 100%;
 }
 
-@media (--lg-viewport) {
+@media (min-width: $viewport-lg) {
   :root {
     --body-width: 60rem;
   }

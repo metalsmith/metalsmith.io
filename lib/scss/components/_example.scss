@@ -1,0 +1,35 @@
+@use '../base/variables' as *;
+
+/** @define Example */
+
+.Example {
+  max-width: calc(0.5 * var(--body-width));
+  margin-top: 1px;
+  padding: 1.5em;
+  background-color: var(--color-white);
+  list-style: none;
+
+  @media (min-width: $viewport-lg) {
+    padding: 1em 0.5em;
+    margin-top: 0;
+  }
+
+  &:nth-child(2n) {
+    @media (min-width: $viewport-lg) {
+      margin-top: 1px;
+    }
+  }
+
+  &-title {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 0.4em;
+    text-align: left;
+  }
+
+  &-steps {
+    list-style: none;
+    line-height: 2;
+    margin: 0;
+  }
+}

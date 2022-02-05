@@ -3,11 +3,12 @@
 const inPlace = require('metalsmith-in-place');
 const layouts = require('@metalsmith/layouts');
 const drafts = require('@metalsmith/drafts');
+const sass = require('@metalsmith/sass');
 const collections = require('@metalsmith/collections');
 const debugUI = require('metalsmith-debug-ui');
+const postcss = require('metalsmith-postcss');
 const when = require('metalsmith-if');
 const favicons = require('metalsmith-favicons');
-const postcss = require('metalsmith-postcss');
 const htmlMinifier = require('metalsmith-html-minifier');
 const imagemin = require('metalsmith-imagemin');
 const Metalsmith = require('metalsmith');
@@ -46,8 +47,10 @@ const mappedPlugins = plugins.map(plugin => {
 });
 
 const isProduction = process.env.NODE_ENV === 'production';
+/** @type {Metalsmith} */
 const metalsmith = isProduction ? Metalsmith(__dirname) : debugUI.patch(Metalsmith(__dirname));
 metalsmith
+  .clean(true)
   .metadata({
     placeholderBadgeUrl: 'https://img.shields.io/badge/badge-loading-lightgrey.svg?style=flat',
     plugins: mappedPlugins,
@@ -120,24 +123,15 @@ metalsmith
     })
   )
   .use(
-    postcss({
-      plugins: [
-        'postcss-easy-import',
-        'postcss-custom-media',
-        'postcss-preset-env',
-        {
-          'postcss-normalize': { forceImport: true }
-        },
-        'autoprefixer',
-        'cssnano'
-      ],
-      map: isProduction
-        ? false
-        : {
-            inline: false
-          }
+    sass({
+      entries: {
+        'src/index.scss': 'index.css'
+      },
+      sourceMap: true,
+      sourceMapIncludeSources: true
     })
   )
+  .use(postcss({ plugins: ['postcss-preset-env', 'autoprefixer', 'cssnano'], map: true }))
   .use(
     esbuildPlugin({
       entries: {

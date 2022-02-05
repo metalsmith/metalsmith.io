@@ -1,0 +1,54 @@
+/** @define Banner */
+
+.Banner {
+  background-color: var(--color-black);
+  padding: 2em;
+  max-width: 100%;
+
+  &-content {
+    max-width: var(--body-width);
+    margin: 0 auto;
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  &-title,
+  &-permalink {
+    color: var(--color-gold);
+    letter-spacing: 0.025em;
+    text-decoration: none;
+    font-size: 2em;
+  }
+
+  &-logo {
+    max-width: 512px;
+    min-width: 256px;
+    width: 50%;
+  }
+
+  &-title {
+    text-shadow: 1px 1px var(--color-dark-black);
+    text-align: center;
+    margin: 0;
+  }
+
+  &-action {
+    background-color: var(--color-light-gray);
+    color: var(--color-black);
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    transition: background-color 0.3s;
+
+    &:active,
+    &:hover {
+      background-color: var(--color-gold);
+    }
+  }
+
+  &-tagline {
+    color: var(--color-gray);
+    font-size: 1.4em;
+    margin: 2em 0;
+  }
+}

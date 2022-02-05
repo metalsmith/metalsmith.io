@@ -1,0 +1,55 @@
+@use '../base/variables' as *;
+
+/** @define Highlight **/
+
+.Highlight {
+  position: relative;
+  padding: 0.375em;
+
+  @media (min-width: $viewport-lg) {
+    width: 50%;
+  }
+
+  &-wrapper {
+    margin: 0 0 2rem;
+
+    @media (min-width: $viewport-lg) {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      margin: 0 -0.5rem 2rem;
+    }
+  }
+
+  &-title {
+    margin: 0 0 0.5em;
+    line-height: 1em;
+  }
+
+  &-desc {
+    margin: 0;
+  }
+
+  &-content {
+    position: relative;
+    padding: 1em;
+    padding-left: 3em;
+    background: var(--color-white);
+    height: 100%;
+  }
+
+  &-icon {
+    font-size: 2em;
+    line-height: 1em;
+    position: absolute;
+    left: 0.25em;
+    top: 0.5em;
+
+    &::before {
+      line-height: 1em;
+      font-size: 1em;
+      top: 0;
+      padding-right: 0;
+    }
+  }
+}

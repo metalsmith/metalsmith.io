@@ -1,0 +1,90 @@
+/** @define Plugin */
+
+.Plugin {
+  position: relative;
+  padding: 1.25em;
+  background-color: var(--color-white);
+
+  & + .Plugin {
+    margin-top: 1px;
+  }
+
+  &-link {
+    text-decoration: none;
+  }
+
+  &-title {
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 0.25em;
+    text-align: left;
+  }
+
+  &-icon {
+    font-size: 0.7em;
+    color: var(--color-gold);
+    margin-left: 0.4em;
+
+    &::before {
+      top: 0.075em;
+    }
+  }
+
+  &-description {
+    font-size: 0.85em;
+    margin: 0;
+  }
+
+  &-arrow {
+    position: absolute;
+    top: 1.2em;
+    right: 1.5em;
+    opacity: 0.3;
+    transition: opacity 0.2s;
+
+    &::before {
+      color: var(--color-gray);
+    }
+  }
+
+  &-badge {
+    text-decoration: none;
+    margin-right: 0.5em;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &-badgeImage {
+    min-width: 60px;
+    height: 20px;
+    background-color: #999;
+  }
+
+  &-badgeContainer {
+    margin-top: 1em;
+  }
+
+  &-snippet {
+    float: right;
+    margin-top: -1.75rem;
+    margin-right: 1.5em;
+    opacity: 0;
+    transition: 0.2s opacity linear;
+  }
+
+  &:hover {
+    .Plugin-arrow {
+      opacity: 1;
+    }
+
+    .Plugin-repository {
+      display: block;
+    }
+
+    .Plugin-snippet {
+      opacity: 1;
+    }
+  }
+}

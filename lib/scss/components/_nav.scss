@@ -1,0 +1,216 @@
+@use '../base/variables' as *;
+
+@mixin link-transition {
+  color: var(--color-gray);
+  transition: 0.3s color;
+  text-decoration: none;
+}
+
+.Nav {
+  z-index: 999;
+  margin: 0 auto;
+  background-color: var(--color-black);
+  display: flex;
+  justify-content: space-between;
+  width: var(--body-width);
+  max-width: 100%;
+
+  @media (min-width: $viewport-lg) {
+    padding: 1rem 0;
+  }
+
+  &-items {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    background-color: var(--color-black);
+    border: 1px solid transparent;
+
+    &:target {
+      display: block;
+      border-color: var(--color-dark-gray);
+    }
+
+    @media (min-width: $viewport-lg) {
+      position: relative;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+
+      &:target {
+        border: none;
+        display: flex;
+      }
+    }
+  }
+
+  &-item {
+    @media (min-width: $viewport-lg) {
+      display: inline-block;
+    }
+  }
+
+  &-logo {
+    color: var(--color-light-gray);
+
+    @include link-transition;
+
+    @media (min-width: $viewport-lg) {
+      display: none;
+    }
+  }
+
+  &-link {
+    display: inline-block;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    transition: color 0.3s;
+    vertical-align: middle;
+    line-height: 2rem;
+    height: 3rem;
+    width: 100%;
+    font-family: var(--font-headings);
+    border-bottom: 1px solid var(--color-dark-gray);
+
+    @include link-transition;
+
+    @media (min-width: $viewport-lg) {
+      border-bottom: none;
+    }
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: var(--color-light-gray);
+    }
+
+    &.is-active {
+      color: var(--color-gold);
+    }
+
+    &--gitter {
+      transform: rotateY(180deg);
+    }
+
+    &--gitter,
+    &--github,
+    &--twitter {
+      height: 3rem;
+      width: 3rem;
+      padding: 0.5rem;
+      line-height: 2.5rem;
+      text-align: center;
+    }
+
+    &.Nav-logo {
+      border: 1px solid transparent;
+
+      @media (min-width: $viewport-lg) {
+        display: none;
+      }
+    }
+  }
+
+  &-toggle {
+    height: 3rem;
+    width: 3rem;
+    padding: 0.5rem;
+
+    @include link-transition;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: var(--color-light-gray);
+    }
+
+    @media (min-width: $viewport-lg) {
+      display: none;
+    }
+  }
+
+  &-close {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    padding: 0.5rem;
+    line-height: 2rem;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+
+    @include link-transition;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: var(--color-light-gray);
+    }
+
+    @media (min-width: $viewport-lg) {
+      display: none;
+    }
+  }
+
+  &-logoIcon {
+    height: 1.5rem;
+    vertical-align: middle;
+
+    &--compact {
+      display: none;
+
+      @media (min-width: $viewport-lg) {
+        border-bottom: none;
+        display: inline-block;
+      }
+    }
+
+    &--full {
+      @media (min-width: $viewport-lg) {
+        display: none;
+      }
+    }
+  }
+
+  &-socials {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+
+    .Nav-item {
+      position: relative;
+    }
+
+    .Nav-link {
+      border-bottom: none;
+    }
+  }
+
+  &-site {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @media (min-width: $viewport-lg) {
+      display: block;
+    }
+  }
+
+  &-toggleIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+#menu {
+  @media (min-width: $viewport-lg) {
+    display: flex;
+  }
+}
