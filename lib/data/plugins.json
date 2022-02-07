@@ -290,7 +290,8 @@
     "name": "Define",
     "icon": "tag",
     "repository": "https://github.com/aymericbeaumet/metalsmith-define",
-    "description": "Manually define values in the metadata."
+    "description": "Manually define values in the metadata.",
+    "alts": ["metalsmith"]
   },
   {
     "name": "Discover Helpers",
@@ -772,13 +773,6 @@
     "icon": "files",
     "repository": "https://github.com/RobLoach/metalsmith-jstransformer",
     "description": "Compile content with any JSTransformer."
-  },
-  {
-    "name": "JSTransformer Layouts",
-    "icon": "gridlines",
-    "repository": "https://github.com/RobLoach/metalsmith-jstransformer-layouts",
-    "description": "Apply layouts to your source files through any JSTransformer.",
-    "status": "archived"
   },
   {
     "name": "JSTransformer Partials",
@@ -1280,6 +1274,13 @@
   {
     "name": "Sass",
     "icon": "files",
+    "repository": "https://github.com/metalsmith/sass",
+    "description": "Convert Sass files to CSS.",
+    "npm": "@metalsmith/sass"
+  },
+  {
+    "name": "Sass",
+    "icon": "files",
     "repository": "https://github.com/stevenschobert/metalsmith-sass",
     "description": "Convert Sass files to CSS."
   },
@@ -1415,8 +1416,8 @@
   {
     "name": "Table of Contents",
     "icon": "file",
-    "repository": "https://github.com/anatoo/metalsmith-autotoc",
-    "description": "Generate a table of contents from a document headers."
+    "repository": "https://github.com/metalsmith/table-of-contents",
+    "description": "Auto-generate table of contents from headings"
   },
   {
     "name": "Tags",
