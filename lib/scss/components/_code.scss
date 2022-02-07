@@ -1,0 +1,44 @@
+.Code {
+  &-filename {
+    display: inline-block;
+    background: var(--color-white);
+    border-left: 2px solid var(--color-middle-gray);
+    border-bottom: 2px solid var(--color-middle-gray);
+    padding: 0 0.5rem;
+
+    & + pre {
+      margin-top: 0;
+    }
+  }
+
+  &Tabs {
+    nav {
+      float: left;
+    }
+
+    &-toggle {
+      font-size: var(--size-base);
+      background: var(--color-gray);
+      color: var(--color-white);
+      border: none;
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-bottom: 2px solid var(--color-gray);
+
+      &--active {
+        background: var(--color-dark-gray);
+        border-bottom-color: var(--color-dark-gray);
+        outline: none;
+      }
+    }
+  }
+
+  .CodeTabs & {
+    margin: 0;
+    display: none;
+  }
+
+  .CodeTabs &:nth-child(2) {
+    display: block;
+  }
+}

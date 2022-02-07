@@ -26,6 +26,7 @@
     max-width: var(--body-width);
     margin: 0 auto;
     padding: 2rem 1rem 3rem;
+    position: relative;
 
     @media (min-width: $viewport-lg) {
       min-height: calc(100% - 10.2rem);

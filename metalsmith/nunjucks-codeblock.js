@@ -12,21 +12,23 @@ module.exports = function CodeBlockExtension() {
     const args = parser.parseSignature(null, true);
     parser.advanceAfterBlockEnd(tok.value);
 
-    // parse the body and possibly the error block, which is optional
+    // parse the body
     const body = parser.parseUntilBlocks('endcodeblock');
     parser.advanceAfterBlockEnd();
 
-    // See above for notes about CallExtension
     return new nodes.CallExtension(this, 'run', args, [body]);
   };
 
-  this.run = (context, lang, filename, body) => {
+  this.run = (context, filename, body) => {
+    if (!body) {
+      body = filename;
+      filename = null;
+    }
     const ret = new nunjucks.runtime.SafeString(`
-        <figure class="Code">
-          <code class="Code-filename">${filename}</code>
-          <small class="Code-lang">${lang}</small>
-          <pre><code>${body()}
-        </figure>`);
+<figure class="Code">
+  ${filename ? `<code class="Code-filename">${filename}</code>` : ''}
+  ${body()}
+</figure>`);
     return ret;
   };
 };

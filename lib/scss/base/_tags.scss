@@ -60,7 +60,8 @@ dt {
 code {
   font-family: var(--font-code);
 
-  p &, li > & {
+  p &,
+  li > & {
     background: var(--color-middle-gray);
     display: inline-block;
     line-height: 1.2em;
@@ -244,7 +245,8 @@ main a:visited {
 }
 
 .Page--api {
-  th, td {
+  th,
+  td {
     &:nth-child(3) {
       width: 60%;
     }
@@ -304,7 +306,12 @@ main a:visited {
   opacity: 0; /* stylelint-disable-line */
   transition: 0.3s opacity;
 
-  h1:hover &, h2:hover &, h3:hover &, h4:hover &, h5:hover &, h6:hover & {
+  h1:hover &,
+  h2:hover &,
+  h3:hover &,
+  h4:hover &,
+  h5:hover &,
+  h6:hover & {
     opacity: 0.5;
   }
 }

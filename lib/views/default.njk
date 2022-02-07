@@ -45,7 +45,15 @@
         <time class="Page-pubdate" datetime='{{ pubdate | formatDate("iso")}}'>{{ pubdate | formatDate }}</time>
         {% endif %}
 
+        {# table of contents #}
         <h1 class="Page-title">{{ title }}</h1>
+        {% if toc %}
+          <aside>
+            <h2>Contents</h2>
+          {{ toc | safe }}
+          </aside>
+        {% endif %}
+
         {% if collection and "news" in collection %}
         <a class="Page-backlink" href="/news">&larr; News overview</a>
         {% endif %}

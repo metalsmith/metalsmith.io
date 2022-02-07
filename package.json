@@ -24,6 +24,7 @@
     "@metalsmith/drafts": "^1.1.1",
     "@metalsmith/layouts": "^2.4.0",
     "@metalsmith/sass": "^0.2.0",
+    "@metalsmith/table-of-contents": "^1.0.0",
     "anchor-js": "^4.3.1",
     "autoprefixer": "^10.4.2",
     "browser-sync": "^2.27.7",

@@ -4,6 +4,7 @@ const inPlace = require('metalsmith-in-place');
 const layouts = require('@metalsmith/layouts');
 const drafts = require('@metalsmith/drafts');
 const sass = require('@metalsmith/sass');
+const toc = require('@metalsmith/table-of-contents');
 const collections = require('@metalsmith/collections');
 const debugUI = require('metalsmith-debug-ui');
 const postcss = require('metalsmith-postcss');
@@ -16,6 +17,8 @@ const esbuildPlugin = require('metalsmith-esbuild-local');
 const examples = require('./lib/data/examples.json');
 const plugins = require('./lib/data/plugins.json');
 const formatDate = require('./metalsmith/nunjucks-formatDate-filter');
+const CodeBlockExtension = require('./metalsmith/nunjucks-codeblock');
+const CodeTabsExtension = require('./metalsmith/nunjucks-tabs');
 
 const nodeVersion = process.version;
 const githubRegex = /github\.com\/([^/]+)\/([^/]+)\/?$/;
@@ -90,6 +93,15 @@ metalsmith
       }
     })
   )
+  // eslint-disable-next-line
+  .use(function invertInPlaceExtensions(files) {
+    Object.keys(files).forEach(key => {
+      if (key.endsWith('docs/index.njk.md')) {
+        files[key.replace('.njk.md', '.md.njk')] = files[key];
+        delete files[key];
+      }
+    });
+  })
   .use(
     inPlace({
       engineOptions: {
@@ -97,11 +109,16 @@ metalsmith
         smartLists: true,
         filters: {
           formatDate
+        },
+        extensions: {
+          CodeBlockExtension: new CodeBlockExtension(),
+          CodeTabsExtension: new CodeTabsExtension()
         }
       },
-      pattern: '**/*.md'
+      pattern: '**/*.{md,njk}'
     })
   )
+  .use(toc({ levels: [2, 3] }))
   // this plugin is a temporary fix for in-place not supporting dots in dirnames
   .use(files => {
     Object.keys(files).forEach(key => {
@@ -126,12 +143,10 @@ metalsmith
     sass({
       entries: {
         'src/index.scss': 'index.css'
-      },
-      sourceMap: true,
-      sourceMapIncludeSources: true
+      }
     })
   )
-  .use(postcss({ plugins: ['postcss-preset-env', 'autoprefixer', 'cssnano'], map: true }))
+  .use(postcss({ plugins: ['postcss-preset-env', 'autoprefixer', 'cssnano'], map: !isProduction }))
   .use(
     esbuildPlugin({
       entries: {
