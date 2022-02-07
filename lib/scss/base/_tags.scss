@@ -8,7 +8,7 @@ html {
   box-sizing: border-box;
   font: 400 16px/1.6 var(--font-body);
   color: var(--color-dark-gray);
-  background: url('/img/ground.jpg') var(--color-light-gray);
+  background: var(--color-light-gray);
   scroll-behavior: smooth;
   height: 100%;
   width: 100%;
@@ -59,6 +59,15 @@ dt {
 
 code {
   font-family: var(--font-code);
+
+  p &, li > & {
+    background: var(--color-middle-gray);
+    display: inline-block;
+    line-height: 1.2em;
+    padding: 0.1rem 0.2rem;
+    font-size: 0.9em;
+    color: var(--color-black);
+  }
 }
 
 ul,
@@ -90,21 +99,21 @@ figure {
 }
 
 ol {
-  margin: 1em 0 1em 2.5em;
   list-style: decimal outside;
 }
 
 ul li {
-  list-style: '- ';
+  list-style: disc;
 }
 
 pre {
-  font: 400 var(--size-base) / 1.3 var(--font-code);
+  font: 400 var(--size-base) / 1.2 var(--font-code);
   position: relative;
   background-color: var(--color-white);
-  padding: 0.5rem;
+  padding: 0;
   border-left: 2px solid var(--color-gold);
   overflow-x: auto;
+  width: 100%;
 }
 
 pre + pre {
@@ -186,16 +195,18 @@ hr:nth-of-type(14) {
 }
 
 @media (min-width: $viewport-lg) {
-  body {
+  html {
     font-size: 18px;
-  }
-
-  h1 {
-    font-size: 2.5em;
   }
 
   .desktop-only {
     display: initial;
+  }
+}
+
+@media (min-width: $viewport-xl) {
+  html {
+    font-size: 20px;
   }
 }
 
@@ -232,6 +243,14 @@ main a:visited {
   color: var(--color-black);
 }
 
+.Page--api {
+  th, td {
+    &:nth-child(3) {
+      width: 60%;
+    }
+  }
+}
+
 .Page--api .Page-body h4,
 .Page--api .Page-body h3,
 .Page--api .Page-body h2 {
@@ -249,7 +268,16 @@ main a:visited {
 
 .Page--api td:first-child,
 .Page--api th:first-child {
-  width: 140px;
+  max-width: 140px;
+  width: 15%;
+  word-break: break-all;
+}
+
+.Page--api td:nth-child(2),
+.Page--api th:nth-child(2) {
+  max-width: 140px;
+  width: 25%;
+  word-break: break-all;
 }
 
 .Page--api .Page--body h2:first-of-type {
@@ -273,5 +301,50 @@ main a:visited {
 }
 
 .anchorjs-link {
-  opacity: 0.5 !important; /* stylelint-disable-line */
+  opacity: 0; /* stylelint-disable-line */
+  transition: 0.3s opacity;
+
+  h1:hover &, h2:hover &, h3:hover &, h4:hover &, h5:hover &, h6:hover & {
+    opacity: 0.5;
+  }
+}
+
+@mixin hljs-lang {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--color-dark-gray);
+  padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+  background: var(--color-light-gray);
+}
+
+.language-yaml::after {
+  @include hljs-lang;
+
+  content: 'YAML';
+}
+
+.language-javascript::after {
+  @include hljs-lang;
+
+  content: 'JS';
+}
+
+.language-json::after {
+  @include hljs-lang;
+
+  content: 'JSON';
+}
+
+.language-html::after {
+  @include hljs-lang;
+
+  content: 'HTML';
+}
+
+.language-markdown::after {
+  @include hljs-lang;
+
+  content: 'MD';
 }
