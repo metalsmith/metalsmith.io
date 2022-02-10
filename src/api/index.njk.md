@@ -79,7 +79,7 @@ Initialize a new `Metalsmith` builder with a working `directory`.
     * [.frontmatter([frontmatter])](#Metalsmith+frontmatter) ⇒ <code>boolean</code> \| [<code>Metalsmith</code>](#Metalsmith)
     * [.ignore([files])](#Metalsmith+ignore) ⇒ [<code>Metalsmith</code>](#Metalsmith) \| <code>Array.&lt;string&gt;</code>
     * [.path(...paths)](#Metalsmith+path) ⇒ <code>string</code>
-    * [.match(patterns, options, [input])](#Metalsmith+match) ⇒ <code>Array.&lt;string&gt;</code>
+    * [.match(patterns \[,input \[, options\]\])](#Metalsmith+match) ⇒ <code>Array.&lt;string&gt;</code>
     * [.build([callback])](#Metalsmith+build) ⇒ [<code>Promise.&lt;Files&gt;</code>](#Files)
     * [.process([callback])](#Metalsmith+process) ⇒ [<code>Files</code>](#Files)
     * [.run(files, plugins)](#Metalsmith+run) ⇒ <code>Object</code>
@@ -320,7 +320,7 @@ metalsmith.path('./path','to/file.ext')
 
 <a name="Metalsmith+match"></a>
 
-### metalsmith.match(patterns, options, [input]) ⇒ <code>Array.&lt;string&gt;</code>
+### metalsmith.match(patterns \[,input\[,options]]) ⇒ <code>Array.&lt;string&gt;</code>
 Match filepaths in the source directory by [glob](https://en.wikipedia.org/wiki/Glob_(programming)) pattern.
 If `input` is not specified, patterns are matched against `Object.keys(files)`
 
@@ -337,10 +337,10 @@ If `input` is not specified, patterns are matched against `Object.keys(files)`
     <td>patterns</td><td><code>string</code> | <code>Array.&lt;string&gt;</code></td><td><p>one or more glob patterns</p>
 </td>
     </tr><tr>
-    <td>options</td><td><code>micromatch.Options</code></td><td><p><a href="https://github.com/micromatch/micromatch#options">micromatch options</a>, except <code>format</code></p>
+    <td>[input]</td><td><code>Array.&lt;string&gt;</code></td><td><p>array of strings to match against</p>
 </td>
     </tr><tr>
-    <td>[input]</td><td><code>Array.&lt;string&gt;</code></td><td><p>array of strings to match against</p>
+    <td>options</td><td><code>micromatch.Options</code></td><td><p><a href="https://github.com/micromatch/micromatch#options">micromatch options</a>, except <code>format</code></p>
 </td>
     </tr>  </tbody>
 </table>
