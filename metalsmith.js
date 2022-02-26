@@ -90,13 +90,17 @@ metalsmith
         pattern: 'news/*/*/*.md',
         sortBy: 'pubdate',
         reverse: true
+      },
+      docs: {
+        pattern: 'docs/*/*.md',
+        sortBy: 'order'
       }
     })
   )
   // eslint-disable-next-line
   .use(function invertInPlaceExtensions(files) {
     Object.keys(files).forEach(key => {
-      if (key.endsWith('docs/index.njk.md')) {
+      if (key.match(/^docs\/.*\/.*\.njk\.md$/)) {
         files[key.replace('.njk.md', '.md.njk')] = files[key];
         delete files[key];
       }
@@ -110,6 +114,7 @@ metalsmith
         filters: {
           formatDate
         },
+        root: __dirname,
         extensions: {
           CodeBlockExtension: new CodeBlockExtension(),
           CodeTabsExtension: new CodeTabsExtension()

@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Metalsmith | {{ slug | capitalize }}
-      {% if collection and "news" in collection %}News - {{ title }}
-      {% endif %}
+    <title>Metalsmith | {% if collection and "news" in collection %}News - {{ title }}
+      {% elif collection and "docs" in collection %}Docs - {{ title }}
+      {% elif slug %}{{ slug | capitalize }}{% endif %}
     </title>
     <meta name="description" content="{{ description }}"/>
     <meta name="node" content="{{ nodeVersion }}"/>

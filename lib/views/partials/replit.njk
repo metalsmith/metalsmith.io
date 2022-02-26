@@ -1,0 +1,3 @@
+{% macro replit(repl="",file="") %}
+<a class="replit" href="https://replit.com/@metalsmith/{{ repl | urlencode }}#{{ file }}" rel="noopener nofollow" target="_blank">Run it on replit.com</a>
+{% endmacro %}

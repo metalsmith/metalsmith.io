@@ -1,0 +1,18 @@
+@use '../base/variables' as *;
+
+/** @define Note **/
+
+.Note {
+  border: 3px solid var(--color-blue);
+  border-radius: 5px;
+  padding: 0.5em 0.75em;
+  background: #dbeff3;
+  position: relative;
+
+  &--tip::before {
+    content: 'TIP';
+    display: inline-block;
+    margin-right: 0.75em;
+    font-family: var(--font-headings);
+  }
+}

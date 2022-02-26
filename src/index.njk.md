@@ -455,6 +455,11 @@ function plugin(opts){
   };
 }
 ```
+{#
+<p class="Note Note--tip">
+Heads up! New docs for writing plugins are being written. It's still a work in progress, but I feel they already provide more value so feel free to <a href="/docs/writing-plugins">have a look</a> and provide feedback <a href="https://github.com/metalsmith/metalsmith.io/issues">on Github</a>
+</p>
+#}
 
 ---
 
