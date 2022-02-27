@@ -100,7 +100,7 @@ metalsmith
   // eslint-disable-next-line
   .use(function invertInPlaceExtensions(files) {
     Object.keys(files).forEach(key => {
-      if (key.match(/^docs\/.*\/.*\.njk\.md$/)) {
+      if (key.match(/^docs\/.*\/.*\.njk\.md$/) || key === 'index.njk.md') {
         files[key.replace('.njk.md', '.md.njk')] = files[key];
         delete files[key];
       }

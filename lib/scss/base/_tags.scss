@@ -69,6 +69,10 @@ code {
     font-size: 0.9em;
     color: var(--color-black);
   }
+
+  a & {
+    text-decoration: underline;
+  }
 }
 
 ul,
@@ -81,18 +85,32 @@ ul {
   margin: 1em 0;
 }
 
-p a,
-ul a {
-  text-decoration: underline;
-  color: var(--color-black);
-}
+a {
+  p &,
+  ul &,
+  main & {
+    text-decoration: underline;
+    color: var(--color-black);
+  }
 
-main a {
-  color: var(--color-dark-gray);
-}
+  &:visited {
+    main & {
+      color: var(--color-dark-gray);
+    }
+  }
 
-p a:hover {
-  color: var(--color-dark-black);
+  p &:hover,
+  main &:hover {
+    color: var(--color-dark-black);
+  }
+
+  .Page-footer &:visited {
+    color: var(--color-dark-gray);
+  }
+
+  .Page-footer &:hover {
+    color: var(--color-black);
+  }
 }
 
 figure {
@@ -233,15 +251,6 @@ td p {
 
 tr {
   background-color: var(--color-white);
-}
-
-main a:visited {
-  color: var(--color-dark-gray);
-}
-
-main a:hover,
-main a:visited {
-  color: var(--color-black);
 }
 
 .Page--api {
