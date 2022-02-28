@@ -16,7 +16,7 @@ Informal announcements are made periodically in the [Gitter community chat](http
 ## A brief history of the Metalsmith JS project
 ### Philosophy & initial development
 
-The metalsmith js project was pioneered by [Segment](https://segment.com/) co-founder [Ian Storm Taylor](https://ianstormtaylor.com/) in early 2014 as a Javascript alternative to the then leading, Ruby-powered static site generator, [Jekyll](https://jekyllrb.com/). Development started at about the same time as [Hexo](https://hexo.io) and [Hugo](https://gohugo.io), two other Javascript-powered static site generators.
+The metalsmith js project was pioneered by [Segment](https://segment.com/) co-founder [Ian Storm Taylor](https://ianstormtaylor.com/) in early 2014 as a Javascript alternative to the then leading, Ruby-powered static site generator, [Jekyll](https://jekyllrb.com/). Development started at about the same time as [Hexo](https://hexo.io), another Javascript-powered static site generator and the Go-based [Hugo](https://gohugo.io).
 
 Drawing heavily on the pillars of the [Linux philosophy]() and taking advantage of the growing Node and NPM ecosystem (then at version 3) Metalsmith became a popular choice for static sites and CLI tools like scaffolders and generators. Among others, Metalsmith was used behind-the-scenes for the [VueJS CLI (version 2)](https://github.com/vuejs/vue-cli), the [OpenLayers JS mapping library](https://github.com/openlayers/openlayers) versions 3 & 4 and is still used to generate the [nodejs.org website](https://nodejs.org) and [qooxdoo framework](https://github.com/qooxdoo/qooxdoo) website. 
 
