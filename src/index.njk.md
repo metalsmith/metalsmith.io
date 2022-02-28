@@ -23,17 +23,18 @@ highlights:
     icon: expand
     description: 'Use Metalsmith to generate anything from a static site, to a scaffolder, backup, command-line, or deploy tool. Configuration over code or code over configuration: Metalsmith supports both.'
 ---
+{% include "./lib/views/partials/doc-mdlinks.njk" %}
 
 <section class="Highlight-wrapper">
-  {% for item in highlights %}
-    <div class="Highlight-item Highlight">
-      <div class="Highlight-content">
-        <i class="Highlight-icon ss-{{item.icon}}"></i>
-        <h2 class="Highlight-title">{{ item.trait }}</h2>
-        <p class="Highlight-desc">{{ item.description }}</p>
-      </div>
+{% for item in highlights %}
+  <div class="Highlight-item Highlight">
+    <div class="Highlight-content">
+      <i class="Highlight-icon ss-{{item.icon}}"></i>
+      <h2 class="Highlight-title">{{ item.trait }}</h2>
+      <p class="Highlight-desc">{{ item.description }}</p>
     </div>
-  {% endfor %}
+  </div>
+{% endfor %}
 </section>
 
 ## Welcome
@@ -404,16 +405,16 @@ We keep referring to Metalsmith as a "static site generator", but it's a lot mor
 Which means you could just as easily use it to make...
 
 <ul class="ExampleList">
-  {% for example in examples %}
-    <li class="Example">
-      <h1 class="Example-title">{{ example.name }}</h1>
-      <ol class="Example-steps">
-      {% for step in example.steps %}
-        <li class="ss-{{ step.icon }}">{{ step.text }}</li>
-      {% endfor %}
-      </ol>
-    </li>
+{% for example in examples %}
+<li class="Example">
+  <h1 class="Example-title">{{ example.name }}</h1>
+  <ol class="Example-steps">
+  {% for step in example.steps %}
+  <li class="Example-step ss-{{ step.icon }}">{{ step.text }}</li>
   {% endfor %}
+  </ol>
+</li>
+{% endfor %}
 </ul>
 
 The plugins are all reusable. That PDF generator plugin for eBooks? Use it to generate PDFs for each of your blog posts too!
@@ -455,11 +456,10 @@ function plugin(opts){
   };
 }
 ```
-{#
+
 <p class="Note Note--tip">
 Heads up! New docs for writing plugins are being written. It's still a work in progress, but I feel they already provide more value so feel free to <a href="/docs/writing-plugins">have a look</a> and provide feedback <a href="https://github.com/metalsmith/metalsmith.io/issues">on Github</a>
 </p>
-#}
 
 ---
 
@@ -475,8 +475,8 @@ Object.keys(files).forEach(function(file){
 });
 ```
 
-The question now is, how does for instance a markdown-engine know, which files to transpile? The answer is easy. Per default, `metalsmith-markdown` is checking if `file` has a `.md` or `.markdown` extension. Remember, `file` is a JavaScript object that has its full filename (including its path) as a value.
-If the check is not true it jumps over it, otherwise it is passing the file to the engine. After processing it, `metalsmith-markdown` replaces the `.md` extension with an `.html` and the next plugin can now check against the new filename and so on.
+The question now is, how does for instance a markdown-engine know, which files to transpile? Per default, `@metalsmith/markdown` is checking if `file` has a `.md` or `.markdown` extension. Remember, `file` is a JavaScript object that has its full filename (including its path) as a value.
+If the check is not true it jumps over it, otherwise it is passing the file to the engine. After processing it, `@metalsmith/markdown` replaces the `.md` extension with `.html` and the next plugin can now check against the new filename and so on.
 
 A process such as this is called check for pattern matching. Many `metalsmith`-plugins employ such matching. Either they check against internally set requirements or patterns or they offer an explicit option to check against user defined matches, like we have already seen in the `writemetadata`-plugin:
 
@@ -488,7 +488,7 @@ A process such as this is called check for pattern matching. Many `metalsmith`-p
 }))
 ```
 
-Pattern matching is normally based on [glob](https://github.com/isaacs/node-glob) pattern. Many plugins employ either own functions or rely on [`micromatch`](https://www.npmjs.com/package/micromatch), [`minimatch`](https://www.npmjs.com/package/minimatch) or [`multimatch`](https://www.npmjs.com/package/multimatch).
+Pattern matching is normally based on [glob][glob_pattern] pattern. Many plugins employ either own functions or rely on [`micromatch`](https://www.npmjs.com/package/micromatch), [`minimatch`](https://www.npmjs.com/package/minimatch) or [`multimatch`](https://www.npmjs.com/package/multimatch).
 
 ```javascript
 const micromatch = require('micromatch');
