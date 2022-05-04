@@ -604,8 +604,7 @@
     "name": "HTML Unused",
     "icon": "shredder",
     "repository": "https://github.com/emmercm/metalsmith-html-unused",
-    "description": "Exclude resources that aren't referenced in HTML files.",
-    "npm": "metalsmith-html-unused"
+    "description": "Exclude resources that aren't referenced in HTML files."
   },
   {
     "name": "Hyphenate",
