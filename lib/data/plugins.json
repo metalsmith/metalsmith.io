@@ -589,7 +589,7 @@
   },
   {
     "name": "HTML Glob",
-    "icon": "index",
+    "icon": "link",
     "repository": "https://github.com/emmercm/metalsmith-html-glob",
     "description": "Apply glob patterns within HTML.",
     "npm": "metalsmith-html-glob"
