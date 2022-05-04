@@ -584,8 +584,7 @@
     "name": "htaccess",
     "icon": "index",
     "repository": "https://github.com/emmercm/metalsmith-htaccess",
-    "description": "Create an Apache HTTP Server .htaccess configuration file.",
-    "npm": "metalsmith-htaccess"
+    "description": "Create an Apache HTTP Server .htaccess configuration file."
   },
   {
     "name": "HTML5 Format Checker",
