@@ -591,8 +591,7 @@
     "name": "HTML Glob",
     "icon": "link",
     "repository": "https://github.com/emmercm/metalsmith-html-glob",
-    "description": "Apply glob patterns within HTML.",
-    "npm": "metalsmith-html-glob"
+    "description": "Apply glob patterns within HTML."
   },
   {
     "name": "HTML Minifier",
@@ -820,7 +819,6 @@
     "icon": "tag",
     "repository": "https://github.com/connected-world-services/metalsmith-link-globs",
     "description": "Instead of manually adding links to files, repeat your script, link, img and a tags by using globs.",
-    "npm": "metalsmith-link-globs",
     "status": "unmaintained"
   },
   {
