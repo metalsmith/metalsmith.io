@@ -595,7 +595,7 @@
   },
   {
     "name": "HTML Subresource Integrity",
-    "icon": "index",
+    "icon": "lock",
     "repository": "https://github.com/emmercm/metalsmith-html-sri",
     "description": "Add subresource integrity attributes to HTML.",
     "npm": "metalsmith-html-sri"
