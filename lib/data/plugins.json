@@ -594,6 +594,13 @@
     "description": "Minify your HTML files."
   },
   {
+    "name": "HTML Subresource Integrity",
+    "icon": "index",
+    "repository": "https://github.com/emmercm/metalsmith-html-sri",
+    "description": "Add subresource integrity attributes to HTML.",
+    "npm": "metalsmith-html-sri"
+  },
+  {
     "name": "HTML Tidy",
     "icon": "dishwasher",
     "repository": "https://github.com/hoosteeno/metalsmith-html-tidy",
@@ -1383,6 +1390,7 @@
     "icon": "files",
     "repository": "https://github.com/moshen/metalsmith-subresource-integrity",
     "description": "Generate integrity hashes for site resources.",
+    "npm": "metalsmith-subresource-integrity",
     "status": "unmaintained"
   },
   {
