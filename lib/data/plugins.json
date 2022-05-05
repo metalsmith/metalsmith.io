@@ -651,6 +651,12 @@
     "description": "Run plugins in the build sequence conditionally."
   },
   {
+    "name": "Reading Time",
+    "icon": "view",
+    "repository": "https://github.com/emmercm/metalsmith-reading-time",
+    "description": "Estimate pages' reading times."
+  },
+  {
     "name": "Remove",
     "icon": "ban",
     "repository": "https://github.com/metalsmith/remove",
