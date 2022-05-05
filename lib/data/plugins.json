@@ -809,6 +809,13 @@
     "status": "unmaintained"
   },
   {
+    "name": "Link Checker",
+    "icon": "unlink",
+    "repository": "https://github.com/emmercm/metalsmith-link-checker",
+    "description": "Check for local and remote broken links.",
+    "npm": "metalsmith-link-checker"
+  },
+  {
     "name": "Link Globs",
     "icon": "tag",
     "repository": "https://github.com/connected-world-services/metalsmith-link-globs",
