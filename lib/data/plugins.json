@@ -247,6 +247,12 @@
     "description": "Add creation and updated timestamps"
   },
   {
+    "name": "CSS Unused",
+    "icon": "scaledown",
+    "repository": "https://github.com/emmercm/metalsmith-css-unused",
+    "description": "Remove unused CSS rules."
+  },
+  {
      "name": "Data Loader",
      "icon": "tag",
      "repository": "https://github.com/tests-always-included/metalsmith-data-loader",
