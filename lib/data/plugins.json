@@ -600,6 +600,12 @@
     "description": "Minify your HTML files."
   },
   {
+    "name": "HTML Subresource Integrity",
+    "icon": "lock",
+    "repository": "https://github.com/emmercm/metalsmith-html-sri",
+    "description": "Add subresource integrity attributes to HTML."
+  },
+  {
     "name": "HTML Tidy",
     "icon": "dishwasher",
     "repository": "https://github.com/hoosteeno/metalsmith-html-tidy",
