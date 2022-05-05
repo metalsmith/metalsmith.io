@@ -594,6 +594,12 @@
     "description": "Use html-validator to validate your HTML."
   },
   {
+    "name": "HTML Glob",
+    "icon": "link",
+    "repository": "https://github.com/emmercm/metalsmith-html-glob",
+    "description": "Apply glob patterns within HTML."
+  },
+  {
     "name": "HTML Minifier",
     "icon": "shredder",
     "repository": "https://github.com/whymarrh/metalsmith-html-minifier",
