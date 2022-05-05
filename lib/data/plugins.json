@@ -491,6 +491,12 @@
     "status": "unmaintained"
   },
   {
+    "name": "GitHub Profile",
+    "icon": "user",
+    "repository": "https://github.com/emmercm/metalsmith-github-profile",
+    "description": "Fetch GitHub profile information."
+  },
+  {
     "name": "Google Analytics",
     "icon": "write",
     "repository": "https://github.com/doodzik/metalsmith-google-analytics",
