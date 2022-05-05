@@ -601,6 +601,12 @@
     "status": "unmaintained"
   },
   {
+    "name": "HTML Unused",
+    "icon": "shredder",
+    "repository": "https://github.com/emmercm/metalsmith-html-unused",
+    "description": "Exclude resources that aren't referenced in HTML files."
+  },
+  {
     "name": "Hyphenate",
     "icon": "hyphen",
     "repository": "https://github.com/saneef/metalsmith-hyphenate",
