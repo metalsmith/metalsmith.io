@@ -721,6 +721,12 @@
     "status": "unmaintained"
   },
   {
+    "name": "Include Files",
+    "icon": "downloadfolder",
+    "repository": "https://github.com/emmercm/metalsmith-include-files",
+    "description": "Include external files in your build."
+  },
+  {
     "name": "Inject Metadata",
     "icon": "pen",
     "repository": "https://github.com/davidtimmons/metalsmith-inject-metadata",
