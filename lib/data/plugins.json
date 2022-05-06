@@ -612,6 +612,12 @@
     "description": "Minify your HTML files."
   },
   {
+    "name": "HTML Relative",
+    "icon": "link",
+    "repository": "https://github.com/emmercm/metalsmith-html-relative",
+    "description": "Convert to relative paths within HTML."
+  },
+  {
     "name": "HTML Subresource Integrity",
     "icon": "lock",
     "repository": "https://github.com/emmercm/metalsmith-html-sri",
