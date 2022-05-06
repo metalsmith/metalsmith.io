@@ -959,6 +959,12 @@
     "alts": ["metalsmith"]
   },
   {
+    "name": "Metalsmith Tracer",
+    "icon": "stopwatch",
+    "repository": "https://github.com/emmercm/metalsmith-tracer",
+    "description": "Automatically trace and measure Metalsmith build time."
+  },
+  {
     "name": "Moment",
     "icon": "clock",
     "repository": "https://github.com/dpobel/metalsmith-moment",
