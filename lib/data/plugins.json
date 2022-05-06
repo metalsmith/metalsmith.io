@@ -618,6 +618,12 @@
     "description": "Apply glob patterns within HTML."
   },
   {
+    "name": "HTML Linter",
+    "icon": "checkfile",
+    "repository": "https://github.com/emmercm/metalsmith-html-linter",
+    "description": "Lint HTML for syntax and semantics."
+  },
+  {
     "name": "HTML Minifier",
     "icon": "shredder",
     "repository": "https://github.com/whymarrh/metalsmith-html-minifier",
