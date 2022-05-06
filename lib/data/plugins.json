@@ -208,6 +208,12 @@
     "npm": "@metalsmith/collections"
   },
   {
+    "name": "Collections Related",
+    "icon": "layergroup",
+    "repository": "https://github.com/emmercm/metalsmith-collections-related",
+    "description": "Find related files within collections."
+  },
+  {
      "name": "Concat",
      "icon": "files",
      "repository": "https://github.com/aymericbeaumet/metalsmith-concat",
