@@ -912,6 +912,12 @@
     "status": "unmaintained"
   },
   {
+    "name": "Mermaid",
+    "icon": "bezier",
+    "repository": "https://github.com/emmercm/metalsmith-mermaid",
+    "description": "Render Mermaid diagrams in files."
+  },
+  {
     "name": "Metadata",
     "icon": "tag",
     "repository": "https://github.com/metalsmith/metalsmith-metadata",
