@@ -22,6 +22,28 @@ highlights:
   - trait: Versatile
     icon: expand
     description: 'Use Metalsmith to generate anything from a static site, to a scaffolder, backup, command-line, or deploy tool. Configuration over code or code over configuration: Metalsmith supports both.'
+
+showcase:
+  - name: nodejs.org
+    url: https://nodejs.org
+    image: nodejs-org.png
+    featured: true
+  - name: playcanvas.com developer docs
+    url: https://developer.playcanvas.com/
+    image: developer-playcanvas-com.png
+    featured: true
+  - name: qooxdoo framework
+    url: https://qooxdoo.org
+    image: qooxdoo-org.png
+    featured: false
+  - name: webketje.com personal website
+    url: https://webketje.com
+    image: webketje-com.png
+    featured: true
+  - name: glinka.co personal blog
+    url: https://glinka.co
+    image: glinka-co.png
+    featured: true
 ---
 {% include "./lib/views/partials/doc-mdlinks.njk" %}
 
@@ -34,6 +56,18 @@ highlights:
       <p class="Highlight-desc">{{ item.description }}</p>
     </div>
   </div>
+{% endfor %}
+</section>
+
+<section class="Showcase">
+{% for item in showcase %}
+  {% if item.featured %}
+  <div class="Showcase-item">
+    <a class="Showcase-link" href="{{ item.url }}" target="_blank" rel="noopener">
+      <img class="Showcase-image b-lazy" src="/img/showcase/{{ item.image }}" alt="{{ item.name }}">
+    </a>
+  </div>
+  {% endif %}
 {% endfor %}
 </section>
 
