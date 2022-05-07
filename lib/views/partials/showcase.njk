@@ -1,0 +1,18 @@
+<section class="Showcase" aria-label="Metalsmith showcase">
+<h2 class="Showcase-title">Showcase</h2>
+<h3 class="Showcase-subtitle">Built with Metalsmith</h3>
+<div class="Showcase-container">
+  <ul class="Showcase-items">
+  {% for item in showcase %}
+  {% if item.featured %}
+  <li class="Showcase-item">
+    <a class="Showcase-link" href="{{ item.url }}" title="{{ item.name }}" target="_blank" rel="nofollow noopener">
+      <img class="Showcase-image" src="/img/showcase/{{ item.image }}" alt="{{ item.name }}">
+      <span class="Showcase-imageName">{{ item.name }}</span>
+    </a>
+  </li>
+  {% endif %}
+  {% endfor %}
+  </ul>
+</div>
+</section>
