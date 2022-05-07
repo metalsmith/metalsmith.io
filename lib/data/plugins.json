@@ -208,6 +208,12 @@
     "npm": "@metalsmith/collections"
   },
   {
+    "name": "Collections Related",
+    "icon": "layergroup",
+    "repository": "https://github.com/emmercm/metalsmith-collections-related",
+    "description": "Find related files within collections."
+  },
+  {
      "name": "Concat",
      "icon": "files",
      "repository": "https://github.com/aymericbeaumet/metalsmith-concat",
@@ -245,6 +251,12 @@
     "repository": "https://github.com/gchallen/code.metalsmith-updated",
     "npm": "metalsmith-updated",
     "description": "Add creation and updated timestamps"
+  },
+  {
+    "name": "CSS Unused",
+    "icon": "scaledown",
+    "repository": "https://github.com/emmercm/metalsmith-css-unused",
+    "description": "Remove unused CSS rules."
   },
   {
      "name": "Data Loader",
@@ -491,6 +503,12 @@
     "status": "unmaintained"
   },
   {
+    "name": "GitHub Profile",
+    "icon": "user",
+    "repository": "https://github.com/emmercm/metalsmith-github-profile",
+    "description": "Fetch GitHub profile information."
+  },
+  {
     "name": "Google Analytics",
     "icon": "write",
     "repository": "https://github.com/doodzik/metalsmith-google-analytics",
@@ -581,11 +599,29 @@
     "description": "Add page-specific hooks (like mini-plugins) to your build"
   },
   {
+    "name": "htaccess",
+    "icon": "index",
+    "repository": "https://github.com/emmercm/metalsmith-htaccess",
+    "description": "Create an Apache HTTP Server .htaccess configuration file."
+  },
+  {
     "name": "HTML5 Format Checker",
     "icon": "files",
     "repository": "https://github.com/gchallen/code.metalsmith-formatcheck",
     "npm": "metalsmith-formatcheck",
     "description": "Use html-validator to validate your HTML."
+  },
+  {
+    "name": "HTML Glob",
+    "icon": "link",
+    "repository": "https://github.com/emmercm/metalsmith-html-glob",
+    "description": "Apply glob patterns within HTML."
+  },
+  {
+    "name": "HTML Linter",
+    "icon": "checkfile",
+    "repository": "https://github.com/emmercm/metalsmith-html-linter",
+    "description": "Lint HTML for syntax and semantics."
   },
   {
     "name": "HTML Minifier",
@@ -594,11 +630,29 @@
     "description": "Minify your HTML files."
   },
   {
+    "name": "HTML Relative",
+    "icon": "link",
+    "repository": "https://github.com/emmercm/metalsmith-html-relative",
+    "description": "Convert to relative paths within HTML."
+  },
+  {
+    "name": "HTML Subresource Integrity",
+    "icon": "lock",
+    "repository": "https://github.com/emmercm/metalsmith-html-sri",
+    "description": "Add subresource integrity attributes to HTML."
+  },
+  {
     "name": "HTML Tidy",
     "icon": "dishwasher",
     "repository": "https://github.com/hoosteeno/metalsmith-html-tidy",
     "description": "Tidy your HTML files to make your source beautiful.",
     "status": "unmaintained"
+  },
+  {
+    "name": "HTML Unused",
+    "icon": "shredder",
+    "repository": "https://github.com/emmercm/metalsmith-html-unused",
+    "description": "Exclude resources that aren't referenced in HTML files."
   },
   {
     "name": "Hyphenate",
@@ -625,6 +679,12 @@
     "icon": "branch",
     "repository": "https://github.com/deltamualpha/metalsmith-if",
     "description": "Run plugins in the build sequence conditionally."
+  },
+  {
+    "name": "Reading Time",
+    "icon": "view",
+    "repository": "https://github.com/emmercm/metalsmith-reading-time",
+    "description": "Estimate pages' reading times."
   },
   {
     "name": "Remove",
@@ -671,6 +731,12 @@
     "repository": "https://github.com/mintbridge/metalsmith-include-content",
     "description": "Allows content to be included (nested) within other content by including the file path",
     "status": "unmaintained"
+  },
+  {
+    "name": "Include Files",
+    "icon": "downloadfolder",
+    "repository": "https://github.com/emmercm/metalsmith-include-files",
+    "description": "Include external files in your build."
   },
   {
     "name": "Inject Metadata",
@@ -809,6 +875,13 @@
     "status": "unmaintained"
   },
   {
+    "name": "Link Checker",
+    "icon": "unlink",
+    "repository": "https://github.com/emmercm/metalsmith-link-checker",
+    "description": "Check for local and remote broken links.",
+    "npm": "metalsmith-link-checker"
+  },
+  {
     "name": "Link Globs",
     "icon": "tag",
     "repository": "https://github.com/connected-world-services/metalsmith-link-globs",
@@ -875,6 +948,12 @@
     "status": "unmaintained"
   },
   {
+    "name": "Mermaid",
+    "icon": "bezier",
+    "repository": "https://github.com/emmercm/metalsmith-mermaid",
+    "description": "Render Mermaid diagrams in files."
+  },
+  {
     "name": "Metadata",
     "icon": "tag",
     "repository": "https://github.com/metalsmith/metalsmith-metadata",
@@ -908,6 +987,12 @@
     "description": "Read file metadata from frontmatter.",
     "status": "unmaintained",
     "alts": ["metalsmith"]
+  },
+  {
+    "name": "Metalsmith Tracer",
+    "icon": "stopwatch",
+    "repository": "https://github.com/emmercm/metalsmith-tracer",
+    "description": "Automatically trace and measure Metalsmith build time."
   },
   {
     "name": "Moment",
