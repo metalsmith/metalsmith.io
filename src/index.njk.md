@@ -54,10 +54,10 @@ Metalsmith(__dirname)         // __dirname defined by node.js:
   .metadata({                 // add any variable you want
                               // use them in layout-files
     sitename: "My Static Site & Blog",
-    siteurl: "http://example.com/",
+    siteurl: "https://example.com/",
     description: "It's about saying »Hello« to the world.",
     generatorname: "Metalsmith",
-    generatorurl: "http://metalsmith.io/"
+    generatorurl: "https://metalsmith.io/"
   })
   .source('./src')            // source directory
   .destination('./build')     // destination directory

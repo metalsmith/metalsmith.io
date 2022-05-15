@@ -1,7 +1,6 @@
 ---
 title: Getting started
 description: 'Get started with metalsmith.js static site generator: installation, concepts, project folder and quickstart'
-draft: true
 toc: true
 layout: default.njk
 order: 1
@@ -44,6 +43,7 @@ Splitting metalsmith in a minimal, rock-solid core and multiple plugins reduces 
 #### Metalsmith is more
 
 Depending on your desired use-case, Metalsmith can be *much more* than a static site generator:
+
 * a deploy, backup or build tool
 * a file metadata extractor
 * a boilerplate scaffolder
@@ -248,6 +248,48 @@ A common requirement is to write multi-line strings in YAML, either for readabil
   
   ```
 
+### Glob patterns
+
+Metalsmith and its plugins make extensive use of glob patterns to target specific files (usually through the `pattern` option). A [glob][glob_pattern] is a type of string pattern syntax that is commonly and conveniently used to match files by path with support for *globstar* wildcards `*`. Chances are you are already using glob patterns in `.gitignore` files, with the Linux/Mac or `git` terminal commands. Here are a few examples of how you can match with glob patterns:
+
+* Matching all files (the double globstar is *recursive*): see it [in action][globstar-all]
+
+  ```txt
+  **/*
+  ```
+
+* Matching all files at the root of a directory with a `.html` extension: see it [in action][globstar-single-dir]
+
+  ```txt
+  *.html
+  ```
+
+* Matching all markdown files starting with `post-` under the `blog/posts` folder: see it [in action][globstar-name]
+
+  ```txt
+  blog/posts/post-*.md
+  ```
+
+* Matching either ... or ...: see it [in action][globstar-either]
+
+  ```txt
+  {services/**,blog}/index.md
+  ```
+
+* Matching all except markdown files (negated match): see it [in action][glob-except]
+
+  ```txt
+  !**/*.md
+  ```
+
+You can always use DigitalOcean's handy [Glob tool](https://www.digitalocean.com/community/tools/glob) or [globster.xyz](https://globster.xyz) to test your glob patterns.
+
+[globstar-all]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=%2A%2A%2F%2A&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
+[globstar-single-dir]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=%2A.html&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
+[globstar-name]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=blog%2Fposts%2Fpost-%2A.md&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
+[globstar-either]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=**%2F*&matches=true&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
+[glob-except]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=**%2F*&matches=true&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
+
 ### The plugin chain
 
 We believe that understanding the internal representation of files as JavaScript objects is really key to fully grasp the concept of Metalsmith. To understand this better, we follow the evolution of a file at each step of the build process (between each `use` statement). We are also using the [`writemetadata()`](https://github.com/Waxolunist/metalsmith-writemetadata) plugin, which writes the `{key: value}` pairs excerpted from the [File][api_file] objects representing the files, to the filesystem as `.json` files. You can then view the `.json` files to find out how files are represented internally in Metalsmith.
@@ -354,50 +396,10 @@ Assuming we have defined a very simple nunjucks layout file in a separate layout
 
 Finally when the `.build(function(err))` is performed our JavaScript object is written to `relative_to_destpath/myfile/index.html`. 
 
-### Glob patterns
-
-Metalsmith and its plugins make extensive use of glob patterns to target specific files (usually through the `pattern` option, as in the writemetadata example above). A [glob][glob_pattern] is a type of string pattern syntax that is commonly and conveniently used to match files by path with support for *globstar* wildcards `*`. Chances are you are already using glob patterns in `.gitignore` files, with the Linux/Mac or `git` terminal commands. Here are a few examples of how you can match with glob patterns:
-
-* Matching all files (the double globstar is *recursive*): see it [in action][globstar-all]
-
-  ```txt
-  **/*
-  ```
-
-* Matching all files at the root of a directory with a `.html` extension: see it [in action][globstar-single-dir]
-
-  ```txt
-  *.html
-  ```
-
-* Matching all markdown files starting with `post-` under the `blog/posts` folder: see it [in action][globstar-name]
-
-  ```txt
-  blog/posts/post-*.md
-  ```
-
-* Matching either ... or ...: see it [in action][globstar-either]
-
-  ```txt
-  {services/**,blog}/index.md
-  ```
-
-* Matching all except markdown files (negated match): see it [in action][glob-except]
-
-  ```txt
-  !**/*.md
-  ```
-
-You can always use DigitalOcean's handy [Glob tool](https://www.digitalocean.com/community/tools/glob) or [globster.xyz](https://globster.xyz) to test your glob patterns.
-
-[globstar-all]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=%2A%2A%2F%2A&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
-[globstar-single-dir]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=%2A.html&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
-[globstar-name]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=blog%2Fposts%2Fpost-%2A.md&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
-[globstar-either]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=**%2F*&matches=true&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
-[glob-except]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=**%2F*&matches=true&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
-
 ## Quickstart
  
+You want to build a website or blog with a static site generator. Well, here is our elevator pitch. It's as easy as that:
+
 {% codetabs ["API","CLI"] %}
 {% codeblock "metalsmith.js" %}
 ```js
@@ -407,18 +409,15 @@ const layouts     = require('@metalsmith/layouts')
 const markdown    = require('@metalsmith/markdown')
 const permalinks  = require('@metalsmith/permalinks')
 
-const isDev = process.env.NODE_ENV === 'development'
-const siteUrl = isDev ? 'http://localhost:3000' : 'https://johndoe.com'
-
 Metalsmith(__dirname)         // __dirname defined by node.js:
                               // name of the directory of this file
   .metadata({                 // add any variable you want
                               // use them in layout-files
     sitename: "My Static Site & Blog",
-    siteurl: "http://example.com/",
+    siteurl: "https://example.com/",
     description: "It's about saying »Hello« to the world.",
     generatorname: "Metalsmith",
-    generatorurl: "http://metalsmith.io/"
+    generatorurl: "https://metalsmith.io/"
   })
   .source('./src')            // source directory
   .destination('./build')     // destination directory
@@ -441,10 +440,10 @@ Metalsmith(__dirname)         // __dirname defined by node.js:
 {
   "metadata": {
     "sitename": "My Static Site & Blog",
-    "siteurl": "http://example.com/",
+    "siteurl": "https://example.com/",
     "description": "It's about saying »Hello« to the world.",
     "generatorname": "Metalsmith",
-    "generatorurl": "http://metalsmith.io/"
+    "generatorurl": "https://metalsmith.io/"
   },
   "source": "./src",
   "destination": "./build",
@@ -462,7 +461,7 @@ Metalsmith(__dirname)         // __dirname defined by node.js:
 
 ## Directory structure
 
-The typical directory structure for a metalsmith (static-site) project looks more or less like this:
+A typical directory structure for a metalsmith (static-site) project looks more or less like this:
 
 ```txt
 repo
@@ -497,3 +496,17 @@ where:
 
 ...but Metalsmith gives you total freedom about how you want to structure your project, so feel free to restructure things as you see fit.
 Check out the [nodejs.org website](https://github.com/nodejs/nodejs.org) that is built with metalsmith for inspiration.
+
+## Starter projects
+
+The community has built a few interesting starter projects:
+
+* **[metalsmith/startbootstrap-clean-blog](https://github.com/metalsmith/startbootstrap-clean-blog)**: a stylish, responsive blog theme for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/), and made customizable with metalsmith. | **[Demo](https://startbootstrap.github.io/startbootstrap-clean-blog/)**
+* **[wernerglinka/metalsmith-bare-bones-starter](https://github.com/wernerglinka/metalsmith-bare-bones-starter)**: Bare-bones metalsmith starter with markdown & Nunjucks templating | **[Demo](https://metalsmith-bare-bones-starter.netlify.app/)**
+* **[wernerglinka/metalsmith-blog-starter](https://github.com/wernerglinka/metalsmith-blog-starter)**: Blog metalsmith starter with markdown & Nunjucks templating + a landing page & some sample articles | **[Demo](https://metalsmith-blog-starter.netlify.app/)**
+* **[wernerglinka/metalsmith-company-starter](https://github.com/wernerglinka/metalsmith-company-starter)**: Company site starter with markdown & Nunjucks templating | **[Demo](https://metalsmith-company-starter.netlify.app/)**
+* **[webketje/metalsmith-starter-resume](https://github.com/webketje/metalsmith-starter-resume)**: A professional, responsive Bootstrap4-themed resume / CV, made highly customizable with metalsmith, Handlebars & SCSS. Features print-friendly version, and twitter/ facebook/ linkedin share tags.. | **[Demo](https://replit.com/@webketje/metalsmith-starter-resume)**
+
+There is also a **[one-click Netlify CMS starter](https://www.netlifycms.org/docs/start-with-a-template/)**.
+
+[Github search for other metalsmith starters](https://github.com/search?o=desc&q=metalsmith+starter&type=Repositories)
