@@ -8,6 +8,7 @@
 
   &-icon {
     display: inline-block;
+    margin-left: -24px;
 
     &::before {
       color: var(--color-gray);

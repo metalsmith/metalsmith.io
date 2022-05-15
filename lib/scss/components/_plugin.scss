@@ -20,6 +20,10 @@
     text-align: left;
   }
 
+  &-user {
+    display: none;
+  }
+
   &-icon {
     font-size: 0.7em;
     color: var(--color-gold);

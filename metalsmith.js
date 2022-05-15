@@ -35,6 +35,7 @@ const mappedPlugins = plugins.map(plugin => {
     const npm = plugin.npm || repo;
 
     Object.assign(plugin, {
+      user,
       respositoryIssues: `${plugin.repository}/issues`,
       npmName: npm,
       npmUrl: `https://www.npmjs.com/package/${npm}`,

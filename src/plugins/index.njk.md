@@ -17,8 +17,9 @@ layout: default.njk
 
 <ul class="PluginList">
   {% for plugin in plugins %}
-    <li class="Plugin">
+    <li class="Plugin {% if plugin.user == 'metalsmith' %}Plugin--core{% endif %}">
       <a class="Plugin-link" href="{{ plugin.repository }}">
+        <span class="Plugin-user">{{ plugin.user }}</span>
         <h1 class="Plugin-title">
           <i class="Plugin-icon ss-{{ plugin.icon }}"></i>{{ plugin.name }}
         </h1>
