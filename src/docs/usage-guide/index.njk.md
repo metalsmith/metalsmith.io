@@ -1,7 +1,6 @@
 ---
 title: Usage guide
 description: 'Using metalsmith.js: basics, using plugins, rendering content, '
-draft: true
 toc: true
 order: 2
 layout: default.njk
@@ -82,25 +81,25 @@ Metalsmith(__dirname)
 {% endcodeblock %}
 {% endcodetabs %}
 
-The previous example also demonstrates that you can re-use the same plugin multiple times across the plugin chain, each time with different input.
+This example also demonstrates that you can re-use the same plugin multiple times across the plugin chain, each time with different input.
 
-Ok logging is cool, but what about actually manipulating the files? 
+Logging is cool, but what about actually manipulating the files? 
 Say, defining additional metadata, rendering markdown files, wrapping them in a layout, adding SASS stylesheets, and optimizing everything for production.
-Just as the [Apple iPhone's famous 2009 commercial](https://www.youtube.com/watch?v=szrsfeyLzyg) "There's an app for that", the answer to *how can I do X with Metalsmith?* is: there's a plugin for that. Browse the [official plugin registry](/plugins) for inspiration!
+Just as the [Apple iPhone's famous 2009 commercial](https://www.youtube.com/watch?v=szrsfeyLzyg) "There's an app for that", the answer to *how can I do X with Metalsmith?* is - there's a plugin for that. Browse the [official plugin registry](/plugins) for inspiration!
 
 ### Plugin types
 
 There is no official plugin type classification, but plugins can be broady divided into a few categories:
 
-* **Development plugins**: plugins which provide a better developer experience or debug information. Examples are: [metalsmith-express][], [metalsmith-writemetadata][plugin_writemetadata], [metalsmith-debug-ui][plugin_debug-ui]
+* **Development plugins**: plugins which provide a better developer experience or debug information. Examples are: [metalsmith-express][plugin_express], [metalsmith-writemetadata][plugin_writemetadata], [metalsmith-debug-ui][plugin_debug-ui]
 * **Metadata plugins**: plugins which add or modify file and global metadata. Examples are: [core_plugin_excerpts][@metalsmith/excerpts], [@metalsmith/table-of-contents][core_plugin_table-of-contents], [@metalsmith/default-values][core_plugin_default-values]
 * **Rendering plugins**: plugins which render or alter a file's `contents`. Examples are: @metalsmith/layouts, [@metalsmith/in-place][core_plugin_in-place], [@metalsmith/markdown][core_plugin_markdown]
 * **Files-tree manipulating plugins**: plugins which add, move or remove files from the files object. Examples are: [@metalsmith/permalinks][core_plugin_permalinks], [@metalsmith/remove][core_plugin_remove], [@metalsmith/drafts][core_plugin_drafts], metalsmith-sitemap
-* **Third-party integrations**: plugins which hook third-party tools into the metalsmith build. Examples are [@metalsmith/sass][core_plugin_sass], [metalsmith-postcss]() metalsmith-uglify
+* **Third-party integrations**: plugins which hook third-party tools into the metalsmith build. Examples are [@metalsmith/sass][core_plugin_sass], [@metalsmith/postcss][core_plugin_postcss] metalsmith-uglify
 
 A plugin could fit into multiple categories: 
 
-Plugins that start with the `@metalsmith/`  prefix are *core plugins*. They are officially supported by Metalsmith and there's a good chance that you will need most of them when building a static site. In logical order, here are some of the most common ones: 
+Plugins that start with the `@metalsmith/`  prefix are *core plugins*. They are officially supported by Metalsmith and there's a good chance that you will need most of them when building a static site. Here are some of the most common ones: 
 
 * `@metalsmith/sass`: use sass or scss files for styling
 * `@metalsmith/drafts`: mark files as `draft: true` to preview them in development mode, but remove them in production
@@ -110,7 +109,7 @@ Plugins that start with the `@metalsmith/`  prefix are *core plugins*. They are 
 
 ### Plugin order
 
-As previously noted, plugin order is very important in Metalsmith. As a rule of thumb, use common sense: you only want to minify HTML after the markdown file has been processed with `@metalsmith/markdown` and then wrapped in `@metalsmith/layouts`. Generally, you want plugins that inject new files or add metadata to be run at the start of the plugin chain so it is available in layouts and for other plugins to proces. `@metalsmith/drafts` is efficient as first plugin because in a production build: it immediately removes the files you don't want to process anyway. 
+Plugin order is very important in Metalsmith. As a rule of thumb, `.use(common sense)`: you only want to minify HTML after the markdown file has been processed with `@metalsmith/markdown` and then wrapped in `@metalsmith/layouts`. Generally, you want plugins that inject new files or add metadata to be run at the start of the plugin chain so it is available in layouts and for other plugins to proces. `@metalsmith/drafts` is efficient as first plugin because in a production build it immediately removes the files you don't want to process anyway. 
 
 ### Conditionally running plugins
 
@@ -262,7 +261,7 @@ Metalsmith(__dirname)
 {% endcodeblock %}
 {% endcodetabs %}
 
-*File metadata* can be defined as [front-matter][docs_frontmatter] in any file (provided that you didn't disable it with [`metalsmith.frontmatter(false)`][api_method_frontmatter]):
+*File metadata* [can be defined as front-matter][docs_frontmatter] in any file (provided that you didn't disable it with [`metalsmith.frontmatter(false)`][api_method_frontmatter]):
 
 ```yaml
 ---
@@ -272,7 +271,7 @@ description: A turn, an ending, and a twist
 No more drafts and no more waiting
 ```
 
-File metadata can be added dynamicaly with plugins like [`@metalsmith/default-values`][core_plugin_default-values] or [`metalsmith-filemetadata`][plugin_filemetadata]. Below is an example using `@metalsmith/default-values` to automatically assign the `post.hbs` layout to files by folder and mark all files in the `drafts` folder as draft:
+File metadata can be added dynamicaly with plugins like [@metalsmith/default-values][core_plugin_default-values] or [metalsmith-filemetadata][plugin_filemetadata]. Below is an example using `@metalsmith/default-values` to automatically assign the `post.hbs` layout to files by folder and mark all files in the `drafts` folder as draft:
 
 {% codetabs ["API","CLI"] %}
 {% codeblock "metalsmith.js" %}
@@ -328,7 +327,7 @@ Metalsmith(__dirname)
 {#
 ## Rendering content
 
-There are a multitude of plugins which can be used to render content. For rendering markdown contents and file metadata keys, there is [@metalsmith/markdown][core_plugin_markdown]. [@metalsmith/layouts][core_plugin_layouts] combined with a jstransformer wraps content in layouts, and [@metalsmith/in-place][core_plugin_in-place] is useful if you would like to use a templating language within a file's contents (for example in-between markdown). Below is a basic example of a full setup using all of these together:
+There are a multitude of plugins which can be used to render content. For rendering markdown contents and file metadata keys, there is [@metalsmith/markdown][core_plugin_markdown]. [@metalsmith/layouts][core_plugin_layouts] combined with a [jstransformer](https://github.com/jstransformers/) wraps content in layouts, and [@metalsmith/in-place][core_plugin_in-place] is useful if you need to use a templating language within a file's contents (for example in-between markdown). Below is a basic example of a full setup using all of these together:
 
 {% codeblock "metalsmith.js" %}
 ```js
@@ -347,7 +346,7 @@ Metalsmith(__dirname)
 ```
 {% endcodeblock %}
 
-There are a lot of other rendering plugins like [metalsmith-twig][plugin_twig] or [metalsmith-handlebars-x][plugin_handlebarsx] that provide full integrations for specific templating languages.
+There are also other rendering plugins like [metalsmith-twig][plugin_twig] or [metalsmith-handlebars-x][plugin_handlebarsx] that provide full integrations for specific templating languages.
 #}
 
 {# WIP #}
