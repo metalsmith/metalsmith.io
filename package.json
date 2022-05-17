@@ -22,6 +22,7 @@
   "devDependencies": {
     "@metalsmith/collections": "^1.2.1",
     "@metalsmith/drafts": "^1.1.1",
+    "@metalsmith/in-place": "^4.5.0",
     "@metalsmith/layouts": "^2.5.1",
     "@metalsmith/postcss": "^5.0.0",
     "@metalsmith/sass": "^1.0.0",
@@ -49,7 +50,6 @@
     "metalsmith-html-minifier": "^4.0.1",
     "metalsmith-if": "^0.1.1",
     "metalsmith-imagemin": "^4.1.4",
-    "metalsmith-in-place": "^4.4.2",
     "metalsmith-uglify": "^2.4.1",
     "mocha": "^9.2.2",
     "nodemon": "^2.0.16",

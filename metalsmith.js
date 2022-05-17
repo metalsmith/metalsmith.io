@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
-const inPlace = require('metalsmith-in-place');
+const inPlace = require('@metalsmith/in-place');
 const layouts = require('@metalsmith/layouts');
 const drafts = require('@metalsmith/drafts');
 const sass = require('@metalsmith/sass');
@@ -125,15 +125,6 @@ metalsmith
     })
   )
   .use(toc({ levels: [2, 3] }))
-  // this plugin is a temporary fix for in-place not supporting dots in dirnames
-  .use(files => {
-    Object.keys(files).forEach(key => {
-      if (key.includes('+')) {
-        files[key.replace(/\+/g, '.')] = files[key];
-        delete files[key];
-      }
-    });
-  })
   .use(
     layouts({
       directory: 'lib/views',
