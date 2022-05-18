@@ -4,6 +4,9 @@ description: 'Using metalsmith.js: basics, using plugins, rendering content, '
 toc: true
 order: 2
 layout: default.njk
+sitemap:
+  priority: 0.7
+  lastmod: 2022-05-17
 config:
   anchors: true
 ---

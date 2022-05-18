@@ -6,6 +6,8 @@ description: >
 pubdate: 2022-05-18
 draft: true
 layout: default.njk
+sitemap:
+  lastmod: 2022-05-18
 ---
 
 I planned the next post as the release announcement of Metalsmith 2.5, but some release features were tougher than I antipicated.

@@ -12,6 +12,7 @@ const when = require('metalsmith-if');
 const favicons = require('metalsmith-favicons');
 const htmlMinifier = require('metalsmith-html-minifier');
 const imagemin = require('metalsmith-imagemin');
+const sitemap = require('metalsmith-sitemap');
 const Metalsmith = require('metalsmith');
 const esbuildPlugin = require('metalsmith-esbuild-local');
 const examples = require('./lib/data/examples.json');
@@ -141,6 +142,17 @@ metalsmith
       entries: {
         'src/index.scss': 'index.css'
       }
+    })
+  )
+  .use(
+    sitemap({
+      hostname: 'https://metalsmith.io',
+      omitIndex: true,
+      changefreq: 'weekly',
+      modifiedProperty: 'sitemap.lastmod',
+      urlProperty: 'sitemap.canonical',
+      priorityProperty: 'sitemap.priority',
+      privateProperty: 'sitemap.private'
     })
   )
   .use(postcss({ plugins: ['postcss-preset-env', 'autoprefixer', 'cssnano'], map: !isProduction }))

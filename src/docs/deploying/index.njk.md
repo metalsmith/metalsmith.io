@@ -5,6 +5,8 @@ draft: true
 toc: true
 layout: default.njk
 order: 5
+sitemap:
+  private: true
 config:
   anchors: true
 ---

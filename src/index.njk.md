@@ -3,6 +3,9 @@ title: "Metalsmith"
 description: "An extremely simple, pluggable static site generator."
 slug: "home"
 layout: "home.njk"
+sitemap:
+  priority: 1.0
+  lastmod: 2022-05-18
 config:
   anchors: true
   

@@ -4,6 +4,9 @@ description: 'Get started with metalsmith.js static site generator: installation
 toc: true
 layout: default.njk
 order: 1
+sitemap:
+  priority: 0.8
+  lastmod: 2022-05-17
 config:
   anchors: true
 ---

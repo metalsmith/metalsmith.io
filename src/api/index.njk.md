@@ -3,6 +3,8 @@ title: API reference
 description: Metalsmith.js API reference
 slug: api
 layout: default.njk
+sitemap:
+  priority: 1.0
 config:
   anchors: true
 ---

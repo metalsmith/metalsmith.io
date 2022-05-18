@@ -2,6 +2,9 @@
 title: "Metalsmith: Step by step"
 description: A step-by-step walkthrough of how to Metalsmith
 layout: "home.njk"
+sitemap:
+  priority: 0.6
+  lastmod: 2021-10-01
 config:
   anchors: true
 ---

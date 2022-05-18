@@ -50,6 +50,7 @@
     "metalsmith-html-minifier": "^4.0.1",
     "metalsmith-if": "^0.1.1",
     "metalsmith-imagemin": "^4.1.4",
+    "metalsmith-sitemap": "^1.2.2",
     "metalsmith-uglify": "^2.4.1",
     "mocha": "^9.2.2",
     "nodemon": "^2.0.16",

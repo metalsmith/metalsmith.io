@@ -3,6 +3,8 @@ title: About
 description: About the Metalsmith.js project
 slug: about
 layout: default.njk
+sitemap:
+  priority: 0.6
 ---
 
 Metalsmith.js is an extremely simple, pluggable static-site generator for NodeJS.  

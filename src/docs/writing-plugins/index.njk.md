@@ -4,6 +4,9 @@ description: 'Learn how to develop & publish plugins for metalsmith.js: Node, to
 toc: true
 order: 3
 layout: default.njk
+sitemap:
+  priority: 0.8
+  lastmod: 2022-02-17
 config:
   anchors: true
 ---

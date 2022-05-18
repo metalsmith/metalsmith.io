@@ -3,6 +3,8 @@ title: News
 description: Latest news & updates about Metalsmith.js
 slug: news
 layout: default.njk
+sitemap:
+  priority: 1.0
 ---
 {% if collections.news.length %}
 {% for news in collections.news %}

@@ -3,6 +3,9 @@ title: Plugin registry
 description: Metalsmith.js plugin registry
 slug: plugins
 layout: default.njk
+sitemap:
+  priority: 1.0
+  lastmod: 2022-05-05
 ---
 
 <p class="PluginList-subtitle">

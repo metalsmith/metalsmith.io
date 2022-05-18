@@ -5,6 +5,8 @@ description: >
   Core plugins moved to the Github & NPM metalsmith orgs, and a lot more changes.
 pubdate: 2022-01-27
 layout: default.njk
+sitemap:
+  lastmod: 2022-01-27
 ---
 
 After a 5-year maintenance-mode break, Metalsmith.js is *back*. In a nutshell: the Metalsmith maintainers agreed to a transfer by Intellectual Property Assignment with [Segment][], &mdash; the previous owners & developers of Metalsmith. The software is now owned, maintained, and developed by [Kevin VL][webketje_gh] (me) doing business as [webketje][kbo], with periodic feedback from earlier maintainers [ismay][] and [Ajedi32][]. You can find more details about how Metalsmith got here on the [About page][].

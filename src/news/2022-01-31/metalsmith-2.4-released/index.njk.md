@@ -3,6 +3,8 @@ title: Metalsmith 2.4 released
 description: A new metalsmith.match pattern-matching method, awaitable builds, advanced front-matter option and lots of bugfixes
 pubdate: 2022-01-31
 layout: default.njk
+sitemap:
+  lastmod: 2022-05-18
 ---
 
 Metalsmith 2.4 is out!

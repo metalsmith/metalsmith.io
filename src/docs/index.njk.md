@@ -5,6 +5,8 @@ slug: docs
 layout: default.njk
 config:
   anchors: true
+sitemap:
+  priority: 1.0
 ---
 
 <section class="Highlight-wrapper">
