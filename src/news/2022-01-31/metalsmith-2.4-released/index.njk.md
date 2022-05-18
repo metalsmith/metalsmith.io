@@ -20,9 +20,9 @@ Metalsmith 2.4 is out!
     // when no input is specified, matches against Object.keys(files)
     const img = metalsmith.match('**/*.{jpg,png}')
     // do not match dot files
-    const  = metalsmith.match('**/*', { dot: false })
+    const  = metalsmith.match('**/*', Object.keys(files), { dot: false })
     // run on custom input
-    const custom = metalsmith.match('**/*.{jpg,png}', { dot: false }, ['.htaccess', 'img.jpg'])
+    const custom = metalsmith.match('**/*.{jpg,png}', ['.htaccess', 'img.jpg'], { dot: false })
   }
   ```
   See the new [API docs](/api/#Metalsmith+match) for detailed method signature information. 
