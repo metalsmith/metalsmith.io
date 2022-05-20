@@ -4,7 +4,6 @@ description: >
   Metalsmith has seen steady growth, new core & community plugins, new starter repo's, and a new co-maintainer.
   The @metalsmith org migration is almost completely done and release 2.5 is approaching!
 pubdate: 2022-05-18
-draft: true
 layout: default.njk
 sitemap:
   lastmod: 2022-05-18
