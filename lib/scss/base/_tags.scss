@@ -115,6 +115,7 @@ a {
 
 figure {
   margin: 1.5em 0;
+  text-align: center;
 }
 
 ol {
@@ -257,10 +258,6 @@ img {
   max-width: 100%;
 }
 
-figure {
-  text-align: center;
-}
-
 figcaption {
   font-style: italic;
   font-size: 0.875rem;
@@ -296,6 +293,7 @@ figcaption {
   width: 15%;
   word-break: break-all;
 }
+
 .Page--api td:nth-child(2),
 .Page--api th:nth-child(2) {
   max-width: 140px;
