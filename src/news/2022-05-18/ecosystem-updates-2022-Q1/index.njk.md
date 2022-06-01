@@ -17,7 +17,7 @@ I'm almost there though, so bear with me. In the meantime, I'm bringing you an o
 First off, metalsmith has been seeing some steady growth on NPM: the 2.4.x releases have been **installed 4x as much** in 4 months
 as the last stable release had in 6 years!
 
-<figure>
+<figure class="Image">
   <a href="metalsmith-on-npm-2022-Q1.png">
     <img src="metalsmith-on-npm-2022-Q1.png" alt="metalsmith on NPM">
   </a>
