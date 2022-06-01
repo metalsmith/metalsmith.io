@@ -63,6 +63,7 @@ metalsmith
     nodeVersion,
     isProduction,
     siteUrl: isProduction ? 'https://metalsmith.io' : 'https://localhost:3000',
+    buildTimestamp: Date.now(),
     cookieMessage: [
       'This website may use local storage for purely functional purposes (for example to remember preferences),',
       'and anonymous cookies to gather information about how visitors use the site.',
