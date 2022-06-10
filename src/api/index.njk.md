@@ -34,7 +34,11 @@ The keys represent the file paths and the values are <a href="#File">File</a> ob
 <dd><p>A Metalsmith plugin is a function that is passed the file list, the metalsmith instance, and a <code>done</code> callback.
 Calling the callback is required for asynchronous plugins, and optional for synchronous plugins.</p>
 </dd>
+<dt><a href="#Debugger">Debugger</a> : <code>function</code></dt>
+<dd><p>A <a href="https://github.com/debug-js/debug#readme">debug</a>-based plugin debugger</p>
+</dd>
 </dl>
+
 <a name="Metalsmith"></a>
 
 ## Metalsmith ⇒ [<code>Metalsmith</code>](#Metalsmith)
@@ -81,10 +85,12 @@ Initialize a new `Metalsmith` builder with a working `directory`.
     * [.frontmatter([frontmatter])](#Metalsmith+frontmatter) ⇒ <code>boolean</code> \| [<code>Metalsmith</code>](#Metalsmith)
     * [.ignore([files])](#Metalsmith+ignore) ⇒ [<code>Metalsmith</code>](#Metalsmith) \| <code>Array.&lt;string&gt;</code>
     * [.path(...paths)](#Metalsmith+path) ⇒ <code>string</code>
-    * [.match(patterns \[,input \[, options\]\])](#Metalsmith+match) ⇒ <code>Array.&lt;string&gt;</code>
-    * [.build([callback])](#Metalsmith+build) ⇒ [<code>Promise.&lt;Files&gt;</code>](#Files)
-    * [.process([callback])](#Metalsmith+process) ⇒ [<code>Files</code>](#Files)
-    * [.run(files, plugins)](#Metalsmith+run) ⇒ <code>Object</code>
+    * [.match(patterns \[, input \[, options\]\])](#Metalsmith+match) ⇒ <code>Array.&lt;string&gt;</code>
+    * [.debug(namespace)](#Metalsmith+debug) ⇒ [<code>Debugger</code>](#Debugger)
+    * [.env(\[ vars \[, value\]\])](#Metalsmith+env) ⇒ <code>string</code> \| <code>number</code> \| <code>boolean</code> \| <code>Object</code> \| [<code>Metalsmith</code>](#Metalsmith)
+    * [.build([callback])](#Metalsmith+build) ⇒ [<code>Promise.&lt;Files&gt;</code>](#Files) \| <code>void</code>
+    * [.process([callback])](#Metalsmith+process) ⇒ [<code>Promise.&lt;Files&gt;</code>](#Files) \| <code>void</code>
+    * [.run(files, plugins)](#Metalsmith+run) ⇒ [<code>Promise.&lt;Files&gt;</code>](#Files) \| <code>void</code>
 
 <a name="Metalsmith+use"></a>
 
@@ -124,7 +130,7 @@ Get or set the working `directory`.
   </thead>
   <tbody>
 <tr>
-    <td>[directory]</td><td><code>Object</code></td>
+    <td>[directory]</td><td><code>string</code></td>
     </tr>  </tbody>
 </table>
 
@@ -251,19 +257,19 @@ metalsmith.clean()      // returns true
 ```
 <a name="Metalsmith+frontmatter"></a>
 
-### metalsmith.frontmatter([frontmatter]) ⇒ <code>boolean</code> \| <code>Object</code> \| [<code>Metalsmith</code>](#Metalsmith)
-Optionally turn off frontmatter parsing.
+### metalsmith.frontmatter([frontmatter]) ⇒ <code>boolean</code> \| [<code>Metalsmith</code>](#Metalsmith)
+Optionally turn off frontmatter parsing or pass a [gray-matter options object](https://github.com/jonschlinkert/gray-matter/tree/4.0.2#option)
 
 **Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
 <table>
   <thead>
     <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
+      <th>Param</th><th>Type</th>
     </tr>
   </thead>
   <tbody>
 <tr>
-    <td>[frontmatter]</td><td><code>boolean|Object</code></td><td>Turn frontmatter on or off, or provide a custom [gray-matter options](https://github.com/jonschlinkert/gray-matter#options) object/td>
+    <td>[frontmatter]</td><td><code>boolean</code> | <code><a href="#GrayMatterOptions">GrayMatterOptions</a></code></td>
     </tr>  </tbody>
 </table>
 
@@ -271,6 +277,7 @@ Optionally turn off frontmatter parsing.
 ```js
 metalsmith.frontmatter(false)  // turn off front-matter parsing
 metalsmith.frontmatter()       // returns false
+metalsmith.frontmatter({ excerpt: true })
 ```
 <a name="Metalsmith+ignore"></a>
 
@@ -293,7 +300,7 @@ Get or set the list of filepaths or glob patterns to ignore
 
 **Example**  
 ```js
-metalsmith.ignore()
+metalsmith.ignore()                      // return a list of ignored file paths
 metalsmith.ignore('layouts')             // ignore the layouts directory
 metalsmith.ignore(['.*', 'data.json'])   // ignore dot files & a data file
 ```
@@ -319,10 +326,9 @@ Resolve `paths` relative to the metalsmith `directory`.
 ```js
 metalsmith.path('./path','to/file.ext')
 ```
-
 <a name="Metalsmith+match"></a>
 
-### metalsmith.match(patterns \[,input\[,options]]) ⇒ <code>Array.&lt;string&gt;</code>
+### metalsmith.match(patterns \[, input \[,options]]) ⇒ <code>Array.&lt;string&gt;</code>
 Match filepaths in the source directory by [glob](https://en.wikipedia.org/wiki/Glob_(programming)) pattern.
 If `input` is not specified, patterns are matched against `Object.keys(files)`
 
@@ -342,10 +348,78 @@ If `input` is not specified, patterns are matched against `Object.keys(files)`
     <td>[input]</td><td><code>Array.&lt;string&gt;</code></td><td><p>array of strings to match against</p>
 </td>
     </tr><tr>
-    <td>options</td><td><code>micromatch.Options</code></td><td><p><a href="https://github.com/micromatch/micromatch#options">micromatch options</a>, except <code>format</code></p>
+    <td>[value]</td><td><code>string</code> | <code>number</code> | <code>boolean</code></td><td><p>value of the environment variable</p>
 </td>
     </tr>  </tbody>
 </table>
+
+
+<a name="Metalsmith+env"></a>
+
+### metalsmith.env(\[vars \[, value]]) ⇒ <code>string</code> \| <code>number</code> \| <code>boolean</code> \| <code>Object</code> \| [<code>Metalsmith</code>](#Metalsmith)
+Get or set one or multiple metalsmith environment variables. Metalsmith env vars are case-insensitive.
+
+**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>[vars]</td><td><code>string</code> | <code>Object</code></td><td><p>name of the environment variable, or an object with <code>{ name: &#39;value&#39; }</code> pairs</p>
+</td>
+    </tr><tr>
+    <td>[value]</td><td><code>string</code> | <code>number</code> | <code>boolean</code></td><td><p>value of the environment variable</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+**Example**  
+```js
+// pass all Node env variables
+metalsmith.env(process.env)
+// get all env variables
+metalsmith.env()
+// get DEBUG env variable
+metalsmith.env('DEBUG')
+// set DEBUG env variable (chainable)
+metalsmith.env('DEBUG', '*')
+// set multiple env variables at once (chainable)
+// this does not clear previously set variables
+metalsmith.env({
+  DEBUG: false,
+  ENV: 'development'
+})
+```
+<a name="Metalsmith+debug"></a>
+
+### metalsmith.debug(namespace) ⇒ [<code>Debugger</code>](#Debugger)
+Create a new [debug](https://github.com/debug-js/debug#readme) debugger
+
+**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>namespace</td><td><code>string</code></td><td><p>Debugger namespace</p>
+</td>
+    </tr>  </tbody>
+</table>
+
+**Example**  
+```js
+function plugin(files, metalsmith) {
+  const debug = metalsmith.debug('metalsmith-myplugin')
+  debug('a debug log')    // logs 'metalsmith-myplugin a debug log'
+  debug.warn('A warning') // logs 'metalsmith-myplugin:warn A warning'
+}
+```
 
 <a name="Metalsmith+build"></a>
 
@@ -514,7 +588,7 @@ function plugin(files, metalsmith, done) {
 A Metalsmith plugin is a function that is passed the file list, the metalsmith instance, and a `done` callback.
 Calling the callback is required for asynchronous plugins, and optional for synchronous plugins.
 
-**Kind**: global typedef  
+**Kind**: global typedef
 <table>
   <thead>
     <tr>
@@ -542,4 +616,53 @@ function drafts(files, metalsmith) {
 }
 
 metalsmith.use(drafts)
+```
+
+<a name="Debugger"></a>
+
+## Debugger : <code>function</code>
+A [debug](https://github.com/debug-js/debug#readme)-based plugin debugger with `warn`, `info` and `error` channels.
+
+**Kind**: global typedef  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>message</td><td><code>string</code></td><td><p>Debug message, including <a href="https://github.com/debug-js/debug#formatters">formatter placeholders</a> and an additional <code>%b</code> (buffer) formatter </p></td></tr>
+    <tr><td>...args</td><td><code>any</code></td><td><p>Arguments to fill the formatter placeholders with</p></td></tr>
+  </tbody>
+</table>
+
+**Example**  
+```js
+const createDebugger = require('metalsmith/lib/debug')
+const debugger = createDebugger('metalsmith-myplugin')
+debugger('A message')
+```
+
+**Methods**
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr><td>warn</td><td><code>function</code></td><td><p>Log a warning. Same signature as main debug function</p></td></tr>
+<tr><td>error</td><td><code>function</code></td><td><p>Log an error. Same signature as main debug function</p></td></tr>
+<tr><td>info</td><td><code>function</code></td><td><p>Log an informational message. Same signature as main debug function</p></td></tr>
+</tbody>
+</table>
+
+**Example**  
+```js
+const createDebugger = require('metalsmith/lib/debug')
+const debugger = createDebugger('metalsmith-myplugin')
+debugger.error('An error')
+debugger.warn('A warning')
+debugger.info('File contents: %b', Buffer.from('custom'))
 ```
