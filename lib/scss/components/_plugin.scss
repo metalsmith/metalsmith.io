@@ -5,6 +5,24 @@
   padding: 1.25em;
   background-color: var(--color-white);
 
+  &--unmaintained {
+    opacity: 0.7;
+  }
+
+  &-notice {
+    color: var(--color-black);
+    background: var(--color-light-gray);
+    font-style: italic;
+    padding: 5px;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+
+    &Icon::before {
+      color: var(--color-black);
+    }
+  }
+
   & + .Plugin {
     margin-top: 1px;
   }

@@ -20,7 +20,10 @@ sitemap:
 
 <ul class="PluginList">
   {% for plugin in plugins %}
-    <li class="Plugin {% if plugin.user == 'metalsmith' %}Plugin--core{% endif %}">
+    <li class="Plugin {% if plugin.user == 'metalsmith' %}Plugin--core{% endif %}{% if plugin.status =='unmaintained' %} Plugin--unmaintained{% endif %}">
+      {% if plugin.status =='unmaintained' %}
+      <span class="Plugin-notice"><i class="Plugin-noticeIcon ss-alert"></i> This plugin hasn't been updated in <abbr title="5 years">a while</abbr>.</span>
+      {% endif %}
       <a class="Plugin-link" href="{{ plugin.repository }}">
         <span class="Plugin-user">{{ plugin.user }}</span>
         <h1 class="Plugin-title">
@@ -46,6 +49,8 @@ sitemap:
             alt="npm downloads per year"
           />
         </a>
+        {% if plugin.githubStars %}
+        {# this badge will not work for plugins not hosted on Github #}
         <a class="Plugin-badge" href="{{ plugin.repository }}">
           <img
             class="b-lazy"
@@ -54,6 +59,7 @@ sitemap:
             alt="GitHub stars"
           />
         </a>
+        {% endif %}
         {% if plugin.isCorePlugin %}
         <span class="Plugin-badge">
           <img src="https://img.shields.io/badge/metalsmith-core_plugin-green.svg" alt="core plugin">

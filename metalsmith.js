@@ -30,23 +30,28 @@ const mappedPlugins = plugins.map(plugin => {
     plugin.status = 'active';
   }
   const result = githubRegex.exec(plugin.repository);
+  let npm = '';
+  let user = '';
 
   if (result) {
-    const [, user, repo] = result;
-    const npm = plugin.npm || repo;
-
-    Object.assign(plugin, {
-      user,
-      respositoryIssues: `${plugin.repository}/issues`,
-      npmName: npm,
-      npmUrl: `https://www.npmjs.com/package/${npm}`,
-      npmDownloads: `https://img.shields.io/npm/dy/${npm}.svg?maxAge=${oneWeek}`,
-      npmVersion: `https://img.shields.io/npm/v/${npm}.svg?maxAge=${oneWeek}`,
-      githubStars: `https://img.shields.io/github/stars/${user}/${repo}.svg?maxAge=${oneWeek}`,
-      isCorePlugin: user === 'metalsmith',
-      isUnmaintained: plugin.status !== 'active'
-    });
+    // eslint-disable-next-line prefer-destructuring
+    user = result[1];
+    npm = plugin.npm || result[2];
+    plugin.githubStars = `https://img.shields.io/github/stars/${user}/${result[2]}.svg?maxAge=${oneWeek}`;
+  } else {
+    npm = plugin.npm;
   }
+
+  Object.assign(plugin, {
+    user,
+    respositoryIssues: `${plugin.repository}/issues`,
+    npmName: npm,
+    npmUrl: `https://www.npmjs.com/package/${npm}`,
+    npmDownloads: `https://img.shields.io/npm/dy/${npm}.svg?maxAge=${oneWeek}`,
+    npmVersion: `https://img.shields.io/npm/v/${npm}.svg?maxAge=${oneWeek}`,
+    isCorePlugin: user === 'metalsmith',
+    isUnmaintained: plugin.status !== 'active'
+  });
 
   return plugin;
 });
@@ -160,7 +165,7 @@ metalsmith
   .use(
     esbuildPlugin({
       entries: {
-        index: './lib/js/index'
+        index: './lib/js/index.js'
       }
     })
   )
