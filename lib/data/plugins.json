@@ -963,8 +963,9 @@
   {
     "name": "Metadata",
     "icon": "tag",
-    "repository": "https://github.com/metalsmith/metalsmith-metadata",
-    "description": "Load metadata from JSON or YAML files."
+    "repository": "https://github.com/metalsmith/metadata",
+    "description": "Load metadata from JSON, YAML, or TOML files.",
+    "npm": "@metalsmith/metadata"
   },
   {
     "name": "Metadata Directory",
