@@ -39,7 +39,7 @@ Metalsmith is built on this reasoning. It takes the information from the files i
 
 Metalsmith leaves all manipulations exclusively to plugins.
 
-Manipulations could be anything: translating templates, transpiling code, replacing variables, wrapping layouts around content, grouping files, moving and removing files and so on. This is why we say *Everything is a Plugin*. Manipulations can be applied one after another, or *chained* or *piped*, if you prefer. Obviously, in a chain [plugin order matters]().
+Manipulations could be anything: translating templates, transpiling code, replacing variables, wrapping layouts around content, grouping files, moving and removing files and so on. This is why we say *Everything is a Plugin*. Manipulations can be applied one after another, or *chained* or *piped*, if you prefer. Obviously, in a chain [plugin order](/docs/usage-guide/#plugin-order) matters.
 
 Splitting metalsmith in a minimal, rock-solid core and multiple plugins reduces complexity. It gives you the freedom to use *exactly and only* those plugins you need and it distributes the honor and the burden of maintaining the Metalsmith ecosystem.
 
