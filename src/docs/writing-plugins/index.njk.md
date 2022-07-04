@@ -92,7 +92,7 @@ It is important that the plugin is a *named function*. The function name *is* th
   ]
   ```
   Anonymous functions all get the name `Function (anonymous)` which is harder to inspect
-* The same argument of clarity applies for error stack traces. Naming the plugin allows users to immediately pin the plugin that causes issues:
+* The same argument of clarity applies to error stack traces. Naming the plugin allows users to immediately pin the plugin that causes issues:
   ```txt
   UnhandledPromiseRejectionWarning: EINVALID_ARGUMENT: Requiredoption cannot be empty
     at Ware.snapshot (/home/user/ms/metalsmith.js:9:19)

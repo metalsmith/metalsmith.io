@@ -92,13 +92,13 @@ Just as the [Apple iPhone's famous 2009 commercial](https://www.youtube.com/watc
 
 ### Plugin types
 
-There is no official plugin type classification, but plugins can be broady divided into a few categories:
+There is no official plugin type classification, but plugins can be broadly divided into a few categories:
 
-* **Development plugins**: plugins which provide a better developer experience or debug information. Examples are: [metalsmith-express][plugin_express], [metalsmith-writemetadata][plugin_writemetadata], [metalsmith-debug-ui][plugin_debug-ui]
-* **Metadata plugins**: plugins which add or modify file and global metadata. Examples are: [core_plugin_excerpts][@metalsmith/excerpts], [@metalsmith/table-of-contents][core_plugin_table-of-contents], [@metalsmith/default-values][core_plugin_default-values]
-* **Rendering plugins**: plugins which render or alter a file's `contents`. Examples are: @metalsmith/layouts, [@metalsmith/in-place][core_plugin_in-place], [@metalsmith/markdown][core_plugin_markdown]
-* **Files-tree manipulating plugins**: plugins which add, move or remove files from the files object. Examples are: [@metalsmith/permalinks][core_plugin_permalinks], [@metalsmith/remove][core_plugin_remove], [@metalsmith/drafts][core_plugin_drafts], metalsmith-sitemap
-* **Third-party integrations**: plugins which hook third-party tools into the metalsmith build. Examples are [@metalsmith/sass][core_plugin_sass], [@metalsmith/postcss][core_plugin_postcss] metalsmith-uglify
+* **Development plugins**: plugins that provide a better developer experience or debug information. Examples are: [metalsmith-express][plugin_express], [metalsmith-writemetadata][plugin_writemetadata], [metalsmith-debug-ui][plugin_debug-ui]
+* **Metadata plugins**: plugins that add or modify file and global metadata. Examples are: [core_plugin_excerpts][@metalsmith/excerpts], [@metalsmith/table-of-contents][core_plugin_table-of-contents], [@metalsmith/default-values][core_plugin_default-values]
+* **Rendering plugins**: plugins that render or alter a file's `contents`. Examples are: @metalsmith/layouts, [@metalsmith/in-place][core_plugin_in-place], [@metalsmith/markdown][core_plugin_markdown]
+* **Files-tree manipulating plugins**: plugins that add, move or remove files from the files object. Examples are: [@metalsmith/permalinks][core_plugin_permalinks], [@metalsmith/remove][core_plugin_remove], [@metalsmith/drafts][core_plugin_drafts], metalsmith-sitemap
+* **Third-party integrations**: plugins that hook third-party tools into the metalsmith build. Examples are [@metalsmith/sass][core_plugin_sass], [@metalsmith/postcss][core_plugin_postcss] metalsmith-uglify
 
 A plugin could fit into multiple categories: 
 
@@ -112,11 +112,11 @@ Plugins that start with the `@metalsmith/`  prefix are *core plugins*. They are 
 
 ### Plugin order
 
-Plugin order is very important in Metalsmith. As a rule of thumb, `.use(common sense)`: you only want to minify HTML after the markdown file has been processed with `@metalsmith/markdown` and then wrapped in `@metalsmith/layouts`. Generally, you want plugins that inject new files or add metadata to be run at the start of the plugin chain so it is available in layouts and for other plugins to proces. `@metalsmith/drafts` is efficient as first plugin because in a production build it immediately removes the files you don't want to process anyway. 
+Plugin order is very important in Metalsmith. As a rule of thumb, `.use(common sense)`: you only want to minify HTML after the markdown file has been processed with `@metalsmith/markdown` and then wrapped in `@metalsmith/layouts`. Generally, you want plugins that inject new files or add metadata to be run at the start of the plugin chain so it is available in layouts and for other plugins to process. `@metalsmith/drafts` is efficient as the first plugin because in a production build it immediately removes the files you don't want to process anyway. 
 
 ### Conditionally running plugins
 
-If you're using the Metalsmith CLI, there's only one way to run plugins conditionally: create multiple `metalsmith.json` configs. The common use case is having a development config and a production config. For example we would like to remove *draft* files and *minify the HTML* only in production:
+If you're using the Metalsmith CLI, there's only one way to run plugins conditionally: create multiple `metalsmith.json` configs. The common use case is having a development config and a production config. For example, we would like to remove *draft* files and *minify the HTML* only in production:
 
 {% codetabs ["DEV","PROD"] %}
 {% codeblock "metalsmith.dev.json" %}
