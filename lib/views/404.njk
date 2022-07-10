@@ -1,0 +1,18 @@
+{% extends "./default.njk" %}
+{% from "./partials/nav.njk" import "nav" %}
+
+{% block top %}
+  {{ nav(slug, logo=false, socials=true) }}
+{% endblock %}
+
+{% block main %}
+  <div class="Banner">
+    <div class="Banner-content">
+      <h1 class="Banner-title">
+        <a class="Banner-permalink" href="/">404</a>
+      </h1>
+      <p class="Banner-tagline">{{ title }}</p>
+      <a class="Banner-action" href="/">Back to Home</a>
+    </div>
+  </div>
+{% endblock %}
