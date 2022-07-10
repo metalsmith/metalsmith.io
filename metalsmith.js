@@ -14,7 +14,7 @@ const htmlMinifier = require('metalsmith-html-minifier');
 const imagemin = require('metalsmith-imagemin');
 const sitemap = require('metalsmith-sitemap');
 const Metalsmith = require('metalsmith');
-const esbuildPlugin = require('metalsmith-esbuild-local');
+const jsbundle = require('@metalsmith/js-bundle');
 const examples = require('./lib/data/examples.json');
 const plugins = require('./lib/data/plugins.json');
 const formatDate = require('./metalsmith/nunjucks-formatDate-filter');
@@ -163,7 +163,7 @@ metalsmith
   )
   .use(postcss({ plugins: ['postcss-preset-env', 'autoprefixer', 'cssnano'], map: !isProduction }))
   .use(
-    esbuildPlugin({
+    jsbundle({
       entries: {
         index: './lib/js/index.js'
       }
