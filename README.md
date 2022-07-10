@@ -2,6 +2,8 @@
 
   The site for [Metalsmith](https://github.com/metalsmith/metalsmith).
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/08d3a039-cde8-40dc-a0aa-589f6d29a36e/deploy-status)](https://app.netlify.com/sites/metalsmith/deploys)
+
 ## Developing
 
 You'll need [`node`](https://nodejs.org/en/).
