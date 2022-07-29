@@ -1602,6 +1602,12 @@
     "description": "Easily validate file metadata, checking existence, type, and pattern."
   },
   {
+    "name": "Vega",
+    "icon": "barchart",
+    "repository": "https://github.com/emmercm/metalsmith-vega",
+    "description": "Render Vega and Vega-Lite visualizations in files."
+  },
+  {
     "name": "Watch",
     "icon": "view",
     "repository": "https://github.com/FWeinb/metalsmith-watch",
