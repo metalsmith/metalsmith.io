@@ -778,6 +778,13 @@
     "description": "Print/inspect the file objects, mainly for debugging."
   },
   {
+    "name": "Js-bundle",
+    "icon": "storagebox",
+    "repository": "https://github.com/metalsmith/js-bundle",
+    "description": "Bundle your JS using esbuild",
+    "npm": "@metalsmith/js-bundle"
+  },
+  {
     "name": "Hover",
     "icon": "files",
     "repository": "https://github.com/lambtron/metalsmith-hover",
@@ -1213,6 +1220,13 @@
     "description": "A Metalsmith plugin for PostCSS."
   },
   {
+    "name": "PostCSS",
+    "icon": "files",
+    "repository": "https://github.com/metalsmith/postcss",
+    "description": "Send your (S)CSS through any PostCSS plugins.",
+    "npm": "@metalsmith/postcss"
+  },
+  {
      "name": "Placeholder",
      "icon": "files",
      "repository": "https://github.com/mattly/metalsmith-placeholder",
@@ -1344,6 +1358,13 @@
     "icon": "globe",
     "repository": "https://github.com/ahmadnassri/metalsmith-request",
     "description": "Grab content from the web and expose the results to metadata."
+  },
+  {
+    "name": "Requests",
+    "icon": "globe",
+    "repository": "https://github.com/ahmadnassri/metalsmith-request",
+    "description": "Add request responses to file contents/metadata and metalsmith metadata.",
+    "npm": "@metalsmith/requests"
   },
   {
     "name": "Rollup",
@@ -1510,7 +1531,8 @@
     "name": "Table of Contents",
     "icon": "file",
     "repository": "https://github.com/metalsmith/table-of-contents",
-    "description": "Auto-generate table of contents from headings"
+    "description": "Auto-generate table of contents from headings",
+    "npm": "@metalsmith/table-of-contents"
   },
   {
     "name": "Tags",
