@@ -15,4 +15,11 @@
     margin-right: 0.75em;
     font-family: var(--font-headings);
   }
+
+  &--note::before {
+    content: 'NOTE';
+    display: inline-block;
+    margin-right: 0.75em;
+    font-family: var(--font-headings);
+  }
 }

@@ -6,13 +6,12 @@ order: 2
 layout: default.njk
 sitemap:
   priority: 0.7
-  lastmod: 2022-05-17
+  lastmod: 2022-09-04
 config:
   anchors: true
 ---
 {% include "./lib/views/partials/doc-mdlinks.njk" %}
 {% from "./lib/views/partials/replit.njk" import "replit" %}
-
 ## Using plugins
 
 A metalsmith plugin is just a function that is passed the [Files][api_files] object and the [Metalsmith][api_metalsmith] instance. In fact, we can even use `console.log` as a plugin!
@@ -94,11 +93,16 @@ Just as the [Apple iPhone's famous 2009 commercial](https://www.youtube.com/watc
 
 There is no official plugin type classification, but plugins can be broadly divided into a few categories:
 
-* **Development plugins**: plugins that provide a better developer experience or debug information. Examples are: [metalsmith-express][plugin_express], [metalsmith-writemetadata][plugin_writemetadata], [metalsmith-debug-ui][plugin_debug-ui]
-* **Metadata plugins**: plugins that add or modify file and global metadata. Examples are: [core_plugin_excerpts][@metalsmith/excerpts], [@metalsmith/table-of-contents][core_plugin_table-of-contents], [@metalsmith/default-values][core_plugin_default-values]
-* **Rendering plugins**: plugins that render or alter a file's `contents`. Examples are: @metalsmith/layouts, [@metalsmith/in-place][core_plugin_in-place], [@metalsmith/markdown][core_plugin_markdown]
-* **Files-tree manipulating plugins**: plugins that add, move or remove files from the files object. Examples are: [@metalsmith/permalinks][core_plugin_permalinks], [@metalsmith/remove][core_plugin_remove], [@metalsmith/drafts][core_plugin_drafts], metalsmith-sitemap
-* **Third-party integrations**: plugins that hook third-party tools into the metalsmith build. Examples are [@metalsmith/sass][core_plugin_sass], [@metalsmith/postcss][core_plugin_postcss] metalsmith-uglify
+* **Development plugins**: plugins that provide a better developer experience or debug information.  
+Examples are: [metalsmith-express][plugin_express], [metalsmith-writemetadata][plugin_writemetadata], [metalsmith-debug-ui][plugin_debug-ui]
+* **Metadata plugins**: plugins that add or modify file and global metadata.  
+Examples are: [@metalsmith/excerpts][core_plugin_excerpts], [@metalsmith/table-of-contents][core_plugin_table-of-contents], [@metalsmith/default-values][core_plugin_default-values]
+* **Rendering plugins**: plugins that render or alter a file's `contents`.  
+Examples are: [@metalsmith/layouts][core_plugin_layouts], [@metalsmith/in-place][core_plugin_in-place], [@metalsmith/markdown][core_plugin_markdown]
+* **Files-tree manipulating plugins**: plugins that add, move or remove files from the files object.  
+Examples are: [@metalsmith/permalinks][core_plugin_permalinks], [@metalsmith/remove][core_plugin_remove], [@metalsmith/drafts][core_plugin_drafts], metalsmith-sitemap
+* **Third-party integrations**: plugins that hook third-party tools into the metalsmith build.  
+Examples are [@metalsmith/sass][core_plugin_sass], [@metalsmith/postcss][core_plugin_postcss] metalsmith-uglify
 
 A plugin could fit into multiple categories: 
 
@@ -133,8 +137,8 @@ If you're using the Metalsmith CLI, there's only one way to run plugins conditio
 ```json
 {
   "plugins": [
-    { "@metalsmith/markdown": { } },
     { "@metalsmith/drafts": { } },
+    { "@metalsmith/markdown": { } },
     { "@metalsmith/layouts": { } },
     { "metalsmith-html-minifier": { } }
   ]
@@ -194,7 +198,6 @@ Metalsmith(__dirname)
   })
 ```
 {% endcodeblock %}
-
 
 ## Defining metadata
 
@@ -330,7 +333,7 @@ Metalsmith(__dirname)
 {#
 ## Rendering content
 
-There are a multitude of plugins which can be used to render content. For rendering markdown contents and file metadata keys, there is [@metalsmith/markdown][core_plugin_markdown]. [@metalsmith/layouts][core_plugin_layouts] combined with a [jstransformer](https://github.com/jstransformers/) wraps content in layouts, and [@metalsmith/in-place][core_plugin_in-place] is useful if you need to use a templating language within a file's contents (for example in-between markdown). Below is a basic example of a full setup using all of these together:
+There are a multitude of plugins which can be used to render content. For rendering markdown contents and file metadata keys, there is [@metalsmith/markdown][core_plugin_markdown]. [@metalsmith/layouts][core_plugin_layouts] combined with a [jstransformer](https://github.com/jstransformers/) wraps content in layouts, and [@metalsmith/in-place][core_plugin_in-place] is useful if you need to use a templating language within a file's contents (for example within markdown files). Below is a basic example of a full setup using all of these together:
 
 {% codeblock "metalsmith.js" %}
 ```js
@@ -358,4 +361,9 @@ There are also other rendering plugins like [metalsmith-twig][plugin_twig] or [m
 
 ## Optimizing performance
 ### Splitting the build
+
+
+## Using environment variables
+
+Since version 2.5.0, Metalsmith has its own [`Metalsmith.env`][api_method_env] method.
 #}
