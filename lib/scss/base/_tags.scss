@@ -396,3 +396,33 @@ figcaption {
   background-size: 1em;
   padding-left: 24px;
 }
+
+a[href='#top'] {
+  border-radius: 50%;
+  display: block;
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  line-height: 1.85rem;
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: monospace;
+  text-decoration: none;
+  text-align: center;
+  background: var(--color-dark-gray);
+  transition: 0.3s opacity;
+  opacity: 0.5;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+
+  &[hidden] {
+    display: block;
+    opacity: 0;
+  }
+}
