@@ -1,0 +1,88 @@
+- name: nodejs.org
+  url: https://nodejs.org
+  image: nodejs-org.png
+  featured: true
+- name: JSDoc
+  url: https://jsdoc.app
+  image: jsdoc-app.png
+  featured: true
+- name: OpenLayers
+  url: https://openlayers.org
+  image: openlayers-org.png
+  featured: true
+- name: PlayCanvas Developer Docs
+  url: https://developer.playcanvas.com
+  image: developer-playcanvas-com.png
+  featured: true
+- name: ScenicByways
+  url: https://scenicbyways.info
+  image: scenicbyways-info.png
+  featured: true
+- name: Design System Gov UK
+  url: https://design-system.service.gov.uk/
+  image: design-system-service-gov-uk.png
+  featured: true
+- name: Foxxtrot blog
+  url: https://blog.foxxtrot.net/
+  image: blog-foxxtrot-net.png
+  featured: false
+- name: qooxdoo framework
+  url: https://qooxdoo.org
+  image: qooxdoo-org.png
+  featured: false
+- name: Quasar CLI
+  url: https://github.com/quasarframework/quasar/tree/dev/cli
+  image: quasar-cli.png
+  featured: true
+- name: Basisproject
+  url: https://basisproject.net
+  image: basisproject-net.png
+  featured: true
+- name: Sarah Geek NZ
+  url: https://sarah.geek.nz
+  image: sarah-geek-nz.png
+  featured: true
+- name: Eric Dorsey's blog
+  url: https://ericdorsey.com
+  image: ericdorsey-com.png
+  featured: true
+- name: Andrew Lock's blog
+  url: https://andrewlock.net/
+  image: andrewlock-net.png
+  featured: true
+- name: Joeri Colman Portfolio
+  url: https://bok19.net/portfolio
+  image: bok19-net-portfolio.png
+  featured: false
+- name: Tous en Scène
+  url: https://tousenscene34.fr
+  image: tousenscene34-fr.png
+  featured: false
+- name: webketje.com personal website
+  url: https://webketje.com
+  image: webketje-com.png
+  featured: false
+- name: Adobe sucks
+  url: https://ass.easun.me
+  image: ass-easun-me.png
+  featured: true
+- name: Glaucia Lemos
+  url: https://glaucialemos.dev
+  image: glaucialemos-dev.png
+  featured: true
+- name: Christian Emmer
+  url: https://emmer.dev
+  image: emmer-dev.png
+  featured: true
+- name: Moleculer CLI
+  url: https://www.npmjs.com/package/moleculer-cli
+  image: moleculer-cli.png
+  featured: true
+- name: DooringX CLI
+  url: https://github.com/H5-Dooring/dooringx
+  image: dooringx-cli.png
+  featured: false
+- name: glinka.co personal blog
+  url: https://glinka.co
+  image: glinka-co.png
+  featured: true

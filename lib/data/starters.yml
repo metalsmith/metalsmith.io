@@ -1,0 +1,25 @@
+- name: metalsmith/startbootstrap-clean-blog
+  url: https://github.com/metalsmith/startbootstrap-clean-blog
+  demo: https://startbootstrap.github.io/startbootstrap-clean-blog/
+  description: a stylish, responsive blog theme for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/), and made customizable with metalsmith.
+  image: startbootstrap-clean-blog.png
+- name: wernerglinka/metalsmith-bare-bones-starter
+  url: https://github.com/wernerglinka/metalsmith-bare-bones-starter
+  demo: https://metalsmith-bare-bones-starter.netlify.app/
+  description: Bare-bones metalsmith starter with markdown & Nunjucks templating
+  image: bare-bones-starter.png
+- name: wernerglinka/metalsmith-blog-starter
+  url: https://github.com/wernerglinka/metalsmith-blog-starter
+  demo: https://metalsmith-blog-starter.netlify.app/
+  description: Blog metalsmith starter with markdown & Nunjucks templating + a landing page & some sample articles
+  image: blog-starter.png
+- name: wernerglinka/metalsmith-company-starter
+  url: https://github.com/wernerglinka/metalsmith-company-starter
+  demo: https://metalsmith-company-starter.netlify.app/
+  description: Company site starter with markdown & Nunjucks templating
+  image: company-starter.png
+- name: webketje/metalsmith-starter-resume
+  url: https://github.com/webketje/metalsmith-starter-resume
+  demo: https://replit.com/@webketje/metalsmith-starter-resume
+  description: A professional, responsive Bootstrap4-themed resume / CV, made highly customizable with metalsmith, Handlebars & SCSS. Features print-friendly version, and twitter/ facebook/ linkedin share tags..
+  image: resume-starter.png

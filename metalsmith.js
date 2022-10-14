@@ -15,11 +15,12 @@ const imagemin = require('metalsmith-imagemin');
 const sitemap = require('metalsmith-sitemap');
 const Metalsmith = require('metalsmith');
 const jsbundle = require('@metalsmith/js-bundle');
-const examples = require('./lib/data/examples.json');
-const plugins = require('./lib/data/plugins.json');
+const metadata = require('@metalsmith/metadata');
 const formatDate = require('./metalsmith/nunjucks-formatDate-filter');
+const split = require('./metalsmith/nunjucks-split-filter');
 const CodeBlockExtension = require('./metalsmith/nunjucks-codeblock');
 const CodeTabsExtension = require('./metalsmith/nunjucks-tabs');
+const plugins = require('./lib/data/plugins.json');
 
 const nodeVersion = process.version;
 const githubRegex = /github\.com\/([^/]+)\/([^/]+)\/?$/;
@@ -64,7 +65,6 @@ metalsmith
   .metadata({
     placeholderBadgeUrl: 'https://img.shields.io/badge/badge-loading-lightgrey.svg?style=flat',
     plugins: mappedPlugins,
-    examples,
     nodeVersion,
     isProduction,
     siteUrl: isProduction ? 'https://metalsmith.io' : 'https://localhost:3000',
@@ -75,6 +75,13 @@ metalsmith
       'By continuing to browse this site, you agree to its use of cookies and local storage.'
     ].join(' ')
   })
+  .use(
+    metadata({
+      examples: 'lib/data/examples.json',
+      showcase: 'lib/data/showcase.yml',
+      starters: 'lib/data/starters.yml'
+    })
+  )
   .use(when(isProduction, drafts()))
   .use(
     when(
@@ -83,7 +90,7 @@ metalsmith
         src: 'favicons/favicon.png',
         dest: 'favicons/',
         appName: 'Metalsmith.io',
-        appDescription: 'An extremely simple, pluggable static site generator',
+        appDescription: 'An extremely simple, pluggable static site generator for NodeJS',
         icons: {
           android: true,
           appleIcon: true,
@@ -120,7 +127,8 @@ metalsmith
         smartypants: true,
         smartLists: true,
         filters: {
-          formatDate
+          formatDate,
+          split
         },
         root: __dirname,
         extensions: {
