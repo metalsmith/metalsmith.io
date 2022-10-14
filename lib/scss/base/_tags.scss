@@ -147,7 +147,7 @@ hr {
   border: none;
   height: 100px;
   width: 150px;
-  margin: 4em auto;
+  margin: 2em auto;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -264,6 +264,18 @@ img {
 figcaption {
   font-style: italic;
   font-size: 0.875rem;
+}
+
+.Page--home .Page-body {
+  & > h2 {
+    text-align: center;
+  }
+
+  h3 {
+    font-family: var(--font-body);
+    text-transform: none;
+    text-align: center;
+  }
 }
 
 .Page--api {

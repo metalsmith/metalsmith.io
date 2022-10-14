@@ -3,7 +3,9 @@
 /** @define Example */
 
 .Example {
-  max-width: calc(0.5 * var(--body-width));
+  max-width: 480px;
+  width: 100%;
+  margin: auto;
   margin-top: 1px;
   padding: 1.5em;
   background-color: var(--color-white);
@@ -12,6 +14,7 @@
   @media (min-width: $viewport-lg) {
     padding: 1em 0.5em;
     margin-top: 0;
+    max-width: 100%;
   }
 
   &:nth-child(2n) {

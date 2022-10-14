@@ -9,17 +9,18 @@
   background: #dbeff3;
   position: relative;
 
-  &--tip::before {
-    content: 'TIP';
+  &--tip::before,
+  &--note::before {
     display: inline-block;
     margin-right: 0.75em;
     font-family: var(--font-headings);
   }
 
+  &--tip::before {
+    content: 'TIP';
+  }
+
   &--note::before {
     content: 'NOTE';
-    display: inline-block;
-    margin-right: 0.75em;
-    font-family: var(--font-headings);
   }
 }

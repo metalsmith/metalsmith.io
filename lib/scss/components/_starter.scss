@@ -1,0 +1,28 @@
+/** @define Starter */
+
+.Starter {
+  &-list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.5rem;
+    justify-content: center;
+  }
+
+  &-item {
+    list-style: none;
+    overflow: auto;
+    min-width: 50%;
+    width: 500px;
+    max-width: 100%;
+    padding: 0.5rem;
+  }
+
+  &-image {
+    float: left;
+    width: 128px;
+    height: 96px;
+    margin-right: 1rem;
+  }
+}

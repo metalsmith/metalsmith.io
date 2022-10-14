@@ -2,8 +2,11 @@
 
 /** @define ExampleList */
 
-@media (min-width: $viewport-lg) {
-  .ExampleList {
+.ExampleList {
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: $viewport-lg) {
     overflow: hidden;
     column-count: 2;
     column-gap: 1px;
