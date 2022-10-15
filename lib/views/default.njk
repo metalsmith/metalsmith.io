@@ -50,12 +50,9 @@
         {# backlink #}
         {% if collection and "news" in collection %}
         <a class="Page-backlink" href="/news">&larr; News overview</a>
-        {% endif %}
-        {#
-        {% if collection and "docs" in collection %}
+        {% elif collection and "docs" in collection %}
         <a class="Page-backlink" href="/docs">&larr; Docs overview</a>
         {% endif %}
-        #}
 
         {# table of contents #}
         {% if toc %}
