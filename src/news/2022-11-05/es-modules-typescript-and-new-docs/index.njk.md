@@ -6,6 +6,7 @@ layout: default.njk
 sitemap:
   lastmod: 2022-11-05
 ---
+{% include "./lib/views/partials/doc-mdlinks.njk" %}
 
 I have been busy keeping up metalsmith and its core plugins with the Javascript ecosystem, so not many new domain-specific features but hopefully a gradually better developer experience for old and new metalsmith users.
 
