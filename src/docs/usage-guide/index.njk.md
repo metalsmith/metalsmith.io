@@ -367,3 +367,156 @@ There are also other rendering plugins like [metalsmith-twig][plugin_twig] or [m
 
 Since version 2.5.0, Metalsmith has its own [`Metalsmith.env`][api_method_env] method.
 #}
+
+## Debugging
+
+Most Metalsmith plugins use the [debug package][lib_debug] for logging and debugging.
+You can enable targeted or global debugging to get a better idea of what your metalsmith plugin chain is doing.
+Since version 2.5.0, debugging in metalsmith can be enabled by passing a debug value to [`metalsmith.env`][api_method_env] like so:
+
+{% codetabs ["API","CLI"] %}
+{% codeblock "metalsmith.js" %}
+```js
+const Metalsmith = require('metalsmith')
+Metalalsmith(__dirname)
+  .env('DEBUG', true)
+```
+{% endcodeblock %}
+{% codeblock "metalsmith.dev.json" %}
+```json
+{
+  "env": {
+    "DEBUG": true
+  }
+}
+```
+{% endcodeblock %}
+{% endcodetabs %}
+
+The previous example sets `DEBUG: true` which is the same as the globstar wildcard `*`, meaning _debug all_. If you wanted to debug a specific plugin, say `@metalsmith/markdown`, you would set `metalsmith.env('DEBUG', '@metalsmith/markdown')`.
+
+### Using the DEBUG environment variable
+
+Older plugins released prior to Metalsmith 2.5.0 often use the [debug][lib_debug] package directly: these can only be controlled by the `DEBUG` (operating system-level) environment variable. To get those logs to conform the best solution is to pass `process.env.DEBUG` to metalsmith:
+
+{% codetabs ["API","CLI"] %}
+{% codeblock "metalsmith.js" %}
+```js
+const Metalsmith = require('metalsmith')
+Metalalsmith(__dirname)
+  .env('DEBUG', process.env.DEBUG)
+```
+{% endcodeblock %}
+{% codeblock "metalsmith.json" %}
+```json
+{
+  "env": {
+    "DEBUG": "$DEBUG"
+  }
+}
+```
+{% endcodeblock %}
+{% endcodetabs %}
+
+You can choose the DEBUG value every time you run a metalsmith build, for example:
+
+{% codetabs ["Mac/Linux","Windows"] %}
+{% codeblock %}
+```bash
+DEBUG=* node metalsmith.js
+```
+{% endcodeblock %}
+{% codeblock %}
+```dos
+set DEBUG=* node metalsmith.js
+```
+{% endcodeblock %}
+{% endcodetabs %}
+
+<p class="Note Note--tip">To avoid having to mess with Mac/Linux vs Windows syntax, use the <a href="https://github.com/kentcdodds/cross-env#readme">cross-env NPM package</a>: <code>cross-env DEBUG=* node metalsmith.js</code>
+</p>
+
+### Debug values
+
+The list below shows the different types of values you could choose to pass to debug:
+
+* `false`,`''`: debug off
+* `true`,`*`: debug all (including dependencies used by metalsmith plugins!)
+* `@metalsmith/*`: debug core plugins only
+* `metalsmith-*`: debug third-party plugins only
+* `metalsmith-<pluginName>`: debug a specific third-party plugin
+* `@metalsmith/*,metalsmith-*`: debug all metalsmith plugins
+* `@metalsmith/*:warn`: debug only the warnings channel of metalsmith core plugins
+
+### Storing debug logs in a file
+
+You can choose to store debug logs in a file instead of logging them to the console by specifying `metalsmith.env('DEBUG_LOG', 'path/relative/to/ms/dir.log')`. Note that this will affect only plugins using [`metalsmith.debug`][api_method_debug].
+
+{% codetabs ["API","CLI"] %}
+{% codeblock "metalsmith.js" %}
+```js
+const Metalsmith = require('metalsmith')
+Metalalsmith(__dirname)
+  .env('DEBUG', process.env.DEBUG)
+  .env('DEBUG_LOG', 'metalsmith.log')
+```
+{% endcodeblock %}
+{% codeblock "metalsmith.json" %}
+```json
+{
+  "env": {
+    "DEBUG": "$DEBUG",
+    "DEBUG_LOG": "metalsmith.log"
+  }
+}
+```
+{% endcodeblock %}
+{% endcodetabs %}
+
+<p class="Note Note--tip">The log can only be output <em>either to console, or a log file</em>. Therefore enabling <code>DEBUG_LOG</code> is more suitable for server environments with file system persistence, or if you want to git version the build log or store it as a <abbr title="Continuous integration">CI</abbr> artifact.</p>
+
+### Adding your own debug logs
+
+You can use [`metalsmith.debug`][api_method_debug] for your own build logs as well. The method returns a [debugger with 3 channels][api_member_debugger] with their own colors: info (cyan), warn (orange), and error (red). Make sure to enable `DEBUG` through [`metalsmith.env`][api_method_env] before logging your first log.
+
+{% codeblock "metalsmith.js" %}
+```js
+const metalsmith = Metalsmith(__dirname)
+const markdown = require('@metalsmith/markdown')
+const layouts = require('@metalsmith/layouts')
+const debug = metalsmith.debug('build')
+
+metalsmith.env('DEBUG', 'build*')
+
+const timeStart = performance.now()
+
+function logFilesAfter(step) {
+  return (files) => {
+    debug.info('File list after %s: %O', step, Object.keys(files))
+  }
+}
+
+metalsmith
+  .env('DEBUG', 'build*')
+  .use(() => {
+    debug('Starting')        // logs "build Starting" in gray
+
+    debug.warn('An info')    // logs "build:info  An info" in cyan
+    debug.info('A warning')  // logs "build:warn  A warning" in orange
+    debug.error('An error')  // logs "build:error  An error" in red
+  })
+  .use(logFilesAfter('start'))
+  .use(markdown())
+  .use(logFilesAfter('markdown'))
+  .use(layouts())
+  .use(logFilesAfter('layouts'))
+  .build(err => {
+    if (err) throw err
+    const timeEnd = performance.now()
+    debug.info('Build successful after %s seconds', (timeEnd - timeStart) / 1000)
+  })
+```
+{% endcodeblock %}
+
+Placeholders like `%O` (object, multi-line) and `%s` (string) can be used as in the example, see [debug formatters](https://github.com/debug-js/debug#formatters).  
+Happy debugging!

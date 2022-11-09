@@ -350,7 +350,7 @@ figcaption {
   }
 }
 
-@mixin hljs-lang {
+[class^='language-']::after {
   display: block;
   position: absolute;
   right: 0;
@@ -360,34 +360,34 @@ figcaption {
   background: var(--color-light-gray);
 }
 
-.language-yaml::after {
-  @include hljs-lang;
+.language {
+  &-yaml::after {
+    content: 'YAML';
+  }
 
-  content: 'YAML';
-}
+  &-javascript::after {
+    content: 'JS';
+  }
 
-.language-javascript::after {
-  @include hljs-lang;
+  &-html::after {
+    content: 'HTML';
+  }
 
-  content: 'JS';
-}
+  &-json::after {
+    content: 'JSON';
+  }
 
-.language-json::after {
-  @include hljs-lang;
+  &-dos::after {
+    content: 'BATCH';
+  }
 
-  content: 'JSON';
-}
+  &-bash::after {
+    content: 'BASH';
+  }
 
-.language-html::after {
-  @include hljs-lang;
-
-  content: 'HTML';
-}
-
-.language-markdown::after {
-  @include hljs-lang;
-
-  content: 'MD';
+  &-markdown::after {
+    content: 'MD';
+  }
 }
 
 .replit {

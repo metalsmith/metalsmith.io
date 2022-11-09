@@ -9,8 +9,14 @@
   background: #dbeff3;
   position: relative;
 
+  &--warn {
+    border-color: var(--color-gold);
+    background: #f3e9db;
+  }
+
   &--tip::before,
-  &--note::before {
+  &--note::before,
+  &--warn::before {
     display: inline-block;
     margin-right: 0.75em;
     font-family: var(--font-headings);
@@ -20,7 +26,8 @@
     content: 'TIP';
   }
 
-  &--note::before {
+  &--note::before,
+  &--warn::before {
     content: 'NOTE';
   }
 }
