@@ -6,7 +6,7 @@ order: 3
 layout: default.njk
 sitemap:
   priority: 0.8
-  lastmod: 2022-02-17
+  lastmod: 2022-11-16
 config:
   anchors: true
 ---
@@ -86,7 +86,7 @@ It is important that the plugin is a *named function*. The function name *is* th
     [Function (anonymous)],
     [Function: sass],
     [Function: postcss],
-    [Function: esbuild],
+    [Function: jsbundle],
     [Function: plugin],
     [Function (anonymous)]
   ]
@@ -706,18 +706,19 @@ function initMyPlugin(options) {
 
 ## Adding debug logs to the plugin
 
-{# In the [Usage guide](/docs/usage-guide/#debugging) we saw that debug logs can be enabled by defining the `DEBUG` environment variable.  #}
-Plugins implement debugging with the [debug NPM package](https://npmjs.com/package/debug). Require it in your plugin, and pass it the name of your plugin. For the *snapshot* plugin this could be:
+In the [Usage guide](/docs/usage-guide/#debugging) we saw that debug logs can be enabled by defining the `DEBUG` environment variable (via [`metalsmith.env('DEBUG')`][api_method_env] since Metalsmith 2.5.0). For the *snapshot* plugin, we only need to add this line in the plugin body:
 
 ```js
-const debug = require('debug')('metalsmith-snapshot')
+const debug = metalsmith.debug('metalsmith-snapshot')
 ```
 
-You can also 'divide' the debug logs for your plugin in multiple channels:
+We can now log regular logs or info's, errors, and warnings:
 
 ```js
-const warn = debug.extend('warn') // warn('Careful!') will output "metalsmith-snapshot:warn Careful!"
-const error = debug.extend('error') // error('Oops!') will output "metalsmith-snapshot:error Oops!"
+debug('Running with options: %O', {}) // will log "metalsmith-snapshot {}"
+debug.info('FYI') // will log "metalsmith-snapshot:warn FYI"
+debug.warn('Careful!') // will log "metalsmith-snapshot:warn Careful!"
+debug.error('Oops!') // will log "metalsmith-snapshot:error Oops!"
 ```
 
 `debug` provides some [handy formatters](https://github.com/debug-js/debug#formatters) for objects and JSON logging. Here are some usage examples:
@@ -727,6 +728,8 @@ const error = debug.extend('error') // error('Oops!') will output "metalsmith-sn
 debug('Running with options: %O', { pattern: '**' })
 // log JSON.stringified version
 debug('Metalsmith.metadata: %j', metalsmith.metadata())
+// log buffer file contents truncated at the 250 first chars (metalsmith-specific)
+debug('file contents: %b', { contents: Buffer.from('Hello world')})
 ```
 
 Things that are generally interesting to log are:

@@ -5,12 +5,10 @@ slug: api
 layout: default.njk
 sitemap:
   priority: 1.0
+  lastmod: 2022-11-17
 config:
   anchors: true
 ---
-
-Checkout the [project scaffolder](https://github.com/metalsmith/metalsmith/tree/master/examples/project-scaffolder) or [build tool](https://github.com/metalsmith/metalsmith/tree/master/examples/build-tool) examples to see a real example of the Javascript API in use.
-
 ## Typedefs
 
 <dl>
@@ -390,7 +388,7 @@ metalsmith.env('DEBUG', '*')
 // this does not clear previously set variables
 metalsmith.env({
   DEBUG: false,
-  ENV: 'development'
+  NODE_ENV: 'development'
 })
 ```
 <a name="Metalsmith+debug"></a>

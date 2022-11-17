@@ -1,17 +1,46 @@
 ---
 title: Usage guide
-description: 'Using metalsmith.js: basics, using plugins, rendering content, '
+description: 'Using metalsmith.js: basics, using plugins, rendering content, debugging'
 toc: true
 order: 2
 layout: default.njk
 sitemap:
   priority: 0.7
-  lastmod: 2022-09-04
+  lastmod: 2022-11-16
 config:
   anchors: true
 ---
 {% include "./lib/views/partials/doc-mdlinks.njk" %}
 {% from "./lib/views/partials/replit.njk" import "replit" %}
+
+## The Metalsmith directory
+
+The Metalsmith constructor takes a working directory as single argument (in 99% of cases the parent directory of `metalsmith.js`). With ES modules there are 2 extra lines of code.
+
+{% codetabs ["ES module","CommonJS"] %}
+{% codeblock "metalsmith.mjs" %}
+```js
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import Metalsmith from 'metalsmith'
+
+const __dirname =  dirname(fileURLToPath(import.meta.url))
+
+Metalsmith(__dirname)
+```
+{% endcodeblock %}
+{% codeblock "metalsmith.cjs" %}
+```js
+const Metalsmith = require('metalsmith')
+
+Metalsmith(__dirname)
+```
+{% endcodeblock %}
+{% endcodetabs %}
+
+If you are using the CLI with a `metalsmith.json` config file, there is no need to specify [`metalsmith.directory`][api_method_directory] explicitly, it will default to `__dirname`.
+
+
 ## Using plugins
 
 A metalsmith plugin is just a function that is passed the [Files][api_files] object and the [Metalsmith][api_metalsmith] instance. In fact, we can even use `console.log` as a plugin!
@@ -91,7 +120,7 @@ Just as the [Apple iPhone's famous 2009 commercial](https://www.youtube.com/watc
 
 ### Plugin types
 
-There is no official plugin type classification, but plugins can be broadly divided into a few categories:
+Plugins can be broadly divided into a few categories:esbuildesbuild
 
 * **Development plugins**: plugins that provide a better developer experience or debug information.  
 Examples are: [metalsmith-express][plugin_express], [metalsmith-writemetadata][plugin_writemetadata], [metalsmith-debug-ui][plugin_debug-ui]
@@ -102,7 +131,7 @@ Examples are: [@metalsmith/layouts][core_plugin_layouts], [@metalsmith/in-place]
 * **Files-tree manipulating plugins**: plugins that add, move or remove files from the files object.  
 Examples are: [@metalsmith/permalinks][core_plugin_permalinks], [@metalsmith/remove][core_plugin_remove], [@metalsmith/drafts][core_plugin_drafts], metalsmith-sitemap
 * **Third-party integrations**: plugins that hook third-party tools into the metalsmith build.  
-Examples are [@metalsmith/sass][core_plugin_sass], [@metalsmith/postcss][core_plugin_postcss] metalsmith-uglify
+Examples are [@metalsmith/sass][core_plugin_sass], [@metalsmith/postcss][core_plugin_postcss], [@metalsmith/js-bundle][core_plugin_js-bundle], [metalsmith-uglify][plugin_uglify]
 
 A plugin could fit into multiple categories: 
 
@@ -329,30 +358,75 @@ Metalsmith(__dirname)
 {% endcodeblock %}
 {% endcodetabs %}
 
-{# WIP #}
-{#
 ## Rendering content
 
-There are a multitude of plugins which can be used to render content. For rendering markdown contents and file metadata keys, there is [@metalsmith/markdown][core_plugin_markdown]. [@metalsmith/layouts][core_plugin_layouts] combined with a [jstransformer](https://github.com/jstransformers/) wraps content in layouts, and [@metalsmith/in-place][core_plugin_in-place] is useful if you need to use a templating language within a file's contents (for example within markdown files). Below is a basic example of a full setup using all of these together:
+There are a multitude of plugins which can be used to render content. For rendering markdown contents and file metadata keys, there is [@metalsmith/markdown][core_plugin_markdown]. [@metalsmith/layouts][core_plugin_layouts] combined with a [jstransformer](https://github.com/jstransformers/) wraps content in layouts, and [@metalsmith/in-place][core_plugin_in-place] is useful if you need to use a templating language within a file's contents (for example within markdown files).
 
+There are also other rendering plugins like [metalsmith-twig][plugin_twig] or [metalsmith-handlebars-x][plugin_handlebarsx] that provide full integrations for specific templating languages.
+
+{# WIP
 {% codeblock "metalsmith.js" %}
 ```js
 const Metalsmith = require('metalsmith')
 const layouts = require('@metalsmith/layouts')
 const markdown = require('@metalsmith/markdown')
+const permalinks = require('@metalsmith/permalinks')
 
 Metalsmith(__dirname)
+  .frontmatter({ excerpt: true })
+  .metadata({
+    sitename: "My Static Site & Blog",
+    siteurl: "https://example.com/",
+    description: "It's about saying »Hello« to the world."
+  })
   .use(markdown())
-  .use(inplace())
-  .use(layouts())
+  .use(inplace({ pattern: '**/*.html' }))
+  .use(permalinks({ relative: false }))
+  .use(layouts({ pattern: '**/*.html' }))
   .build(function(err, files) {
     if (err) throw err
     console.log('Build success!')
   })
 ```
 {% endcodeblock %}
+{% codeblock %}
+```plaintext
+---
+title: 
+layout: home.njk
+---
+This excerpt is enabled thanks to metalsmith.frontmatter({ excerpt: true })!
+---
 
-There are also other rendering plugins like [metalsmith-twig][plugin_twig] or [metalsmith-handlebars-x][plugin_handlebarsx] that provide full integrations for specific templating languages.
+
+```
+{% endcodeblock %}
+
+{% codetabs ["layouts/home.njk","src/index.njk.md"] %}
+{% codeblock %}
+{% raw %}
+```django
+<h1>{{ title }}</h1>
+<p>{{ description | safe }}</p>
+<ul>
+{% for post in collections.posts %}
+  <li>
+    <a href="/{{ post.permalink }}">{{ post.title }}</a>
+    <p>{{ post.excerpt | safe }}</p>
+  </li>
+{% endfor %}
+</ul>
+```
+{% endraw %}
+{% endcodeblock %}
+{% codeblock %}
+{% raw %}
+```erb
+<h1><%= title %></h1>
+```
+{% endraw %}
+{% endcodeblock %}
+{% endcodetabs %}
 #}
 
 {# WIP #}
@@ -362,11 +436,39 @@ There are also other rendering plugins like [metalsmith-twig][plugin_twig] or [m
 ## Optimizing performance
 ### Splitting the build
 
-
-## Using environment variables
-
-Since version 2.5.0, Metalsmith has its own [`Metalsmith.env`][api_method_env] method.
 #}
+
+
+## Using the Metalsmith environment
+
+Since version 2.5.0, Metalsmith has its own [`Metalsmith.env`][api_method_env] method. Metalsmith plugins can read and use conventional variables to set more sensible defaults. A few notable conventions are `NODE_ENV`, `DEBUG` and `TZ`:
+
+{% codetabs ["API","CLI"] %}
+{% codeblock "metalsmith.js" %}
+```js
+const Metalsmith = require('metalsmith')
+Metalsmith(__dirname)
+  .env({
+    DEBUG: true,
+    NODE_ENV: 'development',
+    TZ: 'Europe/London',
+  })
+```
+{% endcodeblock %}
+{% codeblock "metalsmith.json" %}
+```json
+{
+  "env": {
+    "DEBUG": true,
+    "NODE_ENV": "development",
+    "TZ": "Europe/London",
+  }
+}
+```
+{% endcodeblock %}
+{% endcodetabs %}
+
+The [@metalsmith/sass plugin][core_plugin_sass] for example will output [source maps](https://css-tricks.com/should-i-use-source-maps-in-production/) and skip minifying the resulting CSS if `metalsmith.env('NODE_ENV') === 'development'` (to minimize build time and maximize ability to debug).
 
 ## Debugging
 
@@ -477,7 +579,7 @@ Metalalsmith(__dirname)
 
 ### Adding your own debug logs
 
-You can use [`metalsmith.debug`][api_method_debug] for your own build logs as well. The method returns a [debugger with 3 channels][api_member_debugger] with their own colors: info (cyan), warn (orange), and error (red). Make sure to enable `DEBUG` through [`metalsmith.env`][api_method_env] before logging your first log.
+You can use [`metalsmith.debug`][api_method_debug] for your own build logs as well. The method returns a [debugger with 3 channels][api_member_debugger] with their own colors: info (cyan), warn (orange), and error (red). Make sure to enable `DEBUG` through [`metalsmith.env`][api_method_env] before logging your first log. Run the example below with `DEBUG=build* node metalsmith.js` (prefix with `SET` for Windows):
 
 {% codeblock "metalsmith.js" %}
 ```js
@@ -485,9 +587,6 @@ const metalsmith = Metalsmith(__dirname)
 const markdown = require('@metalsmith/markdown')
 const layouts = require('@metalsmith/layouts')
 const debug = metalsmith.debug('build')
-
-metalsmith.env('DEBUG', 'build*')
-
 const timeStart = performance.now()
 
 function logFilesAfter(step) {
@@ -497,7 +596,7 @@ function logFilesAfter(step) {
 }
 
 metalsmith
-  .env('DEBUG', 'build*')
+  .env('DEBUG', process.env.DEBUG)
   .use(() => {
     debug('Starting')        // logs "build Starting" in gray
 
@@ -518,5 +617,8 @@ metalsmith
 ```
 {% endcodeblock %}
 
-Placeholders like `%O` (object, multi-line) and `%s` (string) can be used as in the example, see [debug formatters](https://github.com/debug-js/debug#formatters).  
+Placeholders like `%O` (object, multi-line) and `%s` (string) can be used as in the example, see [debug formatters](https://github.com/debug-js/debug#formatters). The metalsmith debugger also adds a `%b` formatter for Node buffers, which is ideal for logging file `contents`: it will log the first 250 characters of text files followed by `...` not to clutter your console.
 Happy debugging!
+
+
+<p class="Note Note--tip">You can enable the metalsmith debugger to log outside the metalsmith build by running <code>metalsmith.debug.enable('*')</code> first.</p>
