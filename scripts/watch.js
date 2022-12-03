@@ -19,8 +19,8 @@ const msBuild = require('../metalsmith');
         port: 3000,
         injectChanges: false,
         reloadThrottle: 0
-      })
-      console.log('Initializing browser-sync...')
+      });
+      console.log('Initializing browser-sync...');
     })
     .on('all', async () => {
       await msBuild();

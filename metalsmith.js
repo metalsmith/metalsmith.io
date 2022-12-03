@@ -60,7 +60,7 @@ const mappedPlugins = plugins.map(plugin => {
 const isProduction = process.env.NODE_ENV === 'production';
 
 function msBuild() {
-  const t1 = performance.now()
+  const t1 = performance.now();
   /** @type {Metalsmith} */
   const metalsmith = isProduction ? Metalsmith(__dirname) : debugUI.patch(Metalsmith(__dirname));
   metalsmith
@@ -189,7 +189,7 @@ function msBuild() {
         throw err;
       }
       /* eslint-disable no-console */
-      console.log(`Build success in ${((performance.now() - t1) / 1000).toFixed(1)}s`)
+      console.log(`Build success in ${((performance.now() - t1) / 1000).toFixed(1)}s`);
     });
 }
 
