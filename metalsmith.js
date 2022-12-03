@@ -58,129 +58,143 @@ const mappedPlugins = plugins.map(plugin => {
 });
 
 const isProduction = process.env.NODE_ENV === 'production';
-/** @type {Metalsmith} */
-const metalsmith = isProduction ? Metalsmith(__dirname) : debugUI.patch(Metalsmith(__dirname));
-metalsmith
-  .clean(true)
-  .metadata({
-    placeholderBadgeUrl: 'https://img.shields.io/badge/badge-loading-lightgrey.svg?style=flat',
-    plugins: mappedPlugins,
-    nodeVersion,
-    isProduction,
-    siteUrl: isProduction ? 'https://metalsmith.io' : 'https://localhost:3000',
-    buildTimestamp: Date.now(),
-    cookieMessage: [
-      'This website may use local storage for purely functional purposes (for example to remember preferences),',
-      'and anonymous cookies to gather information about how visitors use the site.',
-      'By continuing to browse this site, you agree to its use of cookies and local storage.'
-    ].join(' ')
-  })
-  .use(
-    metadata({
-      examples: 'lib/data/examples.json',
-      showcase: 'lib/data/showcase.yml',
-      starters: 'lib/data/starters.yml'
-    })
-  )
-  .use(when(isProduction, drafts()))
-  .use(
-    when(
+
+function msBuild() {
+  const t1 = performance.now()
+  /** @type {Metalsmith} */
+  const metalsmith = isProduction ? Metalsmith(__dirname) : debugUI.patch(Metalsmith(__dirname));
+  metalsmith
+    .clean(true)
+    .metadata({
+      placeholderBadgeUrl: 'https://img.shields.io/badge/badge-loading-lightgrey.svg?style=flat',
+      plugins: mappedPlugins,
+      nodeVersion,
       isProduction,
-      favicons({
-        src: 'favicons/favicon.png',
-        dest: 'favicons/',
-        appName: 'Metalsmith.io',
-        appDescription: 'An extremely simple, pluggable static site generator for NodeJS',
-        icons: {
-          android: true,
-          appleIcon: true,
-          favicons: true
+      siteUrl: isProduction ? 'https://metalsmith.io' : 'https://localhost:3000',
+      buildTimestamp: Date.now(),
+      cookieMessage: [
+        'This website may use local storage for purely functional purposes (for example to remember preferences),',
+        'and anonymous cookies to gather information about how visitors use the site.',
+        'By continuing to browse this site, you agree to its use of cookies and local storage.'
+      ].join(' ')
+    })
+    .use(
+      metadata({
+        examples: 'lib/data/examples.json',
+        showcase: 'lib/data/showcase.yml',
+        starters: 'lib/data/starters.yml'
+      })
+    )
+    .use(when(isProduction, drafts()))
+    .use(
+      when(
+        isProduction,
+        favicons({
+          src: 'favicons/favicon.png',
+          dest: 'favicons/',
+          appName: 'Metalsmith.io',
+          appDescription: 'An extremely simple, pluggable static site generator for NodeJS',
+          icons: {
+            android: true,
+            appleIcon: true,
+            favicons: true
+          }
+        })
+      )
+    )
+    .use(
+      collections({
+        news: {
+          pattern: 'news/*/*/*.md',
+          sortBy: 'pubdate',
+          reverse: true
+        },
+        docs: {
+          pattern: 'docs/*/*.md',
+          sortBy: 'order'
         }
       })
     )
-  )
-  .use(
-    collections({
-      news: {
-        pattern: 'news/*/*/*.md',
-        sortBy: 'pubdate',
-        reverse: true
-      },
-      docs: {
-        pattern: 'docs/*/*.md',
-        sortBy: 'order'
-      }
+    // eslint-disable-next-line
+    .use(function invertInPlaceExtensions(files) {
+      Object.keys(files).forEach(key => {
+        if (key.match(/^(docs|news)\/.*\/.*\.njk\.md$/) || key === 'index.njk.md') {
+          files[key.replace('.njk.md', '.md.njk')] = files[key];
+          delete files[key];
+        }
+      });
     })
-  )
-  // eslint-disable-next-line
-  .use(function invertInPlaceExtensions(files) {
-    Object.keys(files).forEach(key => {
-      if (key.match(/^(docs|news)\/.*\/.*\.njk\.md$/) || key === 'index.njk.md') {
-        files[key.replace('.njk.md', '.md.njk')] = files[key];
-        delete files[key];
-      }
-    });
-  })
-  .use(
-    inPlace({
-      engineOptions: {
-        smartypants: true,
-        smartLists: true,
-        filters: {
-          formatDate,
-          split
+    .use(
+      inPlace({
+        engineOptions: {
+          smartypants: true,
+          smartLists: true,
+          filters: {
+            formatDate,
+            split
+          },
+          root: __dirname,
+          extensions: {
+            CodeBlockExtension: new CodeBlockExtension(),
+            CodeTabsExtension: new CodeTabsExtension()
+          }
         },
-        root: __dirname,
-        extensions: {
-          CodeBlockExtension: new CodeBlockExtension(),
-          CodeTabsExtension: new CodeTabsExtension()
+        pattern: '**/*.{md,njk}'
+      })
+    )
+    .use(toc({ levels: [2, 3] }))
+    .use(
+      layouts({
+        directory: 'lib/views',
+        pattern: '**/*.html',
+        engineOptions: {
+          filters: {
+            formatDate
+          }
         }
-      },
-      pattern: '**/*.{md,njk}'
-    })
-  )
-  .use(toc({ levels: [2, 3] }))
-  .use(
-    layouts({
-      directory: 'lib/views',
-      pattern: '**/*.html',
-      engineOptions: {
-        filters: {
-          formatDate
+      })
+    )
+    .use(
+      sass({
+        entries: {
+          'src/index.scss': 'index.css'
         }
+      })
+    )
+    .use(
+      sitemap({
+        hostname: 'https://metalsmith.io',
+        omitIndex: true,
+        changefreq: 'weekly',
+        modifiedProperty: 'sitemap.lastmod',
+        urlProperty: 'sitemap.canonical',
+        priorityProperty: 'sitemap.priority',
+        privateProperty: 'sitemap.private'
+      })
+    )
+    .use(
+      postcss({ plugins: ['postcss-preset-env', 'autoprefixer', 'cssnano'], map: !isProduction })
+    )
+    .use(
+      jsbundle({
+        entries: {
+          index: './lib/js/index.js'
+        }
+      })
+    )
+    .use(when(isProduction, htmlMinifier()))
+    .use(when(isProduction, imagemin()))
+    .build(err => {
+      if (err) {
+        throw err;
       }
-    })
-  )
-  .use(
-    sass({
-      entries: {
-        'src/index.scss': 'index.css'
-      }
-    })
-  )
-  .use(
-    sitemap({
-      hostname: 'https://metalsmith.io',
-      omitIndex: true,
-      changefreq: 'weekly',
-      modifiedProperty: 'sitemap.lastmod',
-      urlProperty: 'sitemap.canonical',
-      priorityProperty: 'sitemap.priority',
-      privateProperty: 'sitemap.private'
-    })
-  )
-  .use(postcss({ plugins: ['postcss-preset-env', 'autoprefixer', 'cssnano'], map: !isProduction }))
-  .use(
-    jsbundle({
-      entries: {
-        index: './lib/js/index.js'
-      }
-    })
-  )
-  .use(when(isProduction, htmlMinifier()))
-  .use(when(isProduction, imagemin()))
-  .build(err => {
-    if (err) {
-      throw err;
-    }
-  });
+      /* eslint-disable no-console */
+      console.log(`Build success in ${((performance.now() - t1) / 1000).toFixed(1)}s`)
+    });
+}
+
+if (require.main === module) {
+  msBuild();
+} else {
+  module.exports = msBuild;
+}
