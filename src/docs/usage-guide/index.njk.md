@@ -6,7 +6,7 @@ order: 2
 layout: default.njk
 sitemap:
   priority: 0.7
-  lastmod: 2022-11-16
+  lastmod: 2022-11-28
 config:
   anchors: true
 ---
@@ -495,7 +495,7 @@ Metalalsmith(__dirname)
 {% endcodeblock %}
 {% endcodetabs %}
 
-The previous example sets `DEBUG: true` which is the same as the globstar wildcard `*`, meaning _debug all_. If you wanted to debug a specific plugin, say `@metalsmith/markdown`, you would set `metalsmith.env('DEBUG', '@metalsmith/markdown')`.
+The previous example sets `DEBUG: true` which is the same as the globstar wildcard `*`, meaning _debug all_. If you wanted to debug a specific plugin, say `@metalsmith/markdown`, you would set `metalsmith.env('DEBUG', '@metalsmith/markdown*')`.
 
 ### Using the DEBUG environment variable
 
@@ -546,7 +546,7 @@ The list below shows the different types of values you could choose to pass to d
 * `true`,`*`: debug all (including dependencies used by metalsmith plugins!)
 * `@metalsmith/*`: debug core plugins only
 * `metalsmith-*`: debug third-party plugins only
-* `metalsmith-<pluginName>`: debug a specific third-party plugin
+* `metalsmith-<pluginName>*`: debug all channels of a specific third-party plugin
 * `@metalsmith/*,metalsmith-*`: debug all metalsmith plugins
 * `@metalsmith/*:warn`: debug only the warnings channel of metalsmith core plugins
 
@@ -622,3 +622,118 @@ Happy debugging!
 
 
 <p class="Note Note--tip">You can enable the metalsmith debugger to log outside the metalsmith build by running <code>metalsmith.debug.enable('*')</code> first.</p>
+
+## Development setup
+
+### Auto-rebuild and browser live reload
+
+Web developers have grown accustomed to the ease of development making a change in the source code and have their builds update automatically and the browser reload. Though Metalsmith does not (yet) offer partial rebuilds, you can quite easily set up an automatic rebuild using a file watcher library (recommended: [chokidar][lib_chokidar]) and a browser synchronization package (recommended: [browsersync][lib_browsersync]).
+
+In order to do so wrap your Metalsmith build in a function:
+
+{% codetabs ["ES Module","CommonJS"] %}
+{% codeblock "metalsmith.mjs" %}
+```js
+import { fileURLToPath } from "url"
+import { dirname } from "path"
+import Metalsmith from 'metalsmith'
+import layouts from '@metalsmith/layouts'
+import markdown from '@metalsmith/markdown'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
+async function msBuild() {
+  try {
+    const ms = Metalsmith(__dirname)
+    const files = await ms
+      .use(markdown())
+      .use(layouts({
+        pattern: '**/*.html'
+      }))
+      .build()
+
+    console.log('Build success')
+    return files
+  } catch (err) {
+    console.error(err)
+    return err
+  }
+}
+
+const isMainScript = process.argv[1] === fileURLToPath(import.meta.url)) 
+
+if (isMainScript) {
+  msBuild()
+} else {
+  module.exports = msBuild
+}
+```
+{% endcodeblock %}
+{% codeblock "metalsmith.cjs" %}
+```js
+const Metalsmith = require('metalsmith')
+const layouts = require('@metalsmith/layouts')
+const markdown = require('@metalsmith/markdown')
+
+async function msBuild() {
+  try {
+    const ms = Metalsmith(__dirname)
+    const files = await ms
+      .use(markdown())
+      .use(layouts({
+        pattern: '**/*.html'
+      }))
+      .build()
+
+    console.log('Build success')
+    return files
+  } catch (err) {
+    console.error(err)
+    return err
+  }
+}
+
+const isMainScript = require.main === module
+
+if (isMainScript) {
+  msBuild()
+} else {
+  module.exports = msBuild
+}
+```
+{% endcodeblock %}
+{% endcodetabs %}
+
+The last few lines detect whether the file was executed as entry point by Node (`node metalsmith.js` -> `isMainScript`) or it was `require`d or `import`ed from another file. Now let's create a second script `dev.js` which will be the entry point for local development with file watching and browser sync:
+
+{% codeblock "dev.js" %}
+```js
+const browserSync = require('browser-sync')
+const chokidar = require('chokidar')
+const msBuild = require('./metalsmith.js') // <-- here is our metalsmith build
+
+chokidar
+  .watch(['src','layouts'], {
+    // avoids causing duplicate builds for initially detected files and folders
+    ignoreInitial: true
+  })
+  .on('ready', () => browserSync.init({
+    host: 'localhost',
+    port: 3000,
+    server: './build',
+    injectChanges: false,  // false = prefer full reload
+    interval: 2000         // adjust if the build hasn't finished before the browser opens
+  }))
+  .on('all', async (...args) => {
+    await msBuild()
+    browserSync.reload()
+  })
+
+(async function() {
+  await msBuild()
+}())
+```
+{% endcodeblock %}
+
+That's all! You can also check out the full setup of this example on Replit:
+{{ replit("live-reload-and-browsersync","dev.js") | safe }}
