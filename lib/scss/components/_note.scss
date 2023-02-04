@@ -26,8 +26,11 @@
     content: 'TIP';
   }
 
-  &--note::before,
-  &--warn::before {
+  &--note::before {
     content: 'NOTE';
+  }
+
+  &--warn::before {
+    content: 'CAUTION';
   }
 }

@@ -350,7 +350,7 @@ figcaption {
   }
 }
 
-[class^='language-']::after {
+[class*='language-']::after {
   display: block;
   position: absolute;
   right: 0;
