@@ -1,4 +1,4 @@
-- name: nodejs.org
+- name: Nodejs.org
   url: https://nodejs.org
   image: nodejs-org.png
   featured: true
@@ -29,7 +29,7 @@
 - name: qooxdoo framework
   url: https://qooxdoo.org
   image: qooxdoo-org.png
-  featured: false
+  featured: true
 - name: Quasar CLI
   url: https://github.com/quasarframework/quasar/tree/dev/cli
   image: quasar-cli.png
@@ -62,14 +62,6 @@
   url: https://webketje.com
   image: webketje-com.png
   featured: false
-- name: Adobe sucks
-  url: https://ass.easun.me
-  image: ass-easun-me.png
-  featured: true
-- name: Glaucia Lemos
-  url: https://glaucialemos.dev
-  image: glaucialemos-dev.png
-  featured: true
 - name: Christian Emmer
   url: https://emmer.dev
   image: emmer-dev.png
@@ -85,4 +77,8 @@
 - name: glinka.co personal blog
   url: https://glinka.co
   image: glinka-co.png
+  featured: true
+- name: blue Systems Research Group
+  url: https://www.bluegroup.systems
+  image: bluegroup-systems.png
   featured: true

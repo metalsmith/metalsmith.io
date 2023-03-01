@@ -290,8 +290,8 @@ You can always use DigitalOcean's handy [Glob tool](https://www.digitalocean.com
 [globstar-all]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=%2A%2A%2F%2A&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
 [globstar-single-dir]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=%2A.html&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
 [globstar-name]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=blog%2Fposts%2Fpost-%2A.md&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
-[globstar-either]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=**%2F*&matches=true&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
-[glob-except]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=**%2F*&matches=true&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
+[globstar-either]: https://www.digitalocean.com/community/tools/glob?comments=false&glob={services%2F**,blog}%2Findex.md&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
+[glob-except]: https://www.digitalocean.com/community/tools/glob?comments=false&glob=!**%2F*.md&tests=blog%2Findex.md&tests=blog%2Fposts%2Fpost-1.md&tests=blog%2Fposts%2Fpost-2.md&tests=blog%2Fpost-outside.md&tests=services%2Fwebdesign%2Findex.mdservices%2Femail%2Findex.html&tests=about.md&tests=css%2Fstyle.css&tests=js%2Fsite.js&tests=index.md&tests=404.md
 
 ### The plugin chain
 
@@ -403,28 +403,35 @@ Finally when the `.build(function(err))` is performed our JavaScript object is w
  
 You want to build a website or blog with a static site generator. Well, here is our elevator pitch. It's as easy as that:
 
-{% codetabs ["API","CLI"] %}
-{% codeblock "metalsmith.js" %}
+{% codetabs ["ESM","CJS","CLI"] %}
+{% codeblock "metalsmith.mjs" %}
 ```js
-const Metalsmith  = require('metalsmith')
-const collections = require('@metalsmith/collections')
-const layouts     = require('@metalsmith/layouts')
-const markdown    = require('@metalsmith/markdown')
-const permalinks  = require('@metalsmith/permalinks')
+import { fileURLToPath } from 'node:url'
+import { dirname } from 'path'
+import Metalsmith from 'metalsmith'
+import collections from '@metalsmith/collections'
+import layouts from '@metalsmith/layouts'
+import markdown from '@metalsmith/markdown'
+import permalinks from '@metalsmith/permalinks'
 
-Metalsmith(__dirname)         // __dirname defined by node.js:
-                              // name of the directory of this file
-  .metadata({                 // add any variable you want
-                              // use them in layout-files
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const t1 = performance.now()
+
+Metalsmith(__dirname)         // parent directory of this file
+  .source('./src')            // source directory
+  .destination('./build')     // destination directory
+  .clean(true)                // clean destination before
+  .env({                      // pass NODE_ENV & other environment variables
+    DEBUG: process.env.DEBUG,
+    NODE_ENV: process.env.NODE_ENV
+  })           
+  .metadata({                 // add any variable you want & use them in layout-files
     sitename: "My Static Site & Blog",
     siteurl: "https://example.com/",
     description: "It's about saying »Hello« to the world.",
     generatorname: "Metalsmith",
     generatorurl: "https://metalsmith.io/"
   })
-  .source('./src')            // source directory
-  .destination('./build')     // destination directory
-  .clean(true)                // empty the destination before
   .use(collections({          // group all blog posts by internally
     posts: 'posts/*.md'       // adding key 'collections':'posts'
   }))                         // use `collections.posts` in layouts
@@ -433,14 +440,61 @@ Metalsmith(__dirname)         // __dirname defined by node.js:
     relative: false           // put css only in /css
   }))
   .use(layouts())             // wrap layouts around html
-  .build(function(err) {      // do something when the build finishes
-    if (err) throw err;       // error handling is required
+  .build((err) => {           // build process
+    if (err) throw err        // error handling is required
+    console.log(`Build success in ${((performance.now() - t1) / 1000).toFixed(1)}s`)
   });
+```
+{% endcodeblock %}
+{% codeblock "metalsmith.cjs" %}
+```js
+const Metalsmith  = require('metalsmith')
+const collections = require('@metalsmith/collections')
+const layouts     = require('@metalsmith/layouts')
+const markdown    = require('@metalsmith/markdown')
+const permalinks  = require('@metalsmith/permalinks')
+
+const t1 = performance.now()
+
+Metalsmith(__dirname)         // parent directory of this file
+  .source('./src')            // source directory
+  .destination('./build')     // destination directory
+  .clean(true)                // clean destination before
+  .env({                      // pass NODE_ENV & other environment variables
+    DEBUG: process.env.DEBUG,
+    NODE_ENV: process.env.NODE_ENV
+  })           
+  .metadata({                 // add any variable you want & use them in layout-files
+    sitename: "My Static Site & Blog",
+    siteurl: "https://example.com/",
+    description: "It's about saying »Hello« to the world.",
+    generatorname: "Metalsmith",
+    generatorurl: "https://metalsmith.io/"
+  })
+  .use(collections({          // group all blog posts by internally
+    posts: 'posts/*.md'       // adding key 'collections':'posts'
+  }))                         // use `collections.posts` in layouts
+  .use(markdown())            // transpile all md into html
+  .use(permalinks({           // change URLs to permalink URLs
+    relative: false           // put css only in /css
+  }))
+  .use(layouts())             // wrap layouts around html
+  .build((err) => {           // build process
+    if (err) throw err        // error handling is required
+    console.log(`Build success in ${((performance.now() - t1) / 1000).toFixed(1)}s`)
+  })
 ```
 {% endcodeblock %}
 {% codeblock "metalsmith.json" %}
 ```json
 {
+  "source": "src",
+  "destination": "build",
+  "clean": true,
+  "env": {
+    "DEBUG": "$DEBUG",
+    "NODE_ENV": "$NODE_ENV"
+  },
   "metadata": {
     "sitename": "My Static Site & Blog",
     "siteurl": "https://example.com/",
@@ -448,14 +502,11 @@ Metalsmith(__dirname)         // __dirname defined by node.js:
     "generatorname": "Metalsmith",
     "generatorurl": "https://metalsmith.io/"
   },
-  "source": "./src",
-  "destination": "./build",
-  "clean": true,
   "plugins": [
-    { "@metalsmith/collections": { "posts": "posts/*.md" } },
-    { "@metalsmith/markdown": {} },
-    { "@metalsmith/permalinks": { "relative": false } },
-    { "@metalsmith/layouts": {} }
+    { "@metalsmith/collections": { "posts": "posts/*.md" }},
+    { "@metalsmith/markdown": {}},
+    { "@metalsmith/permalinks": { "relative": false }},
+    { "@metalsmith/layouts": {}},
   ]
 }
 ```
