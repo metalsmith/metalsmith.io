@@ -103,14 +103,6 @@ a {
   main &:hover {
     color: var(--color-dark-black);
   }
-
-  .Page-footer &:visited {
-    color: var(--color-dark-gray);
-  }
-
-  .Page-footer &:hover {
-    color: var(--color-black);
-  }
 }
 
 figure {
@@ -276,64 +268,6 @@ figcaption {
     text-transform: none;
     text-align: center;
   }
-}
-
-.Page--api {
-  th,
-  td {
-    &:nth-child(3) {
-      width: 60%;
-    }
-  }
-}
-
-.Page--api .Page-body h4,
-.Page--api .Page-body h3,
-.Page--api .Page-body h2 {
-  border-top: 1px solid var(--color-gray);
-  padding-top: 2em;
-  margin-top: 2em;
-  font-weight: 600;
-  font-family: var(--font-code);
-  text-transform: none;
-}
-
-.Page--api h4 + p {
-  font-style: italic;
-}
-
-.Page--api td:first-child,
-.Page--api th:first-child {
-  max-width: 140px;
-  width: 15%;
-  word-break: break-all;
-}
-
-.Page--api td:nth-child(2),
-.Page--api th:nth-child(2) {
-  max-width: 140px;
-  width: 25%;
-  word-break: break-all;
-}
-
-.Page--api .Page--body h2:first-of-type {
-  border-top: none;
-}
-
-.Page--api td:first-child {
-  font-family: var(--font-code);
-}
-
-.Page--api ul li {
-  list-style-type: none;
-}
-
-.Page--api .Page--body ul a {
-  font-family: var(--font-code);
-}
-
-.Page--api ul a code {
-  font-size: 1em;
 }
 
 .anchorjs-link {

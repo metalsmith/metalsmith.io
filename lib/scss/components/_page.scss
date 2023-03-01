@@ -1,6 +1,6 @@
 @use '../base/variables' as *;
 
-/** @define Page **/
+$root: '.Page';
 
 .Page {
   height: 100%;
@@ -52,6 +52,18 @@
     width: 100%;
     padding: 2rem 0 1rem;
     height: 5rem;
+
+    a,
+    a:link,
+    a:visited {
+      color: var(--color-dark-gray);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--color-black);
+    }
   }
 
   &-backlink {
@@ -70,5 +82,76 @@
 
   &-footerLogo {
     height: 16px;
+  }
+
+  &--home {
+    #install-it + .CodeTabs {
+      max-width: 640px;
+    }
+  }
+
+  &--api {
+    th,
+    td {
+      &:nth-child(3) {
+        width: 60%;
+      }
+    }
+
+    ul li {
+      list-style-type: none;
+    }
+
+    ul a code {
+      font-size: 1em;
+    }
+
+    #typedefs {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    h4 + p {
+      font-style: italic;
+    }
+
+    td:first-child,
+    th:first-child {
+      max-width: 140px;
+      width: 15%;
+      word-break: break-all;
+    }
+
+    td:nth-child(2),
+    th:nth-child(2) {
+      max-width: 140px;
+      width: 25%;
+      word-break: break-all;
+    }
+
+    td:first-child {
+      font-family: var(--font-code);
+    }
+
+    #{$root}-body {
+      h4,
+      h3,
+      h2 {
+        border-top: 1px solid var(--color-gray);
+        padding-top: 2em;
+        margin-top: 2em;
+        font-weight: 600;
+        font-family: var(--font-code);
+        text-transform: none;
+      }
+
+      h2:first-of-type {
+        border-top: none;
+      }
+
+      ul a {
+        font-family: var(--font-code);
+      }
+    }
   }
 }
