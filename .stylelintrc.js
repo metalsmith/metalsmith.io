@@ -1,6 +1,10 @@
 module.exports = {
-  extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier'],
-  plugins: ['stylelint-no-unsupported-browser-features', 'stylelint-selector-bem-pattern'],
+  extends: ['stylelint-config-recommended-scss'],
+  plugins: [
+    'stylelint-scss',
+    'stylelint-no-unsupported-browser-features',
+    'stylelint-selector-bem-pattern'
+  ],
   rules: {
     'at-rule-empty-line-before': [
       'always',
