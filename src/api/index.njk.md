@@ -5,7 +5,7 @@ slug: api
 layout: default.njk
 sitemap:
   priority: 1.0
-  lastmod: 2022-11-17
+  lastmod: 2023-05-13
 config:
   anchors: true
 ---
@@ -81,6 +81,7 @@ Initialize a new `Metalsmith` builder with a working `directory`.
     * [.concurrency([max])](#Metalsmith+concurrency) ⇒ <code>number</code> \| [<code>Metalsmith</code>](#Metalsmith)
     * [.clean([clean])](#Metalsmith+clean) ⇒ <code>boolean</code> \| [<code>Metalsmith</code>](#Metalsmith)
     * [.frontmatter([frontmatter])](#Metalsmith+frontmatter) ⇒ <code>boolean</code> \| [<code>Metalsmith</code>](#Metalsmith)
+    * [.watch([options])](#Metalsmith+watch) ⇒ <code>boolean</code> \| [<code>Chokidar.WatchOptions</code>](https://github.com/paulmillr/chokidar/blob/3.5.3/types/index.d.ts#L68) | [<code>Metalsmith</code>](#Metalsmith)
     * [.ignore([files])](#Metalsmith+ignore) ⇒ [<code>Metalsmith</code>](#Metalsmith) \| <code>Array.&lt;string&gt;</code>
     * [.path(...paths)](#Metalsmith+path) ⇒ <code>string</code>
     * [.match(patterns \[, input \[, options\]\])](#Metalsmith+match) ⇒ <code>Array.&lt;string&gt;</code>
@@ -276,6 +277,51 @@ Optionally turn off frontmatter parsing or pass a [gray-matter options object](h
 metalsmith.frontmatter(false)  // turn off front-matter parsing
 metalsmith.frontmatter()       // returns false
 metalsmith.frontmatter({ excerpt: true })
+```
+<a name="Metalsmith+watch"></a>
+
+### metalsmith.watch([options]) ⇒ <code>boolean</code> \| [<code>Chokidar.WatchOptions</code>](https://github.com/paulmillr/chokidar/blob/3.5.3/types/index.d.ts#L68) | [<code>Metalsmith</code>](#Metalsmith)
+
+<p class="Note Note--warn">
+  Partial rebuilding (=using <code>metalsmith.watch</code> with <code>metalsmith.clean(false)</code>) is still experimental and combined with <code>@metalsmith/metadata</code> <= 0.2.0 a bug may trigger an infinite loop. metalsmith.watch is incompatible with existing watch plugin. In watch mode, metalsmith.process/build are <strong>not awaitable</strong>. Callbacks passed to these methods will run on every rebuild instead of running once at the build's end.
+</p>
+
+Set the list of paths to watch and trigger rebuilds on. The watch method will skip files ignored with `metalsmith.ignore()` and will do partial (true) or full (false) rebuilds depending on the `metalsmith.clean()` setting. It can be used both for rebuilding in-memory with `metalsmith.process` or writing to file system with `metalsmith.build`.
+
+**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
+<table>
+  <thead>
+    <tr>
+      <th>Param</th><th>Type</th><th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+<tr>
+    <td>[options]</td><td><code>boolean</code> | <code>string</code> | <code>Array.&lt;string&gt;</code> | <code><a href="https://github.com/paulmillr/chokidar/blob/3.5.3/types/index.d.ts#L68">Chokidar.WatchOptions</a></code></td><td>If string or array of strings, the directory path(s) to watch. If <code>true</code> or <code>false</code>, will (not) watch <a href="#Metalsmith+source">Metalsmith.source()</a>. Alternatively an object of Chokidar watchOptions, except <code>cwd</code>, <code>ignored</code>, <code>alwaysStat</code>, <code>ignoreInitial</code>, and <code>awaitWriteFinish</code>. These options are controlled by Metalsmith.</td>
+    </tr>  </tbody>
+</table>
+
+**Example**  
+```js
+metalsmith
+  .ignore(['wont-be-watched'])  // ignored
+  .clean(false)                 // do partial rebuilds
+  .watch(true)                  // watch all files in metalsmith.source()
+  .watch(['lib','src'])         // or watch files in directories 'lib' and 'src'
+
+if (process.argv[2] === '--dry-run') {
+  metalsmith.process(onRebuild) // reprocess in memory without writing to disk
+} else {
+  metalsmith.build(onRebuild)   // rewrite to disk
+}
+
+function onRebuild(err, files) {
+  if (err) {
+    metalsmith.watch(false)            // stop watching
+     .finally(() => console.log(err))  // and log build error
+  }
+  console.log('reprocessed files', Object.keys(files).join(', ')))
+}
 ```
 <a name="Metalsmith+ignore"></a>
 
