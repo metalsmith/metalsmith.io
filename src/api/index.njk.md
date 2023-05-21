@@ -5,7 +5,7 @@ slug: api
 layout: default.njk
 sitemap:
   priority: 1.0
-  lastmod: 2023-05-13
+  lastmod: 2023-05-22
 config:
   anchors: true
 ---
@@ -19,7 +19,7 @@ config:
 <dd><p>Metalsmith representation of the files in <code>metalsmith.source()</code>.
 The keys represent the file paths and the values are <a href="#File">File</a> objects</p>
 </dd>
-<dt><a href="#File">File</a></dt>
+<dt><a href="#File">File</a> : <code>Object</code></dt>
 <dd><p>Metalsmith file. Defines <code>mode</code>, <code>stats</code> and <code>contents</code> properties by default, but may be altered by plugins</p>
 </dd>
 <dt><a href="#BuildCallback">BuildCallback</a> : <code>function</code></dt>
@@ -39,75 +39,56 @@ Calling the callback is required for asynchronous plugins, and optional for sync
 
 <a name="Metalsmith"></a>
 
-## Metalsmith ⇒ [<code>Metalsmith</code>](#Metalsmith)
+## Metalsmith ⇒ [`Metalsmith`](#Metalsmith)
 Initialize a new `Metalsmith` builder with a working `directory`.
 
 **Kind**: global typedef  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>directory</td><td><code>string</code></td>
-    </tr>  </tbody>
-</table>
+
+| Param     | Type     |
+|-----------|----------|
+| directory | `string` |
 
 **Properties**
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>plugins</td><td><code><a href="#Plugin">Array.&lt;Plugin&gt;</a></code></td>
-    </tr><tr>
-    <td>ignores</td><td><code>Array.&lt;string&gt;</code></td>
-    </tr>  </tbody>
-</table>
+| Name      | Type                      |
+|-----------|---------------------------|
+| [plugins] |[`Array<Plugin>`](#Plugin) |
+| [ignores] |`Array<string>`            |
 
 
-* [Metalsmith](#Metalsmith) ⇒ [<code>Metalsmith</code>](#Metalsmith)
-    * [.use(plugin)](#Metalsmith+use) ⇒ [<code>Metalsmith</code>](#Metalsmith)
-    * [.directory([directory])](#Metalsmith+directory) ⇒ <code>string</code> \| [<code>Metalsmith</code>](#Metalsmith)
-    * [.metadata([metadata])](#Metalsmith+metadata) ⇒ <code>Object</code> \| [<code>Metalsmith</code>](#Metalsmith)
-    * [.source([path])](#Metalsmith+source) ⇒ <code>string</code> \| [<code>Metalsmith</code>](#Metalsmith)
-    * [.destination([path])](#Metalsmith+destination) ⇒ <code>string</code> \| [<code>Metalsmith</code>](#Metalsmith)
-    * [.concurrency([max])](#Metalsmith+concurrency) ⇒ <code>number</code> \| [<code>Metalsmith</code>](#Metalsmith)
-    * [.clean([clean])](#Metalsmith+clean) ⇒ <code>boolean</code> \| [<code>Metalsmith</code>](#Metalsmith)
-    * [.frontmatter([frontmatter])](#Metalsmith+frontmatter) ⇒ <code>boolean</code> \| [<code>Metalsmith</code>](#Metalsmith)
-    * [.watch([options])](#Metalsmith+watch) ⇒ <code>boolean</code> \| [<code>Chokidar.WatchOptions</code>](https://github.com/paulmillr/chokidar/blob/3.5.3/types/index.d.ts#L68) | [<code>Metalsmith</code>](#Metalsmith)
-    * [.ignore([files])](#Metalsmith+ignore) ⇒ [<code>Metalsmith</code>](#Metalsmith) \| <code>Array.&lt;string&gt;</code>
-    * [.path(...paths)](#Metalsmith+path) ⇒ <code>string</code>
-    * [.match(patterns \[, input \[, options\]\])](#Metalsmith+match) ⇒ <code>Array.&lt;string&gt;</code>
-    * [.debug(namespace)](#Metalsmith+debug) ⇒ [<code>Debugger</code>](#Debugger)
-    * [.env(\[ vars \[, value\]\])](#Metalsmith+env) ⇒ <code>string</code> \| <code>number</code> \| <code>boolean</code> \| <code>Object</code> \| [<code>Metalsmith</code>](#Metalsmith)
-    * [.build([callback])](#Metalsmith+build) ⇒ [<code>Promise.&lt;Files&gt;</code>](#Files) \| <code>void</code>
-    * [.process([callback])](#Metalsmith+process) ⇒ [<code>Promise.&lt;Files&gt;</code>](#Files) \| <code>void</code>
-    * [.run(files, plugins)](#Metalsmith+run) ⇒ [<code>Promise.&lt;Files&gt;</code>](#Files) \| <code>void</code>
+* [Metalsmith](#Metalsmith) ⇒ [`Metalsmith`](#Metalsmith)
+    * [.use(plugin)](#Metalsmith+use) ⇒ [`Metalsmith`](#Metalsmith)
+    * [.directory([directory])](#Metalsmith+directory) ⇒ `string` | [`Metalsmith`](#Metalsmith)
+    * [.metadata([metadata])](#Metalsmith+metadata) ⇒ `Object` | [`Metalsmith`](#Metalsmith)
+    * [.source([path])](#Metalsmith+source) ⇒ `string` | [`Metalsmith`](#Metalsmith)
+    * [.destination([path])](#Metalsmith+destination) ⇒ `string` | [`Metalsmith`](#Metalsmith)
+    * [.concurrency([max])](#Metalsmith+concurrency) ⇒ `number` | [`Metalsmith`](#Metalsmith)
+    * [.clean([clean])](#Metalsmith+clean) ⇒ `boolean` | [`Metalsmith`](#Metalsmith)
+    * [.frontmatter([frontmatter])](#Metalsmith+frontmatter) ⇒ `boolean` | [`Metalsmith`](#Metalsmith)
+    * [.watch([options])](#Metalsmith+watch) ⇒ `boolean` | [`Chokidar.WatchOptions`](https://github.com/paulmillr/chokidar/blob/3.5.3/types/index.d.ts#L68) | [`Metalsmith`](#Metalsmith)
+    * [.ignore([files])](#Metalsmith+ignore) ⇒ [`Metalsmith`](#Metalsmith) \| `Array.<string>`
+    * [.path(...paths)](#Metalsmith+path) ⇒ `string`
+    * [.match(patterns \[, input \[, options\]\])](#Metalsmith+match) ⇒ `Array.<string>`
+    * [.debug(namespace)](#Metalsmith+debug) ⇒ [`Debugger`](#Debugger)
+    * [.env(\[ vars \[, value\]\])](#Metalsmith+env) ⇒ `string` | `number` | `boolean` | `Object` | [`Metalsmith`](#Metalsmith)
+    * [.build([callback])](#Metalsmith+build) ⇒ [`Promise.<Files>`](#Files) | `void`
+    * [.process([callback])](#Metalsmith+process) ⇒ [`Promise.<Files>`](#Files) | `void`
+    * [.run(files, plugins)](#Metalsmith+run) ⇒ [`Promise.<Files>`](#Files) | `void`
+    * [.matter](#Metalsmith+matter)
+        * [.parse(contents)](#Metalsmith+matter+parse) ⇒ [`File`](#File) | `void`
+        * [.stringify(file)](#Metalsmith+matter+stringify) ⇒ `string`
+        * [.wrap(stringifiedData)](#Metalsmith+matter+wrap) ⇒ `string`
 
 <a name="Metalsmith+use"></a>
 
-### metalsmith.use(plugin) ⇒ [<code>Metalsmith</code>](#Metalsmith)
+### metalsmith.use(plugin) ⇒ [`Metalsmith`](#Metalsmith)
 Add a `plugin` function to the stack.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>plugin</td><td><code><a href="#Plugin">Plugin</a></code></td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param    | Type               |
+|----------|--------------------|
+| [plugin] |[`plugin`](#Plugin) |
 
 **Example**  
 ```js
@@ -117,21 +98,14 @@ metalsmith
 ```
 <a name="Metalsmith+directory"></a>
 
-### metalsmith.directory([directory]) ⇒ <code>string</code> \| [<code>Metalsmith</code>](#Metalsmith)
+### metalsmith.directory([directory]) ⇒ `string` | [`Metalsmith`](#Metalsmith)
 Get or set the working `directory`.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[directory]</td><td><code>string</code></td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param       | Type    |
+|-------------|---------|
+| [directory] |`string` |
 
 **Example**  
 ```js
@@ -141,21 +115,14 @@ metalsmith.directory('./other/path')  // set the path of the working directory
 ```
 <a name="Metalsmith+metadata"></a>
 
-### metalsmith.metadata([metadata]) ⇒ <code>Object</code> \| [<code>Metalsmith</code>](#Metalsmith)
+### metalsmith.metadata([metadata]) ⇒ `Object` | [`Metalsmith`](#Metalsmith)
 Get or set the global `metadata`.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[metadata]</td><td><code>Object</code></td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param      | Type     |
+|------------|----------|
+| [metadata] |`Object`  |
 
 **Example**  
 ```js
@@ -164,21 +131,14 @@ metalsmith.metadata()                          // returns { sitename: 'My blog' 
 ```
 <a name="Metalsmith+source"></a>
 
-### metalsmith.source([path]) ⇒ <code>string</code> \| [<code>Metalsmith</code>](#Metalsmith)
+### metalsmith.source([path]) ⇒ `string` | [`Metalsmith`](#Metalsmith)
 Get or set the source directory.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[path]</td><td><code>string</code></td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param  | Type    |
+|--------|---------|
+| [path] |`string` |
 
 **Example**  
 ```js
@@ -187,21 +147,14 @@ metalsmith.source()            // returns './src'
 ```
 <a name="Metalsmith+destination"></a>
 
-### metalsmith.destination([path]) ⇒ <code>string</code> \| [<code>Metalsmith</code>](#Metalsmith)
+### metalsmith.destination([path]) ⇒ `string` | [`Metalsmith`](#Metalsmith)
 Get or set the destination directory.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[path]</td><td><code>string</code></td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param  | Type    |
+|--------|---------|
+| [path] |`string` |
 
 **Example**  
 ```js
@@ -210,21 +163,14 @@ metalsmith.destination()         // returns 'build'
 ```
 <a name="Metalsmith+concurrency"></a>
 
-### metalsmith.concurrency([max]) ⇒ <code>number</code> \| [<code>Metalsmith</code>](#Metalsmith)
+### metalsmith.concurrency([max]) ⇒ `number` | [`Metalsmith`](#Metalsmith)
 Get or set the maximum number of files to open at once.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[max]</td><td><code>number</code></td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param | Type     |
+|-------|----------|
+| [max] |`number`  |
 
 **Example**  
 ```js
@@ -233,21 +179,14 @@ metalsmith.concurrency()     // returns 20
 ```
 <a name="Metalsmith+clean"></a>
 
-### metalsmith.clean([clean]) ⇒ <code>boolean</code> \| [<code>Metalsmith</code>](#Metalsmith)
+### metalsmith.clean([clean]) ⇒ `boolean` | [`Metalsmith`](#Metalsmith)
 Get or set whether the destination directory will be removed before writing.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[clean]</td><td><code>boolean</code></td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param   | Type     |
+|---------|----------|
+| [clean] |`boolean` |
 
 **Example**  
 ```js
@@ -256,21 +195,14 @@ metalsmith.clean()      // returns true
 ```
 <a name="Metalsmith+frontmatter"></a>
 
-### metalsmith.frontmatter([frontmatter]) ⇒ <code>boolean</code> \| [<code>Metalsmith</code>](#Metalsmith)
+### metalsmith.frontmatter([frontmatter]) ⇒ `boolean` | [`Metalsmith`](#Metalsmith)
 Optionally turn off frontmatter parsing or pass a [gray-matter options object](https://github.com/jonschlinkert/gray-matter/tree/4.0.2#option)
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[frontmatter]</td><td><code>boolean</code> | <code><a href="#GrayMatterOptions">GrayMatterOptions</a></code></td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param         | Type                                                                                              |
+|---------------|---------------------------------------------------------------------------------------------------|
+| [frontmatter] |`boolean` \| [`GrayMatterOptions`](https://github.com/jonschlinkert/gray-matter/tree/4.0.2#option) |
 
 **Example**  
 ```js
@@ -280,15 +212,15 @@ metalsmith.frontmatter({ excerpt: true })
 ```
 <a name="Metalsmith+watch"></a>
 
-### metalsmith.watch([options]) ⇒ <code>boolean</code> \| [<code>Chokidar.WatchOptions</code>](https://github.com/paulmillr/chokidar/blob/3.5.3/types/index.d.ts#L68) | [<code>Metalsmith</code>](#Metalsmith)
+### metalsmith.watch([options]) ⇒ `boolean` | [`Chokidar.WatchOptions`](https://github.com/paulmillr/chokidar/blob/3.5.3/types/index.d.ts#L68) | [`Metalsmith`](#Metalsmith)
 
 <p class="Note Note--warn">
-  Partial rebuilding (=using <code>metalsmith.watch</code> with <code>metalsmith.clean(false)</code>) is still experimental and combined with <code>@metalsmith/metadata</code> <= 0.2.0 a bug may trigger an infinite loop. metalsmith.watch is incompatible with existing watch plugin. In watch mode, metalsmith.process/build are <strong>not awaitable</strong>. Callbacks passed to these methods will run on every rebuild instead of running once at the build's end.
+  Partial rebuilding (=using <code>metalsmith.watch</code> with <code>metalsmith.clean(false)</code>) is still experimental and combined with <code>@metalsmith/metadata</code> &lt;= 0.2.0 a bug may trigger an infinite loop. metalsmith.watch is incompatible with existing watch plugin. In watch mode, metalsmith.process/build are <strong>not awaitable</strong>. Callbacks passed to these methods will run on every rebuild instead of running once at the build's end.
 </p>
 
 Set the list of paths to watch and trigger rebuilds on. The watch method will skip files ignored with `metalsmith.ignore()` and will do partial (true) or full (false) rebuilds depending on the `metalsmith.clean()` setting. It can be used both for rebuilding in-memory with `metalsmith.process` or writing to file system with `metalsmith.build`.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
 <table>
   <thead>
     <tr>
@@ -320,27 +252,19 @@ function onRebuild(err, files) {
     metalsmith.watch(false)            // stop watching
      .finally(() => console.log(err))  // and log build error
   }
-  console.log('reprocessed files', Object.keys(files).join(', ')))
+  console.log('reprocessed files', Object.keys(files).join(', '))
 }
 ```
 <a name="Metalsmith+ignore"></a>
 
-### metalsmith.ignore([files]) ⇒ [<code>Metalsmith</code>](#Metalsmith) \| <code>Array.&lt;string&gt;</code>
+### metalsmith.ignore([files]) ⇒ [`Metalsmith`](#Metalsmith) \| `Array.<string>`
 Get or set the list of filepaths or glob patterns to ignore
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[files]</td><td><code>string</code> | <code>Array.&lt;string&gt;</code></td><td><p>The names or glob patterns of files or directories to ignore.</p>
-</td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param        | Type                         | Description                                                   |
+|--------------|------------------------------|---------------------------------------------------------------|
+| [files]      |`string` \| `Array.<string>`  | The names or glob patterns of files or directories to ignore. |
 
 **Example**  
 ```js
@@ -350,21 +274,14 @@ metalsmith.ignore(['.*', 'data.json'])   // ignore dot files & a data file
 ```
 <a name="Metalsmith+path"></a>
 
-### metalsmith.path(...paths) ⇒ <code>string</code>
+### metalsmith.path(...paths) ⇒ `string`
 Resolve `paths` relative to the metalsmith `directory`.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>...paths</td><td><code>string</code></td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param        | Type    |
+|--------------|---------|
+| ...paths     |`string` |
 
 **Example**  
 ```js
@@ -372,53 +289,31 @@ metalsmith.path('./path','to/file.ext')
 ```
 <a name="Metalsmith+match"></a>
 
-### metalsmith.match(patterns \[, input \[,options]]) ⇒ <code>Array.&lt;string&gt;</code>
+### metalsmith.match(patterns \[, input \[,options]]) ⇒ `Array.<string>`
 Match filepaths in the source directory by [glob](https://en.wikipedia.org/wiki/Glob_(programming)) pattern.
 If `input` is not specified, patterns are matched against `Object.keys(files)`
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-**Returns**: <code>Array.&lt;string&gt;</code> - An array of matching file paths  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>patterns</td><td><code>string</code> | <code>Array.&lt;string&gt;</code></td><td><p>one or more glob patterns</p>
-</td>
-    </tr><tr>
-    <td>[input]</td><td><code>Array.&lt;string&gt;</code></td><td><p>array of strings to match against</p>
-</td>
-    </tr><tr>
-    <td>[value]</td><td><code>string</code> | <code>number</code> | <code>boolean</code></td><td><p>value of the environment variable</p>
-</td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+**Returns**: `Array.<string>` - An array of matching file paths  
+
+| Param     | Type                                                                     | Description                                                                  |
+|-----------|--------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| patterns  | `string` \| `Array.<string>`                                             | One or more [glob](https://en.wikipedia.org/wiki/Glob_(programming) patterns |
+| [input]   | `Array.<string>`                                                         | Array of paths to match patterns to                                          |
+| [options] | [`micromatch.Options`](https://github.com/micromatch/micromatch#options) | [Micromatch options](https://github.com/micromatch/micromatch#options)       |                                             |
 
 
 <a name="Metalsmith+env"></a>
 
-### metalsmith.env(\[vars \[, value]]) ⇒ <code>string</code> \| <code>number</code> \| <code>boolean</code> \| <code>Object</code> \| [<code>Metalsmith</code>](#Metalsmith)
+### metalsmith.env(\[vars \[, value]]) ⇒ `string` | `number` | `boolean` | `Object` | [`Metalsmith`](#Metalsmith)
 Get or set one or multiple metalsmith environment variables. Metalsmith env vars are case-insensitive.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[vars]</td><td><code>string</code> | <code>Object</code></td><td><p>name of the environment variable, or an object with <code>{ name: &#39;value&#39; }</code> pairs</p>
-</td>
-    </tr><tr>
-    <td>[value]</td><td><code>string</code> | <code>number</code> | <code>boolean</code></td><td><p>value of the environment variable</p>
-</td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param   | Type     | Description                                                                                            |
+|---------|----------|--------------------------------------------------------------------------------------------------------|
+| [vars]  | `string` \| `Object`              | Name of the environment variable, or an object with `{ name: <value> }` pairs |
+| [value] | `string` \| `number` \| `boolean` | Value of the environment variable                                             |
 
 **Example**  
 ```js
@@ -439,22 +334,14 @@ metalsmith.env({
 ```
 <a name="Metalsmith+debug"></a>
 
-### metalsmith.debug(namespace) ⇒ [<code>Debugger</code>](#Debugger)
+### metalsmith.debug(namespace) ⇒ [`Debugger`](#Debugger)
 Create a new [debug](https://github.com/debug-js/debug#readme) debugger
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>namespace</td><td><code>string</code></td><td><p>Debugger namespace</p>
-</td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+
+| Param     | Type     | Description        |
+|-----------|----------|--------------------|
+| namespace | `string` | Debugger namespace |
 
 **Example**  
 ```js
@@ -467,81 +354,144 @@ function plugin(files, metalsmith) {
 
 <a name="Metalsmith+build"></a>
 
-### metalsmith.build([callback]) ⇒ [<code>Promise.&lt;Files&gt;</code>](#Files)
+### metalsmith.build([callback]) ⇒ [`Promise.<Files>`](#Files) | `void`
 Build with the current settings to the destination directory.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-**Fulfills**: [<code>Files</code>](#Files)  
-**Rejects**: <code>Error</code>  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[callback]</td><td><code><a href="#BuildCallback">BuildCallback</a></code></td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+**Fulfills**: [`Files`](#Files)  
+**Rejects**: `Error`  
+
+| Param      | Type                              |
+|------------|-----------------------------------|
+| [callback] |[`BuildCallback`](#BuildCallback)  |
 
 **Example**  
 ```js
+// callback variant
 metalsmith.build(function(error, files) {
   if (error) throw error
   console.log('Build success!')
 })
+
+// promise variant
+try {
+  const files = await metalsmith.build()
+  console.log('Build success')
+} catch (error) {
+  throw error
+}
 ```
 <a name="Metalsmith+process"></a>
 
-### metalsmith.process([callback]) ⇒ [<code>Files</code>](#Files)
+### metalsmith.process([callback]) ⇒ [`Promise.<Files>`](#Files) | `void`
 Process files through plugins without writing out files.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[callback]</td><td><code><a href="#BuildCallback">BuildCallback</a></code></td>
-    </tr>  </tbody>
-</table>
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+**Fulfills**: [`Files`](#Files)  
+**Rejects**: `Error`  
+
+| Param      | Type                              |
+|------------|-----------------------------------|
+| [callback] |[`BuildCallback`](#BuildCallback)  |
 
 **Example**  
 ```js
+// callback variant
 metalsmith.process(err => {
   if (err) throw err
   console.log('Success')
-  console.log(this.metadata())
 })
+
+// promise variant
+try {
+  await metalsmith.process()
+  console.log('Success')
+} catch (err) {
+  throw err
+}
 ```
 <a name="Metalsmith+run"></a>
 
-### metalsmith.run(files, plugins) ⇒ <code>Object</code>
+### metalsmith.run(files, plugins) ⇒ `Object`
 Run a set of `files` through the plugins stack.
 
-**Kind**: instance method of [<code>Metalsmith</code>](#Metalsmith)  
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
 **Access**: package  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>files</td><td><code><a href="#Files">Files</a></code></td>
-    </tr><tr>
-    <td>plugins</td><td><code><a href="#Plugin">Array.&lt;Plugin&gt;</a></code></td>
-    </tr>  </tbody>
-</table>
+
+| Param        | Type                       |
+|--------------|----------------------------|
+| files        |[`files`](#Files)           |
+| plugins      |[`Array<Plugin>`](#Plugin)  |
+
+<a name="Metalsmith+matter"></a>
+
+## metalsmith.matter
+
+**Kind**: instance member of [`Metalsmith`](#Metalsmith)  
+
+<a name="Metalsmith+matter+parse"></a>
+
+### metalsmith.matter.parse(file) ⇒  [`File`](#File)
+
+**Kind**: instance method of [`Metalsmith.matter`](#Metalsmith+matter)  
+
+| Param | Type                              |
+|-------|-----------------------------------|
+| file  |[`Buffer`](https://nodejs.org/api/buffer.html) \| `string`|
+
+**Example**  
+```js
+metalsmith.matter.parse(Buffer.from('---\ntitle: Hello World\n---\nIntro\n---')) === {
+  contents: Buffer<'Hello world'>,
+  title: 'Hello World',
+  excerpt: 'Intro'
+}
+```
+
+<a name="Metalsmith+matter+stringify"></a>
+
+### metalsmith.matter.stringify(file) ⇒ `string`
+Stringify a [`File`](#File) object to a string with frontmatter and contents
+
+**Kind**: instance method of [`Metalsmith.matter`](#Metalsmith+matter)  
+
+| Param    | Type            |
+|----------|-----------------|
+| contents | [`File`](#File) |
+
+**Example**  
+```js
+metalsmith.matter.stringify({
+  contents: Buffer.from('body'),
+  title: 'Hello World',
+  excerpt: 'Intro'
+}) === [
+  'title: Hello World',
+  'excerpt: Intro',
+  '---',
+  'body'
+].join('')
+```
+
+<a name="Metalsmith+matter+wrap"></a>
+
+### metalsmith.matter.wrap(stringifiedData) ⇒ `string`
+Wrap stringified front-matter-compatible data with the matter delimiters
+
+**Kind**: instance method of [`Metalsmith.matter`](#Metalsmith+matter)  
+
+| Param            | Type                              |
+|------------------|-----------------------------------|
+| stringifiedData  | [`Buffer`](https://nodejs.org/api/buffer.html) \|`string`|
+
+**Example**  
+```js
+metalsmith.matter.wrap(Buffer.from('{"hello": "world"}')) === '---\n{"hello": "world"}\n---'
+```
 
 <a name="Files"></a>
 
-## Files : <code>Object.&lt;string, File&gt;</code>
+## Files : `Object.<string, File>`
 Metalsmith representation of the files in `metalsmith.source()`.
 The keys represent the file paths and the values are [File](#File) objects
 
@@ -554,45 +504,24 @@ Metalsmith file. Defines `mode`, `stats` and `contents` properties by default, b
 **Kind**: global typedef  
 **Properties**
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th><th>Type</th><th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>contents</td><td><code>Buffer</code></td><td><p>A NodeJS <a href="https://nodejs.org/api/buffer.html">buffer</a> that can be <code>.toString</code>&#39;ed to obtain its human-readable contents</p>
-</td>
-    </tr><tr>
-    <td>stats</td><td><code>fs.Stats</code></td><td><p>A NodeJS <a href="https://nodejs.org/api/fs.html#fs_class_fs_stats">fs.Stats object</a> object with extra filesystem metadata and methods</p>
-</td>
-    </tr><tr>
-    <td>mode</td><td><code>string</code></td><td><p>Octal permission mode, see <a href="https://en.wikipedia.org/wiki/File-system_permissions#Numeric_notation">https://en.wikipedia.org/wiki/File-system_permissions#Numeric_notation</a></p>
-</td>
-    </tr>  </tbody>
-</table>
+| Name     | Type                                                           | Description                                                                                                                |
+|----------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| contents | [`Buffer`](https://nodejs.org/api/buffer.html)                 | A NodeJS [Buffer](https://nodejs.org/api/buffer.html) that can be `.toString`&#39;ed to obtain its human-readable contents |
+| stats    | [`fs.Stats`](https://nodejs.org/api/fs.html#fs_class_fs_stats) | A NodeJS [fs.Stats object](https://nodejs.org/api/fs.html#fs_class_fs_stats) with extra filesystem metadata and methods    |
+| mode     | `string`                                                       | [Octal permission mode](https://en.wikipedia.org/wiki/File-system_permissions#Numeric_notation)                            |
 
 <a name="BuildCallback"></a>
 
-## BuildCallback : <code>function</code>
+## BuildCallback : `function`
 A callback to run when the Metalsmith build is done
 
 **Kind**: global typedef  
-**this**: <code>{Metalsmith}</code>  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[error]</td><td><code>Error</code></td>
-    </tr><tr>
-    <td>files</td><td><code><a href="#Files">Files</a></code></td>
-    </tr>  </tbody>
-</table>
+**this**: [`Metalsmith`](#Metalsmith)
+
+| Param   | Type                                                      |
+|---------|-----------------------------------------------------------|
+| [error] | [`Error`](https://nodejs.org/api/errors.html#class-error) |
+| files   | [`Files`](#Files)                                         |
 
 **Example**  
 ```js
@@ -603,21 +532,14 @@ function onBuildEnd(error, files) {
 ```
 <a name="DoneCallback"></a>
 
-## DoneCallback : <code>function</code>
+## DoneCallback : `function`
 A callback to indicate that a plugin's work is done
 
 **Kind**: global typedef  
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>[error]</td><td><code>Error</code></td>
-    </tr>  </tbody>
-</table>
+
+| Param   | Type                                                      |
+|---------|-----------------------------------------------------------|
+| [error] | [`Error`](https://nodejs.org/api/errors.html#class-error) |
 
 **Example**  
 ```js
@@ -628,26 +550,17 @@ function plugin(files, metalsmith, done) {
 ```
 <a name="Plugin"></a>
 
-## Plugin : <code>function</code>
+## Plugin : `function`
 A Metalsmith plugin is a function that is passed the file list, the metalsmith instance, and a `done` callback.
 Calling the callback is required for asynchronous plugins, and optional for synchronous plugins.
 
 **Kind**: global typedef
-<table>
-  <thead>
-    <tr>
-      <th>Param</th><th>Type</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr>
-    <td>files</td><td><code><a href="#Files">Files</a></code></td>
-    </tr><tr>
-    <td>metalsmith</td><td><code><a href="#Metalsmith">Metalsmith</a></code></td>
-    </tr><tr>
-    <td>done</td><td><code><a href="#DoneCallback">DoneCallback</a></code></td>
-    </tr>  </tbody>
-</table>
+
+| Param      | Type                             |
+|------------|----------------------------------|
+| files      | [`Files`](#Files)                |
+| metalsmith | [`Metalsmith`](#Metalsmith)      |
+| done       | [`DoneCallback`](#DoneCallback)  |
 
 **Example**  
 ```js
@@ -664,7 +577,7 @@ metalsmith.use(drafts)
 
 <a name="Debugger"></a>
 
-## Debugger : <code>function</code>
+## Debugger : `function`
 A [debug](https://github.com/debug-js/debug#readme)-based plugin debugger with `warn`, `info` and `error` channels.
 
 **Kind**: global typedef  
