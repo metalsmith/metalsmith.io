@@ -1,7 +1,3 @@
-- name: Nodejs.org
-  url: https://nodejs.org
-  image: nodejs-org.png
-  featured: true
 - name: JSDoc
   url: https://jsdoc.app
   image: jsdoc-app.png
@@ -18,6 +14,10 @@
   url: https://scenicbyways.info
   image: scenicbyways-info.png
   featured: true
+- name: Jim Nielsen's blog
+  url: https://www.jim-nielsen.com/
+  image: jim-nielsen-com.png
+  featured: true
 - name: Design System Gov UK
   url: https://design-system.service.gov.uk/
   image: design-system-service-gov-uk.png
@@ -25,14 +25,10 @@
 - name: Foxxtrot blog
   url: https://blog.foxxtrot.net/
   image: blog-foxxtrot-net.png
-  featured: false
+  featured: true
 - name: qooxdoo framework
   url: https://qooxdoo.org
   image: qooxdoo-org.png
-  featured: true
-- name: Quasar CLI
-  url: https://github.com/quasarframework/quasar/tree/dev/cli
-  image: quasar-cli.png
   featured: true
 - name: Basisproject
   url: https://basisproject.net
