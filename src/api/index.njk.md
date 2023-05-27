@@ -35,6 +35,9 @@ Calling the callback is required for asynchronous plugins, and optional for sync
 <dt><a href="#Debugger">Debugger</a> : <code>function</code></dt>
 <dd><p>A <a href="https://github.com/debug-js/debug#readme">debug</a>-based plugin debugger</p>
 </dd>
+<dt><a href="#MatterOptions">MatterOptions</a> : <code>Object</code></dt>
+<dd><p>Options for parsing/stringifying front-and other matter</p>
+</dd>
 </dl>
 
 <a name="Metalsmith"></a>
@@ -431,7 +434,26 @@ Run a set of `files` through the plugins stack.
 
 <a name="Metalsmith+matter+parse"></a>
 
+### metalsmith.matter.options([options]) ⇒ `void` | [`MatterOptions`](#MatterOptions) 
+Get or set options for parsing & stringifying matter
+
+**Kind**: instance method of [`Metalsmith.matter`](#Metalsmith+matter)  
+
+| Param      | Type                              |
+|------------|-----------------------------------|
+| [options]  |[`MatterOptions`](#MatterOptions)  |
+
+**Example**  
+```js
+metalsmith.matter.parse(Buffer.from('---\ntitle: Hello World\n---\nIntro\n---')) === {
+  contents: Buffer<'Hello world'>,
+  title: 'Hello World',
+  excerpt: 'Intro'
+}
+```
+
 ### metalsmith.matter.parse(file) ⇒  [`File`](#File)
+Parse a string for front matter and return it as a [`File`](#File) object.
 
 **Kind**: instance method of [`Metalsmith.matter`](#Metalsmith+matter)  
 
@@ -470,7 +492,7 @@ metalsmith.matter.stringify({
   'excerpt: Intro',
   '---',
   'body'
-].join('')
+].join('\n')
 ```
 
 <a name="Metalsmith+matter+wrap"></a>
@@ -623,3 +645,16 @@ debugger.error('An error')
 debugger.warn('A warning')
 debugger.info('File contents: %b', Buffer.from('custom'))
 ```
+
+## MatterOptions: `Object`
+[Gray matter options](https://github.com/jonschlinkert/gray-matter#options)
+
+**Kind**: global typedef
+
+| Param               | Type                                                         |
+|---------------------|--------------------------------------------------------------|
+| language            | `string`                                                     |
+| excerpt             | `boolean` \| `function`                                      |
+| excerpt_separator   | `string`                                                     |
+| delimiters          | `string` \| `string[]`                                       |
+| engines             | `Object<string, { parse: Function[, stringify: Function] }>` |
