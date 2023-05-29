@@ -1,10 +1,10 @@
 ---
 title: Metalsmith 2.6 released
 description: Power to the metalsmith CLI, new metalsmith.watch method & metalsmith.matter member.
-pubdate: 2023-05-27
+pubdate: 2023-05-30
 layout: default.njk
 sitemap:
-  lastmod: 2023-05-27
+  lastmod: 2023-05-30
 ---
 {% include "./lib/views/partials/doc-mdlinks.njk" %}
 
@@ -18,7 +18,7 @@ Metalsmith 2.6 is out!
 
 * **Typescript support included**. No need to install the extra [@metalsmith/types](https://www.npmjs.com/package/@types/metalsmith) package anymore.
 
-* **NodeJS < 14.14 support dropped**: In line with the [compatibility & support policy](https://github.com/metalsmith/metalsmith#compatibility--support-policy) Node 14 support was dropped (EOL 2023-04-30). To be able to make use of Node's recursive fs.rm method and remove the rimraf dependency support for the first 14 minor Node 14 versions was also dropped.
+* **NodeJS < 14.14 support dropped**: In line with the [compatibility & support policy](https://github.com/metalsmith/metalsmith#compatibility--support-policy) Node 14 support was dropped (EOL 2023-04-30). To be able to make use of Node's recursive fs.rm method and remove the rimraf dependency, support for the first 14 minor Node 14 versions was also dropped.
 
 * **Power to the metalsmith CLI**. Metalsmith 2.6 modernizes the CLI and adds 3 command-line options: `--env varname=varvalue`, `--debug` (= `--env debug=true`), and `--dry-run`. These options overwrite those defined in a metalsmith build or config file allowing you to do faster test runs with different configurations.
 
@@ -127,12 +127,16 @@ The snippet below demonstrates usage of these methods:
 - Added --env option to metalsmith (build) command [`9661ddc`](https://github.com/metalsmith/metalsmith/commit/9661ddc)
 - Added Metalsmith CLI support for loading a .(c)js config. Reads from metalsmith.js as second default after metalsmith.json [`45a4afe`](https://github.com/metalsmith/metalsmith/commit/45a4afe)
 - Added support for running (C/M)JS config files from CLI [`424e6ec`](https://github.com/metalsmith/metalsmith/commit/424e6ec)
+- **Dependencies:**
+  - `chokidar` [`9d40674`](https://github.com/metalsmith/metalsmith/commit/9d40674)
+  - `lodash.clonedeepwith` [`e12537f`](https://github.com/metalsmith/metalsmith/commit/e12537f)
 
 ### Removed
 
 - [#231] Dropped support for Node < 14.14.0 [`80d8508`](https://github.com/metalsmith/metalsmith/commit/80d8508)
 - **Dependencies:**
   - `rimraf`: replaced with native Node.js methods [`ae05945`](https://github.com/metalsmith/metalsmith/commit/ae05945)
+  - `cross-spawn`: [`baee1de`](https://github.com/metalsmith/metalsmith/commit/baee1de)
 
 ### Updated
 
