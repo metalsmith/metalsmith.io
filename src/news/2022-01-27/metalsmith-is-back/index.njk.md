@@ -40,7 +40,7 @@ This includes:
 A careful approach will be taken for Node support: the first 2 upcoming versions will drop support for Node <= 8, then Node <= 12, then following Node LTS releases <abbr title="End of Life">EOL</abbr>. 
 
 I have a full-time job and other duties, but care a lot about Metalsmith and at the very least it and its core plugins will get frequent patch updates.
-If you want to help out, be it with a starter template, idea, plugin, dev chore, please join [our Gitter channel](https://gitter.im/metalsmith/community) (also supports Matrix accounts), all help is welcome!
+If you want to help out, be it with a starter template, idea, plugin, dev chore, please join [our Gitter channel](https://app.gitter.im/#/room/#metalsmith_community:gitter.im) (also supports Matrix accounts), all help is welcome!
 
 Looking forward to it.
 

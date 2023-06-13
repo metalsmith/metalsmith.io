@@ -5,7 +5,7 @@ slug: "home"
 layout: "home.njk"
 sitemap:
   priority: 1.0
-  lastmod: 2022-10-14
+  lastmod: 2023-03-01
 config:
   anchors: false
   
@@ -72,7 +72,7 @@ pnpm add metalsmith
 {% codeblock "metalsmith.mjs" %}
 ```js
 import { fileURLToPath } from 'node:url'
-import { dirname } from 'path'
+import { dirname } from 'node:path'
 import Metalsmith from 'metalsmith'
 import collections from '@metalsmith/collections'
 import layouts from '@metalsmith/layouts'

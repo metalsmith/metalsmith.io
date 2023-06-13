@@ -112,7 +112,7 @@ To pass options to a plugin we simply wrap and return the *plugin body* in a clo
 function initSnapshot(options = {}) {
   // code in the initializer runs before metalsmith.build()
   return function snapshot(files, metalsmith) {
-    // code in the plugin oody runs as part of metalsmith.build()
+    // code in the plugin body runs as part of metalsmith.build()
     console.log(files, metalsmith)
   }
 }
@@ -131,7 +131,7 @@ Metalsmith(__dirname)
 + function initSnapshot(options = {}) {
   // code in the initializer runs before metalsmith.build()
 -   function snapshot(files, metalsmith) {
-    // code in the plugin oody runs as part of metalsmith.build()
+    // code in the plugin body runs as part of metalsmith.build()
 +   return function snapshot(files, metalsmith) {
       console.log(files, metalsmith)
     }

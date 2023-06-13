@@ -664,9 +664,9 @@ const isMainScript = process.argv[1] === fileURLToPath(import.meta.url))
 
 if (isMainScript) {
   msBuild()
-} else {
-  module.exports = msBuild
 }
+
+export default msBuild
 ```
 {% endcodeblock %}
 {% codeblock "metalsmith.cjs" %}
