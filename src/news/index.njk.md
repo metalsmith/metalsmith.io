@@ -11,7 +11,7 @@ sitemap:
 <div class="News">
   <time class="News-pubdate" datetime='{{ news.pubdate | formatDate("iso") }}'>{{ news.pubdate | formatDate }}</time>
   <h2 class="News-title">
-    <a href='/{{ news.path | replace("njk.md", "html") | replace("index.html", "")}}' class="News-permalink">
+    <a href='/{{ news.permalink }}' class="News-permalink">
     {{ news.title }}
     </a>
   </h2>

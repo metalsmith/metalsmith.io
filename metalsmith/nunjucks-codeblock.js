@@ -43,18 +43,3 @@ module.exports = function CodeBlockExtension() {
 // {% codeblock "js","metalsmith.js" %}
 // code goes here
 // {% endcodeblock %}
-
-/**
-   * Might be required for later:
-   * Need to run markdown *after* Nunjucks because markdown garbles nunjucks in-place tags,
-   * but editor looks cleaner with markdown extension
-   *
-   *.use(function invertInPlaceExtensions(files) {
-    Object.keys(files).forEach(key => {
-      if (key.endsWith('.njk.md')) {
-        files[key.replace('.njk.md', '.md.njk')] = files[key];
-        delete files[key];
-      }
-    })
-  })
-  */

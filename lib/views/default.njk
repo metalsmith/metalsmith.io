@@ -69,10 +69,10 @@
         <aside class="Page-related">
           <div style="margin-bottom: 0.5rem;">Go to related</div>
           {% if previous %}
-          <a style="float: left; color: var(--color-dark-gray);" href='/{{ previous.path | replace("njk.md", "html") | replace("+", ".") | replace("index.html", "")}}'>&larr; Previous: {{ previous.title }}</a>
+          <a style="float: left; color: var(--color-dark-gray);" href='/{{ previous.permalink | replace("+", ".")}}'>&larr; Previous: {{ previous.title }}</a>
           {%endif%}
           {% if next %}
-          <a style="float: right; color: var(--color-dark-gray);" href='/{{ next.path | replace("njk.md", "html") | replace("+", ".") | replace("index.html", "")}}'>Next: {{ next.title }} &rarr;</a>
+          <a style="float: right; color: var(--color-dark-gray);" href='/{{ next.permalink | replace("+", ".")}}'>Next: {{ next.title }} &rarr;</a>
           {% endif %}
         </aside>
         {% endif %}

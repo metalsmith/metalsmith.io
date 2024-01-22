@@ -14,6 +14,7 @@ const sitemap = require('metalsmith-sitemap');
 const Metalsmith = require('metalsmith');
 const jsbundle = require('@metalsmith/js-bundle');
 const metadata = require('@metalsmith/metadata');
+const permalinks = require('@metalsmith/permalinks');
 const browserSync = require('browser-sync');
 const formatDate = require('./metalsmith/nunjucks-formatDate-filter');
 const split = require('./metalsmith/nunjucks-split-filter');
@@ -118,6 +119,12 @@ function msBuild() {
           pattern: 'docs/*/*.md',
           sortBy: 'order'
         }
+      })
+    )
+    .use(
+      permalinks({
+        match: '**/*.njk.md',
+        directoryIndex: 'index.njk.md'
       })
     )
     .use(
