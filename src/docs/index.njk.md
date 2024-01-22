@@ -10,12 +10,12 @@ sitemap:
 ---
 
 <section class="Highlight-wrapper">
-  {% for item in collections.docs %}
-    <div class="Highlight-item Highlight">
-      <div class="Highlight-content">
-        <h2 class="Highlight-title"><a href='/{{ item.path | replace("index.njk.md","") }}'>{{ item.title }}</a></h2>
-        <p class="Highlight-desc">{{ item.description }}</p>
-      </div>
-    </div>
-  {% endfor %}
+{% for item in collections.docs %}
+<div class="Highlight-item Highlight">
+  <div class="Highlight-content">
+    <h2 class="Highlight-title"><a href='/{{ item.path | replace("index.njk.md","") }}'>{{ item.title }}</a></h2>
+    <p class="Highlight-desc">{{ item.description }}</p>
+  </div>
+</div>
+{% endfor %}
 </section>
