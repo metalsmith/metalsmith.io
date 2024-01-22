@@ -26,7 +26,8 @@ module.exports = {
       {
         severity: 'warning',
         ignorePartialSupport: true,
-        browsers: ['> 2%', 'Last 2 versions', 'not OperaMini all']
+        ignore: ['css-scroll-behavior', 'css-nesting'], // SCSS wrongly detected as CSS nesting
+        browsers: ['> 2%', 'Last 2 versions', 'not OperaMini all', 'not dead']
       }
     ],
     'plugin/selector-bem-pattern': {
