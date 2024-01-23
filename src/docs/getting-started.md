@@ -58,7 +58,7 @@ Have a look at [the Metalsmith tests](https://github.com/metalsmith/metalsmith/b
 
 ## Prerequisites
 
-Metalsmith runs on NodeJS > 10. Download & install NodeJs and NPM (NPM comes pre-bundled with Node): https://nodejs.org/en/download/.  
+Metalsmith runs on all NodeJS Long-Term Support versions that are not end-of-life and some more. Download & install NodeJs and NPM (NPM comes pre-bundled with Node): https://nodejs.org/en/download/.  
 If you plan to publish plugins, it is recommended that you use [nvm](https://github.com/nvm-sh/nvm#intro) or [nvs](https://github.com/jasongin/nvs#readme) (for Windows)
 
 Add `node_modules/.bin` to the `PATH` environment variable if you'd like to use the Metalsmith CLI:
@@ -436,10 +436,10 @@ Metalsmith(__dirname)         // parent directory of this file
     posts: 'posts/*.md'       // adding key 'collections':'posts'
   }))                         // use `collections.posts` in layouts
   .use(markdown())            // transpile all md into html
-  .use(permalinks({           // change URLs to permalink URLs
-    relative: false           // put css only in /css
+  .use(permalinks())          // change URLs to permalink URLs))
+  .use(layouts({              // wrap layouts around html
+    pattern: '**/*.html'
   }))
-  .use(layouts())             // wrap layouts around html
   .build((err) => {           // build process
     if (err) throw err        // error handling is required
     console.log(`Build success in ${((performance.now() - t1) / 1000).toFixed(1)}s`)
@@ -475,10 +475,10 @@ Metalsmith(__dirname)         // parent directory of this file
     posts: 'posts/*.md'       // adding key 'collections':'posts'
   }))                         // use `collections.posts` in layouts
   .use(markdown())            // transpile all md into html
-  .use(permalinks({           // change URLs to permalink URLs
-    relative: false           // put css only in /css
+  .use(permalinks())          // change URLs to permalink URLs))
+  .use(layouts({              // wrap layouts around html
+    pattern: '**/*.html'
   }))
-  .use(layouts())             // wrap layouts around html
   .build((err) => {           // build process
     if (err) throw err        // error handling is required
     console.log(`Build success in ${((performance.now() - t1) / 1000).toFixed(1)}s`)
@@ -505,8 +505,8 @@ Metalsmith(__dirname)         // parent directory of this file
   "plugins": [
     { "@metalsmith/collections": { "posts": "posts/*.md" }},
     { "@metalsmith/markdown": {}},
-    { "@metalsmith/permalinks": { "relative": false }},
-    { "@metalsmith/layouts": {}},
+    { "@metalsmith/permalinks": {}},
+    { "@metalsmith/layouts": { "pattern": "**/*.html" }},
   ]
 }
 ```
@@ -549,7 +549,6 @@ where:
 * `lib` is for all the rest (for example local metalsmith plugins, Sass styles that are processed outside of metalsmith and added to the build, or metadata that is manually `require()`'d)
 
 ...but Metalsmith gives you total freedom about how you want to structure your project, so feel free to restructure things as you see fit.
-Check out the [nodejs.org website](https://github.com/nodejs/nodejs.org) that is built with metalsmith for inspiration.
 
 ## Starter projects
 

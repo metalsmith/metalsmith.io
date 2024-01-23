@@ -101,10 +101,10 @@ Metalsmith(__dirname)         // parent directory of this file
     posts: 'posts/*.md'       // adding key 'collections':'posts'
   }))                         // use `collections.posts` in layouts
   .use(markdown())            // transpile all md into html
-  .use(permalinks({           // change URLs to permalink URLs
-    relative: false           // put css only in /css
+  .use(permalinks())          // change URLs to permalink URLs
+  .use(layouts({              // wrap layouts around html
+    pattern: '**/*.html'
   }))
-  .use(layouts())             // wrap layouts around html
   .build((err) => {           // build process
     if (err) throw err        // error handling is required
     console.log(`Build success in ${((performance.now() - t1) / 1000).toFixed(1)}s`)
@@ -140,10 +140,10 @@ Metalsmith(__dirname)         // parent directory of this file
     posts: 'posts/*.md'       // adding key 'collections':'posts'
   }))                         // use `collections.posts` in layouts
   .use(markdown())            // transpile all md into html
-  .use(permalinks({           // change URLs to permalink URLs
-    relative: false           // put css only in /css
+  .use(permalinks())          // change URLs to permalink URLs
+  .use(layouts({              // wrap layouts around html
+    pattern: '**/*.html'
   }))
-  .use(layouts())             // wrap layouts around html
   .build((err) => {           // build process
     if (err) throw err        // error handling is required
     console.log(`Build success in ${((performance.now() - t1) / 1000).toFixed(1)}s`)
