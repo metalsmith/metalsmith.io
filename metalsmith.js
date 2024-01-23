@@ -7,9 +7,7 @@ const sass = require('@metalsmith/sass');
 const toc = require('@metalsmith/table-of-contents');
 const collections = require('@metalsmith/collections');
 const postcss = require('@metalsmith/postcss');
-const favicons = require('metalsmith-favicons');
 const htmlMinifier = require('metalsmith-html-minifier');
-const imagemin = require('metalsmith-imagemin');
 const sitemap = require('metalsmith-sitemap');
 const Metalsmith = require('metalsmith');
 const jsbundle = require('@metalsmith/js-bundle');
@@ -90,22 +88,6 @@ function msBuild() {
       })
     )
     .use(drafts(!isProduction));
-
-  if (isProduction) {
-    metalsmith.use(
-      favicons({
-        src: 'favicons/favicon.png',
-        dest: 'favicons/',
-        appName: 'Metalsmith.io',
-        appDescription: 'An extremely simple, pluggable static site generator for NodeJS',
-        icons: {
-          android: true,
-          appleIcon: true,
-          favicons: true
-        }
-      })
-    );
-  }
 
   metalsmith
     .use(
@@ -191,7 +173,7 @@ function msBuild() {
     );
 
   if (isProduction) {
-    metalsmith.use(htmlMinifier()).use(imagemin());
+    metalsmith.use(htmlMinifier());
   }
 
   return metalsmith;
