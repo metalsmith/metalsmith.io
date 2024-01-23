@@ -98,19 +98,20 @@ function msBuild() {
           reverse: true
         },
         docs: {
-          pattern: 'docs/*/*.md',
+          pattern: 'docs/**/*.md',
           sortBy: 'order'
         }
       })
     )
     .use(
       permalinks({
-        match: '**/*.njk.md',
-        directoryIndex: 'index.njk.md'
+        match: '**/*.md',
+        directoryIndex: 'index.md'
       })
     )
     .use(
       inPlace({
+        pattern: '**/*.md',
         transform: 'nunjucks',
         engineOptions: {
           filters: { formatDate, split },
@@ -126,8 +127,7 @@ function msBuild() {
       inPlace({
         transform: 'jstransformer-marked',
         engineOptions: {
-          smartypants: true,
-          smartLists: true
+          gfm: true
         }
       })
     )
