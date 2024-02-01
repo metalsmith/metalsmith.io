@@ -1,3 +1,7 @@
+- name: Particle Docs
+  url: https://docs.particle.io/
+  image: particle-docs.png
+  featured: true
 - name: JSDoc
   url: https://jsdoc.app
   image: jsdoc-app.png
