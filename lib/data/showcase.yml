@@ -18,13 +18,33 @@
   url: https://scenicbyways.info
   image: scenicbyways-info.png
   featured: true
+- name: Algolia create-instantsearch-app
+  url: https://www.npmjs.com/package/create-instantsearch-app
+  image: algolia-create-instantsearch-app.png
+  featured: true
+- name: DotEco
+  url: https://go.eco/
+  image: go-eco.png
+  featured: true
 - name: Jim Nielsen's blog
-  url: https://www.jim-nielsen.com/
+  url: https://blog.jim-nielsen.com/
   image: jim-nielsen-com.png
   featured: true
 - name: Design System Gov UK
   url: https://design-system.service.gov.uk/
   image: design-system-service-gov-uk.png
+  featured: true
+- name: National Archives Design System
+  url: https://nationalarchives.github.io/design-system/
+  image: thenationalarchives-github-io.png
+  featured: true
+- name: RTR Nettest
+  url: http://www.netztest.at/
+  image: netztest-at.png
+  featured: true
+- name: CTU-Nettest
+  url: https://nettest.cz/
+  image: nettest-cz.png
   featured: true
 - name: Foxxtrot blog
   url: https://blog.foxxtrot.net/
@@ -34,13 +54,13 @@
   url: https://qooxdoo.org
   image: qooxdoo-org.png
   featured: true
+- name: Async.js
+  url: https://asyncjs.com/
+  image: asyncjs-com.png
+  featured: true
 - name: Basisproject
   url: https://basisproject.net
   image: basisproject-net.png
-  featured: true
-- name: Sarah Geek NZ
-  url: https://sarah.geek.nz
-  image: sarah-geek-nz.png
   featured: true
 - name: Eric Dorsey's blog
   url: https://ericdorsey.com
@@ -82,3 +102,23 @@
   url: https://www.bluegroup.systems
   image: bluegroup-systems.png
   featured: true
+- name: Bodies in balance pilates
+  url: https://binbpilates.com/
+  image: binbpilates-com.png
+  featured: true
+- name: DDDrawings
+  url: https://dddrawings.com/
+  image: dddrawings-com.png
+  featured: false
+- name: Exortech.com
+  url: https://exortech.com/
+  image: exortech-com.png
+  featured: false
+- name: SchildiChat
+  url: https://schildi.chat/
+  image: schildi-chat.png
+  featured: true
+- name: Sarah Geek NZ
+  url: https://sarah.geek.nz/blog
+  image: sarah-geek-nz.png
+  featured: false
