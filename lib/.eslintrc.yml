@@ -1,0 +1,19 @@
+env:
+  browser: true
+  es6: true
+root: true
+plugins:
+  - compat
+extends:
+  - eslint:recommended
+  - prettier
+rules:
+  compat/compat: error
+  vars-on-top: 0
+  func-names: 0
+  no-param-reassign: 0
+  no-plusplus: 0
+  strict: 0
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: module

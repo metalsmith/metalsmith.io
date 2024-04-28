@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const nunjucks = require('nunjucks');
+import nunjucks from 'nunjucks';
 
-module.exports = function TabbedExtension() {
+export default function TabbedExtension() {
   this.tags = ['codetabs'];
   this.parse = (parser, nodes) => {
     const tok = parser.nextToken();
@@ -29,4 +29,4 @@ module.exports = function TabbedExtension() {
 </div>`);
     return ret;
   };
-};
+}

@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const nunjucks = require('nunjucks');
+import nunjucks from 'nunjucks';
 
-module.exports = function CodeBlockExtension() {
+export default function CodeBlockExtension() {
   this.tags = ['codeblock'];
   this.parse = (parser, nodes) => {
     // get the tag token
@@ -31,7 +31,7 @@ module.exports = function CodeBlockExtension() {
 </figure>`);
     return ret;
   };
-};
+}
 
 // usage:
 // const CodeBlockExtension = require('./metalsmith/nunjucks-codeblock');
