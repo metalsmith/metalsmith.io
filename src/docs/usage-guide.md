@@ -120,7 +120,7 @@ Just as the [Apple iPhone's famous 2009 commercial](https://www.youtube.com/watc
 
 ### Plugin types
 
-Plugins can be broadly divided into a few categories:esbuildesbuild
+Plugins can be broadly divided into a few categories:
 
 * **Development plugins**: plugins that provide a better developer experience or debug information.  
 Examples are: [metalsmith-express][plugin_express], [metalsmith-writemetadata][plugin_writemetadata], [metalsmith-debug-ui][plugin_debug-ui]
@@ -296,6 +296,8 @@ Metalsmith(__dirname)
 {% endcodeblock %}
 {% endcodetabs %}
 
+Plugins like @metalsmith/layouts and @metalsmith/in-place provide access to the global metadata in the file context for rendering.
+
 *File metadata* [can be defined as front-matter][docs_frontmatter] in any file (provided that you didn't disable it with [`metalsmith.frontmatter(false)`][api_method_frontmatter]):
 
 ```yaml
@@ -306,7 +308,7 @@ description: A turn, an ending, and a twist
 No more drafts and no more waiting
 ```
 
-File metadata can be added dynamicaly with plugins like [@metalsmith/default-values][core_plugin_default-values] or [metalsmith-filemetadata][plugin_filemetadata]. Below is an example using `@metalsmith/default-values` to automatically assign the `post.hbs` layout to files by folder and mark all files in the `drafts` folder as draft:
+File metadata can be added dynamically with plugins like [@metalsmith/default-values][core_plugin_default-values] or [metalsmith-filemetadata][plugin_filemetadata]. Below is an example using `@metalsmith/default-values` to automatically assign the `post.hbs` layout to files by folder and mark all files in the `drafts` folder as draft:
 
 {% codetabs ["API","CLI"] %}
 {% codeblock "metalsmith.js" %}
