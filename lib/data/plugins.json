@@ -1313,6 +1313,13 @@
     "description": "A simple plugin to create client-side HTTP redirections."
   },
   {
+    "name": "Refs",
+    "icon": "sync",
+    "repository": "https://github.com/metalsmith/refs",
+    "description": "Refer to other files and global metadata from a file's refs property",
+    "npm": "@metalsmith/refs"
+  },
+  {
     "name": "Regex Replace",
     "icon": "compose",
     "repository": "https://github.com/mrajo/metalsmith-regex-replace",
