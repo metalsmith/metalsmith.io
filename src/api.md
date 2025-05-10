@@ -70,8 +70,10 @@ Initialize a new `Metalsmith` builder with a working `directory`.
     * [.frontmatter([frontmatter])](#Metalsmith+frontmatter) ⇒ `boolean` | [`Metalsmith`](#Metalsmith)
     * [.watch([options])](#Metalsmith+watch) ⇒ `boolean` | [`Chokidar.WatchOptions`](https://github.com/paulmillr/chokidar/blob/3.5.3/types/index.d.ts#L68) | [`Metalsmith`](#Metalsmith)
     * [.ignore([files])](#Metalsmith+ignore) ⇒ [`Metalsmith`](#Metalsmith) \| `Array.<string>`
+    * [.statik([paths])](#Metalsmith+statik) ⇒ [`Files`](#Files) | `void`
     * [.path(...paths)](#Metalsmith+path) ⇒ `string`
     * [.match(patterns \[, input \[, options\]\])](#Metalsmith+match) ⇒ `Array.<string>`
+    * [.imports(specifier \[, namedExport\])](#Metalsmith+imports) ⇒ `Promise<*>`
     * [.debug(namespace)](#Metalsmith+debug) ⇒ [`Debugger`](#Debugger)
     * [.env(\[ vars \[, value\]\])](#Metalsmith+env) ⇒ `string` | `number` | `boolean` | `Object` | [`Metalsmith`](#Metalsmith)
     * [.build([callback])](#Metalsmith+build) ⇒ [`Promise.<Files>`](#Files) | `void`
@@ -275,6 +277,28 @@ metalsmith.ignore()                      // return a list of ignored file paths
 metalsmith.ignore('layouts')             // ignore the layouts directory
 metalsmith.ignore(['.*', 'data.json'])   // ignore dot files & a data file
 ```
+
+<a name="Metalsmith+statik"></a>
+
+### metalsmith.statik([paths]) ⇒ [`Files`](#Files) | `void`
+Get or set files to consider static, i.e. that should be copied to `metalsmith.destination()` without being processed by plugins.
+
+
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+**Returns**: a regular Metalsmith [Files](#Files) object, with the difference that the files' `stats`,`mode` and `contents` are read-only and `contents.toString()` contains the original file path of the file relative to [Metalsmith.source](#Metalsmith+source)
+
+
+| Param        | Type                         | Description                                                            |
+|--------------|------------------------------|------------------------------------------------------------------------|
+| [paths]      |`string` \| `Array.<string>`  | The names or glob patterns of files or directories to consider static. |
+
+**Example**  
+```js
+metalsmith.statik(["assets","CNAME","api/static"]);
+const statik = metalsmith.statik()
+statik['library.css'].contents.toString() // 'library.css'
+```
+
 <a name="Metalsmith+path"></a>
 
 ### metalsmith.path(...paths) ⇒ `string`
@@ -305,6 +329,27 @@ If `input` is not specified, patterns are matched against `Object.keys(files)`
 | [input]   | `Array.<string>`                                                         | Array of paths to match patterns to                                          |
 | [options] | [`micromatch.Options`](https://github.com/micromatch/micromatch#options) | [Micromatch options](https://github.com/micromatch/micromatch#options)       |                                             |
 
+<a name="Metalsmith+imports"></a>
+
+### metalsmith.imports(specifier\[, namedExport]) ⇒ `Promise<*>`
+Like Javascript's dynamic `import()`, with CJS/ESM support for loading default exports, all or a single named export, and JSON files.  
+Relative paths are resolved against `metalsmith.directory()`.
+
+**Kind**: instance method of [`Metalsmith`](#Metalsmith)  
+**Returns**: `Promise.<*>` - a JS/JSON module 
+
+| Param         | Type     | Description                                     |
+|---------------|----------|-------------------------------------------------|
+| specifier     | `string` | Any specifier you would pass to import/require* |
+| [namedExport] | `string` | Return only a single named export               |
+
+**Example**  
+
+```js
+ * await metalsmith.imports('metalsmith') // Metalsmith
+ * await metalsmith.imports('./data.json')  // object
+ * await metalsmith.imports('./helpers/index.js', 'formatDate')  // function
+```
 
 <a name="Metalsmith+env"></a>
 

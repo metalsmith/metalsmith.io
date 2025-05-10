@@ -45,13 +45,6 @@
     "description": "Test file objects with assert."
   },
   {
-    "name": "Assets",
-    "icon": "addfile",
-    "repository": "https://github.com/treygriffith/metalsmith-assets",
-    "description": "Include static assets in your build.",
-    "status": "archived"
-  },
-  {
     "name": "Atomizer",
     "icon": "addfile",
     "repository": "https://github.com/tests-always-included/metalsmith-atomizer",
@@ -1478,13 +1471,6 @@
     "repository": "https://github.com/gchallen/code.metalsmith-spellcheck",
     "npm": "metalsmith-spellcheck",
     "description": "Spell check your site."
-  },
-  {
-    "name": "Static",
-    "icon": "layergroup",
-    "repository": "https://github.com/TheHydroImpulse/metalsmith-static",
-    "description": "Copy public assets into the build directory.",
-    "status": "unmaintained"
   },
   {
     "name": "Stylesheet Packer",
