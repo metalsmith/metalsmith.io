@@ -86,6 +86,8 @@ Metalsmith(__dirname)         // parent directory of this file
   .source('./src')            // source directory
   .destination('./build')     // destination directory
   .clean(true)                // clean destination before
+  .ignore('.*')               // ignore dotfiles?
+  .statik(['assets','CNAME']) // copy static files without processing
   .env({                      // pass NODE_ENV & other environment variables
     DEBUG: process.env.DEBUG,
     NODE_ENV: process.env.NODE_ENV
@@ -103,6 +105,7 @@ Metalsmith(__dirname)         // parent directory of this file
   .use(markdown())            // transpile all md into html
   .use(permalinks())          // change URLs to permalink URLs
   .use(layouts({              // wrap layouts around html
+    transformer: 'jstransformer-nunjucks',
     pattern: '**/*.html'
   }))
   .build((err) => {           // build process
@@ -125,6 +128,8 @@ Metalsmith(__dirname)         // parent directory of this file
   .source('./src')            // source directory
   .destination('./build')     // destination directory
   .clean(true)                // clean destination before
+  .ignore('.*')               // ignore dotfiles?
+  .statik(['assets','CNAME']) // copy static files without processing
   .env({                      // pass NODE_ENV & other environment variables
     DEBUG: process.env.DEBUG,
     NODE_ENV: process.env.NODE_ENV
@@ -142,6 +147,7 @@ Metalsmith(__dirname)         // parent directory of this file
   .use(markdown())            // transpile all md into html
   .use(permalinks())          // change URLs to permalink URLs
   .use(layouts({              // wrap layouts around html
+    transformer: 'jstransformer-nunjucks',
     pattern: '**/*.html'
   }))
   .build((err) => {           // build process
@@ -156,6 +162,8 @@ Metalsmith(__dirname)         // parent directory of this file
   "source": "src",
   "destination": "build",
   "clean": true,
+  "ignore": ".*",
+  "statik": ["assets","CNAME"],
   "env": {
     "DEBUG": "$DEBUG",
     "NODE_ENV": "$NODE_ENV"
@@ -170,7 +178,7 @@ Metalsmith(__dirname)         // parent directory of this file
   "plugins": [
     { "@metalsmith/collections": { "posts": "posts/*.md" }},
     { "@metalsmith/markdown": {}},
-    { "@metalsmith/permalinks": { "relative": false }},
+    { "@metalsmith/permalinks": {}},
     { "@metalsmith/layouts": {}},
   ]
 }
