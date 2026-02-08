@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import nunjucks from 'nunjucks';
 
 export default function CodeBlockExtension() {

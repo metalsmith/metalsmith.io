@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { readFileSync } from 'node:fs';
@@ -40,7 +39,6 @@ const mappedPlugins = plugins.map(plugin => {
   let user = '';
 
   if (result) {
-    // eslint-disable-next-line prefer-destructuring
     user = result[1];
     npm = plugin.npm || result[2];
     plugin.githubStars = `https://img.shields.io/github/stars/${user}/${result[2]}.svg?maxAge=${oneWeek}`;
@@ -100,12 +98,11 @@ metalsmith
     collections({
       news: {
         pattern: 'news/*/*/*.md',
-        sortBy: 'pubdate',
-        reverse: true
+        sort: 'pubdate:desc'
       },
       docs: {
         pattern: 'docs/**/*.md',
-        sortBy: 'order'
+        sort: 'order:asc'
       }
     })
   )
@@ -140,6 +137,7 @@ metalsmith
   .use(toc({ levels: [2, 3] }))
   .use(
     layouts({
+      transform: 'nunjucks',
       directory: 'lib/views',
       pattern: '**/*.html',
       engineOptions: {
@@ -186,7 +184,6 @@ if (mainFile === thisFile) {
     if (err) {
       throw err;
     }
-    /* eslint-disable no-console */
     console.log(`Build success in ${((performance.now() - t1) / 1000).toFixed(1)}s`);
     if (metalsmith.watch()) {
       if (devServer) {

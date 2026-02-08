@@ -1,4 +1,3 @@
-/* eslint-env node, mocha */
 import { fileURLToPath } from 'node:url';
 import { doesNotThrow, strictEqual } from 'node:assert';
 import { accessSync, readFileSync } from 'node:fs';
