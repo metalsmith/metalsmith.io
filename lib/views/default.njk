@@ -19,7 +19,8 @@
     {% endif %}
     <link rel="favicon" href="{{ siteUrl }}/favicons/favicon.png">
     <link rel="mask-icon" href="{{ siteUrl }}/favicons/safari_pinned_tab.svg" color="beige">
-    <link rel="stylesheet" href="/index.css?{{ buildTimestamp }}">
+    <link rel="canonical" href="{{ siteUrl }}/{{ permalink }}">
+    <link rel="stylesheet" href="{{ siteUrl }}/index.css?{{ buildTimestamp }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Antonio:wght@600&&family=Inconsolata&display=swap">
@@ -68,11 +69,11 @@
         </article>
         <aside class="Page-related">
           <div style="margin-bottom: 0.5rem;">Go to related</div>
-          {% if previous %}
-          <a style="float: left; color: var(--color-dark-gray);" href='/{{ previous.permalink | replace("+", ".")}}'>&larr; Previous: {{ previous.title }}</a>
+          {% if collection.news.next.length %}
+          <a style="float: left; color: var(--color-dark-gray);" href='{{ siteUrl }}/{{ collection.news.next[0].permalink }}'>&larr; Previous: {{ collection.news.next.title }}</a>
           {%endif%}
-          {% if next %}
-          <a style="float: right; color: var(--color-dark-gray);" href='/{{ next.permalink | replace("+", ".")}}'>Next: {{ next.title }} &rarr;</a>
+          {% if collection.news.previous.length %}
+          <a style="float: right; color: var(--color-dark-gray);" href='{{ siteUrl }}/{{ collection.news.previous[0].permalink }}'>Next: {{ collection.news.previous.title }} &rarr;</a>
           {% endif %}
         </aside>
         {% endif %}
@@ -90,6 +91,6 @@
       <small>&copy; <span itemprop="copyRightYear">2021</span>, <span itemprop="copyRightHolder">webbketje</span>. Content licensed under <a href="http://creativecommons.org/licenses/by/4.0/" itemprop="license">Creative Commons</a>, their respective authors</small>
     </footer>
     {% block scripts %}{% endblock %}
-    <script type="text/javascript" src="/index.js"></script>
+    <script type="text/javascript" src="{{ siteUrl }}/index.js"></script>
   </body>
 </html>

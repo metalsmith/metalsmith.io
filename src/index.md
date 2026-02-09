@@ -5,7 +5,7 @@ slug: "home"
 layout: "home.njk"
 sitemap:
   priority: 1.0
-  lastmod: 2023-03-01
+  lastmod: 2026-02-09
 config:
   anchors: false
   
