@@ -558,7 +558,7 @@ The community has built a few interesting starter projects:
 * **[wernerglinka/metalsmith-bare-bones-starter](https://github.com/wernerglinka/metalsmith-bare-bones-starter)**: Bare-bones metalsmith starter with markdown & Nunjucks templating | **[Demo](https://metalsmith-bare-bones-starter.netlify.app/)**
 * **[wernerglinka/metalsmith-blog-starter](https://github.com/wernerglinka/metalsmith-blog-starter)**: Blog metalsmith starter with markdown & Nunjucks templating + a landing page & some sample articles | **[Demo](https://metalsmith-blog-starter.netlify.app/)**
 * **[wernerglinka/metalsmith-company-starter](https://github.com/wernerglinka/metalsmith-company-starter)**: Company site starter with markdown & Nunjucks templating | **[Demo](https://metalsmith-company-starter.netlify.app/)**
-* **[webketje/metalsmith-starter-resume](https://github.com/webketje/metalsmith-starter-resume)**: A professional, responsive Bootstrap4-themed resume / CV, made highly customizable with metalsmith, Handlebars & SCSS. Features print-friendly version, and twitter/ facebook/ linkedin share tags.. | **[Demo](https://replit.com/@webketje/metalsmith-starter-resume)**
+* **[webketje/metalsmith-starter-resume](https://github.com/webketje/metalsmith-starter-resume)**: A professional, responsive Bootstrap4-themed resume / CV, made highly customizable with metalsmith, Handlebars & SCSS. Features print-friendly version, and twitter/ facebook/ linkedin share tags..
 
 There is also a **[one-click Netlify CMS starter](https://www.netlifycms.org/docs/start-with-a-template/)**.
 

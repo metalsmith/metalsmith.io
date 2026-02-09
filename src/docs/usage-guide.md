@@ -11,7 +11,6 @@ config:
   anchors: true
 ---
 {% include "./lib/views/partials/doc-mdlinks.njk" %}
-{% from "./lib/views/partials/replit.njk" import "replit" %}
 
 ## The Metalsmith directory
 
@@ -737,5 +736,4 @@ chokidar
 ```
 {% endcodeblock %}
 
-That's all! You can also check out the full setup of this example on Replit:
-{{ replit("live-reload-and-browsersync","dev.js") | safe }}
+That's all!

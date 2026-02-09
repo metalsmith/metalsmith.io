@@ -6,7 +6,7 @@ description: >
 pubdate: 2022-01-27
 layout: default.njk
 sitemap:
-  lastmod: 2022-01-27
+  lastmod: 2026-02-08
 ---
 
 After a 5-year maintenance-mode break, Metalsmith.js is *back*. In a nutshell: the Metalsmith maintainers agreed to a transfer by Intellectual Property Assignment with [Segment][], &mdash; the previous owners & developers of Metalsmith. The software is now owned, maintained, and developed by [Kevin VL][webketje_gh] (me) doing business as [webketje][kbo], with periodic feedback from earlier maintainers [ismay][] and [Ajedi32][]. You can find more details about how Metalsmith got here on the [About page][].
@@ -27,7 +27,7 @@ I firmly believe in the value of open-source and free software, as it has enable
 
 ## Going forward
 
-First, as a lot of issues noted, the documentation is lacking and will be significantly improved with links to interactive examples on [replit.com](https://replit.com).
+First, as a lot of issues noted, the documentation is lacking and will be significantly improved<s> with links to interactive examples on [replit.com](https://replit.com).</s> **Edit**: replit.com has pivoted to AI-first and deleted existing REPL's.
 A lot has happened in the Node & JS ecosystems and in a first time the goal is to get Metalsmith on par with current alternatives.
 This includes:
 

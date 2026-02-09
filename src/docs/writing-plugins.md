@@ -11,7 +11,6 @@ config:
   anchors: true
 ---
 {% include "./lib/views/partials/doc-mdlinks.njk" %}
-{% from "./lib/views/partials/replit.njk" import "replit" %}
 
 This plugin development reference will walk you through starting with a simple local plugin and finishing with a flexible multi-option plugin that follows best practices, ready for publishing on NPM. Feel free to drop out at any time or jump to the sections that you need.
 
@@ -67,8 +66,6 @@ Metalsmith(__dirname)
 ```
 {% endcodeblock %}
 {% endcodetabs %}
-
-{{ replit("snapshot-plugin", "1-writing-quick-local-plugin/metalsmith.js") | safe }}
 
 If you run this code with `node metalsmith`, you will see the Metalsmith instance with `plugins: [ [Function: snapshot] ]`.
 It is important that the plugin is a *named function*. The function name *is* the plugin's name. It is good practice to use a named function for your plugin:
@@ -149,8 +146,6 @@ Metalsmith(__dirname)
 {% endcodeblock %}
 {% endcodetabs %}
 
-{{ replit("snapshot-plugin", "2b-adding-options-to-plugin/metalsmith.js") | safe }}
-
 As the *snapshot* plugin becomes more powerful and reusable, we move it to its own file `snapshot.js` in a `plugins` folder next to `metalsmith.js`, and `const snapshot = require('./plugins/snapshot')` in `metalsmith.js`.
 
 We also add a default options object in case none are passed to the plugin. We define the (glob) `pattern` option, so we can target specific files to log, and default it to `'**'` (= all files). We also define the `keys` option, so we can target specific file metadata to log)
@@ -192,7 +187,6 @@ module.exports = initSnapshot
 ```
 {% endcodeblock %}
 {% endcodetabs %}
-{{ replit("snapshot-plugin", "2b-adding-options-separate-plugin/metalsmith.js") | safe }}
 
 We passed options to the plugin but we're not doing anything with them yet.  
 We need to know how to manipulate files, file paths and metadata first. The following sections [Manipulating filepaths](#manipulating-filepaths), [Manipulating files](#manipulating-files), and [Manipulating metadata](#manipulating-metadata) provide general info about how to use JS Object & array methods, the NodeJS path library, and the metalsmith instance inside a plugin. If you would rather skip right to the rest of the implementation of the *snapshot plugin*, go to [The plugin body](#the-plugin-body)
@@ -485,7 +479,6 @@ Metalsmith(__dirname)
   })
 
 ```
-{{ replit("snapshot-plugin", "3-plugin-body/metalsmith.js") | safe }}
 
 Let's also add an extra option to write the metadata to a log file in the `build` directory, that will be `write: true || false`. We will output the files as `<filename>.snapshot<index>.json` in the build directory, right next to the file itself. We add an index to the snapshot so we can see how the file metadata evolves after each plugin:
 
@@ -609,8 +602,6 @@ module.exports = initSnapshot
 ```
 {% endcodeblock %}
 {% endcodetabs %}
-
-{{ replit("snapshot-plugin", "3-plugin-body/metalsmith.js") | safe }}
 
 Let us now quickly race through a boring but very important part: [handling errors](#handling-errors)
 

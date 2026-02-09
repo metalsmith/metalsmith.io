@@ -237,8 +237,7 @@ Which means you could just as easily use it to make...
   <li class="Starter-item Starter">
     <img class="Starter-image" src="/img/starter/{{ starter.image }}" alt="{{ starter.name }}" width="128" height="96">
     <p class="Starter-title">{{ starter.name }}<br>
-      <a class="Starter-link--source" href="{{ starter.url }}">Code</a>|
-      <a class="Starter-link--demo" href="{{ starter.demo }}">Demo</a>
+      <a class="Starter-link--source" href="{{ starter.url }}">Code</a>{% if starter.demo %}|<a class="Starter-link--demo" href="{{ starter.demo }}">Demo</a>{% endif %}
     </p>
     <pre class="hljs language-plaintext"><code>git clone {{ starter.url }}
 cd {{ starter.url|split('/')|last }} && npm install</code></pre>
